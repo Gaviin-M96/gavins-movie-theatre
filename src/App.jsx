@@ -1,12 +1,12 @@
 import { useState, useMemo, useEffect } from "react";
 import { movies } from "./movies";
 import { fetchDetailsForMovie } from "./api/tmdb";
+import MovieReview from "./components/MovieReview";
 
 const FILTERS_STORAGE_KEY = "gmtFilters";
 const FAVORITES_STORAGE_KEY = "gmtFavorites";
 const WATCHLIST_STORAGE_KEY = "gmtWatchlist";
 const GAVIN_REVIEWS_KEY = "gmtGavinReviews";
-const COMMUNITY_COMMENTS_KEY = "gmtCommunityComments";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -21,11 +21,8 @@ function App() {
   const [showAllFormats, setShowAllFormats] = useState(false);
   const [showAllGenres, setShowAllGenres] = useState(false);
 
-  // Gavin + community reviews
+  // Gavin reviews
   const [gavinReviews, setGavinReviews] = useState({});
-  const [communityComments, setCommunityComments] = useState({});
-  const [newCommentAuthor, setNewCommentAuthor] = useState("");
-  const [newCommentText, setNewCommentText] = useState("");
 
   // Load saved state from localStorage
   useEffect(() => {
@@ -59,14 +56,6 @@ function App() {
           setGavinReviews(parsedGavin);
         }
       }
-
-      const rawCommunity = localStorage.getItem(COMMUNITY_COMMENTS_KEY);
-      if (rawCommunity) {
-        const parsedCommunity = JSON.parse(rawCommunity);
-        if (parsedCommunity && typeof parsedCommunity === "object") {
-          setCommunityComments(parsedCommunity);
-        }
-      }
     } catch (e) {
       console.warn("Error reading localStorage:", e);
     }
@@ -88,10 +77,6 @@ function App() {
       localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favorites));
       localStorage.setItem(WATCHLIST_STORAGE_KEY, JSON.stringify(watchlist));
       localStorage.setItem(GAVIN_REVIEWS_KEY, JSON.stringify(gavinReviews));
-      localStorage.setItem(
-        COMMUNITY_COMMENTS_KEY,
-        JSON.stringify(communityComments)
-      );
     } catch (e) {
       console.warn("Error writing localStorage:", e);
     }
@@ -104,7 +89,6 @@ function App() {
     favorites,
     watchlist,
     gavinReviews,
-    communityComments,
   ]);
 
   // Sets for quick lookup
@@ -253,8 +237,6 @@ function App() {
 
   const openModal = (id) => {
     setModalMovieId(id);
-    setNewCommentAuthor("");
-    setNewCommentText("");
   };
 
   const closeModal = () => setModalMovieId(null);
@@ -264,8 +246,6 @@ function App() {
     const random =
       filteredMovies[Math.floor(Math.random() * filteredMovies.length)];
     setModalMovieId(random.id);
-    setNewCommentAuthor("");
-    setNewCommentText("");
   };
 
   // Gavin review helpers
@@ -289,37 +269,8 @@ function App() {
     }));
   };
 
-  // Community comments
-  const addCommunityComment = (movieId) => {
-    const trimmedText = newCommentText.trim();
-    const trimmedAuthor = newCommentAuthor.trim();
-
-    if (!trimmedText) return;
-
-    const author = trimmedAuthor || "Guest";
-
-    setCommunityComments((prev) => {
-      const existing = prev[movieId] || [];
-      const newComment = {
-        id: Date.now(),
-        author,
-        text: trimmedText,
-        createdAt: new Date().toISOString(),
-      };
-      return {
-        ...prev,
-        [movieId]: [...existing, newComment],
-      };
-    });
-
-    setNewCommentAuthor("");
-    setNewCommentText("");
-  };
-
   const modalMovie =
-    modalMovieId != null
-      ? movies.find((m) => m.id === modalMovieId)
-      : null;
+    modalMovieId != null ? movies.find((m) => m.id === modalMovieId) : null;
 
   const modalDetails =
     modalMovie && detailsMap[modalMovie.id]
@@ -331,13 +282,15 @@ function App() {
       ? gavinReviews[modalMovie.id]
       : { rating: 0, text: "" };
 
-  const modalComments =
-    modalMovie && communityComments[modalMovie.id]
-      ? communityComments[modalMovie.id]
-      : [];
-
   const totalCount = movies.length;
   const currentCount = filteredMovies.length;
+
+  const movieReviewKey =
+    modalDetails?.tmdbId != null
+      ? String(modalDetails.tmdbId)
+      : modalMovie
+      ? String(modalMovie.id)
+      : null;
 
   return (
     <div className="app">
@@ -624,7 +577,9 @@ function App() {
                               ? "star-button--filled"
                               : ""
                           }`}
-                          onClick={() => setGavinRating(modalMovie.id, star)}
+                          onClick={() =>
+                            setGavinRating(modalMovie.id, star)
+                          }
                         >
                           ★
                         </button>
@@ -647,67 +602,11 @@ function App() {
                     />
                   </section>
 
-                  {/* Community Opinions */}
-                  <section className="review-section">
-                    <div className="review-section-header">
-                      <h3 className="review-section-title">
-                        Community Opinions
-                      </h3>
-                      <span className="review-section-sub">
-                        Comments are saved per device unless you add a backend
-                      </span>
-                    </div>
-
-                    {modalComments.length === 0 ? (
-                      <p className="community-empty">
-                        No opinions yet. Be the first.
-                      </p>
-                    ) : (
-                      <ul className="community-list">
-                        {modalComments.map((c) => (
-                          <li key={c.id} className="community-item">
-                            <div className="community-meta">
-                              <span className="community-author">
-                                {c.author}
-                              </span>
-                              <span className="community-date">
-                                {new Date(c.createdAt).toLocaleString()}
-                              </span>
-                            </div>
-                            <p className="community-body">{c.text}</p>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-
-                    <div className="community-form">
-                      <input
-                        className="community-input"
-                        type="text"
-                        placeholder="Your name (optional)"
-                        value={newCommentAuthor}
-                        onChange={(e) =>
-                          setNewCommentAuthor(e.target.value)
-                        }
-                      />
-                      <textarea
-                        className="community-textarea"
-                        rows={2}
-                        placeholder="Share your thoughts…"
-                        value={newCommentText}
-                        onChange={(e) =>
-                          setNewCommentText(e.target.value)
-                        }
-                      />
-                      <button
-                        type="button"
-                        className="btn-primary community-submit"
-                        onClick={() => addCommunityComment(modalMovie.id)}
-                      >
-                        Post Opinion
-                      </button>
-                    </div>
-                  </section>
+                  {/* Shared community reviews via Supabase */}
+                  <MovieReview
+                    movieKey={movieReviewKey}
+                    title={modalMovie.title}
+                  />
                 </div>
 
                 <div className="modal-actions">
