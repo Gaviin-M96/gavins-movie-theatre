@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { movies } from "./movies";
 import { fetchDetailsForMovie } from "./api/tmdb";
-import MovieReview from "./components/MovieReview";
+import MovieReview from "./components/MovieReview.jsx";
 
 const FILTERS_STORAGE_KEY = "gmtFilters";
 const FAVORITES_STORAGE_KEY = "gmtFavorites";
