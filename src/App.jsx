@@ -160,9 +160,7 @@ function App() {
           : (movie.format || "Unknown") === formatFilter;
 
       const matchesGenre =
-        genreFilter === "all"
-          ? true
-          : genresArr.includes(genreFilter);
+        genreFilter === "all" ? true : genresArr.includes(genreFilter);
 
       return matchesSearch && matchesFormat && matchesGenre;
     });
@@ -557,44 +555,12 @@ function App() {
                 {/* Reviews */}
                 <div className="review-sections">
                   {/* Gavin's Review */}
-                <section className="review-section">
-  <div className="review-section-header">
-    <h3 className="review-section-title">
-      Gavin&apos;s Score
-    </h3>
-  </div>
-
-  <div className="star-row">
-    {[1, 2, 3, 4, 5].map((star) => (
-      <button
-        key={star}
-        type="button"
-        className={`star-button ${
-          gavinReview.rating >= star
-            ? "star-button--filled"
-            : ""
-        }`}
-        onClick={() => setGavinRating(modalMovie.id, star)}
-      >
-        ★
-      </button>
-    ))}
-    <span className="star-label">
-      {gavinReview.rating
-        ? `${gavinReview.rating} / 5`
-        : "Tap to rate"}
-  </div>
-
-  <textarea
-    className="review-textarea"
-    rows={3}
-    placeholder="Your personal thoughts on this movie…"
-    value={gavinReview.text}
-    onChange={(e) =>
-      setGavinText(modalMovie.id, e.target.value)
-    }
-  />
-</section>
+                  <section className="review-section">
+                    <div className="review-section-header">
+                      <h3 className="review-section-title">
+                        Gavin&apos;s Score
+                      </h3>
+                    </div>
 
                     <div className="star-row">
                       {[1, 2, 3, 4, 5].map((star) => (
@@ -616,7 +582,7 @@ function App() {
                       <span className="star-label">
                         {gavinReview.rating
                           ? `${gavinReview.rating} / 5`
-                          : "Tap to rate"}
+                          : ""}
                       </span>
                     </div>
 
