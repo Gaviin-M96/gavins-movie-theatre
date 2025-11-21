@@ -94,21 +94,23 @@ function MovieReviews({ movieKey, title }) {
           onChange={(e) => setName(e.target.value)}
         />
 
-        <div className="star-row" style={{ marginTop: "0.5rem" }}>
-          <label className="review-section-sub" style={{ marginRight: "0.5rem" }}>
-            Rating
-          </label>
-          <select
-            className="sidebar-select"
-            value={rating}
-            onChange={(e) => setRating(Number(e.target.value))}
-          >
-            {[5, 4, 3, 2, 1].map((r) => (
-              <option key={r} value={r}>
-                {r} Star{r > 1 ? "s" : ""}
-              </option>
-            ))}
-          </select>
+        {/* Star rating row (same style as Gavin's Score) */}
+        <div className="star-row" style={{ marginTop: "0.25rem" }}>
+          {[1, 2, 3, 4, 5].map((star) => (
+            <button
+              key={star}
+              type="button"
+              className={`star-button ${
+                rating >= star ? "star-button--filled" : ""
+              }`}
+              onClick={() => setRating(star)}
+            >
+              ★
+            </button>
+          ))}
+          <span className="star-label">
+            {rating ? `${rating} / 5` : "Tap to rate"}
+          </span>
         </div>
 
         <textarea
@@ -142,7 +144,9 @@ function MovieReviews({ movieKey, title }) {
           {reviews.map((rev) => (
             <li key={rev.id} className="community-item">
               <div className="community-meta">
-                <span className="community-author">{rev.name || "Guest"}</span>
+                <span className="community-author">
+                  {rev.name || "Guest"}
+                </span>
                 {rev.rating != null && (
                   <span className="community-date">
                     {"★".repeat(rev.rating)}{" "}
