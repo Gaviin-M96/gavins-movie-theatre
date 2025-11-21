@@ -1,8 +1,8 @@
-// src/components/MovieReview.jsx
+// src/components/MovieReviews.jsx
 import { useState, useEffect } from "react";
 import { supabase } from "../api/supabaseClient";
 
-function MovieReview({ movieKey, title }) {
+function MovieReviews({ movieKey, title }) {
   const [reviews, setReviews] = useState([]);
   const [name, setName] = useState("");
   const [rating, setRating] = useState(5);
@@ -11,10 +11,11 @@ function MovieReview({ movieKey, title }) {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
 
-  // Load reviews for this movie from Supabase
+  // Load review data
   useEffect(() => {
     async function loadReviews() {
       if (!movieKey) return;
+
       setLoading(true);
       setError(null);
 
@@ -41,8 +42,8 @@ function MovieReview({ movieKey, title }) {
     e.preventDefault();
     if (!movieKey) return;
 
-    const trimmedComment = comment.trim();
     const trimmedName = name.trim();
+    const trimmedComment = comment.trim();
 
     if (!trimmedComment) {
       setError("Please write a comment.");
@@ -55,8 +56,8 @@ function MovieReview({ movieKey, title }) {
     const payload = {
       movie_id: movieKey,
       rating: Number(rating),
-      comment: trimmedComment,
       name: trimmedName || "Guest",
+      comment: trimmedComment,
     };
 
     const { data, error } = await supabase
@@ -68,12 +69,10 @@ function MovieReview({ movieKey, title }) {
     if (error) {
       console.error("Error saving review:", error);
       setError("Could not save your review. Please try again.");
-    } else if (data) {
-      // Prepend new review to list
+    } else {
       setReviews((prev) => [data, ...prev]);
       setComment("");
       setRating(5);
-      // keep name so they don't have to retype
     }
 
     setSubmitting(false);
@@ -85,7 +84,7 @@ function MovieReview({ movieKey, title }) {
         <h3 className="review-section-title">Community Opinions</h3>
       </div>
 
-      {/* Form */}
+      {/* Review form */}
       <form onSubmit={handleSubmit} className="community-form">
         <input
           className="community-input"
@@ -96,10 +95,7 @@ function MovieReview({ movieKey, title }) {
         />
 
         <div className="star-row" style={{ marginTop: "0.5rem" }}>
-          <label
-            className="review-section-sub"
-            style={{ marginRight: "0.5rem" }}
-          >
+          <label className="review-section-sub" style={{ marginRight: "0.5rem" }}>
             Rating
           </label>
           <select
@@ -134,7 +130,7 @@ function MovieReview({ movieKey, title }) {
         </button>
       </form>
 
-      {/* Reviews list */}
+      {/* Review list */}
       {loading ? (
         <p className="community-empty">Loading reviews…</p>
       ) : reviews.length === 0 ? (
@@ -146,9 +142,7 @@ function MovieReview({ movieKey, title }) {
           {reviews.map((rev) => (
             <li key={rev.id} className="community-item">
               <div className="community-meta">
-                <span className="community-author">
-                  {rev.name || "Guest"}
-                </span>
+                <span className="community-author">{rev.name || "Guest"}</span>
                 {rev.rating != null && (
                   <span className="community-date">
                     {"★".repeat(rev.rating)}{" "}
@@ -161,6 +155,7 @@ function MovieReview({ movieKey, title }) {
                     : ""}
                 </span>
               </div>
+
               <p className="community-body">{rev.comment}</p>
             </li>
           ))}
@@ -170,4 +165,4 @@ function MovieReview({ movieKey, title }) {
   );
 }
 
-export default MovieReview;
+export default MovieReviews;
