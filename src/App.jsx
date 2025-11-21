@@ -557,15 +557,44 @@ function App() {
                 {/* Reviews */}
                 <div className="review-sections">
                   {/* Gavin's Review */}
-                  <section className="review-section">
-                    <div className="review-section-header">
-                      <h3 className="review-section-title">
-                        Gavin&apos;s Score
-                      </h3>
-                      <span className="review-section-sub">
-                        Only you can change this (stored in your browser)
-                      </span>
-                    </div>
+                <section className="review-section">
+  <div className="review-section-header">
+    <h3 className="review-section-title">
+      Gavin&apos;s Score
+    </h3>
+  </div>
+
+  <div className="star-row">
+    {[1, 2, 3, 4, 5].map((star) => (
+      <button
+        key={star}
+        type="button"
+        className={`star-button ${
+          gavinReview.rating >= star
+            ? "star-button--filled"
+            : ""
+        }`}
+        onClick={() => setGavinRating(modalMovie.id, star)}
+      >
+        ★
+      </button>
+    ))}
+    <span className="star-label">
+      {gavinReview.rating
+        ? `${gavinReview.rating} / 5`
+        : "Tap to rate"}
+  </div>
+
+  <textarea
+    className="review-textarea"
+    rows={3}
+    placeholder="Your personal thoughts on this movie…"
+    value={gavinReview.text}
+    onChange={(e) =>
+      setGavinText(modalMovie.id, e.target.value)
+    }
+  />
+</section>
 
                     <div className="star-row">
                       {[1, 2, 3, 4, 5].map((star) => (

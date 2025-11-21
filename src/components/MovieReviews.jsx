@@ -83,9 +83,6 @@ function MovieReview({ movieKey, title }) {
     <section className="review-section">
       <div className="review-section-header">
         <h3 className="review-section-title">Community Opinions</h3>
-        <span className="review-section-sub">
-          Reviews from anyone visiting this page
-        </span>
       </div>
 
       {/* Form */}
@@ -108,7 +105,7 @@ function MovieReview({ movieKey, title }) {
           <select
             className="sidebar-select"
             value={rating}
-            onChange={(e) => setRating(e.target.value)}
+            onChange={(e) => setRating(Number(e.target.value))}
           >
             {[5, 4, 3, 2, 1].map((r) => (
               <option key={r} value={r}>
@@ -155,9 +152,7 @@ function MovieReview({ movieKey, title }) {
                 {rev.rating != null && (
                   <span className="community-date">
                     {"★".repeat(rev.rating)}{" "}
-                    <span className="star-label">
-                      ({rev.rating}/5)
-                    </span>
+                    <span className="star-label">({rev.rating}/5)</span>
                   </span>
                 )}
                 <span className="community-date">
