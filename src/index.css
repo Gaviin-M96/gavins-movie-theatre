@@ -15,6 +15,11 @@ body {
   background-color: #050816;
 }
 
+/* Prevent background scrolling when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
 #root {
   min-height: 100vh;
 }
@@ -51,11 +56,13 @@ body {
   color: #9ca3af;
 }
 
-/* View tabs (All / Favourites / Watchlist) */
+/* View tabs (All / Favourites / Watchlist / Seen / Top Rated) */
 
 .view-tabs {
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .view-tab {
@@ -230,6 +237,19 @@ body {
 .chip--more {
   opacity: 0.8;
   font-style: italic;
+}
+
+/* Primary chip (e.g. trailer button) */
+
+.chip--primary {
+  background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.5);
+}
+
+.chip--primary:hover {
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.7);
 }
 
 /* Main content */
@@ -500,6 +520,7 @@ body {
   position: relative;
   overflow: auto;
   animation: modal-in 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  overscroll-behavior: contain;
 }
 
 /* Bigger / brighter close button */
@@ -564,6 +585,7 @@ body {
 .modal-overview {
   margin-top: 0.5rem;
   color: #e5e7eb;
+  line-height: 1.5;
 }
 
 .modal-actions {
@@ -578,6 +600,69 @@ body {
   margin: 0.25rem 0 0.35rem;
   font-size: 0.8rem;
   color: #9ca3af;
+}
+
+/* Trailer popup */
+
+.trailer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 80;
+}
+
+.trailer-modal {
+  background: #020617;
+  border-radius: 0.9rem;
+  border: 1px solid #1f2937;
+  padding: 0.75rem 0.85rem 0.9rem;
+  max-width: 900px;
+  width: 92%;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.95);
+  position: relative;
+}
+
+.trailer-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.6rem;
+  border: none;
+  background: radial-gradient(circle at top, #111827, #020617);
+  color: #e5e7eb;
+  font-size: 1.3rem;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(15, 23, 42, 0.9);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
+}
+
+.trailer-close:hover {
+  color: #f9fafb;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.7);
+  transform: translateY(-1px);
+}
+
+.trailer-embed {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 */
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+
+.trailer-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* Modal animations */
@@ -693,23 +778,18 @@ body {
     max-width: 100%;
   }
 
-  .chip--primary {
-  background: linear-gradient(135deg, #38bdf8, #8b5cf6);
-  border-color: transparent;
-  color: #fff;
-  box-shadow: 0 0 14px rgba(56, 189, 248, 0.5);
-}
-
-.chip--primary:hover {
-  box-shadow: 0 0 18px rgba(56, 189, 248, 0.7);
-}
-
   /* Keep close button reachable even when scrolled */
   .modal-close {
     position: fixed;
     top: 0.8rem;
     right: 1rem;
     z-index: 60;
+  }
+
+  .trailer-modal {
+    max-width: 100%;
+    width: 96%;
+    padding: 0.7rem 0.7rem 0.85rem;
   }
 }
 

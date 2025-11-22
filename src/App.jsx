@@ -1,7 +1,10 @@
 import { useState, useMemo, useEffect } from "react";
 import { movies } from "./movies";
 import { fetchDetailsForMovie } from "./api/tmdb";
-import MovieReviews from "./components/MovieReviews";
+import Header from "./components/Header";
+import FiltersSidebar from "./components/FiltersSidebar";
+import MovieGrid from "./components/MovieGrid";
+import MovieModal from "./components/MovieModal";
 
 const FILTERS_STORAGE_KEY = "gmtFilters";
 const FAVORITES_STORAGE_KEY = "gmtFavorites";
@@ -39,12 +42,17 @@ function App() {
   const [watchlist, setWatchlist] = useState([]);
   const [seen, setSeen] = useState({});
   const [modalMovieId, setModalMovieId] = useState(null);
-  const [view, setView] = useState("all"); // "all" | "favorites" | "watchlist"
+  const [view, setView] = useState("all"); // "all" | "favorites" | "watchlist" | "seen" | "top"
   const [showAllFormats, setShowAllFormats] = useState(false);
   const [showAllGenres, setShowAllGenres] = useState(false);
 
   // Gavin reviews
   const [gavinReviews, setGavinReviews] = useState({});
+
+  // Set browser tab title
+  useEffect(() => {
+    document.title = "Gavin's Movie Theatre";
+  }, []);
 
   // Load saved state from localStorage
   useEffect(() => {
@@ -111,7 +119,40 @@ function App() {
     } catch (e) {
       console.warn("Error writing localStorage:", e);
     }
-  }, [search, formatFilter, genreFilter, sortBy, view, favorites, watchlist, gavinReviews, seen]);
+  }, [
+    search,
+    formatFilter,
+    genreFilter,
+    sortBy,
+    view,
+    favorites,
+    watchlist,
+    gavinReviews,
+    seen,
+  ]);
+
+  // Close modal with Esc + prevent background scroll when modal is open
+  useEffect(() => {
+    if (modalMovieId == null) {
+      document.body.classList.remove("modal-open");
+      return;
+    }
+
+    document.body.classList.add("modal-open");
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setModalMovieId(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.classList.remove("modal-open");
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [modalMovieId]);
 
   // Sets for quick lookup
   const favoriteSet = useMemo(() => new Set(favorites), [favorites]);
@@ -152,7 +193,7 @@ function App() {
     ? genres
     : genres.slice(0, MAX_VISIBLE_CHIPS);
 
-  // Base list by view (all / favourites / watchlist)
+  // Base list by view (all / favourites / watchlist / seen / top rated)
   const baseMovies = useMemo(() => {
     if (view === "favorites") {
       return movies.filter((m) => favoriteSet.has(m.id));
@@ -160,8 +201,19 @@ function App() {
     if (view === "watchlist") {
       return movies.filter((m) => watchlistSet.has(m.id));
     }
+    if (view === "seen") {
+      return movies.filter((m) => seenSet.has(m.id));
+    }
+    if (view === "top") {
+      return movies.filter((m) => {
+        const gRating = gavinReviews[m.id]?.rating ?? 0;
+        const tRating = detailsMap[m.id]?.rating ?? 0;
+        // Top rated if Gavin >= 4, or TMDB >= 8 when no Gavin rating
+        return gRating >= 4 || (!gRating && tRating >= 8);
+      });
+    }
     return movies;
-  }, [view, favoriteSet, watchlistSet]);
+  }, [view, favoriteSet, watchlistSet, seenSet, gavinReviews, detailsMap]);
 
   // Filtering + sorting
   const filteredMovies = useMemo(() => {
@@ -202,9 +254,7 @@ function App() {
           : (movie.format || "Unknown") === formatFilter;
 
       const matchesGenre =
-        genreFilter === "all"
-          ? true
-          : genresArr.includes(genreFilter);
+        genreFilter === "all" ? true : genresArr.includes(genreFilter);
 
       return matchesSearch && matchesFormat && matchesGenre;
     });
@@ -257,28 +307,47 @@ function App() {
     gavinReviews,
   ]);
 
-  // TMDB details lazy load
+  // TMDB details lazy-ish load: fetch only missing movies, in batches
   useEffect(() => {
     let cancelled = false;
 
     async function loadDetails() {
-      for (const movie of movies) {
-        if (cancelled) return;
-        if (detailsMap[movie.id]) continue;
+      const missing = movies.filter((movie) => !detailsMap[movie.id]);
+      if (!missing.length) return;
 
-        const details = await fetchDetailsForMovie(movie.title, movie.year);
-        if (!cancelled && details) {
-          setDetailsMap((prev) => ({ ...prev, [movie.id]: details }));
-        }
+      try {
+        const results = await Promise.all(
+          missing.map(async (movie) => {
+            const details = await fetchDetailsForMovie(
+              movie.title,
+              movie.year
+            );
+            return { id: movie.id, details };
+          })
+        );
+
+        if (cancelled) return;
+
+        setDetailsMap((prev) => {
+          const next = { ...prev };
+          for (const { id, details } of results) {
+            if (details && !next[id]) {
+              next[id] = details;
+            }
+          }
+          return next;
+        });
+      } catch (e) {
+        console.warn("Error loading TMDB details:", e);
       }
     }
 
     loadDetails();
+
     return () => {
       cancelled = true;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [detailsMap]);
 
   // UI actions
   const clearFilters = () => {
@@ -384,153 +453,49 @@ function App() {
   if (genreFilter !== "all") activeFilters.push(`${genreFilter} genre`);
   if (view === "favorites") activeFilters.push("Favourites only");
   if (view === "watchlist") activeFilters.push("Watchlist only");
+  if (view === "seen") activeFilters.push("Seen only");
+  if (view === "top") activeFilters.push("Top rated only");
+
+  const handleQuickSearch = (query) => {
+    setSearch(query);
+    setView("all");
+    setModalMovieId(null);
+  };
 
   return (
     <div className="app">
-      <header className="app-header">
-        <div>
-          <h1>Gavin&apos;s Movie Theatre</h1>
-          <p>
-            {currentCount} of {totalCount} discs showing
-          </p>
-          <p className="app-header-subline">
-            {totalSeen} seen • {totalFavorites} favourites •{" "}
-            {totalWatchlist} in watchlist
-          </p>
-        </div>
-
-        {/* View tabs: All / Favourites / Watchlist */}
-        <div className="view-tabs">
-          <button
-            className={`view-tab ${view === "all" ? "view-tab--active" : ""}`}
-            onClick={() => setView("all")}
-          >
-            All
-          </button>
-          <button
-            className={`view-tab ${
-              view === "favorites" ? "view-tab--active" : ""
-            }`}
-            onClick={() => setView("favorites")}
-          >
-            ⭐ Favourites
-          </button>
-          <button
-            className={`view-tab ${
-              view === "watchlist" ? "view-tab--active" : ""
-            }`}
-            onClick={() => setView("watchlist")}
-          >
-            📺 Watchlist
-          </button>
-        </div>
-      </header>
+      <Header
+        currentCount={currentCount}
+        totalCount={totalCount}
+        totalSeen={totalSeen}
+        totalFavorites={totalFavorites}
+        totalWatchlist={totalWatchlist}
+        view={view}
+        onChangeView={setView}
+      />
 
       <div className="layout">
-        {/* Sidebar filter panel */}
-        <aside className="sidebar">
-          <h3 className="sidebar-title">Filters</h3>
+        <FiltersSidebar
+          search={search}
+          sortBy={sortBy}
+          formatFilter={formatFilter}
+          genreFilter={genreFilter}
+          formats={formats}
+          genres={genres}
+          visibleFormats={visibleFormats}
+          visibleGenres={visibleGenres}
+          showAllFormats={showAllFormats}
+          showAllGenres={showAllGenres}
+          onSearchChange={setSearch}
+          onSortChange={setSortBy}
+          onFormatFilterChange={setFormatFilter}
+          onGenreFilterChange={setGenreFilter}
+          onClearFilters={clearFilters}
+          onRandom={handleRandom}
+          onToggleShowAllFormats={() => setShowAllFormats((v) => !v)}
+          onToggleShowAllGenres={() => setShowAllGenres((v) => !v)}
+        />
 
-          <label className="sidebar-label">Search</label>
-          <input
-            className="sidebar-input"
-            type="text"
-            placeholder="Title, genre, year…"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-
-          <label className="sidebar-label">Sort By</label>
-          <select
-            className="sidebar-select"
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-          >
-            <option value="title-asc">Title A–Z</option>
-            <option value="title-desc">Title Z–A</option>
-            <option value="year-desc">Year (new → old)</option>
-            <option value="year-asc">Year (old → new)</option>
-            <option value="gavin-desc">Gavin&apos;s Score (high → low)</option>
-            <option value="gavin-asc">Gavin&apos;s Score (low → high)</option>
-            <option value="tmdb-desc">TMDB Rating (high → low)</option>
-            <option value="tmdb-asc">TMDB Rating (low → high)</option>
-          </select>
-
-          <button className="btn-secondary" onClick={clearFilters}>
-            Reset Filters
-          </button>
-
-          <button className="btn-primary" onClick={handleRandom}>
-            🎲 Random Movie
-          </button>
-
-          <div className="chip-row chip-row--stacked">
-            <span className="chip-row-label">Format</span>
-            <div className="chip-row-inner">
-              {visibleFormats.map((format) => {
-                const label =
-                  format === "all"
-                    ? "All Formats"
-                    : format === "Blu-ray"
-                    ? "Blu-Ray"
-                    : format;
-                const isActive = formatFilter === format;
-
-                return (
-                  <button
-                    key={format}
-                    className={`chip ${isActive ? "chip--active" : ""}`}
-                    onClick={() => setFormatFilter(format)}
-                  >
-                    {label}
-                  </button>
-                );
-              })}
-
-              {formats.length > MAX_VISIBLE_CHIPS && (
-                <button
-                  type="button"
-                  className="chip chip--more"
-                  onClick={() => setShowAllFormats((v) => !v)}
-                >
-                  {showAllFormats ? "Less" : "More…"}
-                </button>
-              )}
-            </div>
-          </div>
-
-          <div className="chip-row chip-row--stacked">
-            <span className="chip-row-label">Genre</span>
-            <div className="chip-row-inner">
-              {visibleGenres.map((genre) => {
-                const label = genre === "all" ? "All Genres" : genre;
-                const isActive = genreFilter === genre;
-
-                return (
-                  <button
-                    key={genre}
-                    className={`chip ${isActive ? "chip--active" : ""}`}
-                    onClick={() => setGenreFilter(genre)}
-                  >
-                    {label}
-                  </button>
-                );
-              })}
-
-              {genres.length > MAX_VISIBLE_CHIPS && (
-                <button
-                  type="button"
-                  className="chip chip--more"
-                  onClick={() => setShowAllGenres((v) => !v)}
-                >
-                  {showAllGenres ? "Less" : "More…"}
-                </button>
-              )}
-            </div>
-          </div>
-        </aside>
-
-        {/* Main content */}
         <main className="content">
           {filteredMovies.length === 0 ? (
             <div className="empty">
@@ -552,132 +517,21 @@ function App() {
               </div>
             </div>
           ) : (
-            <div className="grid">
-              {filteredMovies.map((movie) => {
-                const details = detailsMap[movie.id];
-                const posterUrl = details?.posterUrl || movie.image;
-
-                const year = details?.year || movie.year;
-                const genresArr =
-                  details?.genres || (movie.genre ? [movie.genre] : []);
-                const meta =
-                  year && genresArr.length > 0
-                    ? `${year} • ${genresArr.join(", ")}`
-                    : year || genresArr.join(", ");
-
-                const isFavorite = favoriteSet.has(movie.id);
-                const inWatchlist = watchlistSet.has(movie.id);
-                const isSeen = seenSet.has(movie.id);
-
-                const tmdbRating = details?.rating ?? null;
-
-                return (
-                  <article
-                    key={movie.id}
-                    className={`card ${
-                      isFavorite || inWatchlist || isSeen
-                        ? "card--highlight"
-                        : ""
-                    }`}
-                  >
-                    <div
-                      className="cover"
-                      onClick={() => openModal(movie.id)}
-                    >
-                      {(isFavorite || inWatchlist || isSeen) && (
-                        <div className="card-ribbons">
-                          {isFavorite && (
-                            <span className="card-ribbon card-ribbon--fav">
-                              FAV
-                            </span>
-                          )}
-                          {inWatchlist && (
-                            <span className="card-ribbon card-ribbon--watch">
-                              QUEUE
-                            </span>
-                          )}
-                          {isSeen && (
-                            <span className="card-ribbon card-ribbon--seen">
-                              SEEN
-                            </span>
-                          )}
-                        </div>
-                      )}
-
-                      {movie.format && (
-                        <div className="card-format-pill">
-                          {movie.format === "Blu-ray" ? "Blu-Ray" : movie.format}
-                        </div>
-                      )}
-
-                      <img src={posterUrl} alt={movie.title} loading="lazy" />
-                    </div>
-
-                    <div className="card-body">
-                      {tmdbRating != null && (
-                        <div
-                          className={`card-rating-badge ${
-                            tmdbRating >= 8
-                              ? "card-rating-badge--high"
-                              : tmdbRating >= 6
-                              ? "card-rating-badge--mid"
-                              : "card-rating-badge--low"
-                          }`}
-                        >
-                          ★ {tmdbRating.toFixed(1)}
-                        </div>
-                      )}
-
-                      <h2 onClick={() => openModal(movie.id)}>
-                        {movie.title}
-                      </h2>
-                      {meta && <p className="meta">{meta}</p>}
-
-                      <p className="format">
-                        {movie.format === "Blu-ray"
-                          ? "Blu-Ray"
-                          : movie.format}
-                      </p>
-
-                      <div className="card-actions">
-                        <button
-                          className={`icon-button ${
-                            isFavorite ? "icon-button--active" : ""
-                          }`}
-                          onClick={() => toggleFavorite(movie.id)}
-                          title="Toggle favourite"
-                        >
-                          <span className="icon-symbol">★</span>
-                        </button>
-                        <button
-                          className={`icon-button ${
-                            inWatchlist ? "icon-button--active" : ""
-                          }`}
-                          onClick={() => toggleWatchlist(movie.id)}
-                          title="Toggle watchlist"
-                        >
-                          <span className="icon-symbol">▶</span>
-                        </button>
-                        <button
-                          className={`icon-button ${
-                            isSeen ? "icon-button--active" : ""
-                          }`}
-                          onClick={() => toggleSeen(movie.id)}
-                          title="Mark as seen"
-                        >
-                          <span className="icon-symbol">👁</span>
-                        </button>
-                      </div>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
+            <MovieGrid
+              movies={filteredMovies}
+              detailsMap={detailsMap}
+              favoriteSet={favoriteSet}
+              watchlistSet={watchlistSet}
+              seenSet={seenSet}
+              onToggleFavorite={toggleFavorite}
+              onToggleWatchlist={toggleWatchlist}
+              onToggleSeen={toggleSeen}
+              onOpenModal={openModal}
+            />
           )}
         </main>
       </div>
 
-      {/* Modal */}
       {modalMovie && (
         <div className="modal-backdrop" onClick={closeModal}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
@@ -685,197 +539,24 @@ function App() {
               ✕
             </button>
 
-            <div className="modal-content">
-              <div className="modal-poster">
-                <img
-                  src={modalDetails?.posterUrl || modalMovie.image}
-                  alt={modalMovie.title}
-                />
-              </div>
-
-              <div className="modal-info">
-                <h2>{modalMovie.title}</h2>
-
-                {modalDetails?.year && (
-                  <p>
-                    <strong>Year:</strong> {modalDetails.year}
-                  </p>
-                )}
-
-                {modalDetails?.genres && modalDetails.genres.length > 0 && (
-                  <p>
-                    <strong>Genres:</strong>{" "}
-                    {modalDetails.genres.join(", ")}
-                  </p>
-                )}
-
-                {modalDetails?.runtime && (
-                  <p>
-                    <strong>Runtime:</strong> {modalDetails.runtime} min
-                  </p>
-                )}
-
-                {modalDetails?.rating && (
-                  <p>
-                    <strong>TMDB Rating:</strong>{" "}
-                    {modalDetails.rating.toFixed(1)}/10
-                  </p>
-                )}
-
-                {modalDetails?.director && (
-                  <p>
-                    <strong>Director:</strong>{" "}
-                    <button
-                      type="button"
-                      className="chip"
-                      onClick={() => {
-                        setSearch(modalDetails.director);
-                        setView("all");
-                        closeModal();
-                      }}
-                    >
-                      {modalDetails.director}
-                    </button>
-                  </p>
-                )}
-
-                {modalDetails?.cast && modalDetails.cast.length > 0 && (
-                  <p className="modal-cast">
-                    <strong>Cast:</strong>{" "}
-                    {modalDetails.cast.slice(0, 6).map((name) => (
-                      <button
-                        key={name}
-                        type="button"
-                        className="chip"
-                        onClick={() => {
-                          setSearch(name);
-                          setView("all");
-                          closeModal();
-                        }}
-                      >
-                        {name}
-                      </button>
-                    ))}
-                  </p>
-                )}
-
-                {seen[modalMovie.id] && (
-                  <p>
-                    <strong>Last watched:</strong>{" "}
-                    {new Date(seen[modalMovie.id]).toLocaleDateString()}
-                  </p>
-                )}
-
-                {modalDetails?.overview && (
-                  <p className="modal-overview">{modalDetails.overview}</p>
-                )}
-
-                {modalDetails?.trailerKey && (
-                  <div style={{ marginTop: "0.75rem" }}>
-                    <button
-                      type="button"
-                      className="chip chip--primary"
-                      onClick={() =>
-                        window.open(
-                          `https://www.youtube.com/watch?v=${modalDetails.trailerKey}`,
-                          "_blank",
-                          "noopener,noreferrer"
-                        )
-                      }
-                    >
-                      ▶ Watch Trailer
-                    </button>
-                  </div>
-                )}
-
-                {/* Reviews */}
-                <div className="review-sections">
-                  {/* Gavin's Review */}
-                  <section className="review-section">
-                    <div className="review-section-header">
-                      <h3 className="review-section-title">
-                        Gavin&apos;s Score
-                      </h3>
-                    </div>
-
-                    <div className="star-row">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <button
-                          key={star}
-                          type="button"
-                          className={`star-button ${
-                            gavinReview.rating >= star
-                              ? "star-button--filled"
-                              : ""
-                          }`}
-                          onClick={() =>
-                            setGavinRating(modalMovie.id, star)
-                          }
-                        >
-                          ★
-                        </button>
-                      ))}
-                      <span className="star-label">
-                        {gavinReview.rating
-                          ? `${gavinReview.rating} / 5`
-                          : "Tap to rate"}
-                      </span>
-                    </div>
-
-                    <textarea
-                      className="review-textarea"
-                      rows={3}
-                      placeholder="Your personal thoughts on this movie…"
-                      value={gavinReview.text}
-                      onChange={(e) =>
-                        setGavinText(modalMovie.id, e.target.value)
-                      }
-                    />
-                  </section>
-
-                  {/* Shared community reviews via Supabase */}
-                  <MovieReviews
-                    movieKey={movieReviewKey}
-                    title={modalMovie.title}
-                  />
-                </div>
-
-                <div className="modal-actions">
-                  <button
-                    className={`chip ${
-                      favoriteSet.has(modalMovie.id) ? "chip--active" : ""
-                    }`}
-                    onClick={() => toggleFavorite(modalMovie.id)}
-                  >
-                    {favoriteSet.has(modalMovie.id)
-                      ? "⭐ In Favourites"
-                      : "☆ Add to Favourites"}
-                  </button>
-
-                  <button
-                    className={`chip ${
-                      watchlistSet.has(modalMovie.id) ? "chip--active" : ""
-                    }`}
-                    onClick={() => toggleWatchlist(modalMovie.id)}
-                  >
-                    {watchlistSet.has(modalMovie.id)
-                      ? "📺 In Watchlist"
-                      : "+ Add to Watchlist"}
-                  </button>
-
-                  <button
-                    className={`chip ${
-                      seen[modalMovie.id] ? "chip--active" : ""
-                    }`}
-                    onClick={() => toggleSeen(modalMovie.id)}
-                  >
-                    {seen[modalMovie.id]
-                      ? "👁 Marked as Seen"
-                      : "👁 Mark as Seen"}
-                  </button>
-                </div>
-              </div>
-            </div>
+            <MovieModal
+              movie={modalMovie}
+              details={modalDetails}
+              seenDate={seen[modalMovie.id]}
+              isFavorite={favoriteSet.has(modalMovie.id)}
+              inWatchlist={watchlistSet.has(modalMovie.id)}
+              isSeen={!!seen[modalMovie.id]}
+              onToggleFavorite={() => toggleFavorite(modalMovie.id)}
+              onToggleWatchlist={() => toggleWatchlist(modalMovie.id)}
+              onToggleSeen={() => toggleSeen(modalMovie.id)}
+              gavinReview={gavinReview}
+              onSetGavinRating={(rating) =>
+                setGavinRating(modalMovie.id, rating)
+              }
+              onSetGavinText={(text) => setGavinText(modalMovie.id, text)}
+              movieReviewKey={movieReviewKey}
+              onQuickSearch={handleQuickSearch}
+            />
           </div>
         </div>
       )}
