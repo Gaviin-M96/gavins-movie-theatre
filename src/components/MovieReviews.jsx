@@ -1,78 +1,62 @@
-// src/components/MovieReviews.jsx
 import { useState, useEffect } from "react";
 import { supabase } from "../api/supabaseClient";
 
-function MovieReviews({ movieKey, title }) {
+export default function MovieReviews({ movieKey, title }) {
   const [reviews, setReviews] = useState([]);
   const [name, setName] = useState("");
-  const [rating, setRating] = useState(5);
+  const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState(null);
 
-  // Load review data
+  // Load reviews quietly (no visible error)
   useEffect(() => {
-    async function loadReviews() {
+    async function load() {
       if (!movieKey) return;
 
       setLoading(true);
-      setError(null);
 
-      const { data, error } = await supabase
+      const { data } = await supabase
         .from("reviews")
         .select("*")
         .eq("movie_id", movieKey)
         .order("created_at", { ascending: false });
 
-      if (error) {
-        console.error("Error loading reviews:", error);
-        setError("Could not load reviews.");
-      } else {
-        setReviews(data || []);
-      }
-
+      setReviews(data || []);
       setLoading(false);
     }
 
-    loadReviews();
+    load();
   }, [movieKey]);
 
   async function handleSubmit(e) {
     e.preventDefault();
     if (!movieKey) return;
 
-    const trimmedName = name.trim();
     const trimmedComment = comment.trim();
+    const trimmedName = name.trim();
 
-    if (!trimmedComment) {
-      setError("Please write a comment.");
-      return;
-    }
+    if (!trimmedComment) return; // silent fail, no message
 
     setSubmitting(true);
-    setError(null);
 
     const payload = {
       movie_id: movieKey,
       rating: Number(rating),
-      name: trimmedName || "Guest",
       comment: trimmedComment,
+      name: trimmedName || "Guest",
     };
 
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from("reviews")
       .insert(payload)
       .select()
       .single();
 
-    if (error) {
-      console.error("Error saving review:", error);
-      setError("Could not save your review. Please try again.");
-    } else {
+    if (data) {
       setReviews((prev) => [data, ...prev]);
       setComment("");
-      setRating(5);
+      setRating(0);
     }
 
     setSubmitting(false);
@@ -84,7 +68,24 @@ function MovieReviews({ movieKey, title }) {
         <h3 className="review-section-title">Community Opinions</h3>
       </div>
 
-      {/* Review form */}
+      {/* Star Rating Row */}
+      <div className="star-row" style={{ marginBottom: "0.4rem" }}>
+        {[1, 2, 3, 4, 5].map((star) => (
+          <button
+            key={star}
+            type="button"
+            className={`star-button ${rating >= star ? "star-button--filled" : ""}`}
+            onClick={() => setRating(star)}
+          >
+            ★
+          </button>
+        ))}
+        <span className="star-label">
+          {rating ? `${rating} / 5` : "Tap to rate"}
+        </span>
+      </div>
+
+      {/* Comment box */}
       <form onSubmit={handleSubmit} className="community-form">
         <input
           className="community-input"
@@ -94,25 +95,6 @@ function MovieReviews({ movieKey, title }) {
           onChange={(e) => setName(e.target.value)}
         />
 
-        {/* Star rating row (same style as Gavin's Score) */}
-        <div className="star-row" style={{ marginTop: "0.25rem" }}>
-          {[1, 2, 3, 4, 5].map((star) => (
-            <button
-              key={star}
-              type="button"
-              className={`star-button ${
-                rating >= star ? "star-button--filled" : ""
-              }`}
-              onClick={() => setRating(star)}
-            >
-              ★
-            </button>
-          ))}
-          <span className="star-label">
-            {rating ? `${rating} / 5` : "Tap to rate"}
-          </span>
-        </div>
-
         <textarea
           className="community-textarea"
           rows={2}
@@ -120,8 +102,6 @@ function MovieReviews({ movieKey, title }) {
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         />
-
-        {error && <p className="community-empty">{error}</p>}
 
         <button
           type="submit"
@@ -132,34 +112,22 @@ function MovieReviews({ movieKey, title }) {
         </button>
       </form>
 
-      {/* Review list */}
-      {loading ? (
-        <p className="community-empty">Loading reviews…</p>
-      ) : reviews.length === 0 ? (
-        <p className="community-empty">
-          No opinions yet for {title || "this movie"}. Be the first.
-        </p>
-      ) : (
+      {/* Reviews */}
+      {loading ? null : reviews.length === 0 ? null : (
         <ul className="community-list">
           {reviews.map((rev) => (
             <li key={rev.id} className="community-item">
               <div className="community-meta">
-                <span className="community-author">
-                  {rev.name || "Guest"}
-                </span>
+                <span className="community-author">{rev.name || "Guest"}</span>
                 {rev.rating != null && (
                   <span className="community-date">
-                    {"★".repeat(rev.rating)}{" "}
-                    <span className="star-label">({rev.rating}/5)</span>
+                    {"★".repeat(rev.rating)} <span className="star-label">({rev.rating}/5)</span>
                   </span>
                 )}
                 <span className="community-date">
-                  {rev.created_at
-                    ? new Date(rev.created_at).toLocaleString()
-                    : ""}
+                  {rev.created_at ? new Date(rev.created_at).toLocaleString() : ""}
                 </span>
               </div>
-
               <p className="community-body">{rev.comment}</p>
             </li>
           ))}
@@ -168,5 +136,3 @@ function MovieReviews({ movieKey, title }) {
     </section>
   );
 }
-
-export default MovieReviews;
