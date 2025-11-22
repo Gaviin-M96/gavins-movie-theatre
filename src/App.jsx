@@ -7,6 +7,7 @@ const FILTERS_STORAGE_KEY = "gmtFilters";
 const FAVORITES_STORAGE_KEY = "gmtFavorites";
 const WATCHLIST_STORAGE_KEY = "gmtWatchlist";
 const GAVIN_REVIEWS_KEY = "gmtGavinReviews";
+const SEEN_STORAGE_KEY = "gmtSeen";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -20,12 +21,14 @@ function App() {
   const [view, setView] = useState("all"); // "all" | "favorites" | "watchlist"
   const [showAllFormats, setShowAllFormats] = useState(false);
   const [showAllGenres, setShowAllGenres] = useState(false);
-  const [highlightMovieId, setHighlightMovieId] = useState(null);
 
   // Gavin reviews
   const [gavinReviews, setGavinReviews] = useState({});
 
-  // Load saved state from localStorage + deep-link movie from URL
+  // Seen / last watched map: { [movieId]: isoDateString }
+  const [seen, setSeen] = useState({});
+
+  // Load saved state from localStorage
   useEffect(() => {
     try {
       const rawFilters = localStorage.getItem(FILTERS_STORAGE_KEY);
@@ -57,24 +60,20 @@ function App() {
           setGavinReviews(parsedGavin);
         }
       }
+
+      const rawSeen = localStorage.getItem(SEEN_STORAGE_KEY);
+      if (rawSeen) {
+        const parsedSeen = JSON.parse(rawSeen);
+        if (parsedSeen && typeof parsedSeen === "object") {
+          setSeen(parsedSeen);
+        }
+      }
     } catch (e) {
       console.warn("Error reading localStorage:", e);
     }
-
-    // Deep link: open ?movie=ID on first load
-    if (typeof window !== "undefined") {
-      const url = new URL(window.location.href);
-      const movieParam = url.searchParams.get("movie");
-      if (movieParam) {
-        const parsedId = parseInt(movieParam, 10);
-        if (movies.some((m) => m.id === parsedId)) {
-          setModalMovieId(parsedId);
-        }
-      }
-    }
   }, []);
 
-  // Save filters, favourites, watchlist, reviews whenever they change
+  // Save filters, favourites, watchlist, reviews, seen whenever they change
   useEffect(() => {
     try {
       localStorage.setItem(
@@ -90,6 +89,7 @@ function App() {
       localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favorites));
       localStorage.setItem(WATCHLIST_STORAGE_KEY, JSON.stringify(watchlist));
       localStorage.setItem(GAVIN_REVIEWS_KEY, JSON.stringify(gavinReviews));
+      localStorage.setItem(SEEN_STORAGE_KEY, JSON.stringify(seen));
     } catch (e) {
       console.warn("Error writing localStorage:", e);
     }
@@ -102,11 +102,13 @@ function App() {
     favorites,
     watchlist,
     gavinReviews,
+    seen,
   ]);
 
   // Sets for quick lookup
   const favoriteSet = useMemo(() => new Set(favorites), [favorites]);
-  const watchlistSet = useMemo(() => new Set(watchlist), [watchlist]);
+  const watchlistSet = useMemo(() => new Set(watchlist));
+  const seenSet = useMemo(() => new Set(Object.keys(seen).map((id) => Number(id))), [seen]);
 
   // Unique formats
   const formats = useMemo(
@@ -173,7 +175,9 @@ function App() {
           : (movie.format || "Unknown") === formatFilter;
 
       const matchesGenre =
-        genreFilter === "all" ? true : genresArr.includes(genreFilter);
+        genreFilter === "all"
+          ? true
+          : genresArr.includes(genreFilter);
 
       return matchesSearch && matchesFormat && matchesGenre;
     });
@@ -203,7 +207,7 @@ function App() {
     return result;
   }, [baseMovies, search, formatFilter, genreFilter, sortBy, detailsMap]);
 
-  // TMDB details
+  // TMDB details lazy load
   useEffect(() => {
     let cancelled = false;
 
@@ -246,34 +250,29 @@ function App() {
     );
   };
 
-  const updateUrlForMovie = (id) => {
-    if (typeof window === "undefined") return;
-    const url = new URL(window.location.href);
-    if (id == null) {
-      url.searchParams.delete("movie");
-    } else {
-      url.searchParams.set("movie", String(id));
-    }
-    window.history.pushState({}, "", url.toString());
+  const toggleSeen = (id) => {
+    setSeen((prev) => {
+      const next = { ...prev };
+      if (next[id]) {
+        delete next[id];
+      } else {
+        next[id] = new Date().toISOString();
+      }
+      return next;
+    });
   };
 
   const openModal = (id) => {
     setModalMovieId(id);
-    setHighlightMovieId(null);
-    updateUrlForMovie(id);
   };
 
-  const closeModal = () => {
-    setModalMovieId(null);
-    updateUrlForMovie(null);
-  };
+  const closeModal = () => setModalMovieId(null);
 
   const handleRandom = () => {
     if (!filteredMovies.length) return;
     const random =
       filteredMovies[Math.floor(Math.random() * filteredMovies.length)];
-    setHighlightMovieId(random.id);
-    openModal(random.id);
+    setModalMovieId(random.id);
   };
 
   // Gavin review helpers
@@ -313,6 +312,10 @@ function App() {
   const totalCount = movies.length;
   const currentCount = filteredMovies.length;
 
+  const totalSeen = Object.keys(seen).length;
+  const totalFavorites = favorites.length;
+  const totalWatchlist = watchlist.length;
+
   const movieReviewKey =
     modalDetails?.tmdbId != null
       ? String(modalDetails.tmdbId)
@@ -320,89 +323,17 @@ function App() {
       ? String(modalMovie.id)
       : null;
 
-  // Keyboard shortcuts when modal is open
-  useEffect(() => {
-    if (!modalMovie) return;
-
-    function onKeyDown(e) {
-      if (e.key === "Escape") {
-        e.preventDefault();
-        closeModal();
-        return;
-      }
-
-      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-        const index = filteredMovies.findIndex(
-          (m) => m.id === modalMovie.id
-        );
-        if (index === -1) return;
-
-        if (e.key === "ArrowRight" && index < filteredMovies.length - 1) {
-          const nextMovie = filteredMovies[index + 1];
-          openModal(nextMovie.id);
-        } else if (e.key === "ArrowLeft" && index > 0) {
-          const prevMovie = filteredMovies[index - 1];
-          openModal(prevMovie.id);
-        }
-      }
-    }
-
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [modalMovie, filteredMovies]);
-
-  // Backup / restore (favorites, watchlist, gavinReviews)
-  const handleBackup = () => {
-    const payload = {
-      favorites,
-      watchlist,
-      gavinReviews,
-    };
-    const json = JSON.stringify(payload);
-
-    try {
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard
-          .writeText(json)
-          .then(() => {
-            alert("Backup copied to your clipboard.");
-          })
-          .catch(() => {
-            alert("Backup JSON:\n" + json);
-          });
-      } else {
-        alert("Backup JSON:\n" + json);
-      }
-    } catch {
-      alert("Backup JSON:\n" + json);
-    }
-  };
-
-  const handleRestore = () => {
-    const input = window.prompt(
-      "Paste your backup JSON here to restore your data:"
+  // Build description of active filters for empty state
+  const activeFilters = [];
+  if (search.trim()) activeFilters.push(`“${search.trim()}”`);
+  if (formatFilter !== "all") {
+    activeFilters.push(
+      formatFilter === "Blu-ray" ? "Blu-Ray format" : `${formatFilter} format`
     );
-    if (!input) return;
-
-    try {
-      const data = JSON.parse(input);
-
-      if (Array.isArray(data.favorites)) {
-        setFavorites(data.favorites);
-      }
-      if (Array.isArray(data.watchlist)) {
-        setWatchlist(data.watchlist);
-      }
-      if (data.gavinReviews && typeof data.gavinReviews === "object") {
-        setGavinReviews(data.gavinReviews);
-      }
-
-      alert("Backup restored.");
-    } catch (e) {
-      console.error(e);
-      alert("That backup JSON could not be parsed.");
-    }
-  };
+  }
+  if (genreFilter !== "all") activeFilters.push(`${genreFilter} genre`);
+  if (view === "favorites") activeFilters.push("Favourites only");
+  if (view === "watchlist") activeFilters.push("Watchlist only");
 
   return (
     <div className="app">
@@ -411,6 +342,10 @@ function App() {
           <h1>Gavin&apos;s Movie Theatre</h1>
           <p>
             {currentCount} of {totalCount} discs showing
+          </p>
+          <p className="app-header-subline">
+            {totalSeen} seen • {totalFavorites} favourites •{" "}
+            {totalWatchlist} in watchlist
           </p>
         </div>
 
@@ -442,110 +377,126 @@ function App() {
       </header>
 
       <div className="layout">
-        
         {/* Sidebar filter panel */}
-<aside className="sidebar">
-  <h3 className="sidebar-title">Filters</h3>
+        <aside className="sidebar">
+          <h3 className="sidebar-title">Filters</h3>
 
-  <label className="sidebar-label">Search</label>
-  <input
-    className="sidebar-input"
-    type="text"
-    placeholder="Title, genre, year…"
-    value={search}
-    onChange={(e) => setSearch(e.target.value)}
-  />
+          <label className="sidebar-label">Search</label>
+          <input
+            className="sidebar-input"
+            type="text"
+            placeholder="Title, genre, year…"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
 
-  <label className="sidebar-label">Sort By</label>
-  <select
-    className="sidebar-select"
-    value={sortBy}
-    onChange={(e) => setSortBy(e.target.value)}
-  >
-    <option value="title-asc">Title A–Z</option>
-    <option value="title-desc">Title Z–A</option>
-    <option value="year-desc">Year (new → old)</option>
-    <option value="year-asc">Year (old → new)</option>
-  </select>
-
-  <button className="btn-secondary" onClick={clearFilters}>
-    Reset Filters
-  </button>
-
-  <button className="btn-primary" onClick={handleRandom}>
-    🎲 Random Movie
-  </button>
-
-  <div className="chip-row chip-row--stacked">
-    <span className="chip-row-label">Format</span>
-    <div className="chip-row-inner">
-      {visibleFormats.map((format) => {
-        const label =
-          format === "all"
-            ? "All Formats"
-            : format === "Blu-ray"
-            ? "Blu-Ray"
-            : format;
-        const isActive = formatFilter === format;
-
-        return (
-          <button
-            key={format}
-            className={`chip ${isActive ? "chip--active" : ""}`}
-            onClick={() => setFormatFilter(format)}
+          <label className="sidebar-label">Sort By</label>
+          <select
+            className="sidebar-select"
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
           >
-            {label}
+            <option value="title-asc">Title A–Z</option>
+            <option value="title-desc">Title Z–A</option>
+            <option value="year-desc">Year (new → old)</option>
+            <option value="year-asc">Year (old → new)</option>
+          </select>
+
+          <button className="btn-secondary" onClick={clearFilters}>
+            Reset Filters
           </button>
-        );
-      })}
 
-      {formats.length > MAX_VISIBLE_CHIPS && (
-        <button
-          type="button"
-          className="chip chip--more"
-          onClick={() => setShowAllFormats((v) => !v)}
-        >
-          {showAllFormats ? "Less" : "More…"}
-        </button>
-      )}
-    </div>
-  </div>
-
-  <div className="chip-row chip-row--stacked">
-    <span className="chip-row-label">Genre</span>
-    <div className="chip-row-inner">
-      {visibleGenres.map((genre) => {
-        const label = genre === "all" ? "All Genres" : genre;
-        const isActive = genreFilter === genre;
-
-        return (
-          <button
-            key={genre}
-            className={`chip ${isActive ? "chip--active" : ""}`}
-            onClick={() => setGenreFilter(genre)}
-          >
-            {label}
+          <button className="btn-primary" onClick={handleRandom}>
+            🎲 Random Movie
           </button>
-        );
-      })}
 
-      {genres.length > MAX_VISIBLE_CHIPS && (
-        <button
-          type="button"
-          className="chip chip--more"
-          onClick={() => setShowAllGenres((v) => !v)}
-        >
-          {showAllGenres ? "Less" : "More…"}
-        </button>
-      )}
-    </div>
-  </div>
-</aside>
+          <div className="chip-row chip-row--stacked">
+            <span className="chip-row-label">Format</span>
+            <div className="chip-row-inner">
+              {visibleFormats.map((format) => {
+                const label =
+                  format === "all"
+                    ? "All Formats"
+                    : format === "Blu-ray"
+                    ? "Blu-Ray"
+                    : format;
+                const isActive = formatFilter === format;
+
+                return (
+                  <button
+                    key={format}
+                    className={`chip ${isActive ? "chip--active" : ""}`}
+                    onClick={() => setFormatFilter(format)}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
+
+              {formats.length > MAX_VISIBLE_CHIPS && (
+                <button
+                  type="button"
+                  className="chip chip--more"
+                  onClick={() => setShowAllFormats((v) => !v)}
+                >
+                  {showAllFormats ? "Less" : "More…"}
+                </button>
+              )}
+            </div>
+          </div>
+
+          <div className="chip-row chip-row--stacked">
+            <span className="chip-row-label">Genre</span>
+            <div className="chip-row-inner">
+              {visibleGenres.map((genre) => {
+                const label = genre === "all" ? "All Genres" : genre;
+                const isActive = genreFilter === genre;
+
+                return (
+                  <button
+                    key={genre}
+                    className={`chip ${isActive ? "chip--active" : ""}`}
+                    onClick={() => setGenreFilter(genre)}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
+
+              {genres.length > MAX_VISIBLE_CHIPS && (
+                <button
+                  type="button"
+                  className="chip chip--more"
+                  onClick={() => setShowAllGenres((v) => !v)}
+                >
+                  {showAllGenres ? "Less" : "More…"}
+                </button>
+              )}
+            </div>
+          </div>
+        </aside>
 
         {/* Main content */}
         <main className="content">
           {filteredMovies.length === 0 ? (
-            <p className="empty">No matches.</p>
+            <div className="empty">
+              <p>No movies match your current filters.</p>
+              {activeFilters.length > 0 && (
+                <p className="empty-filters">
+                  Active filters: {activeFilters.join(" • ")}
+                </p>
+              )}
+              <div className="empty-actions">
+                <button className="btn-secondary" onClick={clearFilters}>
+                  Clear filters & search
+                </button>
+                {baseMovies.length > 0 && (
+                  <button className="btn-primary" onClick={handleRandom}>
+                    🎲 Random Movie
+                  </button>
+                )}
+              </div>
+            </div>
           ) : (
             <div className="grid">
               {filteredMovies.map((movie) => {
@@ -562,38 +513,65 @@ function App() {
 
                 const isFavorite = favoriteSet.has(movie.id);
                 const inWatchlist = watchlistSet.has(movie.id);
-                const gReview = gavinReviews[movie.id];
-                const gRating = gReview?.rating || 0;
+                const isSeen = seenSet.has(movie.id);
+
+                const tmdbRating = details?.rating ?? null;
 
                 return (
                   <article
                     key={movie.id}
                     className={`card ${
-                      highlightMovieId === movie.id ? "card--highlight" : ""
+                      isFavorite || inWatchlist || isSeen ? "card--highlight" : ""
                     }`}
                   >
-                    {isFavorite || inWatchlist ? (
-                      <div className="card-ribbons">
-                        {isFavorite && (
-                          <span className="card-ribbon card-ribbon--fav">
-                            FAV
-                          </span>
-                        )}
-                        {inWatchlist && (
-                          <span className="card-ribbon card-ribbon--watch">
-                            QUEUE
-                          </span>
-                        )}
-                      </div>
-                    ) : null}
-
                     <div
                       className="cover"
                       onClick={() => openModal(movie.id)}
                     >
+                      {(isFavorite || inWatchlist || isSeen) && (
+                        <div className="card-ribbons">
+                          {isFavorite && (
+                            <span className="card-ribbon card-ribbon--fav">
+                              FAV
+                            </span>
+                          )}
+                          {inWatchlist && (
+                            <span className="card-ribbon card-ribbon--watch">
+                              QUEUE
+                            </span>
+                          )}
+                          {isSeen && (
+                            <span className="card-ribbon card-ribbon--seen">
+                              SEEN
+                            </span>
+                          )}
+                        </div>
+                      )}
+
+                      {movie.format && (
+                        <div className="card-format-pill">
+                          {movie.format === "Blu-ray" ? "Blu-Ray" : movie.format}
+                        </div>
+                      )}
+
                       <img src={posterUrl} alt={movie.title} loading="lazy" />
                     </div>
+
                     <div className="card-body">
+                      {tmdbRating != null && (
+                        <div
+                          className={`card-rating-badge ${
+                            tmdbRating >= 8
+                              ? "card-rating-badge--high"
+                              : tmdbRating >= 6
+                              ? "card-rating-badge--mid"
+                              : "card-rating-badge--low"
+                          }`}
+                        >
+                          ★ {tmdbRating.toFixed(1)}
+                        </div>
+                      )}
+
                       <h2 onClick={() => openModal(movie.id)}>
                         {movie.title}
                       </h2>
@@ -604,12 +582,6 @@ function App() {
                           ? "Blu-Ray"
                           : movie.format}
                       </p>
-
-                      {gRating > 0 && (
-                        <div className="card-rating-badge">
-                          ⭐ {gRating}/5
-                        </div>
-                      )}
 
                       <div className="card-actions">
                         <button
@@ -629,6 +601,15 @@ function App() {
                           title="Toggle watchlist"
                         >
                           <span className="icon-symbol">▶</span>
+                        </button>
+                        <button
+                          className={`icon-button ${
+                            isSeen ? "icon-button--active" : ""
+                          }`}
+                          onClick={() => toggleSeen(movie.id)}
+                          title="Mark as seen"
+                        >
+                          <span className="icon-symbol">👁</span>
                         </button>
                       </div>
                     </div>
@@ -659,10 +640,6 @@ function App() {
               <div className="modal-info">
                 <h2>{modalMovie.title}</h2>
 
-                {!modalDetails && (
-                  <p className="modal-loading">Loading extra details…</p>
-                )}
-
                 {modalDetails?.year && (
                   <p>
                     <strong>Year:</strong> {modalDetails.year}
@@ -684,7 +661,7 @@ function App() {
 
                 {modalDetails?.rating && (
                   <p>
-                    <strong>Rating:</strong>{" "}
+                    <strong>TMDB Rating:</strong>{" "}
                     {modalDetails.rating.toFixed(1)}/10
                   </p>
                 )}
@@ -692,6 +669,13 @@ function App() {
                 {modalDetails?.director && (
                   <p>
                     <strong>Director:</strong> {modalDetails.director}
+                  </p>
+                )}
+
+                {seen[modalMovie.id] && (
+                  <p>
+                    <strong>Last watched:</strong>{" "}
+                    {new Date(seen[modalMovie.id]).toLocaleDateString()}
                   </p>
                 )}
 
@@ -772,6 +756,17 @@ function App() {
                     {watchlistSet.has(modalMovie.id)
                       ? "📺 In Watchlist"
                       : "+ Add to Watchlist"}
+                  </button>
+
+                  <button
+                    className={`chip ${
+                      seen[modalMovie.id] ? "chip--active" : ""
+                    }`}
+                    onClick={() => toggleSeen(modalMovie.id)}
+                  >
+                    {seen[modalMovie.id]
+                      ? "👁 Marked as Seen"
+                      : "👁 Mark as Seen"}
                   </button>
                 </div>
               </div>
