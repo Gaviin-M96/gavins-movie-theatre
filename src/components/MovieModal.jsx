@@ -4,20 +4,16 @@ import { useState } from "react";
 function MovieModal({
   movie,
   details,
-  seenDate,
   isFavorite,
   inWatchlist,
-  isSeen,
   onToggleFavorite,
   onToggleWatchlist,
-  onToggleSeen,
   gavinReview,
   onSetGavinRating,
   onSetGavinText,
   movieReviewKey,
   onQuickSearch,
 }) {
-
   const trailerKey = details?.trailerKey || null;
   const [showTrailer, setShowTrailer] = useState(false);
 
@@ -97,13 +93,6 @@ function MovieModal({
           </p>
         )}
 
-        {isSeen && seenDate && (
-          <p>
-            <strong>Last watched:</strong>{" "}
-            {new Date(seenDate).toLocaleDateString()}
-          </p>
-        )}
-
         {details?.overview && (
           <p className="modal-overview">{details.overview}</p>
         )}
@@ -175,17 +164,10 @@ function MovieModal({
           >
             {inWatchlist ? "📺 In Watchlist" : "+ Add to Watchlist"}
           </button>
-
-          <button
-            className={`chip ${isSeen ? "chip--active" : ""}`}
-            onClick={onToggleSeen}
-          >
-            {isSeen ? "👁 Marked as Seen" : "👁 Mark as Seen"}
-          </button>
         </div>
       </div>
 
-      {/* Trailer popup overlay */}
+      {/* Trailer popup overlay (autoplay when opened) */}
       {showTrailer && (
         <div className="trailer-overlay" onClick={closeTrailer}>
           <div

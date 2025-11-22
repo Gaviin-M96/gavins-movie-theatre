@@ -11,7 +11,6 @@ const FILTERS_STORAGE_KEY = "gmtFilters";
 const FAVORITES_STORAGE_KEY = "gmtFavorites";
 const WATCHLIST_STORAGE_KEY = "gmtWatchlist";
 const GAVIN_REVIEWS_KEY = "gmtGavinReviews";
-const SEEN_STORAGE_KEY = "gmtSeen";
 
 function normalizeForSearch(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, "");
@@ -41,7 +40,6 @@ function App() {
   const [detailsMap, setDetailsMap] = useState({});
   const [favorites, setFavorites] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
-  const [seen, setSeen] = useState({});
   const [modalMovieId, setModalMovieId] = useState(null);
   const [view, setView] = useState("all"); // "all" | "favorites" | "watchlist" | "top"
   const [showAllFormats, setShowAllFormats] = useState(false);
@@ -87,20 +85,12 @@ function App() {
           setGavinReviews(parsedGavin);
         }
       }
-
-      const rawSeen = localStorage.getItem(SEEN_STORAGE_KEY);
-      if (rawSeen) {
-        const parsedSeen = JSON.parse(rawSeen);
-        if (parsedSeen && typeof parsedSeen === "object") {
-          setSeen(parsedSeen);
-        }
-      }
     } catch (e) {
       console.warn("Error reading localStorage:", e);
     }
   }, []);
 
-  // Save filters, favourites, watchlist, reviews & seen whenever they change
+  // Save filters, favourites, watchlist, reviews whenever they change
   useEffect(() => {
     try {
       localStorage.setItem(
@@ -116,21 +106,10 @@ function App() {
       localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favorites));
       localStorage.setItem(WATCHLIST_STORAGE_KEY, JSON.stringify(watchlist));
       localStorage.setItem(GAVIN_REVIEWS_KEY, JSON.stringify(gavinReviews));
-      localStorage.setItem(SEEN_STORAGE_KEY, JSON.stringify(seen));
     } catch (e) {
       console.warn("Error writing localStorage:", e);
     }
-  }, [
-    search,
-    formatFilter,
-    genreFilter,
-    sortBy,
-    view,
-    favorites,
-    watchlist,
-    gavinReviews,
-    seen,
-  ]);
+  }, [search, formatFilter, genreFilter, sortBy, view, favorites, watchlist, gavinReviews]);
 
   // Close modal with Esc + prevent background scroll when modal is open
   useEffect(() => {
@@ -158,10 +137,6 @@ function App() {
   // Sets for quick lookup
   const favoriteSet = useMemo(() => new Set(favorites), [favorites]);
   const watchlistSet = useMemo(() => new Set(watchlist), [watchlist]);
-  const seenSet = useMemo(
-    () => new Set(Object.keys(seen).map((id) => Number(id))),
-    [seen]
-  );
 
   // Unique formats
   const formats = useMemo(
@@ -367,18 +342,6 @@ function App() {
     );
   };
 
-  const toggleSeen = (id) => {
-    setSeen((prev) => {
-      const next = { ...prev };
-      if (next[id]) {
-        delete next[id];
-      } else {
-        next[id] = new Date().toISOString();
-      }
-      return next;
-    });
-  };
-
   const openModal = (id) => {
     setModalMovieId(id);
   };
@@ -429,7 +392,6 @@ function App() {
   const totalCount = movies.length;
   const currentCount = filteredMovies.length;
 
-  const totalSeen = Object.keys(seen).length;
   const totalFavorites = favorites.length;
   const totalWatchlist = watchlist.length;
 
@@ -464,7 +426,6 @@ function App() {
       <Header
         currentCount={currentCount}
         totalCount={totalCount}
-        totalSeen={totalSeen}
         totalFavorites={totalFavorites}
         totalWatchlist={totalWatchlist}
       />
@@ -517,10 +478,8 @@ function App() {
               detailsMap={detailsMap}
               favoriteSet={favoriteSet}
               watchlistSet={watchlistSet}
-              seenSet={seenSet}
               onToggleFavorite={toggleFavorite}
               onToggleWatchlist={toggleWatchlist}
-              onToggleSeen={toggleSeen}
               onOpenModal={openModal}
             />
           )}
@@ -541,17 +500,12 @@ function App() {
             <MovieModal
               movie={modalMovie}
               details={modalDetails}
-              seenDate={seen[modalMovie.id]}
               isFavorite={favoriteSet.has(modalMovie.id)}
               inWatchlist={watchlistSet.has(modalMovie.id)}
-              isSeen={!!seen[modalMovie.id]}
               onToggleFavorite={() => toggleFavorite(modalMovie.id)}
               onToggleWatchlist={() => toggleWatchlist(modalMovie.id)}
-              onToggleSeen={() => toggleSeen(modalMovie.id)}
               gavinReview={gavinReview}
-              onSetGavinRating={(rating) =>
-                setGavinRating(modalMovie.id, rating)
-              }
+              onSetGavinRating={(rating) => setGavinRating(modalMovie.id, rating)}
               onSetGavinText={(text) => setGavinText(modalMovie.id, text)}
               movieReviewKey={movieReviewKey}
               onQuickSearch={handleQuickSearch}

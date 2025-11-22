@@ -1,7 +1,6 @@
 function Header({
   currentCount,
   totalCount,
-  totalSeen,
   totalFavorites,
   totalWatchlist,
 }) {
@@ -13,8 +12,7 @@ function Header({
           {currentCount} of {totalCount} discs showing
         </p>
         <p className="app-header-subline">
-          {totalSeen} seen • {totalFavorites} favourites •{" "}
-          {totalWatchlist} in watchlist
+          {totalFavorites} favourites • {totalWatchlist} in watchlist
         </p>
       </div>
     </header>

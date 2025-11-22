@@ -3,10 +3,8 @@ function MovieGrid({
   detailsMap,
   favoriteSet,
   watchlistSet,
-  seenSet,
   onToggleFavorite,
   onToggleWatchlist,
-  onToggleSeen,
   onOpenModal,
 }) {
   return (
@@ -25,7 +23,6 @@ function MovieGrid({
 
         const isFavorite = favoriteSet.has(movie.id);
         const inWatchlist = watchlistSet.has(movie.id);
-        const isSeen = seenSet.has(movie.id);
 
         const tmdbRating = details?.rating ?? null;
 
@@ -33,11 +30,11 @@ function MovieGrid({
           <article
             key={movie.id}
             className={`card ${
-              isFavorite || inWatchlist || isSeen ? "card--highlight" : ""
+              isFavorite || inWatchlist ? "card--highlight" : ""
             }`}
           >
             <div className="cover" onClick={() => onOpenModal(movie.id)}>
-              {(isFavorite || inWatchlist || isSeen) && (
+              {(isFavorite || inWatchlist) && (
                 <div className="card-ribbons">
                   {isFavorite && (
                     <span className="card-ribbon card-ribbon--fav">
@@ -47,11 +44,6 @@ function MovieGrid({
                   {inWatchlist && (
                     <span className="card-ribbon card-ribbon--watch">
                       QUEUE
-                    </span>
-                  )}
-                  {isSeen && (
-                    <span className="card-ribbon card-ribbon--seen">
-                      SEEN
                     </span>
                   )}
                 </div>
@@ -76,8 +68,6 @@ function MovieGrid({
                       ? "card-rating-badge--mid"
                       : "card-rating-badge--low"
                   }`}
-                  onClick={() => onOpenModal(movie.id)}
-                  style={{ cursor: "pointer" }}
                 >
                   ★ {tmdbRating.toFixed(1)}
                 </div>
@@ -108,15 +98,6 @@ function MovieGrid({
                   title="Toggle watchlist"
                 >
                   <span className="icon-symbol">▶</span>
-                </button>
-                <button
-                  className={`icon-button ${
-                    isSeen ? "icon-button--active" : ""
-                  }`}
-                  onClick={() => onToggleSeen(movie.id)}
-                  title="Mark as seen"
-                >
-                  <span className="icon-symbol">👁</span>
                 </button>
               </div>
             </div>
