@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { movies } from "./movies";
 import { fetchDetailsForMovie } from "./api/tmdb";
-import MovieReview from "./components/MovieReviews.jsx";
+import MovieReviews from "./components/MovieReviews";
 
 const FILTERS_STORAGE_KEY = "gmtFilters";
 const FAVORITES_STORAGE_KEY = "gmtFavorites";
@@ -20,11 +20,12 @@ function App() {
   const [view, setView] = useState("all"); // "all" | "favorites" | "watchlist"
   const [showAllFormats, setShowAllFormats] = useState(false);
   const [showAllGenres, setShowAllGenres] = useState(false);
+  const [highlightMovieId, setHighlightMovieId] = useState(null);
 
   // Gavin reviews
   const [gavinReviews, setGavinReviews] = useState({});
 
-  // Load saved state from localStorage
+  // Load saved state from localStorage + deep-link movie from URL
   useEffect(() => {
     try {
       const rawFilters = localStorage.getItem(FILTERS_STORAGE_KEY);
@@ -58,6 +59,18 @@ function App() {
       }
     } catch (e) {
       console.warn("Error reading localStorage:", e);
+    }
+
+    // Deep link: open ?movie=ID on first load
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      const movieParam = url.searchParams.get("movie");
+      if (movieParam) {
+        const parsedId = parseInt(movieParam, 10);
+        if (movies.some((m) => m.id === parsedId)) {
+          setModalMovieId(parsedId);
+        }
+      }
     }
   }, []);
 
@@ -233,17 +246,34 @@ function App() {
     );
   };
 
-  const openModal = (id) => {
-    setModalMovieId(id);
+  const updateUrlForMovie = (id) => {
+    if (typeof window === "undefined") return;
+    const url = new URL(window.location.href);
+    if (id == null) {
+      url.searchParams.delete("movie");
+    } else {
+      url.searchParams.set("movie", String(id));
+    }
+    window.history.pushState({}, "", url.toString());
   };
 
-  const closeModal = () => setModalMovieId(null);
+  const openModal = (id) => {
+    setModalMovieId(id);
+    setHighlightMovieId(null);
+    updateUrlForMovie(id);
+  };
+
+  const closeModal = () => {
+    setModalMovieId(null);
+    updateUrlForMovie(null);
+  };
 
   const handleRandom = () => {
     if (!filteredMovies.length) return;
     const random =
       filteredMovies[Math.floor(Math.random() * filteredMovies.length)];
-    setModalMovieId(random.id);
+    setHighlightMovieId(random.id);
+    openModal(random.id);
   };
 
   // Gavin review helpers
@@ -289,6 +319,90 @@ function App() {
       : modalMovie
       ? String(modalMovie.id)
       : null;
+
+  // Keyboard shortcuts when modal is open
+  useEffect(() => {
+    if (!modalMovie) return;
+
+    function onKeyDown(e) {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeModal();
+        return;
+      }
+
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        const index = filteredMovies.findIndex(
+          (m) => m.id === modalMovie.id
+        );
+        if (index === -1) return;
+
+        if (e.key === "ArrowRight" && index < filteredMovies.length - 1) {
+          const nextMovie = filteredMovies[index + 1];
+          openModal(nextMovie.id);
+        } else if (e.key === "ArrowLeft" && index > 0) {
+          const prevMovie = filteredMovies[index - 1];
+          openModal(prevMovie.id);
+        }
+      }
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [modalMovie, filteredMovies]);
+
+  // Backup / restore (favorites, watchlist, gavinReviews)
+  const handleBackup = () => {
+    const payload = {
+      favorites,
+      watchlist,
+      gavinReviews,
+    };
+    const json = JSON.stringify(payload);
+
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard
+          .writeText(json)
+          .then(() => {
+            alert("Backup copied to your clipboard.");
+          })
+          .catch(() => {
+            alert("Backup JSON:\n" + json);
+          });
+      } else {
+        alert("Backup JSON:\n" + json);
+      }
+    } catch {
+      alert("Backup JSON:\n" + json);
+    }
+  };
+
+  const handleRestore = () => {
+    const input = window.prompt(
+      "Paste your backup JSON here to restore your data:"
+    );
+    if (!input) return;
+
+    try {
+      const data = JSON.parse(input);
+
+      if (Array.isArray(data.favorites)) {
+        setFavorites(data.favorites);
+      }
+      if (Array.isArray(data.watchlist)) {
+        setWatchlist(data.watchlist);
+      }
+      if (data.gavinReviews && typeof data.gavinReviews === "object") {
+        setGavinReviews(data.gavinReviews);
+      }
+
+      alert("Backup restored.");
+    } catch (e) {
+      console.error(e);
+      alert("That backup JSON could not be parsed.");
+    }
+  };
 
   return (
     <div className="app">
@@ -425,6 +539,15 @@ function App() {
               )}
             </div>
           </div>
+
+          <div className="backup-controls">
+            <button className="btn-secondary" onClick={handleBackup}>
+              Backup Data
+            </button>
+            <button className="btn-secondary" onClick={handleRestore}>
+              Restore Data
+            </button>
+          </div>
         </aside>
 
         {/* Main content */}
@@ -447,9 +570,31 @@ function App() {
 
                 const isFavorite = favoriteSet.has(movie.id);
                 const inWatchlist = watchlistSet.has(movie.id);
+                const gReview = gavinReviews[movie.id];
+                const gRating = gReview?.rating || 0;
 
                 return (
-                  <article key={movie.id} className="card">
+                  <article
+                    key={movie.id}
+                    className={`card ${
+                      highlightMovieId === movie.id ? "card--highlight" : ""
+                    }`}
+                  >
+                    {isFavorite || inWatchlist ? (
+                      <div className="card-ribbons">
+                        {isFavorite && (
+                          <span className="card-ribbon card-ribbon--fav">
+                            FAV
+                          </span>
+                        )}
+                        {inWatchlist && (
+                          <span className="card-ribbon card-ribbon--watch">
+                            QUEUE
+                          </span>
+                        )}
+                      </div>
+                    ) : null}
+
                     <div
                       className="cover"
                       onClick={() => openModal(movie.id)}
@@ -467,6 +612,12 @@ function App() {
                           ? "Blu-Ray"
                           : movie.format}
                       </p>
+
+                      {gRating > 0 && (
+                        <div className="card-rating-badge">
+                          ⭐ {gRating}/5
+                        </div>
+                      )}
 
                       <div className="card-actions">
                         <button
@@ -515,6 +666,10 @@ function App() {
 
               <div className="modal-info">
                 <h2>{modalMovie.title}</h2>
+
+                {!modalDetails && (
+                  <p className="modal-loading">Loading extra details…</p>
+                )}
 
                 {modalDetails?.year && (
                   <p>
@@ -582,7 +737,7 @@ function App() {
                       <span className="star-label">
                         {gavinReview.rating
                           ? `${gavinReview.rating} / 5`
-                          : ""}
+                          : "Tap to rate"}
                       </span>
                     </div>
 
@@ -598,7 +753,7 @@ function App() {
                   </section>
 
                   {/* Shared community reviews via Supabase */}
-                  <MovieReview
+                  <MovieReviews
                     movieKey={movieReviewKey}
                     title={modalMovie.title}
                   />
