@@ -20,7 +20,16 @@ function FiltersSidebar({
 }) {
   return (
     <aside className="sidebar">
-      <h3 className="sidebar-title">Filters</h3>
+      <div className="sidebar-header">
+        <h3 className="sidebar-title">Filters</h3>
+        <button
+          type="button"
+          className="sidebar-reset-link"
+          onClick={onClearFilters}
+        >
+          Reset
+        </button>
+      </div>
 
       <label className="sidebar-label">Search</label>
       <input
@@ -46,10 +55,6 @@ function FiltersSidebar({
         <option value="tmdb-desc">TMDB Rating (high → low)</option>
         <option value="tmdb-asc">TMDB Rating (low → high)</option>
       </select>
-
-      <button className="btn-secondary" onClick={onClearFilters}>
-        Reset Filters
-      </button>
 
       <button className="btn-primary" onClick={onRandom}>
         🎲 Random Movie

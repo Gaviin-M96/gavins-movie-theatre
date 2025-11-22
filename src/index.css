@@ -78,12 +78,36 @@ body.modal-open {
   top: 1rem;
 }
 
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
 .sidebar-title {
-  margin: 0 0 0.75rem;
+  margin: 0;
   font-size: 0.95rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #9ca3af;
+}
+
+.sidebar-reset-link {
+  border: none;
+  background: transparent;
+  color: #9ca3af;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease, transform 0.05s ease;
+}
+
+.sidebar-reset-link:hover {
+  color: #38bdf8;
+  transform: translateY(-1px);
 }
 
 .sidebar-label {
@@ -781,9 +805,10 @@ body.modal-open {
     height: 32px;
   }
 
+  /* ✅ More padding on mobile modal */
   .modal {
     max-height: 95vh;
-    padding: 1.2rem 0.85rem 1rem;
+    padding: 1.4rem 1.1rem 1.25rem;
   }
 
   .modal-content {
