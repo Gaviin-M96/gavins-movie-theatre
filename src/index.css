@@ -693,6 +693,17 @@ body {
     max-width: 100%;
   }
 
+  .chip--primary {
+  background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.5);
+}
+
+.chip--primary:hover {
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.7);
+}
+
   /* Keep close button reachable even when scrolled */
   .modal-close {
     position: fixed;

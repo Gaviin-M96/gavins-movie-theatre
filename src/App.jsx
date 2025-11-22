@@ -736,10 +736,41 @@ function App() {
                 )}
 
                 {modalDetails?.director && (
-                  <p>
-                    <strong>Director:</strong> {modalDetails.director}
-                  </p>
-                )}
+  <p>
+    <strong>Director:</strong>{" "}
+    <button
+      type="button"
+      className="chip"
+      onClick={() => {
+        setSearch(modalDetails.director);
+        setView("all");
+        closeModal();
+      }}
+    >
+      {modalDetails.director}
+    </button>
+  </p>
+)}
+
+{modalDetails?.cast && modalDetails.cast.length > 0 && (
+  <p className="modal-cast">
+    <strong>Cast:</strong>{" "}
+    {modalDetails.cast.slice(0, 6).map((name) => (
+      <button
+        key={name}
+        type="button"
+        className="chip"
+        onClick={() => {
+          setSearch(name);
+          setView("all");
+          closeModal();
+        }}
+      >
+        {name}
+      </button>
+    ))}
+  </p>
+)}
 
                 {seen[modalMovie.id] && (
                   <p>
@@ -749,8 +780,26 @@ function App() {
                 )}
 
                 {modalDetails?.overview && (
-                  <p className="modal-overview">{modalDetails.overview}</p>
-                )}
+  <p className="modal-overview">{modalDetails.overview}</p>
+)}
+
+{modalDetails?.trailerKey && (
+  <div style={{ marginTop: "0.75rem" }}>
+    <button
+      type="button"
+      className="chip chip--primary"
+      onClick={() =>
+        window.open(
+          `https://www.youtube.com/watch?v=${modalDetails.trailerKey}`,
+          "_blank",
+          "noopener,noreferrer"
+        )
+      }
+    >
+      ▶ Watch Trailer
+    </button>
+  </div>
+)}
 
                 {/* Reviews */}
                 <div className="review-sections">

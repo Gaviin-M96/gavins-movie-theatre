@@ -25,23 +25,11 @@ const GENRE_MAP = {
   37: "Western",
 };
 
-// Fetch full details: poster, year, genres, runtime, rating, director, overview
+// Fetch full details: poster, year, genres, runtime, rating, director, cast, overview, trailer
 export async function fetchDetailsForMovie(title, yearHint) {
   if (!API_KEY) {
     console.warn("TMDB API key missing. Set VITE_TMDB_API_KEY in .env.local");
     return null;
-  }
-
-  // Helper to normalize titles for comparison
-  function normalizeTitle(str) {
-    if (!str) return "";
-    return str
-      .toLowerCase()
-      .replace(/&/g, "and")
-      .replace(/’/g, "'")
-      .replace(/[^a-z0-9]+/g, " ") // remove punctuation → spaces
-      .replace(/\s+/g, " ")        // collapse spaces
-      .trim();
   }
 
   try {
@@ -68,51 +56,19 @@ export async function fetchDetailsForMovie(title, yearHint) {
     }
 
     const searchData = await searchRes.json();
-    const results = searchData.results || [];
-    if (results.length === 0) {
+    if (!searchData.results || searchData.results.length === 0) {
       console.warn("No TMDB result for:", title, yearHint);
       return null;
     }
 
-    const normQuery = normalizeTitle(title);
-    const yearStr = yearHint ? String(yearHint) : null;
+    const match = searchData.results[0];
+    const tmdbId = match.id;
 
-    let bestMatch = null;
-    let exactTitleAndYear = null;
-    let exactTitleOnly = null;
-    let sameYearOnly = null;
-
-    for (const r of results) {
-      const candidateTitle = r.title || r.original_title || "";
-      const normCandidate = normalizeTitle(candidateTitle);
-      const candidateYear = r.release_date ? r.release_date.slice(0, 4) : null;
-
-      // Exact normalized title + exact year
-      if (normCandidate === normQuery && yearStr && candidateYear === yearStr) {
-        exactTitleAndYear = r;
-        break; // this is the strongest match, we can stop
-      }
-
-      // Exact title, regardless of year
-      if (!exactTitleOnly && normCandidate === normQuery) {
-        exactTitleOnly = r;
-      }
-
-      // Same year, even if title is a bit off
-      if (!sameYearOnly && yearStr && candidateYear === yearStr) {
-        sameYearOnly = r;
-      }
-    }
-
-    bestMatch = exactTitleAndYear || exactTitleOnly || sameYearOnly || results[0];
-
-    const tmdbId = bestMatch.id;
-
-    // 2) Fetch full details + credits in one call
+    // 2) Fetch full details + credits + videos in one call
     const detailsParams = new URLSearchParams({
       api_key: API_KEY,
       language: "en-US",
-      append_to_response: "credits",
+      append_to_response: "credits,videos",
     });
 
     const detailsRes = await fetch(
@@ -141,15 +97,16 @@ export async function fetchDetailsForMovie(title, yearHint) {
 
     const genres =
       details.genres?.map((g) => g.name) ??
-      (bestMatch.genre_ids || [])
+      (match.genre_ids || [])
         .map((id) => GENRE_MAP[id])
         .filter(Boolean);
 
     const runtime = details.runtime || null;
     const rating = details.vote_average || null;
     const overview = details.overview || "";
-    let director = null;
 
+    // Director
+    let director = null;
     if (details.credits && Array.isArray(details.credits.crew)) {
       const directorEntry = details.credits.crew.find(
         (c) => c.job === "Director"
@@ -159,15 +116,43 @@ export async function fetchDetailsForMovie(title, yearHint) {
       }
     }
 
+    // Cast names (top 10)
+    let cast = [];
+    if (details.credits && Array.isArray(details.credits.cast)) {
+      cast = details.credits.cast
+        .slice(0, 10)
+        .map((c) => c.name)
+        .filter(Boolean);
+    }
+
+    // Trailer (YouTube)
+    let trailerKey = null;
+    if (details.videos && Array.isArray(details.videos.results)) {
+      const youtubeVideos = details.videos.results.filter(
+        (v) => v.site === "YouTube"
+      );
+
+      const trailer =
+        youtubeVideos.find((v) => v.type === "Trailer" && v.official) ||
+        youtubeVideos.find((v) => v.type === "Trailer") ||
+        youtubeVideos[0];
+
+      if (trailer) {
+        trailerKey = trailer.key;
+      }
+    }
+
     return {
       tmdbId,
       posterUrl,
       year,
       genres,
-      runtime,  // minutes
-      rating,   // 0–10
+      runtime,   // minutes
+      rating,    // 0–10
       overview,
       director,
+      cast,
+      trailerKey,
     };
   } catch (e) {
     console.error("TMDB fetch error:", e);
