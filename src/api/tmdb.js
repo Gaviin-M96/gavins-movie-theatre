@@ -32,6 +32,18 @@ export async function fetchDetailsForMovie(title, yearHint) {
     return null;
   }
 
+  // Helper to normalize titles for comparison
+  function normalizeTitle(str) {
+    if (!str) return "";
+    return str
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/’/g, "'")
+      .replace(/[^a-z0-9]+/g, " ") // remove punctuation → spaces
+      .replace(/\s+/g, " ")        // collapse spaces
+      .trim();
+  }
+
   try {
     // 1) Search by title (and optional year)
     const searchParams = new URLSearchParams({
@@ -56,13 +68,45 @@ export async function fetchDetailsForMovie(title, yearHint) {
     }
 
     const searchData = await searchRes.json();
-    if (!searchData.results || searchData.results.length === 0) {
+    const results = searchData.results || [];
+    if (results.length === 0) {
       console.warn("No TMDB result for:", title, yearHint);
       return null;
     }
 
-    const match = searchData.results[0];
-    const tmdbId = match.id;
+    const normQuery = normalizeTitle(title);
+    const yearStr = yearHint ? String(yearHint) : null;
+
+    let bestMatch = null;
+    let exactTitleAndYear = null;
+    let exactTitleOnly = null;
+    let sameYearOnly = null;
+
+    for (const r of results) {
+      const candidateTitle = r.title || r.original_title || "";
+      const normCandidate = normalizeTitle(candidateTitle);
+      const candidateYear = r.release_date ? r.release_date.slice(0, 4) : null;
+
+      // Exact normalized title + exact year
+      if (normCandidate === normQuery && yearStr && candidateYear === yearStr) {
+        exactTitleAndYear = r;
+        break; // this is the strongest match, we can stop
+      }
+
+      // Exact title, regardless of year
+      if (!exactTitleOnly && normCandidate === normQuery) {
+        exactTitleOnly = r;
+      }
+
+      // Same year, even if title is a bit off
+      if (!sameYearOnly && yearStr && candidateYear === yearStr) {
+        sameYearOnly = r;
+      }
+    }
+
+    bestMatch = exactTitleAndYear || exactTitleOnly || sameYearOnly || results[0];
+
+    const tmdbId = bestMatch.id;
 
     // 2) Fetch full details + credits in one call
     const detailsParams = new URLSearchParams({
@@ -97,7 +141,7 @@ export async function fetchDetailsForMovie(title, yearHint) {
 
     const genres =
       details.genres?.map((g) => g.name) ??
-      (match.genre_ids || [])
+      (bestMatch.genre_ids || [])
         .map((id) => GENRE_MAP[id])
         .filter(Boolean);
 
@@ -120,8 +164,8 @@ export async function fetchDetailsForMovie(title, yearHint) {
       posterUrl,
       year,
       genres,
-      runtime, // minutes
-      rating, // 0–10
+      runtime,  // minutes
+      rating,   // 0–10
       overview,
       director,
     };
