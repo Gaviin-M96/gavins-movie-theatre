@@ -10,6 +10,26 @@ const GAVIN_REVIEWS_KEY = "gmtGavinReviews";
 const SEEN_STORAGE_KEY = "gmtSeen";
 const RECENTLY_WATCHED_KEY = "gmtRecentlyWatched";
 
+function normalizeForSearch(str) {
+  return str.toLowerCase().replace(/[^a-z0-9]+/g, "");
+}
+
+function fuzzyMatch(query, text) {
+  const q = normalizeForSearch(query);
+  if (!q) return true;
+
+  const t = normalizeForSearch(text);
+  let qi = 0;
+
+  for (let ti = 0; ti < t.length && qi < q.length; ti++) {
+    if (t[ti] === q[qi]) {
+      qi++;
+    }
+  }
+
+  return qi === q.length;
+}
+
 function App() {
   const [search, setSearch] = useState("");
   const [formatFilter, setFormatFilter] = useState("all");
@@ -167,15 +187,15 @@ function App() {
       return movies.filter((m) => watchlistSet.has(m.id));
     }
     if (view === "recent") {
-      // Keep only movies that appear in recentlyWatched
       return movies.filter((m) => recentSet.has(m.id));
     }
     return movies;
   }, [view, favoriteSet, watchlistSet, recentSet]);
 
-  // Filtering + sorting
+  // Filtering + sorting (with fuzzy search + rating sorts)
   const filteredMovies = useMemo(() => {
     const lowerSearch = search.toLowerCase().trim();
+    const normalizedSearch = normalizeForSearch(lowerSearch);
 
     let result = baseMovies.filter((movie) => {
       const details = detailsMap[movie.id];
@@ -184,11 +204,26 @@ function App() {
       const genresArr =
         details?.genres || (movie.genre ? [movie.genre] : []);
 
-      const matchesSearch =
+      // Normal includes-based search
+      const basicMatch =
         !lowerSearch ||
         movie.title.toLowerCase().includes(lowerSearch) ||
         genresArr.some((g) => g.toLowerCase().includes(lowerSearch)) ||
         (year && String(year).includes(lowerSearch));
+
+      // Fuzzy: only bother if user typed at least 2 "real" chars
+      let fuzzyHit = false;
+      if (!basicMatch && normalizedSearch.length >= 2) {
+        const searchTargets = [
+          movie.title,
+          genresArr.join(" "),
+          year ? String(year) : "",
+        ];
+
+        fuzzyHit = searchTargets.some((t) => fuzzyMatch(normalizedSearch, t));
+      }
+
+      const matchesSearch = basicMatch || fuzzyHit;
 
       const matchesFormat =
         formatFilter === "all"
@@ -240,10 +275,16 @@ function App() {
       }
     });
 
-    // If we're in "recent" view and you want strict recency order instead of sorted,
-    // comment out the sort block above and do a custom sort here based on recentlyWatched.
     return result;
-  }, [baseMovies, search, formatFilter, genreFilter, sortBy, detailsMap, gavinReviews]);
+  }, [
+    baseMovies,
+    search,
+    formatFilter,
+    genreFilter,
+    sortBy,
+    detailsMap,
+    gavinReviews,
+  ]);
 
   // TMDB details lazy load
   useEffect(() => {
@@ -736,41 +777,41 @@ function App() {
                 )}
 
                 {modalDetails?.director && (
-  <p>
-    <strong>Director:</strong>{" "}
-    <button
-      type="button"
-      className="chip"
-      onClick={() => {
-        setSearch(modalDetails.director);
-        setView("all");
-        closeModal();
-      }}
-    >
-      {modalDetails.director}
-    </button>
-  </p>
-)}
+                  <p>
+                    <strong>Director:</strong>{" "}
+                    <button
+                      type="button"
+                      className="chip"
+                      onClick={() => {
+                        setSearch(modalDetails.director);
+                        setView("all");
+                        closeModal();
+                      }}
+                    >
+                      {modalDetails.director}
+                    </button>
+                  </p>
+                )}
 
-{modalDetails?.cast && modalDetails.cast.length > 0 && (
-  <p className="modal-cast">
-    <strong>Cast:</strong>{" "}
-    {modalDetails.cast.slice(0, 6).map((name) => (
-      <button
-        key={name}
-        type="button"
-        className="chip"
-        onClick={() => {
-          setSearch(name);
-          setView("all");
-          closeModal();
-        }}
-      >
-        {name}
-      </button>
-    ))}
-  </p>
-)}
+                {modalDetails?.cast && modalDetails.cast.length > 0 && (
+                  <p className="modal-cast">
+                    <strong>Cast:</strong>{" "}
+                    {modalDetails.cast.slice(0, 6).map((name) => (
+                      <button
+                        key={name}
+                        type="button"
+                        className="chip"
+                        onClick={() => {
+                          setSearch(name);
+                          setView("all");
+                          closeModal();
+                        }}
+                      >
+                        {name}
+                      </button>
+                    ))}
+                  </p>
+                )}
 
                 {seen[modalMovie.id] && (
                   <p>
@@ -780,26 +821,26 @@ function App() {
                 )}
 
                 {modalDetails?.overview && (
-  <p className="modal-overview">{modalDetails.overview}</p>
-)}
+                  <p className="modal-overview">{modalDetails.overview}</p>
+                )}
 
-{modalDetails?.trailerKey && (
-  <div style={{ marginTop: "0.75rem" }}>
-    <button
-      type="button"
-      className="chip chip--primary"
-      onClick={() =>
-        window.open(
-          `https://www.youtube.com/watch?v=${modalDetails.trailerKey}`,
-          "_blank",
-          "noopener,noreferrer"
-        )
-      }
-    >
-      ▶ Watch Trailer
-    </button>
-  </div>
-)}
+                {modalDetails?.trailerKey && (
+                  <div style={{ marginTop: "0.75rem" }}>
+                    <button
+                      type="button"
+                      className="chip chip--primary"
+                      onClick={() =>
+                        window.open(
+                          `https://www.youtube.com/watch?v=${modalDetails.trailerKey}`,
+                          "_blank",
+                          "noopener,noreferrer"
+                        )
+                      }
+                    >
+                      ▶ Watch Trailer
+                    </button>
+                  </div>
+                )}
 
                 {/* Reviews */}
                 <div className="review-sections">
