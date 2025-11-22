@@ -442,113 +442,105 @@ function App() {
       </header>
 
       <div className="layout">
+        
         {/* Sidebar filter panel */}
-        <aside className="sidebar">
-          <h3 className="sidebar-title">Filters</h3>
+<aside className="sidebar">
+  <h3 className="sidebar-title">Filters</h3>
 
-          <label className="sidebar-label">Search</label>
-          <input
-            className="sidebar-input"
-            type="text"
-            placeholder="Title, genre, year…"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
+  <label className="sidebar-label">Search</label>
+  <input
+    className="sidebar-input"
+    type="text"
+    placeholder="Title, genre, year…"
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+  />
 
-          <label className="sidebar-label">Sort By</label>
-          <select
-            className="sidebar-select"
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
+  <label className="sidebar-label">Sort By</label>
+  <select
+    className="sidebar-select"
+    value={sortBy}
+    onChange={(e) => setSortBy(e.target.value)}
+  >
+    <option value="title-asc">Title A–Z</option>
+    <option value="title-desc">Title Z–A</option>
+    <option value="year-desc">Year (new → old)</option>
+    <option value="year-asc">Year (old → new)</option>
+  </select>
+
+  <button className="btn-secondary" onClick={clearFilters}>
+    Reset Filters
+  </button>
+
+  <button className="btn-primary" onClick={handleRandom}>
+    🎲 Random Movie
+  </button>
+
+  <div className="chip-row chip-row--stacked">
+    <span className="chip-row-label">Format</span>
+    <div className="chip-row-inner">
+      {visibleFormats.map((format) => {
+        const label =
+          format === "all"
+            ? "All Formats"
+            : format === "Blu-ray"
+            ? "Blu-Ray"
+            : format;
+        const isActive = formatFilter === format;
+
+        return (
+          <button
+            key={format}
+            className={`chip ${isActive ? "chip--active" : ""}`}
+            onClick={() => setFormatFilter(format)}
           >
-            <option value="title-asc">Title A–Z</option>
-            <option value="title-desc">Title Z–A</option>
-            <option value="year-desc">Year (new → old)</option>
-            <option value="year-asc">Year (old → new)</option>
-          </select>
-
-          <button className="btn-secondary" onClick={clearFilters}>
-            Reset Filters
+            {label}
           </button>
+        );
+      })}
 
-          <button className="btn-primary" onClick={handleRandom}>
-            🎲 Random Movie
+      {formats.length > MAX_VISIBLE_CHIPS && (
+        <button
+          type="button"
+          className="chip chip--more"
+          onClick={() => setShowAllFormats((v) => !v)}
+        >
+          {showAllFormats ? "Less" : "More…"}
+        </button>
+      )}
+    </div>
+  </div>
+
+  <div className="chip-row chip-row--stacked">
+    <span className="chip-row-label">Genre</span>
+    <div className="chip-row-inner">
+      {visibleGenres.map((genre) => {
+        const label = genre === "all" ? "All Genres" : genre;
+        const isActive = genreFilter === genre;
+
+        return (
+          <button
+            key={genre}
+            className={`chip ${isActive ? "chip--active" : ""}`}
+            onClick={() => setGenreFilter(genre)}
+          >
+            {label}
           </button>
+        );
+      })}
 
-          <div className="chip-row chip-row--stacked">
-            <span className="chip-row-label">Format</span>
-            <div className="chip-row-inner">
-              {visibleFormats.map((format) => {
-                const label =
-                  format === "all"
-                    ? "All Formats"
-                    : format === "Blu-ray"
-                    ? "Blu-Ray"
-                    : format;
-                const isActive = formatFilter === format;
-
-                return (
-                  <button
-                    key={format}
-                    className={`chip ${isActive ? "chip--active" : ""}`}
-                    onClick={() => setFormatFilter(format)}
-                  >
-                    {label}
-                  </button>
-                );
-              })}
-
-              {formats.length > MAX_VISIBLE_CHIPS && (
-                <button
-                  type="button"
-                  className="chip chip--more"
-                  onClick={() => setShowAllFormats((v) => !v)}
-                >
-                  {showAllFormats ? "Less" : "More…"}
-                </button>
-              )}
-            </div>
-          </div>
-
-          <div className="chip-row chip-row--stacked">
-            <span className="chip-row-label">Genre</span>
-            <div className="chip-row-inner">
-              {visibleGenres.map((genre) => {
-                const label = genre === "all" ? "All Genres" : genre;
-                const isActive = genreFilter === genre;
-
-                return (
-                  <button
-                    key={genre}
-                    className={`chip ${isActive ? "chip--active" : ""}`}
-                    onClick={() => setGenreFilter(genre)}
-                  >
-                    {label}
-                  </button>
-                );
-              })}
-
-              {genres.length > MAX_VISIBLE_CHIPS && (
-                <button
-                  type="button"
-                  className="chip chip--more"
-                  onClick={() => setShowAllGenres((v) => !v)}
-                >
-                  {showAllGenres ? "Less" : "More…"}
-                </button>
-              )}
-            </div>
-          </div>
-
-          <div className="backup-controls">
-            <button className="btn-secondary" onClick={handleBackup}>
-              Backup Data
-            </button>
-            <button className="btn-secondary" onClick={handleRestore}>
-              Restore Data
-            </button>
-          </div>
-        </aside>
+      {genres.length > MAX_VISIBLE_CHIPS && (
+        <button
+          type="button"
+          className="chip chip--more"
+          onClick={() => setShowAllGenres((v) => !v)}
+        >
+          {showAllGenres ? "Less" : "More…"}
+        </button>
+      )}
+    </div>
+  </div>
+</aside>
 
         {/* Main content */}
         <main className="content">

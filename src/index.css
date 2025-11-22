@@ -170,15 +170,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* Backup controls in sidebar */
-
-.backup-controls {
-  margin-top: 0.9rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
 /* Chip rows */
 
 .chip-row {
