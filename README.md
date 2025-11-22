@@ -7,7 +7,7 @@ Live Site: https://movies.gavinmoore.ca
 🚀 Features
 🎞 Movie Library
 
-Displays your entire Blu-Ray movie collection
+Displays my entire Blu-Ray movie collection
 
 Clean card-based layout with posters, metadata, and rating badges
 
