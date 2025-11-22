@@ -8,7 +8,6 @@ const FAVORITES_STORAGE_KEY = "gmtFavorites";
 const WATCHLIST_STORAGE_KEY = "gmtWatchlist";
 const GAVIN_REVIEWS_KEY = "gmtGavinReviews";
 const SEEN_STORAGE_KEY = "gmtSeen";
-const RECENTLY_WATCHED_KEY = "gmtRecentlyWatched";
 
 function normalizeForSearch(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, "");
@@ -39,9 +38,8 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
   const [seen, setSeen] = useState({});
-  const [recentlyWatched, setRecentlyWatched] = useState([]);
   const [modalMovieId, setModalMovieId] = useState(null);
-  const [view, setView] = useState("all"); // "all" | "favorites" | "watchlist" | "recent"
+  const [view, setView] = useState("all"); // "all" | "favorites" | "watchlist"
   const [showAllFormats, setShowAllFormats] = useState(false);
   const [showAllGenres, setShowAllGenres] = useState(false);
 
@@ -88,20 +86,12 @@ function App() {
           setSeen(parsedSeen);
         }
       }
-
-      const rawRecent = localStorage.getItem(RECENTLY_WATCHED_KEY);
-      if (rawRecent) {
-        const parsedRecent = JSON.parse(rawRecent);
-        if (Array.isArray(parsedRecent)) {
-          setRecentlyWatched(parsedRecent);
-        }
-      }
     } catch (e) {
       console.warn("Error reading localStorage:", e);
     }
   }, []);
 
-  // Save filters, favourites, watchlist, reviews, seen & recents whenever they change
+  // Save filters, favourites, watchlist, reviews & seen whenever they change
   useEffect(() => {
     try {
       localStorage.setItem(
@@ -118,25 +108,10 @@ function App() {
       localStorage.setItem(WATCHLIST_STORAGE_KEY, JSON.stringify(watchlist));
       localStorage.setItem(GAVIN_REVIEWS_KEY, JSON.stringify(gavinReviews));
       localStorage.setItem(SEEN_STORAGE_KEY, JSON.stringify(seen));
-      localStorage.setItem(
-        RECENTLY_WATCHED_KEY,
-        JSON.stringify(recentlyWatched)
-      );
     } catch (e) {
       console.warn("Error writing localStorage:", e);
     }
-  }, [
-    search,
-    formatFilter,
-    genreFilter,
-    sortBy,
-    view,
-    favorites,
-    watchlist,
-    gavinReviews,
-    seen,
-    recentlyWatched,
-  ]);
+  }, [search, formatFilter, genreFilter, sortBy, view, favorites, watchlist, gavinReviews, seen]);
 
   // Sets for quick lookup
   const favoriteSet = useMemo(() => new Set(favorites), [favorites]);
@@ -145,7 +120,6 @@ function App() {
     () => new Set(Object.keys(seen).map((id) => Number(id))),
     [seen]
   );
-  const recentSet = useMemo(() => new Set(recentlyWatched), [recentlyWatched]);
 
   // Unique formats
   const formats = useMemo(
@@ -178,7 +152,7 @@ function App() {
     ? genres
     : genres.slice(0, MAX_VISIBLE_CHIPS);
 
-  // Base list by view (all / favourites / watchlist / recent)
+  // Base list by view (all / favourites / watchlist)
   const baseMovies = useMemo(() => {
     if (view === "favorites") {
       return movies.filter((m) => favoriteSet.has(m.id));
@@ -186,13 +160,10 @@ function App() {
     if (view === "watchlist") {
       return movies.filter((m) => watchlistSet.has(m.id));
     }
-    if (view === "recent") {
-      return movies.filter((m) => recentSet.has(m.id));
-    }
     return movies;
-  }, [view, favoriteSet, watchlistSet, recentSet]);
+  }, [view, favoriteSet, watchlistSet]);
 
-  // Filtering + sorting (with fuzzy search + rating sorts)
+  // Filtering + sorting
   const filteredMovies = useMemo(() => {
     const lowerSearch = search.toLowerCase().trim();
     const normalizedSearch = normalizeForSearch(lowerSearch);
@@ -211,7 +182,7 @@ function App() {
         genresArr.some((g) => g.toLowerCase().includes(lowerSearch)) ||
         (year && String(year).includes(lowerSearch));
 
-      // Fuzzy: only bother if user typed at least 2 "real" chars
+      // Fuzzy: only bother if user typed at least 2 "real" characters
       let fuzzyHit = false;
       if (!basicMatch && normalizedSearch.length >= 2) {
         const searchTargets = [
@@ -341,16 +312,8 @@ function App() {
     });
   };
 
-  const registerRecentlyWatched = (id) => {
-    setRecentlyWatched((prev) => {
-      const filtered = prev.filter((x) => x !== id);
-      return [id, ...filtered].slice(0, 30); // keep latest 30
-    });
-  };
-
   const openModal = (id) => {
     setModalMovieId(id);
-    registerRecentlyWatched(id);
   };
 
   const closeModal = () => setModalMovieId(null);
@@ -360,7 +323,6 @@ function App() {
     const random =
       filteredMovies[Math.floor(Math.random() * filteredMovies.length)];
     setModalMovieId(random.id);
-    registerRecentlyWatched(random.id);
   };
 
   // Gavin review helpers
@@ -403,7 +365,6 @@ function App() {
   const totalSeen = Object.keys(seen).length;
   const totalFavorites = favorites.length;
   const totalWatchlist = watchlist.length;
-  const totalRecent = recentlyWatched.length;
 
   const movieReviewKey =
     modalDetails?.tmdbId != null
@@ -423,7 +384,6 @@ function App() {
   if (genreFilter !== "all") activeFilters.push(`${genreFilter} genre`);
   if (view === "favorites") activeFilters.push("Favourites only");
   if (view === "watchlist") activeFilters.push("Watchlist only");
-  if (view === "recent") activeFilters.push("Recently watched only");
 
   return (
     <div className="app">
@@ -435,11 +395,11 @@ function App() {
           </p>
           <p className="app-header-subline">
             {totalSeen} seen • {totalFavorites} favourites •{" "}
-            {totalWatchlist} in watchlist • {totalRecent} recently watched
+            {totalWatchlist} in watchlist
           </p>
         </div>
 
-        {/* View tabs: All / Favourites / Watchlist / Recent */}
+        {/* View tabs: All / Favourites / Watchlist */}
         <div className="view-tabs">
           <button
             className={`view-tab ${view === "all" ? "view-tab--active" : ""}`}
@@ -462,14 +422,6 @@ function App() {
             onClick={() => setView("watchlist")}
           >
             📺 Watchlist
-          </button>
-          <button
-            className={`view-tab ${
-              view === "recent" ? "view-tab--active" : ""
-            }`}
-            onClick={() => setView("recent")}
-          >
-            ⏱ Recently Watched
           </button>
         </div>
       </header>
@@ -616,7 +568,6 @@ function App() {
                 const isFavorite = favoriteSet.has(movie.id);
                 const inWatchlist = watchlistSet.has(movie.id);
                 const isSeen = seenSet.has(movie.id);
-                const isRecent = recentSet.has(movie.id);
 
                 const tmdbRating = details?.rating ?? null;
 
@@ -624,7 +575,7 @@ function App() {
                   <article
                     key={movie.id}
                     className={`card ${
-                      isFavorite || inWatchlist || isSeen || isRecent
+                      isFavorite || inWatchlist || isSeen
                         ? "card--highlight"
                         : ""
                     }`}
@@ -633,7 +584,7 @@ function App() {
                       className="cover"
                       onClick={() => openModal(movie.id)}
                     >
-                      {(isFavorite || inWatchlist || isSeen || isRecent) && (
+                      {(isFavorite || inWatchlist || isSeen) && (
                         <div className="card-ribbons">
                           {isFavorite && (
                             <span className="card-ribbon card-ribbon--fav">
@@ -648,11 +599,6 @@ function App() {
                           {isSeen && (
                             <span className="card-ribbon card-ribbon--seen">
                               SEEN
-                            </span>
-                          )}
-                          {isRecent && !isSeen && (
-                            <span className="card-ribbon card-ribbon--recent">
-                              RECENT
                             </span>
                           )}
                         </div>
