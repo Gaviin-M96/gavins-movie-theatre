@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import FiltersSidebar from "./components/FiltersSidebar";
 import MovieGrid from "./components/MovieGrid";
 import MovieModal from "./components/MovieModal";
+import BottomNav from "./components/BottomNav";
 
 const FILTERS_STORAGE_KEY = "gmtFilters";
 const FAVORITES_STORAGE_KEY = "gmtFavorites";
@@ -42,7 +43,7 @@ function App() {
   const [watchlist, setWatchlist] = useState([]);
   const [seen, setSeen] = useState({});
   const [modalMovieId, setModalMovieId] = useState(null);
-  const [view, setView] = useState("all"); // "all" | "favorites" | "watchlist" | "seen" | "top"
+  const [view, setView] = useState("all"); // "all" | "favorites" | "watchlist" | "top"
   const [showAllFormats, setShowAllFormats] = useState(false);
   const [showAllGenres, setShowAllGenres] = useState(false);
 
@@ -193,16 +194,13 @@ function App() {
     ? genres
     : genres.slice(0, MAX_VISIBLE_CHIPS);
 
-  // Base list by view (all / favourites / watchlist / seen / top rated)
+  // Base list by view (all / favourites / watchlist / top rated)
   const baseMovies = useMemo(() => {
     if (view === "favorites") {
       return movies.filter((m) => favoriteSet.has(m.id));
     }
     if (view === "watchlist") {
       return movies.filter((m) => watchlistSet.has(m.id));
-    }
-    if (view === "seen") {
-      return movies.filter((m) => seenSet.has(m.id));
     }
     if (view === "top") {
       return movies.filter((m) => {
@@ -213,7 +211,7 @@ function App() {
       });
     }
     return movies;
-  }, [view, favoriteSet, watchlistSet, seenSet, gavinReviews, detailsMap]);
+  }, [view, favoriteSet, watchlistSet, gavinReviews, detailsMap]);
 
   // Filtering + sorting
   const filteredMovies = useMemo(() => {
@@ -307,7 +305,7 @@ function App() {
     gavinReviews,
   ]);
 
-  // TMDB details lazy-ish load: fetch only missing movies, in batches
+  // TMDB details lazy-ish load
   useEffect(() => {
     let cancelled = false;
 
@@ -453,7 +451,6 @@ function App() {
   if (genreFilter !== "all") activeFilters.push(`${genreFilter} genre`);
   if (view === "favorites") activeFilters.push("Favourites only");
   if (view === "watchlist") activeFilters.push("Watchlist only");
-  if (view === "seen") activeFilters.push("Seen only");
   if (view === "top") activeFilters.push("Top rated only");
 
   const handleQuickSearch = (query) => {
@@ -470,8 +467,6 @@ function App() {
         totalSeen={totalSeen}
         totalFavorites={totalFavorites}
         totalWatchlist={totalWatchlist}
-        view={view}
-        onChangeView={setView}
       />
 
       <div className="layout">
@@ -532,6 +527,10 @@ function App() {
         </main>
       </div>
 
+      {/* Bottom navigation (like Instagram) */}
+      <BottomNav view={view} onChangeView={setView} />
+
+      {/* Modal */}
       {modalMovie && (
         <div className="modal-backdrop" onClick={closeModal}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
