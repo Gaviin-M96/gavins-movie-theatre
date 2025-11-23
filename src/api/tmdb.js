@@ -1,4 +1,7 @@
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+const API_KEY =
+  import.meta.env.VITE_TMDB_API_KEY ||
+  "a6cda52e53695582aacec71e96e84f2c";
+
 const TMDB_BASE_URL = "https://api.themoviedb.org/3";
 const TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
 
@@ -28,7 +31,9 @@ const GENRE_MAP = {
 // Fetch full details: poster, year, genres, runtime, rating, director, cast, overview, trailer
 export async function fetchDetailsForMovie(title, yearHint) {
   if (!API_KEY) {
-    console.warn("TMDB API key missing. Set VITE_TMDB_API_KEY in .env.local");
+    console.warn(
+      "TMDB API key missing. Set VITE_TMDB_API_KEY in .env or hardcode it."
+    );
     return null;
   }
 
@@ -147,8 +152,8 @@ export async function fetchDetailsForMovie(title, yearHint) {
       posterUrl,
       year,
       genres,
-      runtime,   // minutes
-      rating,    // 0–10
+      runtime, // minutes
+      rating,  // 0–10
       overview,
       director,
       cast,
