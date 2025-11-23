@@ -49,19 +49,9 @@ function MovieGrid({
                 </div>
               )}
 
-              {movie.format && (
-                <div className="card-format-pill">
-                  {movie.format === "Blu-ray" ? "Blu-Ray" : movie.format}
-                </div>
-              )}
-
-              <img src={posterUrl} alt={movie.title} loading="lazy" />
-            </div>
-
-            <div className="card-body">
               {tmdbRating != null && (
                 <div
-                  className={`card-rating-badge ${
+                  className={`card-rating-badge card-rating-badge--overlay ${
                     tmdbRating >= 8
                       ? "card-rating-badge--high"
                       : tmdbRating >= 6
@@ -73,6 +63,16 @@ function MovieGrid({
                 </div>
               )}
 
+              {movie.format && (
+                <div className="card-format-pill">
+                  {movie.format === "Blu-ray" ? "Blu-Ray" : movie.format}
+                </div>
+              )}
+
+              <img src={posterUrl} alt={movie.title} loading="lazy" />
+            </div>
+
+            <div className="card-body">
               <h2 onClick={() => onOpenModal(movie.id)}>{movie.title}</h2>
               {meta && <p className="meta">{meta}</p>}
 
@@ -88,7 +88,9 @@ function MovieGrid({
                   onClick={() => onToggleFavorite(movie.id)}
                   title="Toggle favourite"
                 >
-                  <span className="icon-symbol">★</span>
+                  <span className="icon-symbol">
+                    {isFavorite ? "❤️" : "🤍"}
+                  </span>
                 </button>
                 <button
                   className={`icon-button ${
@@ -97,7 +99,7 @@ function MovieGrid({
                   onClick={() => onToggleWatchlist(movie.id)}
                   title="Toggle watchlist"
                 >
-                  <span className="icon-symbol">▶</span>
+                  <span className="icon-symbol">📺</span>
                 </button>
               </div>
             </div>

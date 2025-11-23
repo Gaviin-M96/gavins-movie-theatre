@@ -17,6 +17,8 @@ function FiltersSidebar({
   onRandom,
   onToggleShowAllFormats,
   onToggleShowAllGenres,
+  currentCount,
+  totalCount,
 }) {
   return (
     <aside className="sidebar">
@@ -31,35 +33,41 @@ function FiltersSidebar({
         </button>
       </div>
 
-      <label className="sidebar-label">Search</label>
-      <input
-        className="sidebar-input"
-        type="text"
-        placeholder="Title, genre, year…"
-        value={search}
-        onChange={(e) => onSearchChange(e.target.value)}
-      />
+      {/* Search + Sort row */}
+      <div className="sidebar-row">
+        <div className="sidebar-field">
+          <label className="sidebar-label">Search</label>
+          <input
+            className="sidebar-input"
+            type="text"
+            placeholder="Title, genre, year…"
+            value={search}
+            onChange={(e) => onSearchChange(e.target.value)}
+          />
+        </div>
 
-      <label className="sidebar-label">Sort By</label>
-      <select
-        className="sidebar-select"
-        value={sortBy}
-        onChange={(e) => onSortChange(e.target.value)}
-      >
-        <option value="title-asc">Title A–Z</option>
-        <option value="title-desc">Title Z–A</option>
-        <option value="year-desc">Year (new → old)</option>
-        <option value="year-asc">Year (old → new)</option>
-        <option value="gavin-desc">Gavin&apos;s Score (high → low)</option>
-        <option value="gavin-asc">Gavin&apos;s Score (low → high)</option>
-        <option value="tmdb-desc">TMDB Rating (high → low)</option>
-        <option value="tmdb-asc">TMDB Rating (low → high)</option>
-      </select>
+        <div className="sidebar-field">
+          <label className="sidebar-label">Sort By</label>
+          <select
+            className="sidebar-select"
+            value={sortBy}
+            onChange={(e) => onSortChange(e.target.value)}
+          >
+            <option value="title-asc">Title A–Z</option>
+            <option value="title-desc">Title Z–A</option>
+            <option value="year-desc">Year (new → old)</option>
+            <option value="year-asc">Year (old → new)</option>
+            <option value="tmdb-desc">Rating (high → low)</option>
+            <option value="tmdb-asc">Rating (low → high)</option>
+          </select>
+        </div>
+      </div>
 
       <button className="btn-primary" onClick={onRandom}>
         🎲 Random Movie
       </button>
 
+      {/* Formats */}
       <div className="chip-row chip-row--stacked">
         <span className="chip-row-label">Format</span>
         <div className="chip-row-inner">
@@ -95,6 +103,7 @@ function FiltersSidebar({
         </div>
       </div>
 
+      {/* Genres */}
       <div className="chip-row chip-row--stacked">
         <span className="chip-row-label">Genre</span>
         <div className="chip-row-inner">
@@ -124,6 +133,11 @@ function FiltersSidebar({
           )}
         </div>
       </div>
+
+      <p className="sidebar-count">
+        Showing <strong>{currentCount}</strong> of <strong>{totalCount}</strong>{" "}
+        movies
+      </p>
     </aside>
   );
 }

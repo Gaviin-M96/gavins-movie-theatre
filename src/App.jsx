@@ -32,6 +32,12 @@ function fuzzyMatch(query, text) {
   return qi === q.length;
 }
 
+function getSortTitle(str) {
+  if (!str) return "";
+  // Remove leading "The " (case-insensitive) for sorting purposes
+  return str.replace(/^\s*the\s+/i, "").trim();
+}
+
 function App() {
   const [search, setSearch] = useState("");
   const [formatFilter, setFormatFilter] = useState("all");
@@ -41,19 +47,16 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
   const [modalMovieId, setModalMovieId] = useState(null);
-  const [view, setView] = useState("all"); // "all" | "favorites" | "watchlist" | "top"
+  const [view, setView] = useState("all"); // all | favorites | watchlist | top
   const [showAllFormats, setShowAllFormats] = useState(false);
   const [showAllGenres, setShowAllGenres] = useState(false);
-
-  // Gavin reviews
   const [gavinReviews, setGavinReviews] = useState({});
 
-  // Set browser tab title
   useEffect(() => {
     document.title = "Gavin's Movie Theatre";
   }, []);
 
-  // Load saved state from localStorage
+  // Load saved state
   useEffect(() => {
     try {
       const rawFilters = localStorage.getItem(FILTERS_STORAGE_KEY);
@@ -90,7 +93,7 @@ function App() {
     }
   }, []);
 
-  // Save filters, favourites, watchlist, reviews whenever they change
+  // Save state
   useEffect(() => {
     try {
       localStorage.setItem(
@@ -111,7 +114,7 @@ function App() {
     }
   }, [search, formatFilter, genreFilter, sortBy, view, favorites, watchlist, gavinReviews]);
 
-  // Close modal with Esc + prevent background scroll when modal is open
+  // Modal ESC / body scroll lock
   useEffect(() => {
     if (modalMovieId == null) {
       document.body.classList.remove("modal-open");
@@ -127,49 +130,36 @@ function App() {
     };
 
     window.addEventListener("keydown", handleKeyDown);
-
     return () => {
       document.body.classList.remove("modal-open");
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [modalMovieId]);
 
-  // Sets for quick lookup
   const favoriteSet = useMemo(() => new Set(favorites), [favorites]);
   const watchlistSet = useMemo(() => new Set(watchlist), [watchlist]);
 
-  // Unique formats
   const formats = useMemo(
     () => ["all", ...new Set(movies.map((m) => m.format || "Unknown"))],
     []
   );
 
-  // Unique genres
   const genres = useMemo(() => {
     const set = new Set();
-
     Object.values(detailsMap).forEach((details) => {
       (details.genres || []).forEach((g) => set.add(g));
     });
-
     movies.forEach((m) => {
       if (m.genre) set.add(m.genre);
     });
-
     return ["all", ...Array.from(set).sort()];
   }, [detailsMap]);
 
   const MAX_VISIBLE_CHIPS = 8;
+  const visibleFormats = showAllFormats ? formats : formats.slice(0, MAX_VISIBLE_CHIPS);
+  const visibleGenres = showAllGenres ? genres : genres.slice(0, MAX_VISIBLE_CHIPS);
 
-  const visibleFormats = showAllFormats
-    ? formats
-    : formats.slice(0, MAX_VISIBLE_CHIPS);
-
-  const visibleGenres = showAllGenres
-    ? genres
-    : genres.slice(0, MAX_VISIBLE_CHIPS);
-
-  // Base list by view (all / favourites / watchlist / top rated)
+  // Base list by view
   const baseMovies = useMemo(() => {
     if (view === "favorites") {
       return movies.filter((m) => favoriteSet.has(m.id));
@@ -181,7 +171,6 @@ function App() {
       return movies.filter((m) => {
         const gRating = gavinReviews[m.id]?.rating ?? 0;
         const tRating = detailsMap[m.id]?.rating ?? 0;
-        // Top rated if Gavin >= 4, or TMDB >= 8 when no Gavin rating
         return gRating >= 4 || (!gRating && tRating >= 8);
       });
     }
@@ -197,17 +186,14 @@ function App() {
       const details = detailsMap[movie.id];
 
       const year = details?.year || movie.year || null;
-      const genresArr =
-        details?.genres || (movie.genre ? [movie.genre] : []);
+      const genresArr = details?.genres || (movie.genre ? [movie.genre] : []);
 
-      // Normal includes-based search
       const basicMatch =
         !lowerSearch ||
         movie.title.toLowerCase().includes(lowerSearch) ||
         genresArr.some((g) => g.toLowerCase().includes(lowerSearch)) ||
         (year && String(year).includes(lowerSearch));
 
-      // Fuzzy: only bother if user typed at least 2 "real" characters
       let fuzzyHit = false;
       if (!basicMatch && normalizedSearch.length >= 2) {
         const searchTargets = [
@@ -215,7 +201,6 @@ function App() {
           genresArr.join(" "),
           year ? String(year) : "",
         ];
-
         fuzzyHit = searchTargets.some((t) => fuzzyMatch(normalizedSearch, t));
       }
 
@@ -235,52 +220,47 @@ function App() {
     result = [...result];
 
     result.sort((a, b) => {
-      const da = detailsMap[a.id];
-      const db = detailsMap[b.id];
+  const da = detailsMap[a.id];
+  const db = detailsMap[b.id];
 
-      const ya = da?.year || a.year || 0;
-      const yb = db?.year || b.year || 0;
+  const ya = da?.year || a.year || 0;
+  const yb = db?.year || b.year || 0;
 
-      const ga = gavinReviews[a.id]?.rating ?? 0;
-      const gb = gavinReviews[b.id]?.rating ?? 0;
+  const ga = gavinReviews[a.id]?.rating ?? 0;
+  const gb = gavinReviews[b.id]?.rating ?? 0;
 
-      const ta = da?.rating ?? 0; // TMDB rating
-      const tb = db?.rating ?? 0;
+  const ta = da?.rating ?? 0; // TMDB rating
+  const tb = db?.rating ?? 0;
 
-      switch (sortBy) {
-        case "title-asc":
-          return a.title.localeCompare(b.title);
-        case "title-desc":
-          return b.title.localeCompare(a.title);
-        case "year-desc":
-          return yb - ya;
-        case "year-asc":
-          return ya - yb;
-        case "gavin-desc":
-          return gb - ga || a.title.localeCompare(b.title);
-        case "gavin-asc":
-          return ga - gb || a.title.localeCompare(b.title);
-        case "tmdb-desc":
-          return tb - ta || a.title.localeCompare(b.title);
-        case "tmdb-asc":
-          return ta - tb || a.title.localeCompare(b.title);
-        default:
-          return 0;
-      }
-    });
+  const titleA = getSortTitle(a.title);
+  const titleB = getSortTitle(b.title);
+
+  switch (sortBy) {
+    case "title-asc":
+      return titleA.localeCompare(titleB);
+    case "title-desc":
+      return titleB.localeCompare(titleA);
+    case "year-desc":
+      return yb - ya || titleA.localeCompare(titleB);
+    case "year-asc":
+      return ya - yb || titleA.localeCompare(titleB);
+    case "gavin-desc":
+      return gb - ga || titleA.localeCompare(titleB);
+    case "gavin-asc":
+      return ga - gb || titleA.localeCompare(titleB);
+    case "tmdb-desc":
+      return tb - ta || titleA.localeCompare(titleB);
+    case "tmdb-asc":
+      return ta - tb || titleA.localeCompare(titleB);
+    default:
+      return titleA.localeCompare(titleB);
+  }
+});
 
     return result;
-  }, [
-    baseMovies,
-    search,
-    formatFilter,
-    genreFilter,
-    sortBy,
-    detailsMap,
-    gavinReviews,
-  ]);
+  }, [baseMovies, search, formatFilter, genreFilter, sortBy, detailsMap, gavinReviews]);
 
-  // TMDB details lazy-ish load
+  // TMDB details lazy load
   useEffect(() => {
     let cancelled = false;
 
@@ -291,10 +271,7 @@ function App() {
       try {
         const results = await Promise.all(
           missing.map(async (movie) => {
-            const details = await fetchDetailsForMovie(
-              movie.title,
-              movie.year
-            );
+            const details = await fetchDetailsForMovie(movie.title, movie.year);
             return { id: movie.id, details };
           })
         );
@@ -316,13 +293,11 @@ function App() {
     }
 
     loadDetails();
-
     return () => {
       cancelled = true;
     };
   }, [detailsMap]);
 
-  // UI actions
   const clearFilters = () => {
     setSearch("");
     setFormatFilter("all");
@@ -342,10 +317,7 @@ function App() {
     );
   };
 
-  const openModal = (id) => {
-    setModalMovieId(id);
-  };
-
+  const openModal = (id) => setModalMovieId(id);
   const closeModal = () => setModalMovieId(null);
 
   const handleRandom = () => {
@@ -355,7 +327,6 @@ function App() {
     setModalMovieId(random.id);
   };
 
-  // Gavin review helpers
   const setGavinRating = (movieId, rating) => {
     setGavinReviews((prev) => ({
       ...prev,
@@ -380,9 +351,7 @@ function App() {
     modalMovieId != null ? movies.find((m) => m.id === modalMovieId) : null;
 
   const modalDetails =
-    modalMovie && detailsMap[modalMovie.id]
-      ? detailsMap[modalMovie.id]
-      : null;
+    modalMovie && detailsMap[modalMovie.id] ? detailsMap[modalMovie.id] : null;
 
   const gavinReview =
     modalMovie && gavinReviews[modalMovie.id]
@@ -402,7 +371,6 @@ function App() {
       ? String(modalMovie.id)
       : null;
 
-  // Build description of active filters for empty state
   const activeFilters = [];
   if (search.trim()) activeFilters.push(`“${search.trim()}”`);
   if (formatFilter !== "all") {
@@ -450,6 +418,8 @@ function App() {
           onRandom={handleRandom}
           onToggleShowAllFormats={() => setShowAllFormats((v) => !v)}
           onToggleShowAllGenres={() => setShowAllGenres((v) => !v)}
+          currentCount={currentCount}
+          totalCount={totalCount}
         />
 
         <main className="content">
@@ -463,7 +433,7 @@ function App() {
               )}
               <div className="empty-actions">
                 <button className="btn-secondary" onClick={clearFilters}>
-                  Clear filters & search
+                  Clear filters &amp; search
                 </button>
                 {baseMovies.length > 0 && (
                   <button className="btn-primary" onClick={handleRandom}>
@@ -486,17 +456,14 @@ function App() {
         </main>
       </div>
 
-      {/* Bottom navigation (like Instagram) */}
       <BottomNav view={view} onChangeView={setView} />
 
-      {/* Modal */}
       {modalMovie && (
         <div className="modal-backdrop" onClick={closeModal}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>
               ✕
             </button>
-
             <MovieModal
               movie={modalMovie}
               details={modalDetails}

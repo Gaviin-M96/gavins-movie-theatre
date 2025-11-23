@@ -1,46 +1,29 @@
+const NAV_ITEMS = [
+  { id: "all", label: "All", icon: "🏠" },
+  { id: "favorites", label: "Favourites", icon: "⭐" },
+  { id: "watchlist", label: "Watching", icon: "▶️" },
+  { id: "top", label: "Top Rated", icon: "🏆" },
+];
+
 function BottomNav({ view, onChangeView }) {
   return (
     <nav className="bottom-nav">
       <div className="bottom-nav-inner">
-        <button
-          className={`bottom-nav-item ${
-            view === "all" ? "bottom-nav-item--active" : ""
-          }`}
-          onClick={() => onChangeView("all")}
-        >
-          <span className="bottom-nav-icon">🏠</span>
-          <span className="bottom-nav-label">All</span>
-        </button>
-
-        <button
-          className={`bottom-nav-item ${
-            view === "favorites" ? "bottom-nav-item--active" : ""
-          }`}
-          onClick={() => onChangeView("favorites")}
-        >
-          <span className="bottom-nav-icon">⭐</span>
-          <span className="bottom-nav-label">Favourites</span>
-        </button>
-
-        <button
-          className={`bottom-nav-item ${
-            view === "watchlist" ? "bottom-nav-item--active" : ""
-          }`}
-          onClick={() => onChangeView("watchlist")}
-        >
-          <span className="bottom-nav-icon">📺</span>
-          <span className="bottom-nav-label">Watchlist</span>
-        </button>
-
-        <button
-          className={`bottom-nav-item ${
-            view === "top" ? "bottom-nav-item--active" : ""
-          }`}
-          onClick={() => onChangeView("top")}
-        >
-          <span className="bottom-nav-icon">🏆</span>
-          <span className="bottom-nav-label">Top Rated</span>
-        </button>
+        {NAV_ITEMS.map(({ id, label, icon }) => (
+          <button
+            key={id}
+            type="button"
+            className={`bottom-nav-item ${
+              view === id ? "bottom-nav-item--active" : ""
+            }`}
+            onClick={() => onChangeView(id)}
+          >
+            <span className="bottom-nav-icon" aria-hidden="true">
+              {icon}
+            </span>
+            <span className="bottom-nav-label">{label}</span>
+          </button>
+        ))}
       </div>
     </nav>
   );
