@@ -1,5 +1,33 @@
-import { useState } from "react";
-import MovieReviews from "./MovieReviews";
+// src/components/MovieModal.jsx
+import { useMemo } from "react";
+
+function Stars({ value, onChange }) {
+  const stars = [1, 2, 3, 4, 5];
+
+  return (
+    <div className="star-row">
+      {stars.map((s) => {
+        const filled = value >= s;
+        return (
+          <button
+            key={s}
+            type="button"
+            className={
+              "star-button" + (filled ? " star-button--filled" : "")
+            }
+            onClick={() => onChange(s)}
+            aria-label={`Set rating to ${s} star${s > 1 ? "s" : ""}`}
+          >
+            {filled ? "★" : "☆"}
+          </button>
+        );
+      })}
+      <span className="star-label">
+        {value ? `${value} / 5` : "No score yet"}
+      </span>
+    </div>
+  );
+}
 
 function MovieModal({
   movie,
@@ -10,145 +38,111 @@ function MovieModal({
   onToggleWatchlist,
   gavinReview,
   onSetGavinRating,
-  onSetGavinText, // still accepted, but not used anymore
+  onSetGavinText,
   movieReviewKey,
   onQuickSearch,
 }) {
-  const trailerKey = details?.trailerKey || null;
-  const [showTrailer, setShowTrailer] = useState(false);
+  const year = details?.year || movie.year;
+  const runtime = details?.runtime;
+  const rating = details?.rating;
+  const genres = details?.genres || (movie.genre ? [movie.genre] : []);
+  const director = details?.director;
+  const cast = details?.cast || [];
 
-  const openTrailer = () => {
-    if (!trailerKey) return;
-    setShowTrailer(true);
+  const runtimeLabel = useMemo(() => {
+    if (!runtime) return null;
+    const hours = Math.floor(runtime / 60);
+    const mins = runtime % 60;
+    if (!hours) return `${mins} min`;
+    return `${hours}h ${mins.toString().padStart(2, "0")}m`;
+  }, [runtime]);
+
+  const handleStarChange = (val) => {
+    onSetGavinRating(val);
   };
 
-  const closeTrailer = () => {
-    setShowTrailer(false);
+  const handleTextChange = (e) => {
+    onSetGavinText(e.target.value);
   };
 
-  // Handle typed decimal rating (0.0–5.0)
-  const handleGavinInputChange = (e) => {
-    const raw = e.target.value;
-
-    // Allow clearing the field
-    if (raw === "") {
-      onSetGavinRating(0);
-      return;
-    }
-
-    const parsed = parseFloat(raw);
-    if (Number.isNaN(parsed)) return;
-
-    const clamped = Math.max(0, Math.min(5, parsed));
-    onSetGavinRating(clamped);
+  const handleGenreClick = (g) => {
+    if (!g) return;
+    onQuickSearch(g);
   };
 
-  // Value for the number input – blank if 0
-  const gavinScoreValue =
-    gavinReview && typeof gavinReview.rating === "number"
-      ? gavinReview.rating || ""
-      : "";
+  const handleYearClick = () => {
+    if (!year) return;
+    onQuickSearch(String(year));
+  };
 
   return (
     <div className="modal-content">
-      {/* LEFT COLUMN: Poster + Gavin's Score */}
-      <div className="modal-left">
-        <div className="modal-poster">
-          <img src={details?.posterUrl || movie.image} alt={movie.title} />
-        </div>
-
-        <section className="review-section review-section--gavin">
-          <div className="review-section-header">
-            <h3 className="review-section-title">Gavin&apos;s Score</h3>
-          </div>
-
-          {/* Stars + numeric input (hybrid) */}
-          <div className="gavin-score-row">
-            <div className="star-row">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <button
-                  key={star}
-                  type="button"
-                  className={`star-button ${
-                    gavinReview.rating >= star ? "star-button--filled" : ""
-                  }`}
-                  onClick={() => onSetGavinRating(star)}
-                >
-                  ★
-                </button>
-              ))}
-            </div>
-
-            <div>
-              <input
-                className="gavin-score-input"
-                type="number"
-                step="0.1"
-                min="0"
-                max="5"
-                value={gavinScoreValue}
-                onChange={handleGavinInputChange}
-              />
-              <span className="gavin-score-outof"> / 5</span>
-            </div>
-          </div>
-        </section>
+      {/* Poster column */}
+      <div className="modal-poster">
+        {details?.posterUrl ? (
+          <img src={details.posterUrl} alt={movie.title} />
+        ) : (
+          <img
+            src="https://via.placeholder.com/400x600?text=No+Poster"
+            alt={movie.title}
+          />
+        )}
       </div>
 
-      {/* RIGHT COLUMN: Info, Trailer, Community, Actions */}
+      {/* Info + reviews */}
       <div className="modal-info">
         <h2>{movie.title}</h2>
 
-        {details?.year && (
-          <p>
-            <strong>Year:</strong> {details.year}
-          </p>
-        )}
-
-        {details?.genres && details.genres.length > 0 && (
-          <p>
-            <strong>Genres:</strong> {details.genres.join(", ")}
-          </p>
-        )}
-
-        {details?.runtime && (
-          <p>
-            <strong>Runtime:</strong> {details.runtime} min
-          </p>
-        )}
-
-        {details?.rating && (
-          <p>
-            <strong>Rating:</strong> {details.rating.toFixed(1)}/10
-          </p>
-        )}
-
-        {details?.director && (
-          <p>
-            <strong>Director:</strong>{" "}
+        <p className="meta">
+          {year && (
             <button
               type="button"
               className="chip"
-              onClick={() => onQuickSearch(details.director)}
+              onClick={handleYearClick}
+              style={{ marginRight: "0.4rem" }}
             >
-              {details.director}
+              {year}
             </button>
+          )}
+          {runtimeLabel && (
+            <span style={{ marginRight: "0.4rem" }}>{runtimeLabel}</span>
+          )}
+          {rating && (
+            <span className={getRatingBadgeClass(rating)}>
+              ⭐ TMDB {rating.toFixed(1)}
+            </span>
+          )}
+        </p>
+
+        {genres && genres.length > 0 && (
+          <p className="meta">
+            {genres.slice(0, 5).map((g) => (
+              <button
+                key={g}
+                type="button"
+                className="chip"
+                onClick={() => handleGenreClick(g)}
+                style={{ marginRight: "0.3rem", marginBottom: "0.25rem" }}
+              >
+                {g}
+              </button>
+            ))}
           </p>
         )}
 
-        {details?.cast && details.cast.length > 0 && (
+        {director && (
+          <p>
+            <strong>Director:</strong> {director}
+          </p>
+        )}
+
+        {cast && cast.length > 0 && (
           <p className="modal-cast">
             <strong>Cast:</strong>{" "}
-            {details.cast.slice(0, 3).map((name) => (
-              <button
-                key={name}
-                type="button"
-                className="chip"
-                onClick={() => onQuickSearch(name)}
-              >
-                {name}
-              </button>
-            ))}
+            <span>
+              {cast.slice(0, 8).join(", ")}
+              {cast.length > 8 ? "…" : ""}
+            </span>
           </p>
         )}
 
@@ -156,60 +150,91 @@ function MovieModal({
           <p className="modal-overview">{details.overview}</p>
         )}
 
-        {trailerKey && (
-          <div style={{ marginTop: "0.75rem" }}>
+        <div className="modal-actions">
+          <button
+            type="button"
+            className={
+              "icon-button" + (isFavorite ? " icon-button--active" : "")
+            }
+            onClick={onToggleFavorite}
+          >
+            <span className="icon-symbol">
+              {isFavorite ? "★ Favourited" : "☆ Favourites"}
+            </span>
+          </button>
+          <button
+            type="button"
+            className={
+              "icon-button" + (inWatchlist ? " icon-button--active" : "")
+            }
+            onClick={onToggleWatchlist}
+          >
+            <span className="icon-symbol">
+              {inWatchlist ? "✓ Watchlist" : "+ Watchlist"}
+            </span>
+          </button>
+          {details?.trailerKey && (
             <button
               type="button"
               className="chip chip--primary"
-              onClick={openTrailer}
+              onClick={() =>
+                window.open(
+                  `https://www.youtube.com/watch?v=${details.trailerKey}`,
+                  "_blank",
+                )
+              }
             >
               ▶ Watch Trailer
             </button>
-          </div>
-        )}
-
-        {/* RIGHT COLUMN SCORE BOXES (Community only now) */}
-        <div className="review-sections">
-          <MovieReviews movieKey={movieReviewKey} title={movie.title} />
+          )}
         </div>
 
-        <div className="modal-actions">
-          <button
-            className={`chip ${isFavorite ? "chip--active" : ""}`}
-            onClick={onToggleFavorite}
-          >
-            {isFavorite ? "⭐ In Favourites" : "☆ Add to Favourites"}
-          </button>
+        {/* Reviews section */}
+        <div className="review-sections">
+          <section className="review-section review-section--gavin">
+            <div className="review-section-header">
+              <h3 className="review-section-title">Gavin&apos;s Score</h3>
+              <p className="review-section-sub">
+                Your personal rating and notes – saved to this browser.
+              </p>
+            </div>
 
-          <button
-            className={`chip ${inWatchlist ? "chip--active" : ""}`}
-            onClick={onToggleWatchlist}
-          >
-            {inWatchlist ? "📺 In Watchlist" : "+ Add to Watchlist"}
-          </button>
+            <Stars value={gavinReview.rating ?? 0} onChange={handleStarChange} />
+
+            <textarea
+              className="review-textarea"
+              rows={3}
+              placeholder="Thoughts, favourite scenes, why this stays (or doesn’t stay) in the collection…"
+              value={gavinReview.text ?? ""}
+              onChange={handleTextChange}
+            />
+          </section>
+
+          {/* Placeholder for community / Supabase integration */}
+          <section className="review-section">
+            <div className="review-section-header">
+              <h3 className="review-section-title">Community Opinions</h3>
+              <p className="review-section-sub">
+                Hook this up to Supabase later using key:{" "}
+                <code>{movieReviewKey || "n/a"}</code>
+              </p>
+            </div>
+            <p className="community-empty">
+              Community reviews will live here when you&apos;re ready to wire up
+              Supabase again.
+            </p>
+          </section>
         </div>
       </div>
-
-      {/* Trailer popup overlay (autoplay when opened) */}
-      {showTrailer && (
-        <div className="trailer-overlay" onClick={closeTrailer}>
-          <div className="trailer-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="trailer-close" onClick={closeTrailer}>
-              ✕
-            </button>
-            <div className="trailer-embed">
-              <iframe
-                src={`https://www.youtube.com/embed/${trailerKey}?autoplay=1`}
-                title={`${movie.title} trailer`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
+}
+
+function getRatingBadgeClass(rating) {
+  if (!rating) return "card-rating-badge";
+  if (rating >= 8) return "card-rating-badge card-rating-badge--high";
+  if (rating >= 6) return "card-rating-badge card-rating-badge--mid";
+  return "card-rating-badge card-rating-badge--low";
 }
 
 export default MovieModal;

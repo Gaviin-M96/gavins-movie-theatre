@@ -696,6 +696,56 @@ body.modal-open {
   font-size: 1.35rem;
 }
 
+/* Subtle inline status text (TMDB, etc.) */
+.subtle-status {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-bottom: 0.4rem;
+}
+
+.subtle-status--error {
+  color: #f97316;
+}
+
+/* Header stat pills */
+.header-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.header-stat {
+  min-width: 70px;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.75rem;
+  background: radial-gradient(circle at top, #020617, #020617);
+  border: 1px solid #1f2937;
+  text-align: right;
+}
+
+.header-stat-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #9ca3af;
+}
+
+.header-stat-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f9fafb;
+}
+
+.header-stat-value--small {
+  font-size: 0.85rem;
+}
+
+.header-stat--subtle .header-stat-value {
+  font-weight: 500;
+  color: #93c5fd;
+}
+
 /* Info text slightly larger than overview */
 .modal-info p {
   margin: 0.25rem 0;

@@ -1,29 +1,33 @@
-const NAV_ITEMS = [
-  { id: "all", label: "All", icon: "🏠" },
-  { id: "favorites", label: "Favourites", icon: "⭐" },
-  { id: "watchlist", label: "Watching", icon: "▶️" },
-  { id: "top", label: "Top Rated", icon: "🏆" },
+// src/components/BottomNav.jsx
+const TABS = [
+  { id: "all", label: "All", icon: "🎞️" },
+  { id: "favorites", label: "Faves", icon: "⭐" },
+  { id: "watchlist", label: "List", icon: "📽️" },
+  { id: "top", label: "Top", icon: "🏆" },
 ];
 
 function BottomNav({ view, onChangeView }) {
   return (
-    <nav className="bottom-nav">
+    <nav className="bottom-nav" aria-label="Views">
       <div className="bottom-nav-inner">
-        {NAV_ITEMS.map(({ id, label, icon }) => (
-          <button
-            key={id}
-            type="button"
-            className={`bottom-nav-item ${
-              view === id ? "bottom-nav-item--active" : ""
-            }`}
-            onClick={() => onChangeView(id)}
-          >
-            <span className="bottom-nav-icon" aria-hidden="true">
-              {icon}
-            </span>
-            <span className="bottom-nav-label">{label}</span>
-          </button>
-        ))}
+        {TABS.map((tab) => {
+          const active = view === tab.id;
+          const itemClass =
+            "bottom-nav-item" + (active ? " bottom-nav-item--active" : "");
+          return (
+            <button
+              key={tab.id}
+              type="button"
+              className={itemClass}
+              onClick={() => onChangeView(tab.id)}
+            >
+              <span className="bottom-nav-icon" aria-hidden="true">
+                {tab.icon}
+              </span>
+              <span className="bottom-nav-label">{tab.label}</span>
+            </button>
+          );
+        })}
       </div>
     </nav>
   );
