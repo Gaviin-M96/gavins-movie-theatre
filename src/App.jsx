@@ -39,24 +39,31 @@ function getSortTitle(str) {
 }
 
 function App() {
+  // Core filters / view
   const [search, setSearch] = useState("");
   const [formatFilter, setFormatFilter] = useState("all");
   const [genreFilter, setGenreFilter] = useState("all");
   const [sortBy, setSortBy] = useState("title-asc");
+  const [view, setView] = useState("all"); // all | favorites | watchlist | top
+
+  // Data enhancement + user state
   const [detailsMap, setDetailsMap] = useState({});
   const [favorites, setFavorites] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
+  const [gavinReviews, setGavinReviews] = useState({});
   const [modalMovieId, setModalMovieId] = useState(null);
-  const [view, setView] = useState("all"); // all | favorites | watchlist | top
+
+  // UI bits
   const [showAllFormats, setShowAllFormats] = useState(false);
   const [showAllGenres, setShowAllGenres] = useState(false);
-  const [gavinReviews, setGavinReviews] = useState({});
+  const [isLoadingDetails, setIsLoadingDetails] = useState(false);
+  const [detailsError, setDetailsError] = useState(null);
 
   useEffect(() => {
     document.title = "Gavin's Movie Theatre";
   }, []);
 
-  // Load saved state
+  // Initial load from localStorage
   useEffect(() => {
     try {
       const rawFilters = localStorage.getItem(FILTERS_STORAGE_KEY);
@@ -93,7 +100,7 @@ function App() {
     }
   }, []);
 
-  // Save state
+  // Persist state to localStorage
   useEffect(() => {
     try {
       localStorage.setItem(
@@ -112,7 +119,16 @@ function App() {
     } catch (e) {
       console.warn("Error writing localStorage:", e);
     }
-  }, [search, formatFilter, genreFilter, sortBy, view, favorites, watchlist, gavinReviews]);
+  }, [
+    search,
+    formatFilter,
+    genreFilter,
+    sortBy,
+    view,
+    favorites,
+    watchlist,
+    gavinReviews,
+  ]);
 
   // Modal ESC / body scroll lock
   useEffect(() => {
@@ -156,8 +172,12 @@ function App() {
   }, [detailsMap]);
 
   const MAX_VISIBLE_CHIPS = 8;
-  const visibleFormats = showAllFormats ? formats : formats.slice(0, MAX_VISIBLE_CHIPS);
-  const visibleGenres = showAllGenres ? genres : genres.slice(0, MAX_VISIBLE_CHIPS);
+  const visibleFormats = showAllFormats
+    ? formats
+    : formats.slice(0, MAX_VISIBLE_CHIPS);
+  const visibleGenres = showAllGenres
+    ? genres
+    : genres.slice(0, MAX_VISIBLE_CHIPS);
 
   // Base list by view
   const baseMovies = useMemo(() => {
@@ -220,58 +240,76 @@ function App() {
     result = [...result];
 
     result.sort((a, b) => {
-  const da = detailsMap[a.id];
-  const db = detailsMap[b.id];
+      const da = detailsMap[a.id];
+      const db = detailsMap[b.id];
 
-  const ya = da?.year || a.year || 0;
-  const yb = db?.year || b.year || 0;
+      const ya = da?.year || a.year || 0;
+      const yb = db?.year || b.year || 0;
 
-  const ga = gavinReviews[a.id]?.rating ?? 0;
-  const gb = gavinReviews[b.id]?.rating ?? 0;
+      const ga = gavinReviews[a.id]?.rating ?? 0;
+      const gb = gavinReviews[b.id]?.rating ?? 0;
 
-  const ta = da?.rating ?? 0; // TMDB rating
-  const tb = db?.rating ?? 0;
+      const ta = da?.rating ?? 0; // TMDB rating
+      const tb = db?.rating ?? 0;
 
-  const titleA = getSortTitle(a.title);
-  const titleB = getSortTitle(b.title);
+      const titleA = getSortTitle(a.title);
+      const titleB = getSortTitle(b.title);
 
-  switch (sortBy) {
-    case "title-asc":
-      return titleA.localeCompare(titleB);
-    case "title-desc":
-      return titleB.localeCompare(titleA);
-    case "year-desc":
-      return yb - ya || titleA.localeCompare(titleB);
-    case "year-asc":
-      return ya - yb || titleA.localeCompare(titleB);
-    case "gavin-desc":
-      return gb - ga || titleA.localeCompare(titleB);
-    case "gavin-asc":
-      return ga - gb || titleA.localeCompare(titleB);
-    case "tmdb-desc":
-      return tb - ta || titleA.localeCompare(titleB);
-    case "tmdb-asc":
-      return ta - tb || titleA.localeCompare(titleB);
-    default:
-      return titleA.localeCompare(titleB);
-  }
-});
+      switch (sortBy) {
+        case "title-asc":
+          return titleA.localeCompare(titleB);
+        case "title-desc":
+          return titleB.localeCompare(titleA);
+        case "year-desc":
+          return yb - ya || titleA.localeCompare(titleB);
+        case "year-asc":
+          return ya - yb || titleA.localeCompare(titleB);
+        case "gavin-desc":
+          return gb - ga || titleA.localeCompare(titleB);
+        case "gavin-asc":
+          return ga - gb || titleA.localeCompare(titleB);
+        case "tmdb-desc":
+          return tb - ta || titleA.localeCompare(titleB);
+        case "tmdb-asc":
+          return ta - tb || titleA.localeCompare(titleB);
+        default:
+          return titleA.localeCompare(titleB);
+      }
+    });
 
     return result;
-  }, [baseMovies, search, formatFilter, genreFilter, sortBy, detailsMap, gavinReviews]);
+  }, [
+    baseMovies,
+    search,
+    formatFilter,
+    genreFilter,
+    sortBy,
+    detailsMap,
+    gavinReviews,
+  ]);
 
-  // TMDB details lazy load
+  // TMDB details lazy load (with simple loading/error state)
   useEffect(() => {
     let cancelled = false;
 
     async function loadDetails() {
       const missing = movies.filter((movie) => !detailsMap[movie.id]);
-      if (!missing.length) return;
+      if (!missing.length) {
+        setIsLoadingDetails(false);
+        setDetailsError(null);
+        return;
+      }
+
+      setIsLoadingDetails(true);
+      setDetailsError(null);
 
       try {
         const results = await Promise.all(
           missing.map(async (movie) => {
-            const details = await fetchDetailsForMovie(movie.title, movie.year);
+            const details = await fetchDetailsForMovie(
+              movie.title,
+              movie.year
+            );
             return { id: movie.id, details };
           })
         );
@@ -287,8 +325,14 @@ function App() {
           }
           return next;
         });
+
+        setIsLoadingDetails(false);
       } catch (e) {
-        console.warn("Error loading TMDB details:", e);
+        if (!cancelled) {
+          console.warn("Error loading TMDB details:", e);
+          setDetailsError("There was a problem fetching extra movie details.");
+          setIsLoadingDetails(false);
+        }
       }
     }
 
@@ -396,6 +440,7 @@ function App() {
         totalCount={totalCount}
         totalFavorites={totalFavorites}
         totalWatchlist={totalWatchlist}
+        isLoadingDetails={isLoadingDetails} // safe extra prop
       />
 
       <div className="layout">
@@ -423,6 +468,17 @@ function App() {
         />
 
         <main className="content">
+          {isLoadingDetails && (
+            <div className="subtle-status">
+              Updating movie details from TMDB…
+            </div>
+          )}
+          {detailsError && (
+            <div className="subtle-status subtle-status--error">
+              {detailsError}
+            </div>
+          )}
+
           {filteredMovies.length === 0 ? (
             <div className="empty">
               <p>No movies match your current filters.</p>
@@ -472,7 +528,9 @@ function App() {
               onToggleFavorite={() => toggleFavorite(modalMovie.id)}
               onToggleWatchlist={() => toggleWatchlist(modalMovie.id)}
               gavinReview={gavinReview}
-              onSetGavinRating={(rating) => setGavinRating(modalMovie.id, rating)}
+              onSetGavinRating={(rating) =>
+                setGavinRating(modalMovie.id, rating)
+              }
               onSetGavinText={(text) => setGavinText(modalMovie.id, text)}
               movieReviewKey={movieReviewKey}
               onQuickSearch={handleQuickSearch}
