@@ -288,13 +288,14 @@ function App() {
     gavinReviews,
   ]);
 
-  // TMDB details lazy load (with simple loading/error state)
+  // TMDB details lazy load (handles "no result" so we don't refetch forever)
   useEffect(() => {
     let cancelled = false;
 
     async function loadDetails() {
       const missing = movies.filter((movie) => !detailsMap[movie.id]);
       if (!missing.length) {
+        // nothing left to load
         setIsLoadingDetails(false);
         setDetailsError(null);
         return;
@@ -306,10 +307,7 @@ function App() {
       try {
         const results = await Promise.all(
           missing.map(async (movie) => {
-            const details = await fetchDetailsForMovie(
-              movie.title,
-              movie.year
-            );
+            const details = await fetchDetailsForMovie(movie.title, movie.year);
             return { id: movie.id, details };
           })
         );
@@ -319,8 +317,10 @@ function App() {
         setDetailsMap((prev) => {
           const next = { ...prev };
           for (const { id, details } of results) {
-            if (details && !next[id]) {
-              next[id] = details;
+            // If TMDB returned null, store a stub so we don't keep refetching
+            const storedDetails = details || { notFound: true };
+            if (!next[id]) {
+              next[id] = storedDetails;
             }
           }
           return next;
