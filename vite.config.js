@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/", // for movies.gavinmoore.ca
+  base: "/gavins-movie-theatre/", //
 });
