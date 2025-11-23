@@ -427,10 +427,7 @@ body.modal-open {
 /* Format pill */
 
 .card-format-pill {
-  position: absolute;
-  bottom: 0.5rem;
-  left: 0.5rem;
-  padding: 0.15rem 0.5rem;
+  padding: 0.15rem 0.6rem;
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -438,7 +435,6 @@ body.modal-open {
   background: rgba(15, 23, 42, 0.9);
   border: 1px solid rgba(148, 163, 184, 0.8);
   color: #e5e7eb;
-  z-index: 2;
 }
 
 /* Card rating pill */
@@ -467,14 +463,6 @@ body.modal-open {
   border-color: #f97316;
 }
 
-/* Optional overlay placement (if you use it in JSX) */
-.card-rating-badge--overlay {
-  position: absolute;
-  right: 0.5rem;
-  bottom: 0.5rem;
-  z-index: 2;
-}
-
 /* Card body */
 
 .card-body {
@@ -501,6 +489,76 @@ body.modal-open {
   font-size: 0.8rem;
   color: #7dd3fc;
   margin: 0 0 0.35rem;
+}
+
+/* Meta row layout in modal */
+.modal-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin: 0.25rem 0 0.4rem;
+}
+
+.modal-meta-chip {
+  font-size: 0.78rem;
+  padding: 0.18rem 0.6rem;
+}
+
+.modal-meta-text {
+  font-size: 0.82rem;
+  color: #e5e7eb;
+}
+
+/* Genre chips row */
+.modal-genre-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.modal-genre-chip {
+  font-size: 0.78rem;
+  padding: 0.18rem 0.6rem;
+}
+
+/* Director + Cast pill alignment (you already added some of this, but this keeps it tidy) */
+.modal-chip-section {
+  margin-top: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.modal-chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.modal-chip-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #9ca3af;
+}
+
+.modal-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.modal-chip {
+  font-size: 0.75rem;
+  padding: 0.18rem 0.55rem;
+}
+
+.modal-chip-more {
+  font-size: 0.75rem;
+  color: #9ca3af;
 }
 
 /* Modern / techy icon buttons */
@@ -587,18 +645,17 @@ body.modal-open {
   background: rgba(15, 23, 42, 0.92);
   border-radius: 1.25rem;
   border: 1px solid rgba(148, 163, 184, 0.3);
-  max-width: 900px;
   width: 100%;
+  max-width: 640px;          /* single column, nice and compact */
   max-height: 90vh;
-  padding: 1.5rem 1.75rem 1.5rem;
+  padding: 1.25rem 1.25rem 1.5rem;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
   position: relative;
   overflow: auto;
   animation: modal-in 0.22s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
 
-/* Close button */
-
+/* Close button stays the same */
 .modal-close {
   position: absolute;
   top: 1.1rem;
@@ -627,65 +684,30 @@ body.modal-open {
   transform: translateY(-1px) scale(1.03);
 }
 
-/* Modal layout – 2 columns on desktop */
-
+/* Single-column layout for all sizes */
 .modal-content {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.1rem;
+  flex-direction: column;
+  gap: 1rem;
   margin-top: 0.4rem;
 }
 
-.modal-left {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.review-section--gavin {
-  margin-top: 0.35rem;
-}
-
-.gavin-score-row {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-top: 0.35rem;
-}
-
-.gavin-score-input {
-  width: 3.2rem;
-  border-radius: 999px;
-  border: 1px solid #374151;
-  background-color: #020617;
-  color: #e5e7eb;
-  padding: 0.25rem 0.5rem;
-  font-size: 0.85rem;
-  text-align: center;
-}
-
-.gavin-score-input:focus {
-  outline: none;
-  border-color: #38bdf8;
-}
-
-.gavin-score-outof {
-  font-size: 0.8rem;
-  color: #9ca3af;
-}
-
+/* Poster always on top, centered */
 .modal-poster {
-  flex: 0 0 260px;
+  align-self: center;
   max-width: 260px;
+  width: 70%;
 }
 
 .modal-poster img {
   width: 100%;
+  height: auto;
   border-radius: 0.9rem;
   display: block;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
 }
 
+/* Info always below, full width */
 .modal-info {
   flex: 1;
   min-width: 0;
@@ -1218,6 +1240,14 @@ body.modal-open {
   .community-body {
     font-size: 0.82rem;
   }
+}
+
+.card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+  gap: 0.5rem;
 }
 
 /* Extra small phones (very narrow) */

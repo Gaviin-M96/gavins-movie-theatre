@@ -48,6 +48,7 @@ function MovieModal({
   const genres = details?.genres || (movie.genre ? [movie.genre] : []);
   const director = details?.director;
   const cast = details?.cast || [];
+  const limitedCast = cast.slice(0, 3);
 
   const runtimeLabel = useMemo(() => {
     if (!runtime) return null;
@@ -93,63 +94,81 @@ function MovieModal({
       <div className="modal-info">
         <h2>{movie.title}</h2>
 
-        <p className="meta">
+        {/* Meta row: year, runtime, rating */}
+        <div className="modal-meta-row">
           {year && (
             <button
               type="button"
-              className="chip"
+              className="chip modal-meta-chip"
               onClick={handleYearClick}
-              style={{ marginRight: "0.4rem" }}
             >
               {year}
             </button>
           )}
           {runtimeLabel && (
-            <span style={{ marginRight: "0.4rem" }}>{runtimeLabel}</span>
+            <span className="modal-meta-text">{runtimeLabel}</span>
           )}
           {rating && (
             <span className={getRatingBadgeClass(rating)}>
-              ⭐ TMDB {rating.toFixed(1)}
+              ⭐ {rating.toFixed(1)}
             </span>
           )}
-        </p>
+        </div>
 
+        {/* Genres row */}
         {genres && genres.length > 0 && (
-          <p className="meta">
+          <div className="modal-genre-row">
             {genres.slice(0, 5).map((g) => (
               <button
                 key={g}
                 type="button"
-                className="chip"
+                className="chip modal-genre-chip"
                 onClick={() => handleGenreClick(g)}
-                style={{ marginRight: "0.3rem", marginBottom: "0.25rem" }}
               >
                 {g}
               </button>
             ))}
-          </p>
+          </div>
         )}
 
-        {director && (
-          <p>
-            <strong>Director:</strong> {director}
-          </p>
+        {/* Director + Cast as pills */}
+        {(director || limitedCast.length > 0) && (
+          <div className="modal-chip-section">
+            {director && (
+              <div className="modal-chip-group">
+                <span className="modal-chip-label">Director</span>
+                <div className="modal-chip-list">
+                  <span className="chip modal-chip">{director}</span>
+                </div>
+              </div>
+            )}
+
+            {limitedCast.length > 0 && (
+              <div className="modal-chip-group">
+                <span className="modal-chip-label">Cast</span>
+                <div className="modal-chip-list">
+                  {limitedCast.map((name) => (
+                    <span key={name} className="chip modal-chip">
+                      {name}
+                    </span>
+                  ))}
+                  {cast.length > 3 && (
+                    <span className="modal-chip-more">
+                      +{cast.length - 3} more
+                    </span>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
         )}
 
-        {cast && cast.length > 0 && (
-          <p className="modal-cast">
-            <strong>Cast:</strong>{" "}
-            <span>
-              {cast.slice(0, 8).join(", ")}
-              {cast.length > 8 ? "…" : ""}
-            </span>
-          </p>
-        )}
-
+        {/* Overview – slightly smaller (controlled by .modal-overview in CSS) */}
         {details?.overview && (
           <p className="modal-overview">{details.overview}</p>
         )}
 
+        {/* Actions: icon-only for Favourite & Watchlist */}
         <div className="modal-actions">
           <button
             type="button"
@@ -157,9 +176,10 @@ function MovieModal({
               "icon-button" + (isFavorite ? " icon-button--active" : "")
             }
             onClick={onToggleFavorite}
+            title={isFavorite ? "Remove from favourites" : "Add to favourites"}
           >
             <span className="icon-symbol">
-              {isFavorite ? "★ Favourited" : "☆ Favourites"}
+              {isFavorite ? "⭐" : "☆"}
             </span>
           </button>
           <button
@@ -168,10 +188,11 @@ function MovieModal({
               "icon-button" + (inWatchlist ? " icon-button--active" : "")
             }
             onClick={onToggleWatchlist}
+            title={
+              inWatchlist ? "Remove from watchlist" : "Add to watchlist"
+            }
           >
-            <span className="icon-symbol">
-              {inWatchlist ? "✓ Watchlist" : "+ Watchlist"}
-            </span>
+            <span className="icon-symbol">📽️</span>
           </button>
           {details?.trailerKey && (
             <button
@@ -210,7 +231,7 @@ function MovieModal({
             />
           </section>
 
-          {/* Placeholder for community / Supabase integration */}
+          {/* Placeholder for future community/Supabase reviews */}
           <section className="review-section">
             <div className="review-section-header">
               <h3 className="review-section-title">Community Opinions</h3>

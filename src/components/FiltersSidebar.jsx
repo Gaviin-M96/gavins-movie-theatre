@@ -26,6 +26,10 @@ function FiltersSidebar({
   const handleFormatClick = (fmt) => onFormatFilterChange(fmt);
   const handleGenreClick = (g) => onGenreFilterChange(g);
 
+  // Show "More / Less" button whenever there *can* be extra genres
+  const hasMoreGenres =
+    genres.length > visibleGenres.length || showAllGenres;
+
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
@@ -140,13 +144,13 @@ function FiltersSidebar({
               {g === "all" ? "All Genres" : g}
             </button>
           ))}
-          {genres.length > visibleGenres.length && (
+          {hasMoreGenres && (
             <button
               type="button"
               className="chip chip--more"
               onClick={onToggleShowAllGenres}
             >
-              {showAllGenres ? "Show fewer" : "Show all"}
+              {showAllGenres ? "Less" : "More"}
             </button>
           )}
           {genreFilter !== "all" && (

@@ -33,22 +33,27 @@ function MovieCard({
             loading="lazy"
           />
         )}
-
-        {movie.format && (
-          <div className="card-format-pill">
-            {movie.format === "Blu-ray" ? "Blu-Ray" : movie.format}
-          </div>
-        )}
-
-        {rating && (
-          <div className="card-rating-badge card-rating-badge--overlay">
-            ⭐ {rating.toFixed(1)}
-          </div>
-        )}
       </div>
 
       <div className="card-body">
+        
+        {/* NEW: top row with format + rating pills, aligned under the image */}
+        <div className="card-top-row">
+          {movie.format && (
+            <div className="card-format-pill">
+              {movie.format === "Blu-ray" ? "Blu-Ray" : movie.format}
+            </div>
+          )}
+
+          {rating && (
+            <div className={ratingClass}>
+              ⭐ {rating.toFixed(1)}
+            </div>
+          )}
+        </div>
+
         <h2>{movie.title}</h2>
+
         <p className="meta">
           {year ? year : "Year unknown"}
           {details?.genres && details.genres.length > 0
@@ -67,7 +72,9 @@ function MovieCard({
             onClick={onToggleFavorite}
             title={isFavorite ? "Remove from favourites" : "Add to favourites"}
           >
-            <span className="icon-symbol">{isFavorite ? "★" : "☆"}</span>
+            <span className="icon-symbol">
+              {isFavorite ? "⭐" : "☆"}
+            </span>
           </button>
           <button
             type="button"
@@ -77,7 +84,7 @@ function MovieCard({
             onClick={onToggleWatchlist}
             title={inWatchlist ? "Remove from watchlist" : "Add to watchlist"}
           >
-            <span className="icon-symbol">🎬</span>
+            <span className="icon-symbol">📽️</span>
           </button>
         </div>
       </div>
