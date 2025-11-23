@@ -4,20 +4,25 @@ on:
   push:
     branches: [ main ]  # deploy on push to main branch
 
+# 👇 This is critical – lets the action push to gh-pages
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build
         run: npm run build
@@ -25,5 +30,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist
-          branch: gh-pages
+          branch: gh-pages      # target branch
+          folder: dist          # Vite build output
+          token: ${{ secrets.GITHUB_TOKEN }}
