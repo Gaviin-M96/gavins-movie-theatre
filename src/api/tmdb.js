@@ -38,8 +38,8 @@ export async function fetchDetailsForMovie(title, yearHint) {
   }
 
   try {
-    // 1) Search by title (and optional year)
-    const searchParams = new URLSearchParams({
+    // --- 1) STRICT SEARCH: title + year (if yearHint provided) ---
+    const baseParams = new URLSearchParams({
       api_key: API_KEY,
       query: title,
       include_adult: "false",
@@ -48,28 +48,70 @@ export async function fetchDetailsForMovie(title, yearHint) {
     });
 
     if (yearHint) {
-      searchParams.set("year", String(yearHint));
+      baseParams.set("year", String(yearHint));
     }
 
-    const searchRes = await fetch(
-      `${TMDB_BASE_URL}/search/movie?${searchParams.toString()}`
+    const strictRes = await fetch(
+      `${TMDB_BASE_URL}/search/movie?${baseParams.toString()}`
     );
 
-    if (!searchRes.ok) {
-      console.error("TMDB search error:", searchRes.status, searchRes.statusText);
+    if (!strictRes.ok) {
+      console.error(
+        "TMDB strict search error:",
+        strictRes.status,
+        strictRes.statusText
+      );
       return null;
     }
 
-    const searchData = await searchRes.json();
-    if (!searchData.results || searchData.results.length === 0) {
+    const strictData = await strictRes.json();
+    let results = strictData.results || [];
+
+    // --- 2) FALLBACK: if strict search failed AND we had a year, retry WITHOUT year ---
+    if ((!results || results.length === 0) && yearHint) {
+      console.warn(
+        "No TMDB result with year for:",
+        title,
+        yearHint,
+        "— retrying without year"
+      );
+
+      const looseParams = new URLSearchParams({
+        api_key: API_KEY,
+        query: title,
+        include_adult: "false",
+        language: "en-US",
+        page: "1",
+      });
+
+      const looseRes = await fetch(
+        `${TMDB_BASE_URL}/search/movie?${looseParams.toString()}`
+      );
+
+      if (!looseRes.ok) {
+        console.error(
+          "TMDB loose search error:",
+          looseRes.status,
+          looseRes.statusText
+        );
+        return null;
+      }
+
+      const looseData = await looseRes.json();
+      results = looseData.results || [];
+    }
+
+    // If still nothing, give up – but at least we tried both ways
+    if (!results || results.length === 0) {
       console.warn("No TMDB result for:", title, yearHint);
       return null;
     }
 
-    const match = searchData.results[0];
+    // Use the first result as the match
+    const match = results[0];
     const tmdbId = match.id;
 
-    // 2) Fetch full details + credits + videos in one call
+    // --- 3) Fetch full details + credits + videos in one call ---
     const detailsParams = new URLSearchParams({
       api_key: API_KEY,
       language: "en-US",
