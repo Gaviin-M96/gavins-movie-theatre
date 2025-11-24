@@ -90,7 +90,7 @@ function FiltersSidebar({
                 }
                 onClick={() => onFormatFilterChange(fmt)}
               >
-                {fmt === "all" ? "All Formats" : fmt}
+                {fmt === "all" ? "All" : fmt}
               </button>
             ))}
           </div>
@@ -108,7 +108,7 @@ function FiltersSidebar({
         className={`chip${genreFilter === genre ? " chip--active" : ""}`}
         onClick={() => onGenreFilterChange(genre)}
       >
-        {genre === "all" ? "All Genres" : genre}
+        {genre === "all" ? "All" : genre}
       </button>
     ))}
 

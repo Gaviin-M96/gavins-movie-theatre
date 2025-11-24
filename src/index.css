@@ -1315,3 +1315,25 @@ body.modal-open {
     font-size: 1.2rem;
   }
 }
+/* === Sidebar vertical spacing === */
+
+/* Add space ABOVE each block after Search */
+.sidebar-block + .sidebar-block {
+  margin-top: 1.1rem;  /* tweak this up/down for more/less space */
+}
+
+/* Tighter label → controls spacing inside each block */
+.sidebar-block .sidebar-label,
+.sidebar-block .sidebar-label-row {
+  margin-bottom: 0.4rem;
+}
+
+/* Genre/Format chip rows: small gap under label */
+.sidebar-block .chip-row {
+  margin-top: 0.35rem;
+}
+
+/* Extra breathing room above the actions (Clear / Random) */
+.sidebar-actions {
+  margin-top: 1.3rem;
+}
