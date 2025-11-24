@@ -117,6 +117,16 @@ function MovieGrid({
       ))}
     </section>
   );
+
+  <span
+  className={
+    "format-pill " +
+    (movie.format === "Blu-ray" ? "format-pill--bluray" : "format-pill--dvd")
+  }
+>
+  {movie.format}
+</span>
+
 }
 
 export default MovieGrid;

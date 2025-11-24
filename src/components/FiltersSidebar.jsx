@@ -1,4 +1,3 @@
-// src/components/FiltersSidebar.jsx
 function FiltersSidebar({
   search,
   sortBy,
@@ -21,150 +20,129 @@ function FiltersSidebar({
   currentCount,
   totalCount,
 }) {
-  const handleSearchChange = (e) => onSearchChange(e.target.value);
-  const handleSortChange = (e) => onSortChange(e.target.value);
-  const handleFormatClick = (fmt) => onFormatFilterChange(fmt);
-  const handleGenreClick = (g) => onGenreFilterChange(g);
-
-  const hasMoreGenres = genres.length > visibleGenres.length || showAllGenres;
-
   return (
     <aside className="sidebar">
-      <div className="sidebar-header">
-        <h2 className="sidebar-title">Filters &amp; Tools</h2>
-        <button
-          type="button"
-          className="sidebar-reset-link"
-          onClick={onClearFilters}
-        >
-          Reset
-        </button>
-      </div>
+      <div className="sidebar-section">
+        {/* Compact header row */}
+        <div className="sidebar-header">
+          <h2 className="sidebar-title">Filters &amp; Tools</h2>
+          <span className="sidebar-count">
+            {currentCount} / {totalCount}
+          </span>
+        </div>
 
-      <p className="sidebar-summary">
-        {currentCount === totalCount
-          ? `Browsing all ${totalCount} movies.`
-          : `Showing ${currentCount} of ${totalCount} movies.`}
-      </p>
-
-      <div className="sidebar-row">
-        <div className="sidebar-field">
+        {/* SEARCH */}
+        <div className="sidebar-block">
           <label className="sidebar-label" htmlFor="search">
             Search
           </label>
           <input
             id="search"
-            className="sidebar-input"
-            type="search"
-            placeholder="Title, genre, or year…"
+            type="text"
             value={search}
-            onChange={handleSearchChange}
+            onChange={(e) => onSearchChange(e.target.value)}
+            placeholder="Search anything..."
+            className="sidebar-input"
           />
         </div>
 
-        <div className="sidebar-field">
+        {/* SORT */}
+        <div className="sidebar-block">
           <label className="sidebar-label" htmlFor="sortBy">
-            Sort
+            Sort by
           </label>
-          <div className="sidebar-select-wrapper">
-            <select
-              id="sortBy"
-              className="sidebar-select"
-              value={sortBy}
-              onChange={handleSortChange}
-            >
-              <option value="title-asc">Title A–Z</option>
-              <option value="title-desc">Title Z–A</option>
-              <option value="year-desc">Year (Newest)</option>
-              <option value="year-asc">Year (Oldest)</option>
-              <option value="gavin-desc">Gavin Score (High)</option>
-              <option value="gavin-asc">Gavin Score (Low)</option>
-              <option value="tmdb-desc">TMDB Rating (High)</option>
-              <option value="tmdb-asc">TMDB Rating (Low)</option>
-            </select>
+          <select
+            id="sortBy"
+            value={sortBy}
+            onChange={(e) => onSortChange(e.target.value)}
+            className="sidebar-select"
+          >
+            <option value="title-asc">Title (A–Z)</option>
+            <option value="title-desc">Title (Z–A)</option>
+            <option value="year-desc">Year (newest first)</option>
+            <option value="year-asc">Year (oldest first)</option>
+            <option value="tmdb-desc">Rating (high–low)</option>
+            <option value="tmdb-asc">Rating (low–high)</option>
+          </select>
+        </div>
+
+        {/* FORMAT */}
+        <div className="sidebar-block">
+          <div className="sidebar-label-row">
+            <span className="sidebar-label">Format</span>
+            {formats.length > 9 && (
+              <button
+                type="button"
+                className="link-button"
+                onClick={onToggleShowAllFormats}
+              >
+                {showAllFormats ? "Show less" : "Show all"}
+              </button>
+            )}
+          </div>
+          <div className="chip-row">
+            {visibleFormats.map((fmt) => (
+              <button
+                key={fmt}
+                type="button"
+                className={
+                  "chip" + (formatFilter === fmt ? " chip--active" : "")
+                }
+                onClick={() => onFormatFilterChange(fmt)}
+              >
+                {fmt === "all" ? "All Formats" : fmt}
+              </button>
+            ))}
           </div>
         </div>
-      </div>
 
-      <button type="button" className="btn-primary" onClick={onRandom}>
-        🎲 Pick a Random Movie
+        {/* GENRE */}
+<div className="sidebar-block">
+  <span className="sidebar-label">Genre</span>
+
+  <div className="chip-row">
+    {visibleGenres.map((genre) => (
+      <button
+        key={genre}
+        type="button"
+        className={`chip${genreFilter === genre ? " chip--active" : ""}`}
+        onClick={() => onGenreFilterChange(genre)}
+      >
+        {genre === "all" ? "All Genres" : genre}
       </button>
+    ))}
 
-      {/* Formats */}
-      <div className="chip-row chip-row--stacked">
-        <span className="chip-row-label">Formats</span>
-        <div className="chip-row-inner">
-          {visibleFormats.map((fmt) => (
-            <button
-              key={fmt}
-              type="button"
-              className={
-                "chip" + (formatFilter === fmt ? " chip--active" : "")
-              }
-              onClick={() => handleFormatClick(fmt)}
-            >
-              {fmt === "all"
-                ? "All Formats"
-                : fmt === "Blu-ray"
-                ? "Blu-Ray"
-                : fmt}
-            </button>
-          ))}
-          {formats.length > visibleFormats.length && (
-            <button
-              type="button"
-              className="chip chip--more"
-              onClick={onToggleShowAllFormats}
-            >
-              {showAllFormats ? "Show fewer" : "Show all"}
-            </button>
-          )}
-          {formatFilter !== "all" && (
-            <button
-              type="button"
-              className="chip chip--clear"
-              onClick={() => onFormatFilterChange("all")}
-            >
-              Clear format
-            </button>
-          )}
-        </div>
-      </div>
+    {/* More / Less toggle pill – always shown */}
+    {genres.length > 1 && (
+      <button
+        type="button"
+        className={`chip chip--toggle${
+          showAllGenres ? " chip--toggle-active" : ""
+        }`}
+        onClick={onToggleShowAllGenres}
+      >
+        {showAllGenres ? "Less" : "More"}
+      </button>
+    )}
+  </div>
+</div>
 
-      {/* Genres */}
-      <div className="chip-row chip-row--stacked">
-        <span className="chip-row-label">Genres</span>
-        <div className="chip-row-inner">
-          {visibleGenres.map((g) => (
-            <button
-              key={g}
-              type="button"
-              className={"chip" + (genreFilter === g ? " chip--active" : "")}
-              onClick={() => handleGenreClick(g)}
-            >
-              {g === "all" ? "All Genres" : g}
-            </button>
-          ))}
-
-          {hasMoreGenres && (
-            <button
-              type="button"
-              className="chip chip--more"
-              onClick={onToggleShowAllGenres}
-            >
-              {showAllGenres ? "Less" : "More"}
-            </button>
-          )}
-
-          {genreFilter !== "all" && (
-            <button
-              type="button"
-              className="chip chip--clear"
-              onClick={() => onGenreFilterChange("all")}
-            >
-              Clear genre
-            </button>
-          )}
+        {/* ACTIONS */}
+        <div className="sidebar-actions">
+          <button
+            type="button"
+            className="btn-secondary"
+            onClick={onClearFilters}
+          >
+            Clear filters
+          </button>
+          <button
+            type="button"
+            className="btn-primary"
+            onClick={onRandom}
+          >
+            🎲 Random Movie
+          </button>
         </div>
       </div>
     </aside>
