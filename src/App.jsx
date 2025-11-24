@@ -278,46 +278,50 @@ function App() {
     gavinReviews,
   ]);
 
-  // TMDB details lazy load
-  useEffect(() => {
-    let cancelled = false;
+// TMDB details lazy load (mobile-safe version)
+useEffect(() => {
+  let cancelled = false;
 
-    async function loadDetails() {
-      const missing = movies.filter((movie) => !(movie.id in detailsMap));
-      if (!missing.length) return;
+  async function loadDetails() {
+    // Only look at movies currently in the filtered list
+    const candidates = filteredMovies.filter((movie) => !detailsMap[movie.id]);
 
-      try {
-        const results = await Promise.all(
-          missing.map(async (movie) => {
-            const details = await fetchDetailsForMovie(
-              movie.title,
-              movie.year
-            );
-            return { id: movie.id, details };
-          })
-        );
+    // Limit how many we fetch at once
+    const BATCH_SIZE = 20;
+    const missing = candidates.slice(0, BATCH_SIZE);
 
-        if (cancelled) return;
+    if (!missing.length) return;
 
-        setDetailsMap((prev) => {
-          const next = { ...prev };
-          for (const { id, details } of results) {
-            if (details && !next[id]) {
-              next[id] = details;
-            }
+    try {
+      const results = await Promise.all(
+        missing.map(async (movie) => {
+          const details = await fetchDetailsForMovie(movie.title, movie.year);
+          return { id: movie.id, details };
+        })
+      );
+
+      if (cancelled) return;
+
+      setDetailsMap((prev) => {
+        const next = { ...prev };
+        for (const { id, details } of results) {
+          if (details && !next[id]) {
+            next[id] = details;
           }
-          return next;
-        });
-      } catch (e) {
-        console.warn("Error loading TMDB details:", e);
-      }
+        }
+        return next;
+      });
+    } catch (e) {
+      console.warn("Error loading TMDB details:", e);
     }
+  }
 
-    loadDetails();
-    return () => {
-      cancelled = true;
-    };
-  }, [detailsMap]);
+  loadDetails();
+
+  return () => {
+    cancelled = true;
+  };
+}, [filteredMovies, detailsMap]);
 
   const clearFilters = () => {
     setSearch("");
