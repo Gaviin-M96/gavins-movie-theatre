@@ -1,33 +1,37 @@
 // src/components/BottomNav.jsx
-const TABS = [
-  { id: "all", label: "All", icon: "🎞️" },
-  { id: "favorites", label: "Faves", icon: "⭐" },
-  { id: "watchlist", label: "List", icon: "📽️" },
-  { id: "top", label: "Top", icon: "🏆" },
-];
-
 function BottomNav({ view, onChangeView }) {
+  const makeClass = (key) =>
+    "bottom-nav-item" + (view === key ? " bottom-nav-item--active" : "");
+
   return (
-    <nav className="bottom-nav" aria-label="Views">
+    <nav className="bottom-nav">
       <div className="bottom-nav-inner">
-        {TABS.map((tab) => {
-          const active = view === tab.id;
-          const itemClass =
-            "bottom-nav-item" + (active ? " bottom-nav-item--active" : "");
-          return (
-            <button
-              key={tab.id}
-              type="button"
-              className={itemClass}
-              onClick={() => onChangeView(tab.id)}
-            >
-              <span className="bottom-nav-icon" aria-hidden="true">
-                {tab.icon}
-              </span>
-              <span className="bottom-nav-label">{tab.label}</span>
-            </button>
-          );
-        })}
+        <button
+          type="button"
+          className={makeClass("all")}
+          onClick={() => onChangeView("all")}
+        >
+          <span className="bottom-nav-icon">🎞️</span>
+          <span className="bottom-nav-label">Collection</span>
+        </button>
+
+        <button
+          type="button"
+          className={makeClass("favorites")}
+          onClick={() => onChangeView("favorites")}
+        >
+          <span className="bottom-nav-icon">⭐</span>
+          <span className="bottom-nav-label">Favourites</span>
+        </button>
+
+        <button
+          type="button"
+          className={makeClass("watchlist")}
+          onClick={() => onChangeView("watchlist")}
+        >
+          <span className="bottom-nav-icon">📽️</span>
+          <span className="bottom-nav-label">Watchlist</span>
+        </button>
       </div>
     </nav>
   );

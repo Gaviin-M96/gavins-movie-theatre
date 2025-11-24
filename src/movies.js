@@ -26,14 +26,14 @@ export const movies = [
   { id: 22, title: "Blockers", year: 2018, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Blockers" },
   { id: 23, title: "Bodyguards and Assassins", year: 2009, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Bodyguards+and+Assassins" },
   { id: 24, title: "Captain Phillips", year: 2013, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Captain+Phillips" },
-  { id: 25, title: "Cheech & Chong’s Up in Smoke", year: 1978, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Cheech+%26+Chong%E2%80%99s+Up+in+Smoke" },
+  { id: 25, title: "Cheech & Chong's Up in Smoke", year: 1978, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Cheech+%26+Chong%E2%80%99s+Up+in+Smoke" },
   { id: 26, title: "Colombiana", year: 2011, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Colombiana" },
   { id: 27, title: "Contraband", year: 2012, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Contraband" },
   { id: 28, title: "Coriolanus", year: 2011, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Coriolanus" },
   { id: 29, title: "Coyote Ugly", year: 2000, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Coyote+Ugly" },
   { id: 30, title: "Crank", year: 2006, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Crank" },
   { id: 31, title: "Crank 2: High Voltage", year: 2009, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Crank+2%3A+High+Voltage" },
-  { id: 32, title: "Daddy’s Home", year: 2015, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Daddy%E2%80%99s+Home" },
+  { id: 32, title: "Daddy's Home", year: 2015, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Daddy%E2%80%99s+Home" },
   { id: 33, title: "Death Race", year: 2008, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Death+Race" },
   { id: 34, title: "Death Race 2", year: 2010, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Death+Race+2" },
 
@@ -182,7 +182,7 @@ export const movies = [
   { id: 142, title: "The Dark Knight", year: 2008, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=The+Dark+Knight" },
   { id: 143, title: "The Dark Knight Rises", year: 2012, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=The+Dark+Knight+Rises" },
 
-  { id: 144, title: "The Expendables (Extended Director’s Cut)", year: 2010, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=The+Expendables+%28Extended+Director%E2%80%99s+Cut%29" },
+  { id: 144, title: "The Expendables", year: 2010, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=The+Expendables" },
   { id: 145, title: "The Expendables 2", year: 2012, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=The+Expendables+2" },
 
   { id: 146, title: "The Fast and the Furious: Tokyo Drift", year: 2006, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=The+Fast+and+the+Furious%3A+Tokyo+Drift" },
@@ -225,8 +225,8 @@ export const movies = [
   { id: 171, title: "Trailer Park Boys: The Movie", year: 2006, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Trailer+Park+Boys%3A+The+Movie" },
 
   { id: 172, title: "Transformers", year: 2007, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Transformers+%282007%29" },
-  { id: 173, title: "Transformers 2: Revenge of the Fallen", year: 2009, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Transformers+2%3A+Revenge+of+the+Fallen" },
-  { id: 174, title: "Transformers 3: Dark of the Moon", year: 2011, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Transformers+3%3A+Dark+of+the+Moon" },
+  { id: 173, title: "Transformers: Revenge of the Fallen", year: 2009, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Transformers+2%3A+Revenge+of+the+Fallen" },
+  { id: 174, title: "Transformers: Dark of the Moon", year: 2011, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Transformers+3%3A+Dark+of+the+Moon" },
 
   { id: 175, title: "Troy", year: 2004, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Troy" },
 
@@ -250,5 +250,7 @@ export const movies = [
   { id: 188, title: "Home Alone 2: Lost in New York", year: 1992, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Home+Alone+2" },
   { id: 189, title: "Four Brothers", year: 2005, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Four+Brothers" },
   { id: 190, title: "Top Gun: Maverick", year: 2022, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Top+Gun+Maverick" },
-  { id: 191, title: "Prep & Landing: Naughty vs. Nice", year: 2011, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Naughty+vs+Nice" }
+  { id: 191, title: "Prep & Landing: Naughty vs. Nice", year: 2011, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Naughty+vs+Nice" },
+
+  { id: 192, title: "The Campaign", year: 2012, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=The+Campaign" }
 ];

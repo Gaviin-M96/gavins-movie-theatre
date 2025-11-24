@@ -1,33 +1,5 @@
 // src/components/MovieModal.jsx
-import { useMemo } from "react";
-
-function Stars({ value, onChange }) {
-  const stars = [1, 2, 3, 4, 5];
-
-  return (
-    <div className="star-row">
-      {stars.map((s) => {
-        const filled = value >= s;
-        return (
-          <button
-            key={s}
-            type="button"
-            className={
-              "star-button" + (filled ? " star-button--filled" : "")
-            }
-            onClick={() => onChange(s)}
-            aria-label={`Set rating to ${s} star${s > 1 ? "s" : ""}`}
-          >
-            {filled ? "★" : "☆"}
-          </button>
-        );
-      })}
-      <span className="star-label">
-        {value ? `${value} / 5` : "No score yet"}
-      </span>
-    </div>
-  );
-}
+import { useMemo, useState } from "react";
 
 function MovieModal({
   movie,
@@ -38,7 +10,7 @@ function MovieModal({
   onToggleWatchlist,
   gavinReview,
   onSetGavinRating,
-  onSetGavinText,
+  onSetGavinText, // still accepted but no longer used
   movieReviewKey,
   onQuickSearch,
 }) {
@@ -50,6 +22,12 @@ function MovieModal({
   const cast = details?.cast || [];
   const limitedCast = cast.slice(0, 3);
 
+  // Local-only community reviews (not persisted, no Supabase yet)
+  const [communityName, setCommunityName] = useState("");
+  const [communityRating, setCommunityRating] = useState("");
+  const [communityText, setCommunityText] = useState("");
+  const [communityReviews, setCommunityReviews] = useState([]);
+
   const runtimeLabel = useMemo(() => {
     if (!runtime) return null;
     const hours = Math.floor(runtime / 60);
@@ -57,14 +35,6 @@ function MovieModal({
     if (!hours) return `${mins} min`;
     return `${hours}h ${mins.toString().padStart(2, "0")}m`;
   }, [runtime]);
-
-  const handleStarChange = (val) => {
-    onSetGavinRating(val);
-  };
-
-  const handleTextChange = (e) => {
-    onSetGavinText(e.target.value);
-  };
 
   const handleGenreClick = (g) => {
     if (!g) return;
@@ -74,6 +44,42 @@ function MovieModal({
   const handleYearClick = () => {
     if (!year) return;
     onQuickSearch(String(year));
+  };
+
+  // Gavin rating 0–10 via slider
+  const sliderValue = (gavinReview.rating ?? 0);
+
+  const handleGavinSliderChange = (e) => {
+    const val = parseFloat(e.target.value);
+    if (isNaN(val)) return;
+    const clamped = Math.max(0, Math.min(10, val));
+    onSetGavinRating(clamped);
+  };
+
+  // Community submit
+  const handleCommunitySubmit = (e) => {
+    e.preventDefault();
+    const num = parseFloat(communityRating);
+    if (isNaN(num) || num < 0 || num > 10) {
+      return;
+    }
+
+    const review = {
+      id: Date.now(),
+      name: communityName.trim() || "Anonymous",
+      rating: num,
+      text: communityText.trim(),
+      date: new Date().toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      }),
+    };
+
+    setCommunityReviews((prev) => [review, ...prev]);
+    setCommunityName("");
+    setCommunityRating("");
+    setCommunityText("");
   };
 
   return (
@@ -131,7 +137,7 @@ function MovieModal({
           </div>
         )}
 
-        {/* Director + Cast as pills */}
+        {/* Director + Cast as pills (top 3 only) */}
         {(director || limitedCast.length > 0) && (
           <div className="modal-chip-section">
             {director && (
@@ -152,18 +158,13 @@ function MovieModal({
                       {name}
                     </span>
                   ))}
-                  {cast.length > 3 && (
-                    <span className="modal-chip-more">
-                      +{cast.length - 3} more
-                    </span>
-                  )}
                 </div>
               </div>
             )}
           </div>
         )}
 
-        {/* Overview – slightly smaller (controlled by .modal-overview in CSS) */}
+        {/* Overview – smaller text */}
         {details?.overview && (
           <p className="modal-overview">{details.overview}</p>
         )}
@@ -212,38 +213,96 @@ function MovieModal({
 
         {/* Reviews section */}
         <div className="review-sections">
+          {/* Gavin's score – slider 0–10 with ⭐ */}
           <section className="review-section review-section--gavin">
             <div className="review-section-header">
               <h3 className="review-section-title">Gavin&apos;s Score</h3>
-              <p className="review-section-sub">
-                Your personal rating and notes – saved to this browser.
-              </p>
             </div>
 
-            <Stars value={gavinReview.rating ?? 0} onChange={handleStarChange} />
-
-            <textarea
-              className="review-textarea"
-              rows={3}
-              placeholder="Thoughts, favourite scenes, why this stays (or doesn’t stay) in the collection…"
-              value={gavinReview.text ?? ""}
-              onChange={handleTextChange}
-            />
+            <div className="gavin-score-row gavin-score-row--slider">
+              <span className="gavin-score-star">⭐</span>
+              <input
+                type="range"
+                min="0"
+                max="10"
+                step="0.1"
+                className="gavin-score-slider"
+                value={sliderValue}
+                onChange={handleGavinSliderChange}
+              />
+              <span className="gavin-score-outof">
+                {sliderValue.toFixed(1)} / 10
+              </span>
+            </div>
           </section>
 
-          {/* Placeholder for future community/Supabase reviews */}
+          {/* Community reviews – 0–10 with decimals */}
           <section className="review-section">
             <div className="review-section-header">
-              <h3 className="review-section-title">Community Opinions</h3>
+              <h3 className="review-section-title">Community Reviews</h3>
               <p className="review-section-sub">
-                Hook this up to Supabase later using key:{" "}
-                <code>{movieReviewKey || "n/a"}</code>
+                Visitors can rate this movie out of 10 and leave a short review
+                (local only for now).
               </p>
             </div>
-            <p className="community-empty">
-              Community reviews will live here when you&apos;re ready to wire up
-              Supabase again.
-            </p>
+
+            {communityReviews.length === 0 ? (
+              <p className="community-empty">
+                No community reviews yet. Be the first to rate this movie.
+              </p>
+            ) : (
+              <ul className="community-list">
+                {communityReviews.map((r) => (
+                  <li key={r.id} className="community-item">
+                    <div className="community-meta">
+                      <span className="community-author">{r.name}</span>
+                      <span className="community-date">
+                        ⭐ {r.rating.toFixed(1)} / 10 • {r.date}
+                      </span>
+                    </div>
+                    {r.text && (
+                      <p className="community-body">{r.text}</p>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            <form className="community-form" onSubmit={handleCommunitySubmit}>
+              <div style={{ display: "flex", gap: "0.5rem" }}>
+                <input
+                  type="text"
+                  className="community-input"
+                  placeholder="Your name (optional)"
+                  value={communityName}
+                  onChange={(e) => setCommunityName(e.target.value)}
+                />
+                <input
+                  type="number"
+                  min="0"
+                  max="10"
+                  step="0.1"
+                  className="community-input"
+                  style={{ maxWidth: "110px" }}
+                  placeholder="Rating"
+                  value={communityRating}
+                  onChange={(e) => setCommunityRating(e.target.value)}
+                />
+              </div>
+              <textarea
+                className="community-textarea"
+                rows={2}
+                placeholder="What did you think?"
+                value={communityText}
+                onChange={(e) => setCommunityText(e.target.value)}
+              />
+              <button
+                type="submit"
+                className="btn-primary community-submit"
+              >
+                Submit review
+              </button>
+            </form>
           </section>
         </div>
       </div>

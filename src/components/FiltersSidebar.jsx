@@ -26,9 +26,7 @@ function FiltersSidebar({
   const handleFormatClick = (fmt) => onFormatFilterChange(fmt);
   const handleGenreClick = (g) => onGenreFilterChange(g);
 
-  // Show "More / Less" button whenever there *can* be extra genres
-  const hasMoreGenres =
-    genres.length > visibleGenres.length || showAllGenres;
+  const hasMoreGenres = genres.length > visibleGenres.length || showAllGenres;
 
   return (
     <aside className="sidebar">
@@ -63,25 +61,28 @@ function FiltersSidebar({
             onChange={handleSearchChange}
           />
         </div>
+
         <div className="sidebar-field">
           <label className="sidebar-label" htmlFor="sortBy">
             Sort
           </label>
-          <select
-            id="sortBy"
-            className="sidebar-select"
-            value={sortBy}
-            onChange={handleSortChange}
-          >
-            <option value="title-asc">Title A–Z</option>
-            <option value="title-desc">Title Z–A</option>
-            <option value="year-desc">Year (Newest)</option>
-            <option value="year-asc">Year (Oldest)</option>
-            <option value="gavin-desc">Gavin Score (High)</option>
-            <option value="gavin-asc">Gavin Score (Low)</option>
-            <option value="tmdb-desc">TMDB Rating (High)</option>
-            <option value="tmdb-asc">TMDB Rating (Low)</option>
-          </select>
+          <div className="sidebar-select-wrapper">
+            <select
+              id="sortBy"
+              className="sidebar-select"
+              value={sortBy}
+              onChange={handleSortChange}
+            >
+              <option value="title-asc">Title A–Z</option>
+              <option value="title-desc">Title Z–A</option>
+              <option value="year-desc">Year (Newest)</option>
+              <option value="year-asc">Year (Oldest)</option>
+              <option value="gavin-desc">Gavin Score (High)</option>
+              <option value="gavin-asc">Gavin Score (Low)</option>
+              <option value="tmdb-desc">TMDB Rating (High)</option>
+              <option value="tmdb-asc">TMDB Rating (Low)</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -144,6 +145,7 @@ function FiltersSidebar({
               {g === "all" ? "All Genres" : g}
             </button>
           ))}
+
           {hasMoreGenres && (
             <button
               type="button"
@@ -153,6 +155,7 @@ function FiltersSidebar({
               {showAllGenres ? "Less" : "More"}
             </button>
           )}
+
           {genreFilter !== "all" && (
             <button
               type="button"

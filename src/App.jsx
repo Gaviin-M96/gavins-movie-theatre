@@ -39,31 +39,24 @@ function getSortTitle(str) {
 }
 
 function App() {
-  // Core filters / view
   const [search, setSearch] = useState("");
   const [formatFilter, setFormatFilter] = useState("all");
   const [genreFilter, setGenreFilter] = useState("all");
   const [sortBy, setSortBy] = useState("title-asc");
-  const [view, setView] = useState("all"); // all | favorites | watchlist | top
-
-  // Data enhancement + user state
   const [detailsMap, setDetailsMap] = useState({});
   const [favorites, setFavorites] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
-  const [gavinReviews, setGavinReviews] = useState({});
   const [modalMovieId, setModalMovieId] = useState(null);
-
-  // UI bits
+  const [view, setView] = useState("all"); // all | favorites | watchlist
   const [showAllFormats, setShowAllFormats] = useState(false);
   const [showAllGenres, setShowAllGenres] = useState(false);
-  const [isLoadingDetails, setIsLoadingDetails] = useState(false);
-  const [detailsError, setDetailsError] = useState(null);
+  const [gavinReviews, setGavinReviews] = useState({});
 
   useEffect(() => {
     document.title = "Gavin's Movie Theatre";
   }, []);
 
-  // Initial load from localStorage
+  // Load saved state
   useEffect(() => {
     try {
       const rawFilters = localStorage.getItem(FILTERS_STORAGE_KEY);
@@ -73,7 +66,12 @@ function App() {
         if (parsed.formatFilter) setFormatFilter(parsed.formatFilter);
         if (parsed.genreFilter) setGenreFilter(parsed.genreFilter);
         if (parsed.sortBy) setSortBy(parsed.sortBy);
-        if (parsed.view) setView(parsed.view);
+
+        // Only allow supported views now: all | favorites | watchlist
+        if (parsed.view) {
+          const allowedViews = new Set(["all", "favorites", "watchlist"]);
+          setView(allowedViews.has(parsed.view) ? parsed.view : "all");
+        }
       }
 
       const rawFavs = localStorage.getItem(FAVORITES_STORAGE_KEY);
@@ -100,7 +98,7 @@ function App() {
     }
   }, []);
 
-  // Persist state to localStorage
+  // Save state
   useEffect(() => {
     try {
       localStorage.setItem(
@@ -187,15 +185,8 @@ function App() {
     if (view === "watchlist") {
       return movies.filter((m) => watchlistSet.has(m.id));
     }
-    if (view === "top") {
-      return movies.filter((m) => {
-        const gRating = gavinReviews[m.id]?.rating ?? 0;
-        const tRating = detailsMap[m.id]?.rating ?? 0;
-        return gRating >= 4 || (!gRating && tRating >= 8);
-      });
-    }
     return movies;
-  }, [view, favoriteSet, watchlistSet, gavinReviews, detailsMap]);
+  }, [view, favoriteSet, watchlistSet]);
 
   // Filtering + sorting
   const filteredMovies = useMemo(() => {
@@ -244,7 +235,7 @@ function App() {
       const db = detailsMap[b.id];
 
       const ya = da?.year || a.year || 0;
-      const yb = db?.year || b.year || 0;
+      const yb = db?.year || b?.year || 0;
 
       const ga = gavinReviews[a.id]?.rating ?? 0;
       const gb = gavinReviews[b.id]?.rating ?? 0;
@@ -288,26 +279,21 @@ function App() {
     gavinReviews,
   ]);
 
-  // TMDB details lazy load (handles "no result" so we don't refetch forever)
+  // TMDB details lazy load
   useEffect(() => {
     let cancelled = false;
 
     async function loadDetails() {
       const missing = movies.filter((movie) => !detailsMap[movie.id]);
-      if (!missing.length) {
-        // nothing left to load
-        setIsLoadingDetails(false);
-        setDetailsError(null);
-        return;
-      }
-
-      setIsLoadingDetails(true);
-      setDetailsError(null);
+      if (!missing.length) return;
 
       try {
         const results = await Promise.all(
           missing.map(async (movie) => {
-            const details = await fetchDetailsForMovie(movie.title, movie.year);
+            const details = await fetchDetailsForMovie(
+              movie.title,
+              movie.year
+            );
             return { id: movie.id, details };
           })
         );
@@ -317,22 +303,14 @@ function App() {
         setDetailsMap((prev) => {
           const next = { ...prev };
           for (const { id, details } of results) {
-            // If TMDB returned null, store a stub so we don't keep refetching
-            const storedDetails = details || { notFound: true };
-            if (!next[id]) {
-              next[id] = storedDetails;
+            if (details && !next[id]) {
+              next[id] = details;
             }
           }
           return next;
         });
-
-        setIsLoadingDetails(false);
       } catch (e) {
-        if (!cancelled) {
-          console.warn("Error loading TMDB details:", e);
-          setDetailsError("There was a problem fetching extra movie details.");
-          setIsLoadingDetails(false);
-        }
+        console.warn("Error loading TMDB details:", e);
       }
     }
 
@@ -395,7 +373,9 @@ function App() {
     modalMovieId != null ? movies.find((m) => m.id === modalMovieId) : null;
 
   const modalDetails =
-    modalMovie && detailsMap[modalMovie.id] ? detailsMap[modalMovie.id] : null;
+    modalMovie && detailsMap[modalMovie.id]
+      ? detailsMap[modalMovie.id]
+      : null;
 
   const gavinReview =
     modalMovie && gavinReviews[modalMovie.id]
@@ -419,13 +399,12 @@ function App() {
   if (search.trim()) activeFilters.push(`“${search.trim()}”`);
   if (formatFilter !== "all") {
     activeFilters.push(
-      formatFilter === "Blu-ray" ? "Blu-Ray format" : `${formatFilter} format`
+      formatFilter === "Blu-ray" ? "Blu-ray format" : `${formatFilter} format`
     );
   }
   if (genreFilter !== "all") activeFilters.push(`${genreFilter} genre`);
   if (view === "favorites") activeFilters.push("Favourites only");
   if (view === "watchlist") activeFilters.push("Watchlist only");
-  if (view === "top") activeFilters.push("Top rated only");
 
   const handleQuickSearch = (query) => {
     setSearch(query);
@@ -440,7 +419,6 @@ function App() {
         totalCount={totalCount}
         totalFavorites={totalFavorites}
         totalWatchlist={totalWatchlist}
-        isLoadingDetails={isLoadingDetails} // safe extra prop
       />
 
       <div className="layout">
@@ -468,17 +446,6 @@ function App() {
         />
 
         <main className="content">
-          {isLoadingDetails && (
-            <div className="subtle-status">
-              Updating movie details from TMDB…
-            </div>
-          )}
-          {detailsError && (
-            <div className="subtle-status subtle-status--error">
-              {detailsError}
-            </div>
-          )}
-
           {filteredMovies.length === 0 ? (
             <div className="empty">
               <p>No movies match your current filters.</p>
