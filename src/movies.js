@@ -251,9 +251,8 @@ export const movies = [
   { id: 189, title: "Four Brothers", year: 2005, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Four+Brothers" },
   { id: 190, title: "Top Gun: Maverick", year: 2022, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Top+Gun+Maverick" },
   { id: 191, title: "Prep & Landing: Naughty vs. Nice", year: 2011, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=Naughty+vs+Nice" },
+  { id: 192, title: "The Campaign", year: 2012, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=The+Campaign" },
 
-  { id: 192, title: "The Campaign", year: 2012, format: "Blu-ray", image: "https://via.placeholder.com/300x450?text=The+Campaign" }
-  
   { id: 193, title: "Scarface", year: 1983, format: "DVD", image: "https://via.placeholder.com/300x450?text=Scarface" },
   { id: 194, title: "The Incredibles", year: 2004, format: "DVD", image: "https://via.placeholder.com/300x450?text=The+Incredibles" },
   { id: 195, title: "Monsters, Inc.", year: 2001, format: "DVD", image: "https://via.placeholder.com/300x450?text=Monsters+Inc" },
@@ -301,5 +300,4 @@ export const movies = [
   { id: 237, title: "First Blood", year: 1982, format: "DVD", image: "https://via.placeholder.com/300x450?text=First+Blood" },
   { id: 238, title: "Rambo: First Blood Part II", year: 1985, format: "DVD", image: "https://via.placeholder.com/300x450?text=Rambo+2" },
   { id: 239, title: "Rambo III", year: 1988, format: "DVD", image: "https://via.placeholder.com/300x450?text=Rambo+III" }
-
 ];
