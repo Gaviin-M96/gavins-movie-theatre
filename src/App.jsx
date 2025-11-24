@@ -283,7 +283,7 @@ function App() {
     let cancelled = false;
 
     async function loadDetails() {
-      const missing = movies.filter((movie) => !detailsMap[movie.id]);
+      const missing = movies.filter((movie) => !(movie.id in detailsMap));
       if (!missing.length) return;
 
       try {
