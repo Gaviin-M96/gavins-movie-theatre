@@ -1,7 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { movies } from "./movies";
 import { fetchDetailsForMovie } from "./api/tmdb";
-import Header from "./components/Header";
 import FiltersSidebar from "./components/FiltersSidebar";
 import MovieGrid from "./components/MovieGrid";
 import MovieModal from "./components/MovieModal";
@@ -414,36 +413,39 @@ function App() {
 
   return (
     <div className="app">
-      <Header
-        currentCount={currentCount}
-        totalCount={totalCount}
-        totalFavorites={totalFavorites}
-        totalWatchlist={totalWatchlist}
-      />
-
       <div className="layout">
-        <FiltersSidebar
-          search={search}
-          sortBy={sortBy}
-          formatFilter={formatFilter}
-          genreFilter={genreFilter}
-          formats={formats}
-          genres={genres}
-          visibleFormats={visibleFormats}
-          visibleGenres={visibleGenres}
-          showAllFormats={showAllFormats}
-          showAllGenres={showAllGenres}
-          onSearchChange={setSearch}
-          onSortChange={setSortBy}
-          onFormatFilterChange={setFormatFilter}
-          onGenreFilterChange={setGenreFilter}
-          onClearFilters={clearFilters}
-          onRandom={handleRandom}
-          onToggleShowAllFormats={() => setShowAllFormats((v) => !v)}
-          onToggleShowAllGenres={() => setShowAllGenres((v) => !v)}
-          currentCount={currentCount}
-          totalCount={totalCount}
-        />
+        {/* Sticky column: title + sidebar together */}
+        <div className="sidebar-column">
+          <div className="sidebar-main-title">
+            <h1 className="sidebar-main-title-text">
+              <span>GAVIN&apos;S</span>
+              <span>MOVIE THEATRE</span>
+            </h1>
+          </div>
+
+          <FiltersSidebar
+            search={search}
+            sortBy={sortBy}
+            formatFilter={formatFilter}
+            genreFilter={genreFilter}
+            formats={formats}
+            genres={genres}
+            visibleFormats={visibleFormats}
+            visibleGenres={visibleGenres}
+            showAllFormats={showAllFormats}
+            showAllGenres={showAllGenres}
+            onSearchChange={setSearch}
+            onSortChange={setSortBy}
+            onFormatFilterChange={setFormatFilter}
+            onGenreFilterChange={setGenreFilter}
+            onClearFilters={clearFilters}
+            onRandom={handleRandom}
+            onToggleShowAllFormats={() => setShowAllFormats((v) => !v)}
+            onToggleShowAllGenres={() => setShowAllGenres((v) => !v)}
+            currentCount={currentCount}
+            totalCount={totalCount}
+          />
+        </div>
 
         <main className="content">
           {filteredMovies.length === 0 ? (

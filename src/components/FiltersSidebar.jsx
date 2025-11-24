@@ -97,35 +97,36 @@ function FiltersSidebar({
         </div>
 
         {/* GENRE */}
-<div className="sidebar-block">
-  <span className="sidebar-label">Genre</span>
+        <div className="sidebar-block">
+          <span className="sidebar-label">Genre</span>
 
-  <div className="chip-row">
-    {visibleGenres.map((genre) => (
-      <button
-        key={genre}
-        type="button"
-        className={`chip${genreFilter === genre ? " chip--active" : ""}`}
-        onClick={() => onGenreFilterChange(genre)}
-      >
-        {genre === "all" ? "All" : genre}
-      </button>
-    ))}
+          <div className="chip-row">
+            {visibleGenres.map((genre) => (
+              <button
+                key={genre}
+                type="button"
+                className={`chip${
+                  genreFilter === genre ? " chip--active" : ""
+                }`}
+                onClick={() => onGenreFilterChange(genre)}
+              >
+                {genre === "all" ? "All" : genre}
+              </button>
+            ))}
 
-    {/* More / Less toggle pill – always shown */}
-    {genres.length > 1 && (
-      <button
-        type="button"
-        className={`chip chip--toggle${
-          showAllGenres ? " chip--toggle-active" : ""
-        }`}
-        onClick={onToggleShowAllGenres}
-      >
-        {showAllGenres ? "Less" : "More"}
-      </button>
-    )}
-  </div>
-</div>
+            {genres.length > 1 && (
+              <button
+                type="button"
+                className={`chip chip--toggle${
+                  showAllGenres ? " chip--toggle-active" : ""
+                }`}
+                onClick={onToggleShowAllGenres}
+              >
+                {showAllGenres ? "Less" : "More"}
+              </button>
+            )}
+          </div>
+        </div>
 
         {/* ACTIONS */}
         <div className="sidebar-actions">
@@ -134,13 +135,9 @@ function FiltersSidebar({
             className="btn-secondary"
             onClick={onClearFilters}
           >
-            Clear filters
+            Clear Filters
           </button>
-          <button
-            type="button"
-            className="btn-primary"
-            onClick={onRandom}
-          >
+          <button type="button" className="btn-primary" onClick={onRandom}>
             🎲 Random Movie
           </button>
         </div>
