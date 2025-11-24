@@ -153,11 +153,13 @@ function App() {
   const favoriteSet = useMemo(() => new Set(favorites), [favorites]);
   const watchlistSet = useMemo(() => new Set(watchlist), [watchlist]);
 
+  // Available formats (Blu-ray, DVD, etc.)
   const formats = useMemo(
     () => ["all", ...new Set(movies.map((m) => m.format || "Unknown"))],
     []
   );
 
+  // Available genres (from TMDB + any local genre property)
   const genres = useMemo(() => {
     const set = new Set();
     Object.values(detailsMap).forEach((details) => {
@@ -388,6 +390,10 @@ function App() {
   const totalFavorites = favorites.length;
   const totalWatchlist = watchlist.length;
 
+  // New: simple Blu-ray / DVD stats you can show in Header if you want
+  const totalBluRay = movies.filter((m) => m.format === "Blu-ray").length;
+  const totalDvd = movies.filter((m) => m.format === "DVD").length;
+
   const movieReviewKey =
     modalDetails?.tmdbId != null
       ? String(modalDetails.tmdbId)
@@ -398,9 +404,13 @@ function App() {
   const activeFilters = [];
   if (search.trim()) activeFilters.push(`“${search.trim()}”`);
   if (formatFilter !== "all") {
-    activeFilters.push(
-      formatFilter === "Blu-ray" ? "Blu-ray format" : `${formatFilter} format`
-    );
+    if (formatFilter === "Blu-ray") {
+      activeFilters.push("Blu-ray discs");
+    } else if (formatFilter === "DVD") {
+      activeFilters.push("DVDs");
+    } else {
+      activeFilters.push(`${formatFilter} format`);
+    }
   }
   if (genreFilter !== "all") activeFilters.push(`${genreFilter} genre`);
   if (view === "favorites") activeFilters.push("Favourites only");
@@ -419,6 +429,8 @@ function App() {
         totalCount={totalCount}
         totalFavorites={totalFavorites}
         totalWatchlist={totalWatchlist}
+        totalBluRay={totalBluRay}
+        totalDvd={totalDvd}
       />
 
       <div className="layout">
