@@ -1,10 +1,14 @@
 // src/App.jsx
 import { useState, useMemo, useEffect } from "react";
 import { movies } from "./movies";
+import { fetchDetailsForMovie } from "./api/tmdb";
 import FiltersSidebar from "./components/FiltersSidebar";
 import MovieGrid from "./components/MovieGrid";
 import MovieModal from "./components/MovieModal";
 import BottomNav from "./components/BottomNav";
+
+// NEW: import the logo so Vite bundles it correctly
+import reelRoomLogo from "./assets/reel-room.jpeg";
 
 const FILTERS_STORAGE_KEY = "gmtFilters";
 const FAVORITES_STORAGE_KEY = "gmtFavorites";
@@ -376,11 +380,11 @@ function App() {
     <div className="app">
       <div className="layout">
   {/* LEFT RAIL: logo above sidebar, both sticky together */}
-  <div className="left-rail">
+<div className="left-rail">
   <div className="logo-bar">
     <img
-      src="/src/assets/reel-room.jpeg"
-      alt="Reel Room"
+      src={reelRoomLogo}
+      alt="Reel Room by Gavin"
       className="header-logo"
     />
   </div>
