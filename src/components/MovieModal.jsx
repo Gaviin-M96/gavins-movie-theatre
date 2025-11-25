@@ -1,28 +1,35 @@
 // src/components/MovieModal.jsx
 import { useMemo, useState } from "react";
+import { getRatingBadgeClass } from "./MovieGrid"; // reuse badge styling
 
 function MovieModal({
   movie,
-  details,
   isFavorite,
   inWatchlist,
   onToggleFavorite,
   onToggleWatchlist,
   gavinReview,
   onSetGavinRating,
-  onSetGavinText, // still accepted but no longer used
+  onSetGavinText, // still accepted if you decide to use text later
   movieReviewKey,
   onQuickSearch,
 }) {
-  const year = details?.year || movie.year;
-  const runtime = details?.runtime;
-  const rating = details?.rating;
-  const genres = details?.genres || (movie.genre ? [movie.genre] : []);
-  const director = details?.director;
-  const cast = details?.cast || [];
+  const year = movie.year || null;
+  const runtime = movie.metadata?.runtimeMinutes ?? null;
+  const rating = movie.ratings?.tmdb?.voteAverage ?? null;
+  const genres = movie.metadata?.genres || [];
+  const director = movie.credits?.director;
+  const cast = movie.credits?.castPreview || [];
   const limitedCast = cast.slice(0, 3);
 
-  // Local-only community reviews (not persisted, no Supabase yet)
+  const overview = movie.text?.overview || "";
+
+  const posterSrc =
+    movie.media?.poster ||
+    movie.media?.placeholder ||
+    "https://via.placeholder.com/400x600?text=No+Poster";
+
+  // Local-only community reviews (not persisted)
   const [communityName, setCommunityName] = useState("");
   const [communityRating, setCommunityRating] = useState("");
   const [communityText, setCommunityText] = useState("");
@@ -47,7 +54,7 @@ function MovieModal({
   };
 
   // Gavin rating 0–10 via slider
-  const sliderValue = (gavinReview.rating ?? 0);
+  const sliderValue = gavinReview.rating ?? 0;
 
   const handleGavinSliderChange = (e) => {
     const val = parseFloat(e.target.value);
@@ -86,14 +93,7 @@ function MovieModal({
     <div className="modal-content">
       {/* Poster column */}
       <div className="modal-poster">
-        {details?.posterUrl ? (
-          <img src={details.posterUrl} alt={movie.title} />
-        ) : (
-          <img
-            src="https://via.placeholder.com/400x600?text=No+Poster"
-            alt={movie.title}
-          />
-        )}
+        <img src={posterSrc} alt={movie.title} />
       </div>
 
       {/* Info + reviews */}
@@ -165,9 +165,7 @@ function MovieModal({
         )}
 
         {/* Overview – smaller text */}
-        {details?.overview && (
-          <p className="modal-overview">{details.overview}</p>
-        )}
+        {overview && <p className="modal-overview">{overview}</p>}
 
         {/* Actions: icon-only for Favourite & Watchlist */}
         <div className="modal-actions">
@@ -195,20 +193,7 @@ function MovieModal({
           >
             <span className="icon-symbol">📽️</span>
           </button>
-          {details?.trailerKey && (
-            <button
-              type="button"
-              className="chip chip--primary"
-              onClick={() =>
-                window.open(
-                  `https://www.youtube.com/watch?v=${details.trailerKey}`,
-                  "_blank",
-                )
-              }
-            >
-              ▶ Watch Trailer
-            </button>
-          )}
+          {/* No trailer button for now – we didn't fetch videos in the script */}
         </div>
 
         {/* Reviews section */}
@@ -308,13 +293,6 @@ function MovieModal({
       </div>
     </div>
   );
-}
-
-function getRatingBadgeClass(rating) {
-  if (!rating) return "card-rating-badge";
-  if (rating >= 8) return "card-rating-badge card-rating-badge--high";
-  if (rating >= 6) return "card-rating-badge card-rating-badge--mid";
-  return "card-rating-badge card-rating-badge--low";
 }
 
 export default MovieModal;

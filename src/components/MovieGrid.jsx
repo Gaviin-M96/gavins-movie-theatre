@@ -1,6 +1,6 @@
 // src/components/MovieGrid.jsx
 
-function getRatingBadgeClass(rating) {
+export function getRatingBadgeClass(rating) {
   if (!rating) return "card-rating-badge";
   if (rating >= 8) return "card-rating-badge card-rating-badge--high";
   if (rating >= 6) return "card-rating-badge card-rating-badge--mid";
@@ -9,60 +9,45 @@ function getRatingBadgeClass(rating) {
 
 function MovieCard({
   movie,
-  details,
   isFavorite,
   inWatchlist,
   onToggleFavorite,
   onToggleWatchlist,
   onOpenModal,
 }) {
-  // Prefer static data from `movie`, fall back to TMDB `details`
-  const year = movie.year || details?.year || null;
-  const rating = details?.rating ?? null;
+  const year = movie.year || null;
+  const rating = movie.ratings?.tmdb?.voteAverage ?? null;
   const ratingClass = getRatingBadgeClass(rating);
 
-  // Posters:
-  // 1) movie.image (your static field, e.g. https://via.placeholder.com/...)
-  // 2) details.posterUrl from TMDB (if cached)
-  // 3) final fallback placeholder
   const posterUrl =
-    movie.image ||
-    details?.posterUrl ||
+    movie.media?.poster ||
+    movie.media?.placeholder ||
     "https://via.placeholder.com/300x450?text=No+Poster";
 
-  // Genres: use static movie.genres first
-  let genresArr = [];
-  if (Array.isArray(movie.genres) && movie.genres.length) {
-    genresArr = movie.genres;
-  } else if (movie.genre) {
-    genresArr = [movie.genre];
-  } else if (Array.isArray(details?.genres) && details.genres.length) {
-    genresArr = details.genres;
-  }
-
+  const genresArr = Array.isArray(movie.metadata?.genres)
+    ? movie.metadata.genres
+    : [];
   const genresText =
     genresArr && genresArr.length > 0
       ? genresArr.slice(0, 3).join(", ")
       : "";
+
+  const format = movie.library?.format || null;
 
   const handleCardClick = () => onOpenModal(movie.id);
 
   return (
     <article className="card" onClick={handleCardClick}>
       <div className="cover">
-        <img
-          src={posterUrl}
-          alt={movie.title}
-          loading="lazy"
-        />
+        <img src={posterUrl} alt={movie.title} loading="lazy" />
       </div>
 
       <div className="card-body">
         {/* top row with format + rating pills */}
         <div className="card-top-row">
-          {movie.format && (
+          {format && (
             <div className="card-format-pill">
-              {movie.format === "Blu-ray" ? "Blu-Ray" : movie.format}
+              {format === "Blu-ray" ? "Blu-Ray" : format}
             </div>
           )}
 
@@ -112,7 +97,6 @@ function MovieCard({
 
 function MovieGrid({
   movies,
-  detailsMap,
   favoriteSet,
   watchlistSet,
   onToggleFavorite,
@@ -125,7 +109,6 @@ function MovieGrid({
         <MovieCard
           key={movie.id}
           movie={movie}
-          details={detailsMap[movie.id]}
           isFavorite={favoriteSet.has(movie.id)}
           inWatchlist={watchlistSet.has(movie.id)}
           onToggleFavorite={() => onToggleFavorite(movie.id)}

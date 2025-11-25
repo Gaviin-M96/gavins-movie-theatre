@@ -1,7 +1,6 @@
 // src/App.jsx
 import { useState, useMemo, useEffect } from "react";
 import { movies } from "./movies";
-import { fetchDetailsForMovie } from "./api/tmdb";
 import FiltersSidebar from "./components/FiltersSidebar";
 import MovieGrid from "./components/MovieGrid";
 import MovieModal from "./components/MovieModal";
@@ -11,7 +10,6 @@ const FILTERS_STORAGE_KEY = "gmtFilters";
 const FAVORITES_STORAGE_KEY = "gmtFavorites";
 const WATCHLIST_STORAGE_KEY = "gmtWatchlist";
 const GAVIN_REVIEWS_KEY = "gmtGavinReviews";
-const DETAILS_STORAGE_KEY = "gmtDetailsMapV1";
 
 function normalizeForSearch(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, "");
@@ -35,7 +33,6 @@ function fuzzyMatch(query, text) {
 
 function getSortTitle(str) {
   if (!str) return "";
-  // Remove leading "The " (case-insensitive) for sorting purposes
   return str.replace(/^\s*the\s+/i, "").trim();
 }
 
@@ -68,7 +65,6 @@ function App() {
   const [formatFilter, setFormatFilter] = useState("all");
   const [genreFilter, setGenreFilter] = useState("all");
   const [sortBy, setSortBy] = useState("title-asc");
-  const [detailsMap, setDetailsMap] = useState({});
   const [favorites, setFavorites] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
   const [modalMovieId, setModalMovieId] = useState(null);
@@ -117,27 +113,9 @@ function App() {
           setGavinReviews(parsedGavin);
         }
       }
-      
     } catch (e) {
       console.warn("Error reading localStorage:", e);
-
-      // Load cached TMDB details (posters, ratings, etc.) so covers appear faster
-  useEffect(() => {
-    try {
-      const raw = localStorage.getItem(DETAILS_STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        if (parsed && typeof parsed === "object") {
-          setDetailsMap(parsed);
-        }
-      }
-    } catch (e) {
-      console.warn("Error reading cached TMDB details:", e);
     }
-  }, []);
-
-    }
-
   }, []);
 
   // Save state
@@ -170,15 +148,6 @@ function App() {
     gavinReviews,
   ]);
 
-    // Persist TMDB details so we don't have to refetch next visit
-  useEffect(() => {
-    try {
-      localStorage.setItem(DETAILS_STORAGE_KEY, JSON.stringify(detailsMap));
-    } catch (e) {
-      console.warn("Error caching TMDB details:", e);
-    }
-  }, [detailsMap]);
-
   // Modal ESC / body scroll lock
   useEffect(() => {
     if (modalMovieId == null) {
@@ -204,8 +173,14 @@ function App() {
   const favoriteSet = useMemo(() => new Set(favorites), [favorites]);
   const watchlistSet = useMemo(() => new Set(watchlist), [watchlist]);
 
+  // Formats now come from movie.library.format
   const formats = useMemo(
-    () => ["all", ...new Set(movies.map((m) => m.format || "Unknown"))],
+    () => [
+      "all",
+      ...new Set(
+        movies.map((m) => m.library?.format || "Unknown")
+      ),
+    ],
     []
   );
 
@@ -236,18 +211,10 @@ function App() {
     const normalizedSearch = normalizeForSearch(lowerSearch);
 
     let result = baseMovies.filter((movie) => {
-      const details = detailsMap[movie.id];
-
-      const year = movie.year || details?.year || null;
-
-      let genresArr = [];
-      if (Array.isArray(movie.genres) && movie.genres.length) {
-        genresArr = movie.genres;
-      } else if (movie.genre) {
-        genresArr = [movie.genre];
-      } else if (Array.isArray(details?.genres)) {
-        genresArr = details.genres;
-      }
+      const year = movie.year || null;
+      const genresArr = Array.isArray(movie.metadata?.genres)
+        ? movie.metadata.genres
+        : [];
 
       const basicMatch =
         !lowerSearch ||
@@ -270,7 +237,7 @@ function App() {
       const matchesFormat =
         formatFilter === "all"
           ? true
-          : (movie.format || "Unknown") === formatFilter;
+          : (movie.library?.format || "Unknown") === formatFilter;
 
       const matchesGenre =
         genreFilter === "all" ? true : genresArr.includes(genreFilter);
@@ -281,17 +248,14 @@ function App() {
     result = [...result];
 
     result.sort((a, b) => {
-      const da = detailsMap[a.id];
-      const db = detailsMap[b.id];
-
-      const ya = a.year || da?.year || 0;
-      const yb = b.year || db?.year || 0;
+      const ya = a.year || 0;
+      const yb = b.year || 0;
 
       const ga = gavinReviews[a.id]?.rating ?? 0;
       const gb = gavinReviews[b.id]?.rating ?? 0;
 
-      const ta = da?.rating ?? 0; // TMDB rating
-      const tb = db?.rating ?? 0;
+      const ta = a.ratings?.tmdb?.voteAverage ?? 0;
+      const tb = b.ratings?.tmdb?.voteAverage ?? 0;
 
       const titleA = getSortTitle(a.title);
       const titleB = getSortTitle(b.title);
@@ -319,15 +283,7 @@ function App() {
     });
 
     return result;
-  }, [
-    baseMovies,
-    search,
-    formatFilter,
-    genreFilter,
-    sortBy,
-    detailsMap,
-    gavinReviews,
-  ]);
+  }, [baseMovies, search, formatFilter, genreFilter, sortBy, gavinReviews]);
 
   const clearFilters = () => {
     setSearch("");
@@ -348,25 +304,8 @@ function App() {
     );
   };
 
-  // Only load TMDB details when a movie is opened
+  // Modal open: no more TMDB fetching; data is static
   const openModal = (id) => {
-    const movie = movies.find((m) => m.id === id);
-
-    if (movie && !detailsMap[id]) {
-      (async () => {
-        try {
-          const details = await fetchDetailsForMovie(movie);
-          if (details) {
-            setDetailsMap((prev) =>
-              prev[id] ? prev : { ...prev, [id]: details }
-            );
-          }
-        } catch (e) {
-          console.warn("Error loading TMDB details for modal:", e);
-        }
-      })();
-    }
-
     setModalMovieId(id);
   };
 
@@ -402,11 +341,6 @@ function App() {
   const modalMovie =
     modalMovieId != null ? movies.find((m) => m.id === modalMovieId) : null;
 
-  const modalDetails =
-    modalMovie && detailsMap[modalMovie.id]
-      ? detailsMap[modalMovie.id]
-      : null;
-
   const gavinReview =
     modalMovie && gavinReviews[modalMovie.id]
       ? gavinReviews[modalMovie.id]
@@ -416,8 +350,8 @@ function App() {
   const currentCount = filteredMovies.length;
 
   const movieReviewKey =
-    modalDetails?.tmdbId != null
-      ? String(modalDetails.tmdbId)
+    modalMovie?.metadata?.tmdbId != null
+      ? String(modalMovie.metadata.tmdbId)
       : modalMovie
       ? String(modalMovie.id)
       : null;
@@ -497,7 +431,6 @@ function App() {
           ) : (
             <MovieGrid
               movies={filteredMovies}
-              detailsMap={detailsMap}
               favoriteSet={favoriteSet}
               watchlistSet={watchlistSet}
               onToggleFavorite={toggleFavorite}
@@ -518,7 +451,6 @@ function App() {
             </button>
             <MovieModal
               movie={modalMovie}
-              details={modalDetails}
               isFavorite={favoriteSet.has(modalMovie.id)}
               inWatchlist={watchlistSet.has(modalMovie.id)}
               onToggleFavorite={() => toggleFavorite(modalMovie.id)}
