@@ -278,41 +278,44 @@ function App() {
     gavinReviews,
   ]);
 
-// TMDB details lazy load (mobile-safe version)
+// TMDB details lazy load – safer for mobile (batched + run once)
 useEffect(() => {
   let cancelled = false;
 
   async function loadDetails() {
-    // Only look at movies currently in the filtered list
-    const candidates = filteredMovies.filter((movie) => !detailsMap[movie.id]);
-
-    // Limit how many we fetch at once
-    const BATCH_SIZE = 20;
-    const missing = candidates.slice(0, BATCH_SIZE);
-
+    // Start with all movies that don't have details yet
+    const missing = movies.filter((movie) => !detailsMap[movie.id]);
     if (!missing.length) return;
 
-    try {
-      const results = await Promise.all(
-        missing.map(async (movie) => {
-          const details = await fetchDetailsForMovie(movie.title, movie.year);
-          return { id: movie.id, details };
-        })
-      );
+    const BATCH_SIZE = 8; // small batches to avoid hammering mobile Safari
 
-      if (cancelled) return;
+    for (let i = 0; i < missing.length; i += BATCH_SIZE) {
+      if (cancelled) break;
 
-      setDetailsMap((prev) => {
-        const next = { ...prev };
-        for (const { id, details } of results) {
-          if (details && !next[id]) {
-            next[id] = details;
+      const batch = missing.slice(i, i + BATCH_SIZE);
+
+      try {
+        const results = await Promise.all(
+          batch.map(async (movie) => {
+            const details = await fetchDetailsForMovie(movie.title, movie.year);
+            return { id: movie.id, details };
+          })
+        );
+
+        if (cancelled) break;
+
+        setDetailsMap((prev) => {
+          const next = { ...prev };
+          for (const { id, details } of results) {
+            if (details && !next[id]) {
+              next[id] = details;
+            }
           }
-        }
-        return next;
-      });
-    } catch (e) {
-      console.warn("Error loading TMDB details:", e);
+          return next;
+        });
+      } catch (e) {
+        console.warn("Error loading TMDB details batch:", e);
+      }
     }
   }
 
@@ -321,7 +324,9 @@ useEffect(() => {
   return () => {
     cancelled = true;
   };
-}, [filteredMovies, detailsMap]);
+  // run once on mount – no dependency on detailsMap to avoid loops
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
   const clearFilters = () => {
     setSearch("");
