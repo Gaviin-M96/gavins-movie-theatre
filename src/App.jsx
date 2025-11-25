@@ -157,16 +157,15 @@ function App() {
     []
   );
 
+  // ⭐ FIXED: genres always come from your static movies list
+  // (TMDB is only used for per-movie details, not to build the filter list)
   const genres = useMemo(() => {
     const set = new Set();
-    Object.values(detailsMap).forEach((details) => {
-      (details.genres || []).forEach((g) => set.add(g));
-    });
     movies.forEach((m) => {
       if (m.genre) set.add(m.genre);
     });
     return ["all", ...Array.from(set).sort()];
-  }, [detailsMap]);
+  }, []);
 
   const MAX_VISIBLE_CHIPS = 8;
   const visibleFormats = showAllFormats
@@ -195,8 +194,9 @@ function App() {
     let result = baseMovies.filter((movie) => {
       const details = detailsMap[movie.id];
 
-      const year = details?.year || movie.year || null;
+      // genres for this movie: prefer TMDB if present, fall back to static
       const genresArr = details?.genres || (movie.genre ? [movie.genre] : []);
+      const year = details?.year || movie.year || null;
 
       const basicMatch =
         !lowerSearch ||
@@ -278,59 +278,6 @@ function App() {
     gavinReviews,
   ]);
 
-  // TMDB details lazy load – safer for mobile (batched + run once)
-  useEffect(() => {
-    let cancelled = false;
-
-    async function loadDetails() {
-      // Start with all movies that don't have details yet
-      const missing = movies.filter((movie) => !detailsMap[movie.id]);
-      if (!missing.length) return;
-
-      const BATCH_SIZE = 8; // small batches to avoid hammering mobile Safari
-
-      for (let i = 0; i < missing.length; i += BATCH_SIZE) {
-        if (cancelled) break;
-
-        const batch = missing.slice(i, i + BATCH_SIZE);
-
-        try {
-          const results = await Promise.all(
-            batch.map(async (movie) => {
-              const details = await fetchDetailsForMovie(
-                movie.title,
-                movie.year
-              );
-              return { id: movie.id, details };
-            })
-          );
-
-          if (cancelled) break;
-
-          setDetailsMap((prev) => {
-            const next = { ...prev };
-            for (const { id, details } of results) {
-              if (details && !next[id]) {
-                next[id] = details;
-              }
-            }
-            return next;
-          });
-        } catch (e) {
-          console.warn("Error loading TMDB details batch:", e);
-        }
-      }
-    }
-
-    loadDetails();
-
-    return () => {
-      cancelled = true;
-    };
-    // run once on mount – no dependency on detailsMap to avoid loops
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const clearFilters = () => {
     setSearch("");
     setFormatFilter("all");
@@ -350,7 +297,28 @@ function App() {
     );
   };
 
-  const openModal = (id) => setModalMovieId(id);
+  // 🔑 Only load TMDB details when a movie is opened
+  const openModal = (id) => {
+    const movie = movies.find((m) => m.id === id);
+
+    if (movie && !detailsMap[id]) {
+      (async () => {
+        try {
+          const details = await fetchDetailsForMovie(movie.title, movie.year);
+          if (details) {
+            setDetailsMap((prev) =>
+              prev[id] ? prev : { ...prev, [id]: details }
+            );
+          }
+        } catch (e) {
+          console.warn("Error loading TMDB details for modal:", e);
+        }
+      })();
+    }
+
+    setModalMovieId(id);
+  };
+
   const closeModal = () => setModalMovieId(null);
 
   const handleRandom = () => {
@@ -396,9 +364,6 @@ function App() {
   const totalCount = movies.length;
   const currentCount = filteredMovies.length;
 
-  const totalFavorites = favorites.length;
-  const totalWatchlist = watchlist.length;
-
   const movieReviewKey =
     modalDetails?.tmdbId != null
       ? String(modalDetails.tmdbId)
@@ -426,7 +391,6 @@ function App() {
   return (
     <div className="app">
       <div className="layout">
-        {/* Sticky column: title + sidebar together */}
         <div className="sidebar-column">
           <div className="sidebar-main-title">
             <h1 className="sidebar-main-title-text">

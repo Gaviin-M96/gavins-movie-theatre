@@ -5,7 +5,13 @@ export const movies = [
     "year": 2009,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=12+Rounds",
-    "tmdbId": 17134
+    "tmdbId": 17134,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Crime"
+    ],
+    "genre": "Action"
   },
   {
     "id": 2,
@@ -13,7 +19,13 @@ export const movies = [
     "year": 2013,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=2+Guns",
-    "tmdbId": 136400
+    "tmdbId": 136400,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Crime"
+    ],
+    "genre": "Action"
   },
   {
     "id": 3,
@@ -21,7 +33,13 @@ export const movies = [
     "year": 2012,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=21+Jump+Street",
-    "tmdbId": 64688
+    "tmdbId": 64688,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Crime"
+    ],
+    "genre": "Action"
   },
   {
     "id": 4,
@@ -29,7 +47,13 @@ export const movies = [
     "year": 2014,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=22+Jump+Street",
-    "tmdbId": 187017
+    "tmdbId": 187017,
+    "genres": [
+      "Crime",
+      "Comedy",
+      "Action"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 5,
@@ -37,7 +61,12 @@ export const movies = [
     "year": 2007,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=30+Days+of+Night",
-    "tmdbId": 4513
+    "tmdbId": 4513,
+    "genres": [
+      "Horror",
+      "Thriller"
+    ],
+    "genre": "Horror"
   },
   {
     "id": 6,
@@ -45,7 +74,13 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=30+Minutes+or+Less",
-    "tmdbId": 62206
+    "tmdbId": 62206,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy"
+    ],
+    "genre": "Action"
   },
   {
     "id": 7,
@@ -53,7 +88,12 @@ export const movies = [
     "year": 2013,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=A+Good+Day+to+Die+Hard",
-    "tmdbId": 47964
+    "tmdbId": 47964,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 8,
@@ -61,7 +101,14 @@ export const movies = [
     "year": 2014,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=A+Walk+Among+the+Tombstones",
-    "tmdbId": 169917
+    "tmdbId": 169917,
+    "genres": [
+      "Crime",
+      "Drama",
+      "Mystery",
+      "Thriller"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 9,
@@ -69,7 +116,14 @@ export const movies = [
     "year": 2004,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=AVP%3A+Alien+vs+Predator",
-    "tmdbId": 395
+    "tmdbId": 395,
+    "genres": [
+      "Adventure",
+      "Science Fiction",
+      "Action",
+      "Horror"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 10,
@@ -77,7 +131,13 @@ export const movies = [
     "year": 2016,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Alice+Through+the+Looking+Glass",
-    "tmdbId": 241259
+    "tmdbId": 241259,
+    "genres": [
+      "Adventure",
+      "Family",
+      "Fantasy"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 11,
@@ -85,7 +145,12 @@ export const movies = [
     "year": 2014,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=American+Sniper",
-    "tmdbId": 190859
+    "tmdbId": 190859,
+    "genres": [
+      "War",
+      "Action"
+    ],
+    "genre": "War"
   },
   {
     "id": 12,
@@ -93,7 +158,11 @@ export const movies = [
     "year": 2013,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Anchorman+2%3A+The+Legend+Continues",
-    "tmdbId": 109443
+    "tmdbId": 109443,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 13,
@@ -101,7 +170,11 @@ export const movies = [
     "year": 2004,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Anchorman%3A+The+Legend+of+Ron+Burgundy",
-    "tmdbId": 8699
+    "tmdbId": 8699,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 14,
@@ -109,7 +182,14 @@ export const movies = [
     "year": 2009,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Avatar",
-    "tmdbId": 19995
+    "tmdbId": 19995,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Science Fiction"
+    ],
+    "genre": "Action"
   },
   {
     "id": 15,
@@ -117,7 +197,14 @@ export const movies = [
     "year": 2008,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Babylon+A.D.",
-    "tmdbId": 9381
+    "tmdbId": 9381,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Science Fiction",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 16,
@@ -125,7 +212,13 @@ export const movies = [
     "year": 2020,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Bad+Boys+for+Life",
-    "tmdbId": 38700
+    "tmdbId": 38700,
+    "genres": [
+      "Thriller",
+      "Action",
+      "Crime"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 17,
@@ -133,7 +226,11 @@ export const movies = [
     "year": 2016,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Bad+Moms",
-    "tmdbId": 376659
+    "tmdbId": 376659,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 18,
@@ -141,7 +238,13 @@ export const movies = [
     "year": 2005,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Batman+Begins",
-    "tmdbId": 272
+    "tmdbId": 272,
+    "genres": [
+      "Drama",
+      "Crime",
+      "Action"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 19,
@@ -149,7 +252,13 @@ export const movies = [
     "year": 2017,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Baywatch",
-    "tmdbId": 339846
+    "tmdbId": 339846,
+    "genres": [
+      "Comedy",
+      "Action",
+      "Crime"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 20,
@@ -157,7 +266,12 @@ export const movies = [
     "year": 1988,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Beetlejuice",
-    "tmdbId": 4011
+    "tmdbId": 4011,
+    "genres": [
+      "Fantasy",
+      "Comedy"
+    ],
+    "genre": "Fantasy"
   },
   {
     "id": 21,
@@ -165,7 +279,13 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Blitz",
-    "tmdbId": 55846
+    "tmdbId": 55846,
+    "genres": [
+      "Crime",
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 22,
@@ -173,7 +293,11 @@ export const movies = [
     "year": 2018,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Blockers",
-    "tmdbId": 437557
+    "tmdbId": 437557,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 23,
@@ -181,7 +305,13 @@ export const movies = [
     "year": 2009,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Bodyguards+and+Assassins",
-    "tmdbId": 30596
+    "tmdbId": 30596,
+    "genres": [
+      "Drama",
+      "Action",
+      "History"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 24,
@@ -189,7 +319,13 @@ export const movies = [
     "year": 2013,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Captain+Phillips",
-    "tmdbId": 109424
+    "tmdbId": 109424,
+    "genres": [
+      "Action",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 25,
@@ -197,7 +333,12 @@ export const movies = [
     "year": 1978,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Cheech+%26+Chong%E2%80%99s+Up+in+Smoke",
-    "tmdbId": 11455
+    "tmdbId": 11455,
+    "genres": [
+      "Adventure",
+      "Comedy"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 26,
@@ -205,7 +346,14 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Colombiana",
-    "tmdbId": 62835
+    "tmdbId": 62835,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Crime",
+      "Drama"
+    ],
+    "genre": "Action"
   },
   {
     "id": 27,
@@ -213,7 +361,14 @@ export const movies = [
     "year": 2012,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Contraband",
-    "tmdbId": 77866
+    "tmdbId": 77866,
+    "genres": [
+      "Thriller",
+      "Action",
+      "Drama",
+      "Crime"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 28,
@@ -221,7 +376,12 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Coriolanus",
-    "tmdbId": 101173
+    "tmdbId": 101173,
+    "genres": [
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 29,
@@ -229,7 +389,14 @@ export const movies = [
     "year": 2000,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Coyote+Ugly",
-    "tmdbId": 6282
+    "tmdbId": 6282,
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Music",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 30,
@@ -237,7 +404,13 @@ export const movies = [
     "year": 2006,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Crank",
-    "tmdbId": 1948
+    "tmdbId": 1948,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Crime"
+    ],
+    "genre": "Action"
   },
   {
     "id": 31,
@@ -245,7 +418,13 @@ export const movies = [
     "year": 2009,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Crank+2%3A+High+Voltage",
-    "tmdbId": 15092
+    "tmdbId": 15092,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Crime"
+    ],
+    "genre": "Action"
   },
   {
     "id": 32,
@@ -253,7 +432,11 @@ export const movies = [
     "year": 2015,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Daddy%E2%80%99s+Home",
-    "tmdbId": 274167
+    "tmdbId": 274167,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 33,
@@ -261,7 +444,13 @@ export const movies = [
     "year": 2008,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Death+Race",
-    "tmdbId": 10483
+    "tmdbId": 10483,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Science Fiction"
+    ],
+    "genre": "Action"
   },
   {
     "id": 34,
@@ -269,7 +458,13 @@ export const movies = [
     "year": 2010,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Death+Race+2",
-    "tmdbId": 51620
+    "tmdbId": 51620,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Science Fiction"
+    ],
+    "genre": "Action"
   },
   {
     "id": 35,
@@ -277,7 +472,11 @@ export const movies = [
     "year": 2010,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Death+at+a+Funeral",
-    "tmdbId": 34803
+    "tmdbId": 34803,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 36,
@@ -285,7 +484,15 @@ export const movies = [
     "year": 2017,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Despicable+Me+3",
-    "tmdbId": 324852
+    "tmdbId": 324852,
+    "genres": [
+      "Action",
+      "Animation",
+      "Comedy",
+      "Family",
+      "Adventure"
+    ],
+    "genre": "Action"
   },
   {
     "id": 37,
@@ -293,7 +500,13 @@ export const movies = [
     "year": 1987,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Dirty+Dancing",
-    "tmdbId": 88
+    "tmdbId": 88,
+    "genres": [
+      "Drama",
+      "Music",
+      "Romance"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 38,
@@ -301,7 +514,11 @@ export const movies = [
     "year": 2009,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=District+9",
-    "tmdbId": 17654
+    "tmdbId": 17654,
+    "genres": [
+      "Science Fiction"
+    ],
+    "genre": "Science Fiction"
   },
   {
     "id": 39,
@@ -309,7 +526,11 @@ export const movies = [
     "year": 2004,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Dodgeball",
-    "tmdbId": 9472
+    "tmdbId": 9472,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 40,
@@ -317,7 +538,14 @@ export const movies = [
     "year": 2020,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Dolittle",
-    "tmdbId": 448119
+    "tmdbId": 448119,
+    "genres": [
+      "Family",
+      "Comedy",
+      "Fantasy",
+      "Adventure"
+    ],
+    "genre": "Family"
   },
   {
     "id": 41,
@@ -325,7 +553,12 @@ export const movies = [
     "year": 2010,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Due+Date",
-    "tmdbId": 41733
+    "tmdbId": 41733,
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 42,
@@ -333,7 +566,13 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Fast+Five",
-    "tmdbId": 51497
+    "tmdbId": 51497,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Crime"
+    ],
+    "genre": "Action"
   },
   {
     "id": 43,
@@ -341,7 +580,11 @@ export const movies = [
     "year": 2017,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Father+Figures",
-    "tmdbId": 354861
+    "tmdbId": 354861,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 44,
@@ -349,7 +592,11 @@ export const movies = [
     "year": 2000,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Final+Destination",
-    "tmdbId": 9532
+    "tmdbId": 9532,
+    "genres": [
+      "Horror"
+    ],
+    "genre": "Horror"
   },
   {
     "id": 45,
@@ -357,7 +604,11 @@ export const movies = [
     "year": 2017,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Fist+Fight",
-    "tmdbId": 345922
+    "tmdbId": 345922,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 46,
@@ -365,7 +616,11 @@ export const movies = [
     "year": 2012,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Flight",
-    "tmdbId": 87502
+    "tmdbId": 87502,
+    "genres": [
+      "Drama"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 47,
@@ -373,7 +628,12 @@ export const movies = [
     "year": 1984,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Footloose",
-    "tmdbId": 1788
+    "tmdbId": 1788,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 48,
@@ -381,7 +641,12 @@ export const movies = [
     "year": 2009,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Friday+the+13th",
-    "tmdbId": 13207
+    "tmdbId": 13207,
+    "genres": [
+      "Horror",
+      "Thriller"
+    ],
+    "genre": "Horror"
   },
   {
     "id": 49,
@@ -389,7 +654,11 @@ export const movies = [
     "year": 2010,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Frozen+%282010%29",
-    "tmdbId": 44363
+    "tmdbId": 44363,
+    "genres": [
+      "Thriller"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 50,
@@ -397,7 +666,13 @@ export const movies = [
     "year": 2014,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Fury",
-    "tmdbId": 228150
+    "tmdbId": 228150,
+    "genres": [
+      "War",
+      "Drama",
+      "Action"
+    ],
+    "genre": "War"
   },
   {
     "id": 51,
@@ -405,7 +680,11 @@ export const movies = [
     "year": 2015,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Get+Hard",
-    "tmdbId": 257091
+    "tmdbId": 257091,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 52,
@@ -413,7 +692,12 @@ export const movies = [
     "year": 1984,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Ghostbusters",
-    "tmdbId": 620
+    "tmdbId": 620,
+    "genres": [
+      "Comedy",
+      "Fantasy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 53,
@@ -421,7 +705,13 @@ export const movies = [
     "year": 1987,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Good+Morning+Vietnam",
-    "tmdbId": 801
+    "tmdbId": 801,
+    "genres": [
+      "Comedy",
+      "Drama",
+      "War"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 54,
@@ -429,7 +719,11 @@ export const movies = [
     "year": 2010,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Grown+Ups",
-    "tmdbId": 38365
+    "tmdbId": 38365,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 55,
@@ -437,7 +731,12 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Hall+Pass",
-    "tmdbId": 48988
+    "tmdbId": 48988,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 56,
@@ -445,7 +744,11 @@ export const movies = [
     "year": 1996,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Happy+Gilmore",
-    "tmdbId": 9614
+    "tmdbId": 9614,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 57,
@@ -453,7 +756,13 @@ export const movies = [
     "year": 2007,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Hitman",
-    "tmdbId": 1620
+    "tmdbId": 1620,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Drama"
+    ],
+    "genre": "Action"
   },
   {
     "id": 58,
@@ -461,7 +770,13 @@ export const movies = [
     "year": 2015,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Hitman%3A+Agent+47",
-    "tmdbId": 249070
+    "tmdbId": 249070,
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 59,
@@ -469,7 +784,12 @@ export const movies = [
     "year": 1990,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Home+Alone",
-    "tmdbId": 771
+    "tmdbId": 771,
+    "genres": [
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 60,
@@ -477,7 +797,12 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Horrible+Bosses",
-    "tmdbId": 51540
+    "tmdbId": 51540,
+    "genres": [
+      "Comedy",
+      "Crime"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 61,
@@ -485,7 +810,11 @@ export const movies = [
     "year": 2014,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Horrible+Bosses+2",
-    "tmdbId": 227159
+    "tmdbId": 227159,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 62,
@@ -493,7 +822,15 @@ export const movies = [
     "year": 2008,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Horton+Hears+a+Who",
-    "tmdbId": 12222
+    "tmdbId": 12222,
+    "genres": [
+      "Animation",
+      "Comedy",
+      "Family",
+      "Adventure",
+      "Fantasy"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 63,
@@ -501,7 +838,11 @@ export const movies = [
     "year": 2015,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Hot+Tub+Time+Machine+2",
-    "tmdbId": 243938
+    "tmdbId": 243938,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 64,
@@ -509,7 +850,13 @@ export const movies = [
     "year": 2000,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=How+the+Grinch+Stole+Christmas",
-    "tmdbId": 8871
+    "tmdbId": 8871,
+    "genres": [
+      "Family",
+      "Comedy",
+      "Fantasy"
+    ],
+    "genre": "Family"
   },
   {
     "id": 65,
@@ -517,7 +864,16 @@ export const movies = [
     "year": 2014,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=How+to+Train+Your+Dragon+2",
-    "tmdbId": 82702
+    "tmdbId": 82702,
+    "genres": [
+      "Fantasy",
+      "Action",
+      "Adventure",
+      "Animation",
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Fantasy"
   },
   {
     "id": 66,
@@ -525,7 +881,13 @@ export const movies = [
     "year": 2003,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Hulk+%282003%29",
-    "tmdbId": 1927
+    "tmdbId": 1927,
+    "genres": [
+      "Science Fiction",
+      "Adventure",
+      "Action"
+    ],
+    "genre": "Science Fiction"
   },
   {
     "id": 67,
@@ -533,7 +895,13 @@ export const movies = [
     "year": 2018,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Hunter+Killer",
-    "tmdbId": 399402
+    "tmdbId": 399402,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 68,
@@ -541,7 +909,11 @@ export const movies = [
     "year": 2020,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Impractical+Jokers%3A+The+Movie",
-    "tmdbId": 566927
+    "tmdbId": 566927,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 69,
@@ -549,7 +921,14 @@ export const movies = [
     "year": 2018,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Incredibles+2",
-    "tmdbId": 260513
+    "tmdbId": 260513,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Animation",
+      "Family"
+    ],
+    "genre": "Action"
   },
   {
     "id": 70,
@@ -557,7 +936,13 @@ export const movies = [
     "year": 2016,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Jason+Bourne",
-    "tmdbId": 324668
+    "tmdbId": 324668,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 71,
@@ -565,7 +950,12 @@ export const movies = [
     "year": 2017,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Jigsaw",
-    "tmdbId": 298250
+    "tmdbId": 298250,
+    "genres": [
+      "Horror",
+      "Mystery"
+    ],
+    "genre": "Horror"
   },
   {
     "id": 72,
@@ -573,7 +963,12 @@ export const movies = [
     "year": 2014,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=John+Wick",
-    "tmdbId": 245891
+    "tmdbId": 245891,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 73,
@@ -581,7 +976,13 @@ export const movies = [
     "year": 2019,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=John+Wick+3",
-    "tmdbId": 458156
+    "tmdbId": 458156,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Crime"
+    ],
+    "genre": "Action"
   },
   {
     "id": 74,
@@ -589,7 +990,13 @@ export const movies = [
     "year": 2017,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=John+Wick%3A+Chapter+2",
-    "tmdbId": 324552
+    "tmdbId": 324552,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Crime"
+    ],
+    "genre": "Action"
   },
   {
     "id": 75,
@@ -597,7 +1004,13 @@ export const movies = [
     "year": 2019,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Joker",
-    "tmdbId": 475557
+    "tmdbId": 475557,
+    "genres": [
+      "Crime",
+      "Thriller",
+      "Drama"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 76,
@@ -605,7 +1018,13 @@ export const movies = [
     "year": 2019,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Jumanji%3A+The+Next+Level",
-    "tmdbId": 512200
+    "tmdbId": 512200,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Fantasy"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 77,
@@ -613,7 +1032,15 @@ export const movies = [
     "year": 2017,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Jumanji%3A+Welcome+to+the+Jungle",
-    "tmdbId": 353486
+    "tmdbId": 353486,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Fantasy",
+      "Action",
+      "Family"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 78,
@@ -621,7 +1048,12 @@ export const movies = [
     "year": 1993,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Jurassic+Park",
-    "tmdbId": 329
+    "tmdbId": 329,
+    "genres": [
+      "Adventure",
+      "Science Fiction"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 79,
@@ -629,7 +1061,14 @@ export const movies = [
     "year": 2015,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Jurassic+World",
-    "tmdbId": 135397
+    "tmdbId": 135397,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Science Fiction",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 80,
@@ -637,7 +1076,13 @@ export const movies = [
     "year": 2020,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Kill+Chain",
-    "tmdbId": 531299
+    "tmdbId": 531299,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 81,
@@ -645,7 +1090,13 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Killer+Elite",
-    "tmdbId": 49021
+    "tmdbId": 49021,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 82,
@@ -653,15 +1104,25 @@ export const movies = [
     "year": 2017,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Kong%3A+Skull+Island",
-    "tmdbId": 293167
+    "tmdbId": 293167,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "genre": "Action"
   },
   {
     "id": 83,
-    "title": "LetΓÇÖs Be Cops",
+    "title": "Let's Be Cops",
     "year": 2014,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Let%E2%80%99s+Be+Cops",
-    "tmdbId": 193893
+    "tmdbId": 193893,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 84,
@@ -669,7 +1130,13 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Limitless",
-    "tmdbId": 51876
+    "tmdbId": 51876,
+    "genres": [
+      "Thriller",
+      "Mystery",
+      "Science Fiction"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 85,
@@ -677,7 +1144,13 @@ export const movies = [
     "year": 2017,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Logan",
-    "tmdbId": 263115
+    "tmdbId": 263115,
+    "genres": [
+      "Action",
+      "Drama",
+      "Science Fiction"
+    ],
+    "genre": "Action"
   },
   {
     "id": 86,
@@ -685,7 +1158,13 @@ export const movies = [
     "year": 2013,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Lone+Survivor",
-    "tmdbId": 193756
+    "tmdbId": 193756,
+    "genres": [
+      "War",
+      "Action",
+      "Drama"
+    ],
+    "genre": "War"
   },
   {
     "id": 87,
@@ -693,7 +1172,12 @@ export const movies = [
     "year": 2008,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Mamma+Mia%21",
-    "tmdbId": 11631
+    "tmdbId": 11631,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 88,
@@ -701,23 +1185,40 @@ export const movies = [
     "year": 2008,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Meet+the+Spartans",
-    "tmdbId": 7278
+    "tmdbId": 7278,
+    "genres": [
+      "Comedy",
+      "Fantasy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 89,
-    "title": "Mission: Impossible ΓÇô Ghost Protocol",
+    "title": "Mission: Impossible - Ghost Protocol",
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Mission%3A+Impossible+%E2%80%93+Ghost+Protocol",
-    "tmdbId": 56292
+    "tmdbId": 56292,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Adventure"
+    ],
+    "genre": "Action"
   },
   {
     "id": 90,
-    "title": "Mr. MagoriumΓÇÖs Wonder Emporium",
+    "title": "Mr. Magorium's Wonder Emporium",
     "year": 2007,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Mr.+Magorium%E2%80%99s+Wonder+Emporium",
-    "tmdbId": 2284
+    "tmdbId": 2284,
+    "genres": [
+      "Family",
+      "Fantasy",
+      "Comedy"
+    ],
+    "genre": "Family"
   },
   {
     "id": 91,
@@ -725,7 +1226,13 @@ export const movies = [
     "year": 1993,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Mrs.+Doubtfire",
-    "tmdbId": 788
+    "tmdbId": 788,
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Family"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 92,
@@ -733,7 +1240,12 @@ export const movies = [
     "year": 1992,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=My+Cousin+Vinny",
-    "tmdbId": 10377
+    "tmdbId": 10377,
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 93,
@@ -741,39 +1253,64 @@ export const movies = [
     "year": 2010,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Nanny+McPhee+Returns",
-    "tmdbId": 35019
+    "tmdbId": 35019,
+    "genres": [
+      "Comedy",
+      "Fantasy",
+      "Family"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 94,
-    "title": "National LampoonΓÇÖs Christmas Vacation",
+    "title": "National Lampoon's Christmas Vacation",
     "year": 1989,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=National+Lampoon%E2%80%99s+Christmas+Vacation",
-    "tmdbId": 5825
+    "tmdbId": 5825,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 95,
-    "title": "National LampoonΓÇÖs European Vacation",
+    "title": "National Lampoon's European Vacation",
     "year": 1985,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=National+Lampoon%E2%80%99s+European+Vacation",
-    "tmdbId": 11418
+    "tmdbId": 11418,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Romance"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 96,
-    "title": "National LampoonΓÇÖs Vacation",
+    "title": "National Lampoon's Vacation",
     "year": 1983,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=National+Lampoon%E2%80%99s+Vacation",
-    "tmdbId": 11153
+    "tmdbId": 11153,
+    "genres": [
+      "Comedy",
+      "Adventure"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 97,
-    "title": "National LampoonΓÇÖs Vegas Vacation",
+    "title": "National Lampoon's Vegas Vacation",
     "year": 1997,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=National+Lampoon%E2%80%99s+Vegas+Vacation",
-    "tmdbId": 11419
+    "tmdbId": 11419,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 98,
@@ -781,7 +1318,15 @@ export const movies = [
     "year": 2006,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Night+at+the+Museum",
-    "tmdbId": 1593
+    "tmdbId": 1593,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Family",
+      "Fantasy"
+    ],
+    "genre": "Action"
   },
   {
     "id": 99,
@@ -789,7 +1334,15 @@ export const movies = [
     "year": 2009,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Night+at+the+Museum%3A+Battle+of+the+Smithsonian",
-    "tmdbId": 18360
+    "tmdbId": 18360,
+    "genres": [
+      "Adventure",
+      "Fantasy",
+      "Action",
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 100,
@@ -797,7 +1350,12 @@ export const movies = [
     "year": 2013,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Now+You+See+Me",
-    "tmdbId": 75656
+    "tmdbId": 75656,
+    "genres": [
+      "Thriller",
+      "Crime"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 101,
@@ -805,7 +1363,11 @@ export const movies = [
     "year": 2016,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Office+Christmas+Party",
-    "tmdbId": 384682
+    "tmdbId": 384682,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 102,
@@ -813,23 +1375,41 @@ export const movies = [
     "year": 2013,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Oz%3A+The+Great+and+Powerful",
-    "tmdbId": 68728
+    "tmdbId": 68728,
+    "genres": [
+      "Fantasy",
+      "Adventure",
+      "Family"
+    ],
+    "genre": "Fantasy"
   },
   {
     "id": 103,
-    "title": "Pirates of the Caribbean: At WorldΓÇÖs End",
+    "title": "Pirates of the Caribbean: At World's End",
     "year": 2007,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Pirates+of+the+Caribbean%3A+At+World%E2%80%99s+End",
-    "tmdbId": 285
+    "tmdbId": 285,
+    "genres": [
+      "Adventure",
+      "Fantasy",
+      "Action"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 104,
-    "title": "Pirates of the Caribbean: Dead ManΓÇÖs Chest",
+    "title": "Pirates of the Caribbean: Dead Man's Chest",
     "year": 2006,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Pirates+of+the+Caribbean%3A+Dead+Man%E2%80%99s+Chest",
-    "tmdbId": 58
+    "tmdbId": 58,
+    "genres": [
+      "Adventure",
+      "Fantasy",
+      "Action"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 105,
@@ -837,7 +1417,13 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Pirates+of+the+Caribbean%3A+On+Stranger+Tides",
-    "tmdbId": 1865
+    "tmdbId": 1865,
+    "genres": [
+      "Adventure",
+      "Action",
+      "Fantasy"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 106,
@@ -845,7 +1431,13 @@ export const movies = [
     "year": 2003,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Pirates+of+the+Caribbean%3A+The+Curse+of+the+Black+Pearl",
-    "tmdbId": 22
+    "tmdbId": 22,
+    "genres": [
+      "Adventure",
+      "Fantasy",
+      "Action"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 107,
@@ -853,7 +1445,13 @@ export const movies = [
     "year": 2009,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Prep+%26+Landing",
-    "tmdbId": 26809
+    "tmdbId": 26809,
+    "genres": [
+      "Animation",
+      "Fantasy",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 108,
@@ -861,7 +1459,13 @@ export const movies = [
     "year": 2006,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=RV",
-    "tmdbId": 9530
+    "tmdbId": 9530,
+    "genres": [
+      "Family",
+      "Comedy",
+      "Adventure"
+    ],
+    "genre": "Family"
   },
   {
     "id": 109,
@@ -869,7 +1473,13 @@ export const movies = [
     "year": 2008,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Rambo+%282008%29",
-    "tmdbId": 7555
+    "tmdbId": 7555,
+    "genres": [
+      "Action",
+      "Thriller",
+      "War"
+    ],
+    "genre": "Action"
   },
   {
     "id": 110,
@@ -877,7 +1487,13 @@ export const movies = [
     "year": 2018,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Rampage",
-    "tmdbId": 427641
+    "tmdbId": 427641,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Science Fiction"
+    ],
+    "genre": "Action"
   },
   {
     "id": 111,
@@ -885,7 +1501,13 @@ export const movies = [
     "year": 2018,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Ready+Player+One",
-    "tmdbId": 333339
+    "tmdbId": 333339,
+    "genres": [
+      "Adventure",
+      "Action",
+      "Science Fiction"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 112,
@@ -893,7 +1515,13 @@ export const movies = [
     "year": 2018,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Reprisal",
-    "tmdbId": 531593
+    "tmdbId": 531593,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 113,
@@ -901,7 +1529,13 @@ export const movies = [
     "year": 2008,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Righteous+Kill",
-    "tmdbId": 13389
+    "tmdbId": 13389,
+    "genres": [
+      "Crime",
+      "Thriller",
+      "Mystery"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 114,
@@ -909,7 +1543,14 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Rise+of+the+Planet+of+the+Apes",
-    "tmdbId": 61791
+    "tmdbId": 61791,
+    "genres": [
+      "Thriller",
+      "Action",
+      "Drama",
+      "Science Fiction"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 115,
@@ -917,7 +1558,11 @@ export const movies = [
     "year": 2008,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Role+Models",
-    "tmdbId": 15373
+    "tmdbId": 15373,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 116,
@@ -925,7 +1570,13 @@ export const movies = [
     "year": 2012,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Safe",
-    "tmdbId": 72387
+    "tmdbId": 72387,
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 117,
@@ -933,7 +1584,13 @@ export const movies = [
     "year": 2015,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=San+Andreas",
-    "tmdbId": 254128
+    "tmdbId": 254128,
+    "genres": [
+      "Action",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 118,
@@ -941,7 +1598,14 @@ export const movies = [
     "year": 2016,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Sausage+Party",
-    "tmdbId": 223702
+    "tmdbId": 223702,
+    "genres": [
+      "Adventure",
+      "Animation",
+      "Comedy",
+      "Fantasy"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 119,
@@ -949,7 +1613,12 @@ export const movies = [
     "year": 2010,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Saw+3D",
-    "tmdbId": 41439
+    "tmdbId": 41439,
+    "genres": [
+      "Horror",
+      "Crime"
+    ],
+    "genre": "Horror"
   },
   {
     "id": 120,
@@ -957,7 +1626,13 @@ export const movies = [
     "year": 1993,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Schindler%27s+List",
-    "tmdbId": 424
+    "tmdbId": 424,
+    "genres": [
+      "Drama",
+      "History",
+      "War"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 121,
@@ -965,7 +1640,13 @@ export const movies = [
     "year": 2007,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Shooter",
-    "tmdbId": 7485
+    "tmdbId": 7485,
+    "genres": [
+      "Drama",
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 122,
@@ -973,7 +1654,13 @@ export const movies = [
     "year": 2010,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Shutter+Island",
-    "tmdbId": 11324
+    "tmdbId": 11324,
+    "genres": [
+      "Drama",
+      "Thriller",
+      "Mystery"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 123,
@@ -981,7 +1668,13 @@ export const movies = [
     "year": 2013,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Snitch",
-    "tmdbId": 134411
+    "tmdbId": 134411,
+    "genres": [
+      "Thriller",
+      "Drama",
+      "Action"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 124,
@@ -989,7 +1682,14 @@ export const movies = [
     "year": 1996,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Space+Jam",
-    "tmdbId": 2300
+    "tmdbId": 2300,
+    "genres": [
+      "Comedy",
+      "Animation",
+      "Family",
+      "Science Fiction"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 125,
@@ -997,7 +1697,14 @@ export const movies = [
     "year": 2016,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Split",
-    "tmdbId": 358364
+    "tmdbId": 358364,
+    "genres": [
+      "Fantasy",
+      "Drama",
+      "Thriller",
+      "Crime"
+    ],
+    "genre": "Fantasy"
   },
   {
     "id": 126,
@@ -1005,7 +1712,13 @@ export const movies = [
     "year": 2015,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Straight+Outta+Compton",
-    "tmdbId": 277216
+    "tmdbId": 277216,
+    "genres": [
+      "Drama",
+      "Music",
+      "History"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 127,
@@ -1013,7 +1726,11 @@ export const movies = [
     "year": 2007,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Superbad",
-    "tmdbId": 8363
+    "tmdbId": 8363,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 128,
@@ -1021,7 +1738,12 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Tactical+Force",
-    "tmdbId": 70008
+    "tmdbId": 70008,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 129,
@@ -1029,7 +1751,12 @@ export const movies = [
     "year": 2008,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Taken",
-    "tmdbId": 8681
+    "tmdbId": 8681,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 130,
@@ -1037,7 +1764,13 @@ export const movies = [
     "year": 2012,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Taken+2",
-    "tmdbId": 82675
+    "tmdbId": 82675,
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 131,
@@ -1045,7 +1778,12 @@ export const movies = [
     "year": 2014,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Taken+3",
-    "tmdbId": 260346
+    "tmdbId": 260346,
+    "genres": [
+      "Thriller",
+      "Action"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 132,
@@ -1053,7 +1791,11 @@ export const movies = [
     "year": 2006,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Talladega+Nights",
-    "tmdbId": 9718
+    "tmdbId": 9718,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 133,
@@ -1061,7 +1803,11 @@ export const movies = [
     "year": 2014,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Tammy",
-    "tmdbId": 226486
+    "tmdbId": 226486,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 134,
@@ -1069,7 +1815,13 @@ export const movies = [
     "year": 1999,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Tarzan",
-    "tmdbId": 37135
+    "tmdbId": 37135,
+    "genres": [
+      "Family",
+      "Adventure",
+      "Animation"
+    ],
+    "genre": "Family"
   },
   {
     "id": 135,
@@ -1077,7 +1829,13 @@ export const movies = [
     "year": 2016,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Accountant",
-    "tmdbId": 302946
+    "tmdbId": 302946,
+    "genres": [
+      "Crime",
+      "Thriller",
+      "Drama"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 136,
@@ -1085,7 +1843,12 @@ export const movies = [
     "year": 2015,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Big+Short",
-    "tmdbId": 318846
+    "tmdbId": 318846,
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 137,
@@ -1093,7 +1856,14 @@ export const movies = [
     "year": 2002,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Bourne+Identity",
-    "tmdbId": 2501
+    "tmdbId": 2501,
+    "genres": [
+      "Action",
+      "Drama",
+      "Mystery",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 138,
@@ -1101,7 +1871,12 @@ export const movies = [
     "year": 2012,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Bourne+Legacy",
-    "tmdbId": 49040
+    "tmdbId": 49040,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 139,
@@ -1109,7 +1884,13 @@ export const movies = [
     "year": 2004,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Bourne+Supremacy",
-    "tmdbId": 2502
+    "tmdbId": 2502,
+    "genres": [
+      "Action",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 140,
@@ -1117,7 +1898,14 @@ export const movies = [
     "year": 2007,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Bourne+Ultimatum",
-    "tmdbId": 2503
+    "tmdbId": 2503,
+    "genres": [
+      "Action",
+      "Drama",
+      "Mystery",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 141,
@@ -1125,7 +1913,14 @@ export const movies = [
     "year": 2003,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Cat+in+the+Hat",
-    "tmdbId": 10588
+    "tmdbId": 10588,
+    "genres": [
+      "Family",
+      "Comedy",
+      "Adventure",
+      "Fantasy"
+    ],
+    "genre": "Family"
   },
   {
     "id": 142,
@@ -1133,7 +1928,14 @@ export const movies = [
     "year": 2008,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Dark+Knight",
-    "tmdbId": 155
+    "tmdbId": 155,
+    "genres": [
+      "Drama",
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 143,
@@ -1141,7 +1943,14 @@ export const movies = [
     "year": 2012,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Dark+Knight+Rises",
-    "tmdbId": 49026
+    "tmdbId": 49026,
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 144,
@@ -1149,7 +1958,13 @@ export const movies = [
     "year": 2010,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Expendables",
-    "tmdbId": 27578
+    "tmdbId": 27578,
+    "genres": [
+      "Thriller",
+      "Adventure",
+      "Action"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 145,
@@ -1157,7 +1972,13 @@ export const movies = [
     "year": 2012,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Expendables+2",
-    "tmdbId": 76163
+    "tmdbId": 76163,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 146,
@@ -1165,7 +1986,14 @@ export const movies = [
     "year": 2006,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Fast+and+the+Furious%3A+Tokyo+Drift",
-    "tmdbId": 9615
+    "tmdbId": 9615,
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 147,
@@ -1173,7 +2001,13 @@ export const movies = [
     "year": 2017,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Fate+of+the+Furious",
-    "tmdbId": 337339
+    "tmdbId": 337339,
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 148,
@@ -1181,7 +2015,13 @@ export const movies = [
     "year": 2018,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+First+Purge",
-    "tmdbId": 442249
+    "tmdbId": 442249,
+    "genres": [
+      "Action",
+      "Horror",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 149,
@@ -1189,7 +2029,13 @@ export const movies = [
     "year": 2014,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Gambler",
-    "tmdbId": 284536
+    "tmdbId": 284536,
+    "genres": [
+      "Thriller",
+      "Crime",
+      "Drama"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 150,
@@ -1197,7 +2043,14 @@ export const movies = [
     "year": 2012,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Grey",
-    "tmdbId": 75174
+    "tmdbId": 75174,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 151,
@@ -1205,7 +2058,13 @@ export const movies = [
     "year": 2018,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Grinch",
-    "tmdbId": 360920
+    "tmdbId": 360920,
+    "genres": [
+      "Family",
+      "Comedy",
+      "Animation"
+    ],
+    "genre": "Family"
   },
   {
     "id": 152,
@@ -1213,7 +2072,11 @@ export const movies = [
     "year": 2009,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Hangover",
-    "tmdbId": 18785
+    "tmdbId": 18785,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 153,
@@ -1221,7 +2084,11 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Hangover+Part+II",
-    "tmdbId": 45243
+    "tmdbId": 45243,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 154,
@@ -1229,7 +2096,13 @@ export const movies = [
     "year": 2013,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Heat",
-    "tmdbId": 136795
+    "tmdbId": 136795,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Crime"
+    ],
+    "genre": "Action"
   },
   {
     "id": 155,
@@ -1237,7 +2110,13 @@ export const movies = [
     "year": 2008,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Hurt+Locker",
-    "tmdbId": 12162
+    "tmdbId": 12162,
+    "genres": [
+      "Drama",
+      "Thriller",
+      "War"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 156,
@@ -1245,7 +2124,14 @@ export const movies = [
     "year": 2009,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Last+House+on+the+Left",
-    "tmdbId": 18405
+    "tmdbId": 18405,
+    "genres": [
+      "Crime",
+      "Thriller",
+      "Horror",
+      "Drama"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 157,
@@ -1253,7 +2139,14 @@ export const movies = [
     "year": 1994,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Lion+King",
-    "tmdbId": 8587
+    "tmdbId": 8587,
+    "genres": [
+      "Family",
+      "Animation",
+      "Drama",
+      "Adventure"
+    ],
+    "genre": "Family"
   },
   {
     "id": 158,
@@ -1261,7 +2154,12 @@ export const movies = [
     "year": 2012,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Lorax",
-    "tmdbId": 73723
+    "tmdbId": 73723,
+    "genres": [
+      "Animation",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 159,
@@ -1269,7 +2167,12 @@ export const movies = [
     "year": 2008,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Love+Guru",
-    "tmdbId": 12177
+    "tmdbId": 12177,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 160,
@@ -1277,7 +2180,12 @@ export const movies = [
     "year": 2010,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Other+Guys",
-    "tmdbId": 27581
+    "tmdbId": 27581,
+    "genres": [
+      "Comedy",
+      "Action"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 161,
@@ -1285,7 +2193,12 @@ export const movies = [
     "year": 2014,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Other+Woman",
-    "tmdbId": 193610
+    "tmdbId": 193610,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 162,
@@ -1293,7 +2206,13 @@ export const movies = [
     "year": 2004,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Punisher",
-    "tmdbId": 7220
+    "tmdbId": 7220,
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama"
+    ],
+    "genre": "Action"
   },
   {
     "id": 163,
@@ -1301,7 +2220,14 @@ export const movies = [
     "year": 2003,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Rundown",
-    "tmdbId": 10159
+    "tmdbId": 10159,
+    "genres": [
+      "Adventure",
+      "Action",
+      "Comedy",
+      "Thriller"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 164,
@@ -1309,7 +2235,12 @@ export const movies = [
     "year": 1994,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Shawshank+Redemption",
-    "tmdbId": 278
+    "tmdbId": 278,
+    "genres": [
+      "Drama",
+      "Crime"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 165,
@@ -1317,7 +2248,11 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Sitter",
-    "tmdbId": 57431
+    "tmdbId": 57431,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 166,
@@ -1325,7 +2260,15 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Smurfs",
-    "tmdbId": 41513
+    "tmdbId": 41513,
+    "genres": [
+      "Animation",
+      "Family",
+      "Adventure",
+      "Comedy",
+      "Fantasy"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 167,
@@ -1333,7 +2276,14 @@ export const movies = [
     "year": 2013,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Smurfs+2",
-    "tmdbId": 77931
+    "tmdbId": 77931,
+    "genres": [
+      "Fantasy",
+      "Family",
+      "Comedy",
+      "Animation"
+    ],
+    "genre": "Fantasy"
   },
   {
     "id": 168,
@@ -1341,7 +2291,13 @@ export const movies = [
     "year": 1939,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Wizard+of+Oz",
-    "tmdbId": 630
+    "tmdbId": 630,
+    "genres": [
+      "Adventure",
+      "Fantasy",
+      "Family"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 169,
@@ -1349,7 +2305,13 @@ export const movies = [
     "year": 2013,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Wolf+of+Wall+Street",
-    "tmdbId": 106646
+    "tmdbId": 106646,
+    "genres": [
+      "Crime",
+      "Drama",
+      "Comedy"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 170,
@@ -1357,7 +2319,12 @@ export const movies = [
     "year": 1986,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Top+Gun",
-    "tmdbId": 744
+    "tmdbId": 744,
+    "genres": [
+      "Action",
+      "Drama"
+    ],
+    "genre": "Action"
   },
   {
     "id": 171,
@@ -1365,7 +2332,12 @@ export const movies = [
     "year": 2006,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Trailer+Park+Boys%3A+The+Movie",
-    "tmdbId": 9958
+    "tmdbId": 9958,
+    "genres": [
+      "Comedy",
+      "Crime"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 172,
@@ -1373,7 +2345,13 @@ export const movies = [
     "year": 2007,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Transformers+%282007%29",
-    "tmdbId": 1858
+    "tmdbId": 1858,
+    "genres": [
+      "Adventure",
+      "Science Fiction",
+      "Action"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 173,
@@ -1381,7 +2359,13 @@ export const movies = [
     "year": 2009,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Transformers+2%3A+Revenge+of+the+Fallen",
-    "tmdbId": 8373
+    "tmdbId": 8373,
+    "genres": [
+      "Science Fiction",
+      "Action",
+      "Adventure"
+    ],
+    "genre": "Science Fiction"
   },
   {
     "id": 174,
@@ -1389,7 +2373,13 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Transformers+3%3A+Dark+of+the+Moon",
-    "tmdbId": 38356
+    "tmdbId": 38356,
+    "genres": [
+      "Action",
+      "Science Fiction",
+      "Adventure"
+    ],
+    "genre": "Action"
   },
   {
     "id": 175,
@@ -1397,7 +2387,13 @@ export const movies = [
     "year": 2004,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Troy",
-    "tmdbId": 652
+    "tmdbId": 652,
+    "genres": [
+      "War",
+      "Action",
+      "History"
+    ],
+    "genre": "War"
   },
   {
     "id": 176,
@@ -1405,7 +2401,13 @@ export const movies = [
     "year": 2010,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=True+Grit",
-    "tmdbId": 44264
+    "tmdbId": 44264,
+    "genres": [
+      "Drama",
+      "Adventure",
+      "Western"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 177,
@@ -1413,7 +2415,13 @@ export const movies = [
     "year": 1989,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Uncle+Buck",
-    "tmdbId": 2616
+    "tmdbId": 2616,
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Family"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 178,
@@ -1421,7 +2429,11 @@ export const movies = [
     "year": 2018,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Uncle+Drew",
-    "tmdbId": 474335
+    "tmdbId": 474335,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 179,
@@ -1429,7 +2441,13 @@ export const movies = [
     "year": 2002,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Unfaithful",
-    "tmdbId": 2251
+    "tmdbId": 2251,
+    "genres": [
+      "Thriller",
+      "Drama",
+      "Romance"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 180,
@@ -1437,7 +2455,12 @@ export const movies = [
     "year": 2015,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Vacation",
-    "tmdbId": 296099
+    "tmdbId": 296099,
+    "genres": [
+      "Comedy",
+      "Adventure"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 181,
@@ -1445,7 +2468,13 @@ export const movies = [
     "year": 2005,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Walk+the+Line",
-    "tmdbId": 69
+    "tmdbId": 69,
+    "genres": [
+      "Drama",
+      "Music",
+      "Romance"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 182,
@@ -1453,7 +2482,13 @@ export const movies = [
     "year": 2017,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=War+for+the+Planet+of+the+Apes",
-    "tmdbId": 281338
+    "tmdbId": 281338,
+    "genres": [
+      "Drama",
+      "Science Fiction",
+      "War"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 183,
@@ -1461,7 +2496,13 @@ export const movies = [
     "year": 2009,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Watchmen",
-    "tmdbId": 13183
+    "tmdbId": 13183,
+    "genres": [
+      "Mystery",
+      "Action",
+      "Science Fiction"
+    ],
+    "genre": "Mystery"
   },
   {
     "id": 184,
@@ -1469,7 +2510,13 @@ export const movies = [
     "year": 1971,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Willy+Wonka+%26+the+Chocolate+Factory",
-    "tmdbId": 252
+    "tmdbId": 252,
+    "genres": [
+      "Family",
+      "Fantasy",
+      "Comedy"
+    ],
+    "genre": "Family"
   },
   {
     "id": 185,
@@ -1477,15 +2524,26 @@ export const movies = [
     "year": 2017,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=XXX%3A+Return+of+Xander+Cage",
-    "tmdbId": 47971
+    "tmdbId": 47971,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Crime"
+    ],
+    "genre": "Action"
   },
   {
     "id": 186,
-    "title": "You DonΓÇÖt Mess With the Zohan",
+    "title": "You Don't Mess With the Zohan",
     "year": 2008,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=You+Don%E2%80%99t+Mess+With+the+Zohan",
-    "tmdbId": 10661
+    "tmdbId": 10661,
+    "genres": [
+      "Comedy",
+      "Action"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 187,
@@ -1493,7 +2551,12 @@ export const movies = [
     "year": 2009,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Zombieland",
-    "tmdbId": 19908
+    "tmdbId": 19908,
+    "genres": [
+      "Comedy",
+      "Horror"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 188,
@@ -1501,7 +2564,13 @@ export const movies = [
     "year": 1992,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Home+Alone+2",
-    "tmdbId": 772
+    "tmdbId": 772,
+    "genres": [
+      "Comedy",
+      "Family",
+      "Adventure"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 189,
@@ -1509,7 +2578,12 @@ export const movies = [
     "year": 2005,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Four+Brothers",
-    "tmdbId": 8292
+    "tmdbId": 8292,
+    "genres": [
+      "Action",
+      "Crime"
+    ],
+    "genre": "Action"
   },
   {
     "id": 190,
@@ -1517,7 +2591,12 @@ export const movies = [
     "year": 2022,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Top+Gun+Maverick",
-    "tmdbId": 361743
+    "tmdbId": 361743,
+    "genres": [
+      "Action",
+      "Drama"
+    ],
+    "genre": "Action"
   },
   {
     "id": 191,
@@ -1525,7 +2604,13 @@ export const movies = [
     "year": 2011,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=Naughty+vs+Nice",
-    "tmdbId": 88096
+    "tmdbId": 88096,
+    "genres": [
+      "Animation",
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 192,
@@ -1533,7 +2618,11 @@ export const movies = [
     "year": 2012,
     "format": "Blu-ray",
     "image": "https://via.placeholder.com/300x450?text=The+Campaign",
-    "tmdbId": 77953
+    "tmdbId": 77953,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 193,
@@ -1541,7 +2630,13 @@ export const movies = [
     "year": 1983,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Scarface",
-    "tmdbId": 111
+    "tmdbId": 111,
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama"
+    ],
+    "genre": "Action"
   },
   {
     "id": 194,
@@ -1549,7 +2644,14 @@ export const movies = [
     "year": 2004,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Incredibles",
-    "tmdbId": 9806
+    "tmdbId": 9806,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Animation",
+      "Family"
+    ],
+    "genre": "Action"
   },
   {
     "id": 195,
@@ -1557,7 +2659,13 @@ export const movies = [
     "year": 2001,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Monsters+Inc",
-    "tmdbId": 585
+    "tmdbId": 585,
+    "genres": [
+      "Animation",
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 196,
@@ -1565,7 +2673,11 @@ export const movies = [
     "year": 2003,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Dumb+and+Dumberer",
-    "tmdbId": 10152
+    "tmdbId": 10152,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 197,
@@ -1573,7 +2685,11 @@ export const movies = [
     "year": 2006,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Benchwarmers",
-    "tmdbId": 9957
+    "tmdbId": 9957,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 198,
@@ -1581,7 +2697,13 @@ export const movies = [
     "year": 2001,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Fast+and+the+Furious",
-    "tmdbId": 9799
+    "tmdbId": 9799,
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 199,
@@ -1589,7 +2711,12 @@ export const movies = [
     "year": 2004,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=White+Chicks",
-    "tmdbId": 12153
+    "tmdbId": 12153,
+    "genres": [
+      "Comedy",
+      "Crime"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 200,
@@ -1597,7 +2724,11 @@ export const movies = [
     "year": 2006,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Grandma%27s+Boy",
-    "tmdbId": 9900
+    "tmdbId": 9900,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 201,
@@ -1605,7 +2736,12 @@ export const movies = [
     "year": 2004,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Home+on+the+Range",
-    "tmdbId": 13700
+    "tmdbId": 13700,
+    "genres": [
+      "Animation",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 202,
@@ -1613,7 +2749,13 @@ export const movies = [
     "year": 2004,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=A+Series+of+Unfortunate+Events",
-    "tmdbId": 11774
+    "tmdbId": 11774,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 203,
@@ -1621,7 +2763,11 @@ export const movies = [
     "year": 1988,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Rain+Man",
-    "tmdbId": 380
+    "tmdbId": 380,
+    "genres": [
+      "Drama"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 204,
@@ -1629,7 +2775,13 @@ export const movies = [
     "year": 2004,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Saw",
-    "tmdbId": 176
+    "tmdbId": 176,
+    "genres": [
+      "Horror",
+      "Mystery",
+      "Crime"
+    ],
+    "genre": "Horror"
   },
   {
     "id": 205,
@@ -1637,7 +2789,11 @@ export const movies = [
     "year": 2005,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Saw+II",
-    "tmdbId": 215
+    "tmdbId": 215,
+    "genres": [
+      "Horror"
+    ],
+    "genre": "Horror"
   },
   {
     "id": 206,
@@ -1645,7 +2801,12 @@ export const movies = [
     "year": 2003,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=School+of+Rock",
-    "tmdbId": 1584
+    "tmdbId": 1584,
+    "genres": [
+      "Comedy",
+      "Music"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 207,
@@ -1653,7 +2814,12 @@ export const movies = [
     "year": 2004,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Shaun+of+the+Dead",
-    "tmdbId": 747
+    "tmdbId": 747,
+    "genres": [
+      "Horror",
+      "Comedy"
+    ],
+    "genre": "Horror"
   },
   {
     "id": 208,
@@ -1661,7 +2827,13 @@ export const movies = [
     "year": 2007,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Hot+Fuzz",
-    "tmdbId": 4638
+    "tmdbId": 4638,
+    "genres": [
+      "Crime",
+      "Action",
+      "Comedy"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 209,
@@ -1669,7 +2841,12 @@ export const movies = [
     "year": 2004,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Christmas+with+the+Kranks",
-    "tmdbId": 13673
+    "tmdbId": 13673,
+    "genres": [
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 210,
@@ -1677,7 +2854,11 @@ export const movies = [
     "year": 2000,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Me+Myself+and+Irene",
-    "tmdbId": 2123
+    "tmdbId": 2123,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 211,
@@ -1685,7 +2866,12 @@ export const movies = [
     "year": 2006,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Devil+Wears+Prada",
-    "tmdbId": 350
+    "tmdbId": 350,
+    "genres": [
+      "Drama",
+      "Comedy"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 212,
@@ -1693,7 +2879,13 @@ export const movies = [
     "year": 2005,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Narnia+Lion+Witch+Wardrobe",
-    "tmdbId": 411
+    "tmdbId": 411,
+    "genres": [
+      "Adventure",
+      "Family",
+      "Fantasy"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 213,
@@ -1701,15 +2893,14 @@ export const movies = [
     "year": 2001,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Jurassic+Park+III",
-    "tmdbId": 331
-  },
-  {
-    "id": 214,
-    "title": "Road House",
-    "year": 1989,
-    "format": "DVD",
-    "image": "https://via.placeholder.com/300x450?text=Road+House",
-    "tmdbId": 10135
+    "tmdbId": 331,
+    "genres": [
+      "Adventure",
+      "Action",
+      "Thriller",
+      "Science Fiction"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 215,
@@ -1717,7 +2908,13 @@ export const movies = [
     "year": 2010,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Town",
-    "tmdbId": 23168
+    "tmdbId": 23168,
+    "genres": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 216,
@@ -1725,7 +2922,13 @@ export const movies = [
     "year": 2000,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Gone+in+60+Seconds",
-    "tmdbId": 9679
+    "tmdbId": 9679,
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 217,
@@ -1733,7 +2936,14 @@ export const movies = [
     "year": 2001,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Atlantis+The+Lost+Empire",
-    "tmdbId": 10865
+    "tmdbId": 10865,
+    "genres": [
+      "Animation",
+      "Family",
+      "Adventure",
+      "Science Fiction"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 218,
@@ -1741,7 +2951,13 @@ export const movies = [
     "year": 2005,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Longest+Yard",
-    "tmdbId": 9291
+    "tmdbId": 9291,
+    "genres": [
+      "Drama",
+      "Comedy",
+      "Crime"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 219,
@@ -1749,7 +2965,12 @@ export const movies = [
     "year": 2005,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+40+Year+Old+Virgin",
-    "tmdbId": 6957
+    "tmdbId": 6957,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 220,
@@ -1757,7 +2978,14 @@ export const movies = [
     "year": 2004,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Polar+Express",
-    "tmdbId": 5255
+    "tmdbId": 5255,
+    "genres": [
+      "Animation",
+      "Adventure",
+      "Family",
+      "Fantasy"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 221,
@@ -1765,15 +2993,12 @@ export const movies = [
     "year": 2008,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=21",
-    "tmdbId": 8065
-  },
-  {
-    "id": 222,
-    "title": "Elf",
-    "year": 2003,
-    "format": "DVD",
-    "image": "https://via.placeholder.com/300x450?text=Elf",
-    "tmdbId": 10719
+    "tmdbId": 8065,
+    "genres": [
+      "Drama",
+      "Crime"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 223,
@@ -1781,7 +3006,14 @@ export const movies = [
     "year": 1982,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=ET",
-    "tmdbId": 601
+    "tmdbId": 601,
+    "genres": [
+      "Science Fiction",
+      "Adventure",
+      "Family",
+      "Fantasy"
+    ],
+    "genre": "Science Fiction"
   },
   {
     "id": 224,
@@ -1789,7 +3021,14 @@ export const movies = [
     "year": 1994,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Mask",
-    "tmdbId": 854
+    "tmdbId": 854,
+    "genres": [
+      "Romance",
+      "Comedy",
+      "Crime",
+      "Fantasy"
+    ],
+    "genre": "Romance"
   },
   {
     "id": 225,
@@ -1797,7 +3036,13 @@ export const movies = [
     "year": 1993,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=We%27re+Back",
-    "tmdbId": 18890
+    "tmdbId": 18890,
+    "genres": [
+      "Animation",
+      "Science Fiction",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 226,
@@ -1805,7 +3050,11 @@ export const movies = [
     "year": 2003,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Old+School",
-    "tmdbId": 11635
+    "tmdbId": 11635,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 227,
@@ -1813,7 +3062,13 @@ export const movies = [
     "year": 1982,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Annie",
-    "tmdbId": 15739
+    "tmdbId": 15739,
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Family"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 228,
@@ -1821,7 +3076,13 @@ export const movies = [
     "year": 2008,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Four+Christmases",
-    "tmdbId": 12193
+    "tmdbId": 12193,
+    "genres": [
+      "Comedy",
+      "Romance",
+      "Drama"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 229,
@@ -1829,7 +3090,14 @@ export const movies = [
     "year": 2002,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Master+of+Disguise",
-    "tmdbId": 13908
+    "tmdbId": 13908,
+    "genres": [
+      "Comedy",
+      "Family",
+      "Fantasy",
+      "Adventure"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 230,
@@ -1837,7 +3105,12 @@ export const movies = [
     "year": 1999,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=American+Pie",
-    "tmdbId": 2105
+    "tmdbId": 2105,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 231,
@@ -1845,7 +3118,12 @@ export const movies = [
     "year": 2001,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=American+Pie+2",
-    "tmdbId": 2770
+    "tmdbId": 2770,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 232,
@@ -1853,7 +3131,11 @@ export const movies = [
     "year": 2005,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=American+Pie+Band+Camp",
-    "tmdbId": 8274
+    "tmdbId": 8274,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 233,
@@ -1861,7 +3143,13 @@ export const movies = [
     "year": 1997,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Lost+World",
-    "tmdbId": 330
+    "tmdbId": 330,
+    "genres": [
+      "Adventure",
+      "Action",
+      "Science Fiction"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 234,
@@ -1869,7 +3157,11 @@ export const movies = [
     "year": 2008,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Step+Brothers",
-    "tmdbId": 12133
+    "tmdbId": 12133,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 235,
@@ -1877,7 +3169,11 @@ export const movies = [
     "year": 2005,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Ringer",
-    "tmdbId": 9927
+    "tmdbId": 9927,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 236,
@@ -1885,7 +3181,13 @@ export const movies = [
     "year": 2005,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Hitch",
-    "tmdbId": 8488
+    "tmdbId": 8488,
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 237,
@@ -1893,7 +3195,14 @@ export const movies = [
     "year": 1982,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=First+Blood",
-    "tmdbId": 1368
+    "tmdbId": 1368,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Thriller",
+      "War"
+    ],
+    "genre": "Action"
   },
   {
     "id": 238,
@@ -1901,7 +3210,14 @@ export const movies = [
     "year": 1985,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Rambo+2",
-    "tmdbId": 1369
+    "tmdbId": 1369,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Thriller",
+      "War"
+    ],
+    "genre": "Action"
   },
   {
     "id": 239,
@@ -1909,15 +3225,27 @@ export const movies = [
     "year": 1988,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Rambo+III",
-    "tmdbId": 1370
+    "tmdbId": 1370,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Thriller",
+      "War"
+    ],
+    "genre": "Action"
   },
   {
     "id": 240,
-    "title": "My BossΓÇÖs Daughter",
+    "title": "My Boss's Daughter",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=My+Boss%27s+Daughter",
     "tmdbId": 2830,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 241,
@@ -1925,7 +3253,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Just+Married",
     "tmdbId": 12090,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Romance",
+      "Comedy"
+    ],
+    "genre": "Romance"
   },
   {
     "id": 242,
@@ -1933,7 +3266,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Flashdance",
     "tmdbId": 535,
-    "year": 1983
+    "year": 1983,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 243,
@@ -1941,7 +3279,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Batman+and+Robin",
     "tmdbId": 415,
-    "year": 1997
+    "year": 1997,
+    "genres": [
+      "Action",
+      "Science Fiction",
+      "Adventure"
+    ],
+    "genre": "Action"
   },
   {
     "id": 244,
@@ -1949,7 +3293,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Platoon",
     "tmdbId": 792,
-    "year": 1986
+    "year": 1986,
+    "genres": [
+      "Drama",
+      "War",
+      "Action"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 245,
@@ -1957,7 +3307,16 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=High+School+Musical+2",
     "tmdbId": 13649,
-    "year": 2007
+    "year": 2007,
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Family",
+      "Music",
+      "Romance",
+      "TV Movie"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 246,
@@ -1965,7 +3324,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Tombstone",
     "tmdbId": 11969,
-    "year": 1993
+    "year": 1993,
+    "genres": [
+      "Western",
+      "Action"
+    ],
+    "genre": "Western"
   },
   {
     "id": 247,
@@ -1973,7 +3337,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Pacifier",
     "tmdbId": 10022,
-    "year": 2005
+    "year": 2005,
+    "genres": [
+      "Comedy",
+      "Family",
+      "Action"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 248,
@@ -1981,7 +3351,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Men+in+Black",
     "tmdbId": 607,
-    "year": 1997
+    "year": 1997,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Science Fiction"
+    ],
+    "genre": "Action"
   },
   {
     "id": 249,
@@ -1989,7 +3366,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Notebook",
     "tmdbId": 11036,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Romance",
+      "Drama"
+    ],
+    "genre": "Romance"
   },
   {
     "id": 250,
@@ -1997,7 +3379,11 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Any+Given+Sunday",
     "tmdbId": 9563,
-    "year": 1999
+    "year": 1999,
+    "genres": [
+      "Drama"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 251,
@@ -2005,7 +3391,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Cold+Mountain",
     "tmdbId": 2289,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "War",
+      "History",
+      "Adventure",
+      "Romance"
+    ],
+    "genre": "War"
   },
   {
     "id": 252,
@@ -2013,7 +3406,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=John+Q",
     "tmdbId": 8470,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Drama",
+      "Thriller",
+      "Crime"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 253,
@@ -2021,15 +3420,11 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Million+Dollar+Baby",
     "tmdbId": 70,
-    "year": 2004
-  },
-  {
-    "id": 254,
-    "title": "The Missing",
-    "format": "DVD",
-    "image": "https://via.placeholder.com/300x450?text=The+Missing",
-    "tmdbId": 12146,
-    "year": 2003
+    "year": 2004,
+    "genres": [
+      "Drama"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 255,
@@ -2037,7 +3432,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Snow+Day",
     "tmdbId": 15489,
-    "year": 2000
+    "year": 2000,
+    "genres": [
+      "Comedy",
+      "Family",
+      "Adventure"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 256,
@@ -2045,15 +3446,26 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Rebound",
     "tmdbId": 7233,
-    "year": 2005
+    "year": 2005,
+    "genres": [
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 257,
-    "title": "The GeneralΓÇÖs Daughter",
+    "title": "The General's Daughter",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+General%27s+Daughter",
     "tmdbId": 2275,
-    "year": 1999
+    "year": 1999,
+    "genres": [
+      "Thriller",
+      "Mystery",
+      "Crime"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 258,
@@ -2061,7 +3473,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Departed",
     "tmdbId": 1422,
-    "year": 2006
+    "year": 2006,
+    "genres": [
+      "Drama",
+      "Thriller",
+      "Crime"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 259,
@@ -2069,7 +3487,15 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Shrek",
     "tmdbId": 808,
-    "year": 2001
+    "year": 2001,
+    "genres": [
+      "Animation",
+      "Comedy",
+      "Fantasy",
+      "Adventure",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 260,
@@ -2077,15 +3503,28 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Prisoners",
     "tmdbId": 146233,
-    "year": 2013
+    "year": 2013,
+    "genres": [
+      "Drama",
+      "Thriller",
+      "Crime"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 261,
-    "title": "Shoot ΓÇÖEm Up",
+    "title": "Shoot 'Em Up",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Shoot+Em+Up",
     "tmdbId": 4141,
-    "year": 2007
+    "year": 2007,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Comedy",
+      "Crime"
+    ],
+    "genre": "Action"
   },
   {
     "id": 262,
@@ -2093,7 +3532,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Goldmember",
     "tmdbId": 818,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Comedy",
+      "Crime",
+      "Science Fiction"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 263,
@@ -2101,7 +3546,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Ghost+Rider",
     "tmdbId": 1250,
-    "year": 2007
+    "year": 2007,
+    "genres": [
+      "Thriller",
+      "Action",
+      "Fantasy"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 264,
@@ -2109,15 +3560,27 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Se7en",
     "tmdbId": 807,
-    "year": 1995
+    "year": 1995,
+    "genres": [
+      "Crime",
+      "Mystery",
+      "Thriller"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 265,
-    "title": "The DevilΓÇÖs Rejects",
+    "title": "The Devil's Rejects",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Devils+Rejects",
     "tmdbId": 1696,
-    "year": 2005
+    "year": 2005,
+    "genres": [
+      "Drama",
+      "Horror",
+      "Crime"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 266,
@@ -2125,7 +3588,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Medallion",
     "tmdbId": 10610,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Thriller",
+      "Fantasy",
+      "Action",
+      "Comedy"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 267,
@@ -2133,7 +3603,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Empire+of+the+Sun",
     "tmdbId": 10110,
-    "year": 1987
+    "year": 1987,
+    "genres": [
+      "Drama",
+      "History",
+      "War"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 268,
@@ -2141,7 +3617,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Happy+Feet",
     "tmdbId": 9836,
-    "year": 2006
+    "year": 2006,
+    "genres": [
+      "Animation",
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 269,
@@ -2149,7 +3631,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Die+Hard+With+A+Vengeance",
     "tmdbId": 1572,
-    "year": 1995
+    "year": 1995,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 270,
@@ -2157,7 +3644,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Domestic+Disturbance",
     "tmdbId": 11456,
-    "year": 2001
+    "year": 2001,
+    "genres": [
+      "Thriller",
+      "Crime",
+      "Mystery"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 271,
@@ -2165,7 +3658,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Casualties+of+War",
     "tmdbId": 10142,
-    "year": 1989
+    "year": 1989,
+    "genres": [
+      "Drama",
+      "History",
+      "War"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 272,
@@ -2173,7 +3672,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Spy+Game",
     "tmdbId": 1535,
-    "year": 2001
+    "year": 2001,
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 273,
@@ -2181,15 +3686,30 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Snakes+on+a+Plane",
     "tmdbId": 326,
-    "year": 2006
+    "year": 2006,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Adventure",
+      "Crime",
+      "Horror"
+    ],
+    "genre": "Action"
   },
   {
     "id": 274,
     "title": "Walking Tall",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Walking+Tall",
-    "tmdbId": 25473,
-    "year": 1973
+    "tmdbId": 11358,
+    "year": 2004,
+    "genres": [
+      "Adventure",
+      "Drama",
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 275,
@@ -2197,7 +3717,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Perfect+Stranger",
     "tmdbId": 7183,
-    "year": 2007
+    "year": 2007,
+    "genres": [
+      "Thriller",
+      "Crime",
+      "Mystery"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 276,
@@ -2205,7 +3731,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Interpreter",
     "tmdbId": 179,
-    "year": 2005
+    "year": 2005,
+    "genres": [
+      "Crime",
+      "Thriller"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 278,
@@ -2213,7 +3744,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Matrix+Reloaded",
     "tmdbId": 604,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Adventure",
+      "Action",
+      "Thriller",
+      "Science Fiction"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 279,
@@ -2221,7 +3759,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Matrix",
     "tmdbId": 603,
-    "year": 1999
+    "year": 1999,
+    "genres": [
+      "Action",
+      "Science Fiction"
+    ],
+    "genre": "Action"
   },
   {
     "id": 280,
@@ -2229,7 +3772,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Green+Mile",
     "tmdbId": 497,
-    "year": 1999
+    "year": 1999,
+    "genres": [
+      "Fantasy",
+      "Drama",
+      "Crime"
+    ],
+    "genre": "Fantasy"
   },
   {
     "id": 281,
@@ -2237,15 +3786,26 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=On+Deadly+Ground",
     "tmdbId": 9624,
-    "year": 1994
+    "year": 1994,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 282,
     "title": "Fire Down Below",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Fire+Down+Below",
-    "tmdbId": 56188,
-    "year": 1957
+    "tmdbId": 14289,
+    "year": 1997,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 283,
@@ -2253,7 +3813,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Six+Days+Seven+Nights",
     "tmdbId": 6068,
-    "year": 1998
+    "year": 1998,
+    "genres": [
+      "Comedy",
+      "Action",
+      "Adventure",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 284,
@@ -2261,7 +3828,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Johnny+English",
     "tmdbId": 9486,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Adventure",
+      "Action",
+      "Comedy"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 285,
@@ -2269,7 +3842,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Matrix+Revolutions",
     "tmdbId": 605,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Adventure",
+      "Action",
+      "Thriller",
+      "Science Fiction"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 286,
@@ -2277,7 +3857,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Patriot",
     "tmdbId": 2024,
-    "year": 2000
+    "year": 2000,
+    "genres": [
+      "Drama",
+      "History",
+      "War",
+      "Action"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 287,
@@ -2285,7 +3872,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Windtalkers",
     "tmdbId": 12100,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "War",
+      "Action"
+    ],
+    "genre": "War"
   },
   {
     "id": 288,
@@ -2293,7 +3885,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Runaway+Jury",
     "tmdbId": 11329,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 289,
@@ -2301,7 +3898,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Ernest+Scared+Stupid",
     "tmdbId": 32685,
-    "year": 1991
+    "year": 1991,
+    "genres": [
+      "Comedy",
+      "Family",
+      "Horror"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 290,
@@ -2309,7 +3912,11 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Anger+Management",
     "tmdbId": 9506,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 291,
@@ -2317,7 +3924,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Snow+Dogs",
     "tmdbId": 11888,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Comedy",
+      "Family",
+      "Adventure"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 292,
@@ -2325,7 +3938,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Hannibal",
     "tmdbId": 9740,
-    "year": 2001
+    "year": 2001,
+    "genres": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 293,
@@ -2333,7 +3952,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Sweet+Home+Alabama",
     "tmdbId": 11529,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 294,
@@ -2341,7 +3965,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Gothika",
     "tmdbId": 4970,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Horror",
+      "Thriller",
+      "Mystery"
+    ],
+    "genre": "Horror"
   },
   {
     "id": 295,
@@ -2349,7 +3979,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Cliffhanger",
     "tmdbId": 9350,
-    "year": 1993
+    "year": 1993,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 296,
@@ -2357,15 +3993,27 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Heist",
     "tmdbId": 11088,
-    "year": 2001
+    "year": 2001,
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 297,
-    "title": "Big MommaΓÇÖs House",
+    "title": "Big Momma's House",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Big+Mommas+House",
     "tmdbId": 9600,
-    "year": 2000
+    "year": 2000,
+    "genres": [
+      "Crime",
+      "Comedy"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 298,
@@ -2373,7 +4021,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Are+We+There+Yet",
     "tmdbId": 11637,
-    "year": 2005
+    "year": 2005,
+    "genres": [
+      "Family",
+      "Adventure",
+      "Comedy",
+      "Romance"
+    ],
+    "genre": "Family"
   },
   {
     "id": 299,
@@ -2381,7 +4036,15 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Herbie+Fully+Loaded",
     "tmdbId": 11451,
-    "year": 2005
+    "year": 2005,
+    "genres": [
+      "Comedy",
+      "Family",
+      "Adventure",
+      "Fantasy",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 300,
@@ -2389,7 +4052,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Cheaper+By+The+Dozen",
     "tmdbId": 11007,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Comedy",
+      "Family",
+      "Drama"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 301,
@@ -2397,15 +4066,29 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Twisted",
     "tmdbId": 13572,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 302,
     "title": "Murder by Numbers",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Murder+By+Numbers",
-    "tmdbId": 581869,
-    "year": 1990
+    "tmdbId": 11892,
+    "year": 2002,
+    "genres": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 303,
@@ -2413,15 +4096,26 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Panic+Room",
     "tmdbId": 4547,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 304,
     "title": "Pretty Woman",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Pretty+Woman",
-    "tmdbId": 360731,
-    "year": 1991
+    "tmdbId": 114,
+    "year": 1990,
+    "genres": [
+      "Romance",
+      "Comedy"
+    ],
+    "genre": "Romance"
   },
   {
     "id": 305,
@@ -2429,7 +4123,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Training+Day",
     "tmdbId": 2034,
-    "year": 2001
+    "year": 2001,
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama"
+    ],
+    "genre": "Action"
   },
   {
     "id": 306,
@@ -2437,7 +4137,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Under+Siege",
     "tmdbId": 8845,
-    "year": 1992
+    "year": 1992,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 307,
@@ -2445,7 +4150,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Looney+Tunes+Back+In+Action",
     "tmdbId": 10715,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Animation",
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 308,
@@ -2453,7 +4164,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Bless+The+Child",
     "tmdbId": 10391,
-    "year": 2000
+    "year": 2000,
+    "genres": [
+      "Drama",
+      "Horror",
+      "Thriller",
+      "Crime"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 309,
@@ -2461,7 +4179,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Assault+on+Precinct+13",
     "tmdbId": 8978,
-    "year": 2005
+    "year": 2005,
+    "genres": [
+      "Thriller",
+      "Action",
+      "Adventure",
+      "Crime"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 310,
@@ -2469,7 +4194,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Kiss+The+Girls",
     "tmdbId": 9437,
-    "year": 1997
+    "year": 1997,
+    "genres": [
+      "Thriller",
+      "Crime",
+      "Mystery",
+      "Drama"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 311,
@@ -2477,7 +4209,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Black+Hawk+Down",
     "tmdbId": 855,
-    "year": 2001
+    "year": 2001,
+    "genres": [
+      "Action",
+      "War",
+      "History"
+    ],
+    "genre": "Action"
   },
   {
     "id": 312,
@@ -2485,7 +4223,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Die+Hard+2",
     "tmdbId": 1573,
-    "year": 1990
+    "year": 1990,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 313,
@@ -2493,7 +4236,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Bad+Boys+II",
     "tmdbId": 8961,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Action",
+      "Crime",
+      "Comedy"
+    ],
+    "genre": "Action"
   },
   {
     "id": 314,
@@ -2501,7 +4250,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Spiderwick+Chronicles",
     "tmdbId": 8204,
-    "year": 2008
+    "year": 2008,
+    "genres": [
+      "Family",
+      "Adventure",
+      "Fantasy",
+      "Drama"
+    ],
+    "genre": "Family"
   },
   {
     "id": 315,
@@ -2509,7 +4265,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Condemned",
     "tmdbId": 14636,
-    "year": 2007
+    "year": 2007,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 316,
@@ -2517,7 +4278,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Princess+Diaries",
     "tmdbId": 9880,
-    "year": 2001
+    "year": 2001,
+    "genres": [
+      "Comedy",
+      "Family",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 317,
@@ -2525,7 +4292,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Behind+Enemy+Lines",
     "tmdbId": 8007,
-    "year": 2001
+    "year": 2001,
+    "genres": [
+      "Action",
+      "Drama",
+      "Thriller",
+      "War"
+    ],
+    "genre": "Action"
   },
   {
     "id": 318,
@@ -2533,7 +4307,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Behind+Enemy+Lines+II",
     "tmdbId": 10005,
-    "year": 2006
+    "year": 2006,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 319,
@@ -2541,7 +4321,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Mystic+River",
     "tmdbId": 322,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Thriller",
+      "Crime",
+      "Drama",
+      "Mystery"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 320,
@@ -2549,7 +4336,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Prince+Caspian",
     "tmdbId": 2454,
-    "year": 2008
+    "year": 2008,
+    "genres": [
+      "Adventure",
+      "Family",
+      "Fantasy"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 321,
@@ -2557,7 +4350,11 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Aviator",
     "tmdbId": 2567,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Drama"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 322,
@@ -2565,7 +4362,15 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=United+93",
     "tmdbId": 9829,
-    "year": 2006
+    "year": 2006,
+    "genres": [
+      "Drama",
+      "History",
+      "Crime",
+      "Thriller",
+      "Action"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 323,
@@ -2573,7 +4378,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Ladder+49",
     "tmdbId": 11128,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Drama",
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 324,
@@ -2581,7 +4392,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Siege",
     "tmdbId": 1092899,
-    "year": 2023
+    "year": 2023,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 325,
@@ -2589,7 +4405,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Out+For+Justice",
     "tmdbId": 14362,
-    "year": 1991
+    "year": 1991,
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 326,
@@ -2597,7 +4420,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Out+Of+Time",
     "tmdbId": 2116,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Thriller",
+      "Crime",
+      "Drama"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 327,
@@ -2605,7 +4434,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Bruce+Almighty",
     "tmdbId": 310,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Fantasy",
+      "Comedy"
+    ],
+    "genre": "Fantasy"
   },
   {
     "id": 328,
@@ -2613,7 +4447,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Thin+Red+Line",
     "tmdbId": 8741,
-    "year": 1998
+    "year": 1998,
+    "genres": [
+      "Drama",
+      "History",
+      "War"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 329,
@@ -2621,7 +4461,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Enough",
     "tmdbId": 1957,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 330,
@@ -2629,7 +4474,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Double+Jeopardy",
     "tmdbId": 10398,
-    "year": 1999
+    "year": 1999,
+    "genres": [
+      "Drama",
+      "Thriller",
+      "Mystery"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 331,
@@ -2637,7 +4488,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Marked+For+Death",
     "tmdbId": 10173,
-    "year": 1990
+    "year": 1990,
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 332,
@@ -2645,7 +4503,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Pitch+Black",
     "tmdbId": 2787,
-    "year": 2000
+    "year": 2000,
+    "genres": [
+      "Thriller",
+      "Science Fiction",
+      "Action"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 333,
@@ -2653,7 +4517,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Hostage",
     "tmdbId": 38185,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 334,
@@ -2661,7 +4531,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Grinch+Cat+In+The+Hat",
     "tmdbId": 46963,
-    "year": 1982
+    "year": 1982,
+    "genres": [
+      "Animation",
+      "Family",
+      "Music",
+      "TV Movie"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 335,
@@ -2669,7 +4546,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=X2",
     "tmdbId": 36658,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Adventure",
+      "Action",
+      "Science Fiction"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 336,
@@ -2677,7 +4560,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Freaky+Friday",
     "tmdbId": 10330,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Family",
+      "Fantasy",
+      "Comedy"
+    ],
+    "genre": "Family"
   },
   {
     "id": 337,
@@ -2685,7 +4574,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Open+Range",
     "tmdbId": 2055,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Western",
+      "Drama",
+      "Action",
+      "Romance"
+    ],
+    "genre": "Western"
   },
   {
     "id": 338,
@@ -2693,7 +4589,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Legally+Blonde",
     "tmdbId": 8835,
-    "year": 2001
+    "year": 2001,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 339,
@@ -2701,7 +4602,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Legally+Blonde+2",
     "tmdbId": 10327,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 340,
@@ -2709,7 +4615,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=In+Good+Company",
     "tmdbId": 1901,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 341,
@@ -2717,7 +4629,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Master+and+Commander",
     "tmdbId": 8619,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Adventure",
+      "Drama",
+      "War"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 342,
@@ -2725,7 +4643,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=High+Crimes",
     "tmdbId": 11560,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Drama",
+      "Mystery",
+      "Thriller",
+      "Crime"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 343,
@@ -2733,7 +4658,16 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Dragonfly",
     "tmdbId": 10052,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Thriller",
+      "Fantasy",
+      "Mystery",
+      "Horror",
+      "Romance",
+      "Drama"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 344,
@@ -2741,7 +4675,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Secret+Window",
     "tmdbId": 1586,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Mystery",
+      "Thriller"
+    ],
+    "genre": "Mystery"
   },
   {
     "id": 345,
@@ -2749,7 +4688,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Princess+Diaries+2",
     "tmdbId": 11130,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Family",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 346,
@@ -2757,7 +4703,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Collateral+Damage",
     "tmdbId": 9884,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Drama"
+    ],
+    "genre": "Action"
   },
   {
     "id": 347,
@@ -2765,7 +4717,15 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Haunted+Mansion",
     "tmdbId": 10756,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Thriller",
+      "Fantasy",
+      "Comedy",
+      "Family",
+      "Mystery"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 348,
@@ -2773,7 +4733,15 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Spy+Kids+3D",
     "tmdbId": 12279,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Family",
+      "Action",
+      "Comedy",
+      "Adventure",
+      "Science Fiction"
+    ],
+    "genre": "Family"
   },
   {
     "id": 349,
@@ -2781,7 +4749,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Negotiator",
     "tmdbId": 9631,
-    "year": 1998
+    "year": 1998,
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 350,
@@ -2789,7 +4764,11 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Secret+2006",
     "tmdbId": 26594,
-    "year": 2006
+    "year": 2006,
+    "genres": [
+      "Documentary"
+    ],
+    "genre": "Documentary"
   },
   {
     "id": 351,
@@ -2797,7 +4776,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=HP+Order+Phoenix",
     "tmdbId": 675,
-    "year": 2007
+    "year": 2007,
+    "genres": [
+      "Adventure",
+      "Fantasy"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 352,
@@ -2805,7 +4789,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=HP+Chamber+Secrets",
     "tmdbId": 672,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Adventure",
+      "Fantasy"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 353,
@@ -2813,7 +4802,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Terminator+3",
     "tmdbId": 296,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Science Fiction"
+    ],
+    "genre": "Action"
   },
   {
     "id": 354,
@@ -2821,7 +4816,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Rules+of+Engagement",
     "tmdbId": 10479,
-    "year": 2000
+    "year": 2000,
+    "genres": [
+      "War",
+      "Drama"
+    ],
+    "genre": "War"
   },
   {
     "id": 355,
@@ -2829,7 +4829,11 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Hardball",
     "tmdbId": 20857,
-    "year": 2001
+    "year": 2001,
+    "genres": [
+      "Drama"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 356,
@@ -2837,7 +4841,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Uptown+Girls",
     "tmdbId": 14926,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 357,
@@ -2845,7 +4854,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Maid+in+Manhattan",
     "tmdbId": 7303,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 358,
@@ -2853,7 +4868,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Santa+Clause+2",
     "tmdbId": 9021,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Fantasy",
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Fantasy"
   },
   {
     "id": 359,
@@ -2861,7 +4882,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Corrina+Corrina",
     "tmdbId": 10464,
-    "year": 1994
+    "year": 1994,
+    "genres": [
+      "Comedy",
+      "Family",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 360,
@@ -2869,7 +4896,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Beverly+Hillbillies",
     "tmdbId": 11041,
-    "year": 1993
+    "year": 1993,
+    "genres": [
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 361,
@@ -2877,7 +4909,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Terminator",
     "tmdbId": 218,
-    "year": 1984
+    "year": 1984,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Science Fiction"
+    ],
+    "genre": "Action"
   },
   {
     "id": 362,
@@ -2885,7 +4923,15 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Basic",
     "tmdbId": 10782,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Action",
+      "Drama",
+      "Mystery",
+      "Thriller",
+      "Crime"
+    ],
+    "genre": "Action"
   },
   {
     "id": 363,
@@ -2893,7 +4939,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Chloe",
     "tmdbId": 28211,
-    "year": 2010
+    "year": 2010,
+    "genres": [
+      "Drama",
+      "Thriller",
+      "Mystery"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 364,
@@ -2901,7 +4953,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Charlie+and+the+Chocolate+Factory",
     "tmdbId": 118,
-    "year": 2005
+    "year": 2005,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Family",
+      "Fantasy"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 365,
@@ -2909,7 +4968,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Swordfish",
     "tmdbId": 9705,
-    "year": 2001
+    "year": 2001,
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 366,
@@ -2917,7 +4982,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=A+Dangerous+Man",
     "tmdbId": 28465,
-    "year": 2009
+    "year": 2009,
+    "genres": [
+      "Crime",
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 367,
@@ -2925,7 +4997,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Saving+Private+Ryan",
     "tmdbId": 857,
-    "year": 1998
+    "year": 1998,
+    "genres": [
+      "War",
+      "Drama",
+      "History"
+    ],
+    "genre": "War"
   },
   {
     "id": 368,
@@ -2933,7 +5011,16 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Shrek+2",
     "tmdbId": 809,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Animation",
+      "Family",
+      "Comedy",
+      "Fantasy",
+      "Adventure",
+      "Romance"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 369,
@@ -2941,15 +5028,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=American+Wedding",
     "tmdbId": 8273,
-    "year": 2003
-  },
-  {
-    "id": 370,
-    "title": "The Lion King",
-    "format": "DVD",
-    "image": "https://via.placeholder.com/300x450?text=The+Lion+King+DVD",
-    "tmdbId": 8587,
-    "year": 1994
+    "year": 2003,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 371,
@@ -2957,7 +5041,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Hidalgo",
     "tmdbId": 2023,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Western",
+      "Adventure"
+    ],
+    "genre": "Western"
   },
   {
     "id": 372,
@@ -2965,7 +5054,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Extreme+Ops",
     "tmdbId": 15074,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 373,
@@ -2973,7 +5068,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Charlotte%27s+Web",
     "tmdbId": 15171,
-    "year": 1973
+    "year": 1973,
+    "genres": [
+      "Family",
+      "Music",
+      "Animation"
+    ],
+    "genre": "Family"
   },
   {
     "id": 374,
@@ -2981,7 +5082,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Beethoven%27s+5th",
     "tmdbId": 24477,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Family",
+      "Comedy"
+    ],
+    "genre": "Family"
   },
   {
     "id": 375,
@@ -2989,7 +5095,15 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Jimmy+Neutron+Boy+Genius",
     "tmdbId": 12589,
-    "year": 2001
+    "year": 2001,
+    "genres": [
+      "Family",
+      "Comedy",
+      "Adventure",
+      "Animation",
+      "Science Fiction"
+    ],
+    "genre": "Family"
   },
   {
     "id": 376,
@@ -2997,7 +5111,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Yu-Gi-Oh+The+Movie",
     "tmdbId": 11052,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Animation",
+      "Fantasy",
+      "Action",
+      "Science Fiction"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 377,
@@ -3005,7 +5126,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Spongebob+Goes+Prehistoric",
     "tmdbId": 286882,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Animation",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 378,
@@ -3013,30 +5139,54 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Spongebob+The+Seascape+Capers",
     "tmdbId": 683417,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Animation"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 379,
     "title": "Lady and the Tramp 2",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Lady+and+the+Tramp+2",
-    "tmdbId": 512895,
-    "year": 2019
+    "tmdbId": 18269,
+    "year": 2001,
+    "genres": [
+      "Family",
+      "Animation",
+      "Romance",
+      "Adventure"
+    ],
+    "genre": "Family"
   },
   {
     "id": 380,
     "title": "Oliver Twist",
-    "year": 2001,
+    "year": 1982,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Oliver+Twist",
-    "tmdbId": null
+    "tmdbId": 535799,
+    "genres": [
+      "Animation",
+      "Drama",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 381,
-    "title": "Bood Boy",
+    "title": "Good Boy",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Bood+Boy",
-    "tmdbId": null
+    "tmdbId": 21765,
+    "year": 2003,
+    "genres": [
+      "Comedy",
+      "Family",
+      "Science Fiction"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 382,
@@ -3044,15 +5194,28 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Spider+Man+Ultimate+Villain+Showdown",
     "tmdbId": 49131,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Action",
+      "Animation",
+      "Family",
+      "Science Fiction"
+    ],
+    "genre": "Action"
   },
   {
     "id": 383,
     "title": "The Jungle Book",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Jungle+Book",
-    "tmdbId": 9325,
-    "year": 1967
+    "tmdbId": 10714,
+    "year": 1994,
+    "genres": [
+      "Family",
+      "Adventure",
+      "Drama"
+    ],
+    "genre": "Family"
   },
   {
     "id": 384,
@@ -3060,7 +5223,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=George+of+the+Jungle+2",
     "tmdbId": 26264,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 385,
@@ -3068,7 +5237,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Tarzan+and+the+Lost+City",
     "tmdbId": 38618,
-    "year": 1998
+    "year": 1998,
+    "genres": [
+      "Adventure",
+      "Action"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 386,
@@ -3076,7 +5250,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Agent+Cody+Banks",
     "tmdbId": 10923,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Action"
   },
   {
     "id": 387,
@@ -3084,7 +5265,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Spiderman+Return+of+the+Green+Goblin",
     "tmdbId": 270764,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Animation",
+      "Action",
+      "Adventure"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 388,
@@ -3092,7 +5279,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Spiderman+2",
     "tmdbId": 558,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Science Fiction"
+    ],
+    "genre": "Action"
   },
   {
     "id": 389,
@@ -3100,7 +5293,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Sharkboy+and+Lavagirl+3D",
     "tmdbId": 14199,
-    "year": 2005
+    "year": 2005,
+    "genres": [
+      "Adventure",
+      "Family",
+      "Science Fiction"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 390,
@@ -3108,7 +5307,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Shark+Tale",
     "tmdbId": 10555,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Animation",
+      "Action",
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 391,
@@ -3116,7 +5322,15 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Goofy+Movie",
     "tmdbId": 15789,
-    "year": 1995
+    "year": 1995,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Romance",
+      "Animation",
+      "Family"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 392,
@@ -3124,7 +5338,15 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Agent+Cody+Banks+2",
     "tmdbId": 17047,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Comedy",
+      "Action",
+      "Adventure",
+      "Family",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 393,
@@ -3132,7 +5354,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Tarzan+%26+Jane",
     "tmdbId": 13683,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Animation",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 394,
@@ -3140,7 +5367,15 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Stitch+The+Movie",
     "tmdbId": 15567,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Comedy",
+      "Adventure",
+      "Family",
+      "Animation",
+      "Science Fiction"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 395,
@@ -3148,7 +5383,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Brother+Bear",
     "tmdbId": 10009,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Adventure",
+      "Animation",
+      "Family"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 396,
@@ -3156,14 +5397,21 @@ export const movies = [
     "year": 1981,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Clash+of+the+Titans",
-    "tmdbId": 10323
+    "tmdbId": 10323,
+    "genres": [
+      "Adventure",
+      "Fantasy",
+      "Action"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 397,
-    "title": "Whats New Scooby Doo Volume 2",
+    "title": "What's New, Scooby Doo? Vol. 2: Safari So Good!",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Whats+New+Scooby+Doo+Vol+2",
-    "tmdbId": null
+    "tmdbId": 392609,
+    "year": 2004
   },
   {
     "id": 398,
@@ -3171,7 +5419,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Scooby-Doo",
     "tmdbId": 9637,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Mystery",
+      "Adventure",
+      "Comedy"
+    ],
+    "genre": "Mystery"
   },
   {
     "id": 399,
@@ -3179,15 +5433,26 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Ice+Age",
     "tmdbId": 425,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Animation",
+      "Comedy",
+      "Family",
+      "Adventure"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 400,
     "title": "Frogs",
-    "year": 2003,
+    "year": 1972,
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Frogs",
-    "tmdbId": 22624
+    "tmdbId": 18274,
+    "genres": [
+      "Horror"
+    ],
+    "genre": "Horror"
   },
   {
     "id": 401,
@@ -3195,7 +5460,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Land+Before+Time+Great+Longneck+Migration",
     "tmdbId": 24554,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Animation",
+      "Adventure",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 402,
@@ -3203,7 +5474,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Land+Before+Time+Invasion+of+the+Tinysauruses",
     "tmdbId": 24556,
-    "year": 2005
+    "year": 2005,
+    "genres": [
+      "Animation",
+      "Family",
+      "Fantasy",
+      "Adventure"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 403,
@@ -3211,7 +5489,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Land+Before+Time+Journey+to+Big+Water",
     "tmdbId": 25556,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Animation",
+      "Adventure",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 404,
@@ -3219,15 +5503,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Batman+Forever",
     "tmdbId": 414,
-    "year": 1995
-  },
-  {
-    "id": 405,
-    "title": "Cinderella 2",
-    "format": "DVD",
-    "image": "https://via.placeholder.com/300x450?text=Cinderella+2",
-    "tmdbId": 1063902,
-    "year": 2015
+    "year": 1995,
+    "genres": [
+      "Action",
+      "Crime",
+      "Fantasy"
+    ],
+    "genre": "Action"
   },
   {
     "id": 406,
@@ -3235,7 +5517,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Finding+Nemo",
     "tmdbId": 12,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Animation",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 407,
@@ -3243,7 +5530,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Garfield+The+Movie",
     "tmdbId": 748783,
-    "year": 2024
+    "year": 2024,
+    "genres": [
+      "Family",
+      "Comedy",
+      "Adventure",
+      "Animation"
+    ],
+    "genre": "Family"
   },
   {
     "id": 408,
@@ -3251,7 +5545,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Stuart+Little+2",
     "tmdbId": 10996,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Family",
+      "Adventure",
+      "Comedy"
+    ],
+    "genre": "Family"
   },
   {
     "id": 409,
@@ -3259,7 +5559,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Peter+Pan",
     "tmdbId": 10601,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Adventure",
+      "Fantasy",
+      "Family"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 410,
@@ -3267,7 +5573,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Land+Before+Time+Wisdom+of+Friends",
     "tmdbId": 39961,
-    "year": 2007
+    "year": 2007,
+    "genres": [
+      "Animation",
+      "Family",
+      "Adventure"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 411,
@@ -3275,7 +5587,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Beethoven",
     "tmdbId": 11806,
-    "year": 1992
+    "year": 1992,
+    "genres": [
+      "Family",
+      "Comedy"
+    ],
+    "genre": "Family"
   },
   {
     "id": 412,
@@ -3283,7 +5600,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Lion+King+1+1/2",
     "tmdbId": 11430,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Family",
+      "Animation",
+      "Comedy",
+      "Adventure"
+    ],
+    "genre": "Family"
   },
   {
     "id": 413,
@@ -3291,7 +5615,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Spider-Man",
     "tmdbId": 557,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Action",
+      "Science Fiction"
+    ],
+    "genre": "Action"
   },
   {
     "id": 414,
@@ -3299,14 +5628,25 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Spongebob+Halloween",
     "tmdbId": 358711,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Animation",
+      "Family"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 415,
-    "title": "MVP2 Most Vertical Primate",
+    "title": "MVP 2: Most Vertical Primate",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=MVP2+Most+Vertical+Primate",
-    "tmdbId": null
+    "tmdbId": 51438,
+    "year": 2001,
+    "genres": [
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 416,
@@ -3314,7 +5654,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Charlottes+Web+2",
     "tmdbId": 21250,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Adventure",
+      "Animation",
+      "Drama",
+      "Family"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 417,
@@ -3322,7 +5669,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Baby+Secret+of+the+Lost+Legend",
     "tmdbId": 19736,
-    "year": 1985
+    "year": 1985,
+    "genres": [
+      "Adventure",
+      "Action",
+      "Family",
+      "Science Fiction"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 418,
@@ -3330,14 +5684,31 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Iron+Giant",
     "tmdbId": 10386,
-    "year": 1999
+    "year": 1999,
+    "genres": [
+      "Animation",
+      "Family",
+      "Science Fiction",
+      "Drama"
+    ],
+    "genre": "Animation"
   },
   {
     "id": 419,
-    "title": "Scooby Doo and the Moch Ness Monster",
+    "title": "Scooby-Doo! and the Loch Ness Monster",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Scooby+Doo+Moch+Ness+Monster",
-    "tmdbId": null
+    "tmdbId": 12902,
+    "year": 2004,
+    "genres": [
+      "Family",
+      "Adventure",
+      "Animation",
+      "Comedy",
+      "Fantasy",
+      "Mystery"
+    ],
+    "genre": "Family"
   },
   {
     "id": 420,
@@ -3345,7 +5716,15 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Aloha+Scooby+Doo",
     "tmdbId": 24615,
-    "year": 2005
+    "year": 2005,
+    "genres": [
+      "Mystery",
+      "Family",
+      "Animation",
+      "Adventure",
+      "Comedy"
+    ],
+    "genre": "Mystery"
   },
   {
     "id": 421,
@@ -3353,7 +5732,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Predator",
     "tmdbId": 106,
-    "year": 1987
+    "year": 1987,
+    "genres": [
+      "Science Fiction",
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "genre": "Science Fiction"
   },
   {
     "id": 422,
@@ -3361,7 +5747,15 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Score",
     "tmdbId": 11371,
-    "year": 2001
+    "year": 2001,
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller",
+      "Mystery",
+      "Drama"
+    ],
+    "genre": "Action"
   },
   {
     "id": 423,
@@ -3369,15 +5763,26 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Burlesque",
     "tmdbId": 42297,
-    "year": 2010
+    "year": 2010,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 424,
     "title": "Eye See You",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Eye+See+You",
-    "tmdbId": 1575764,
-    "year": 2025
+    "tmdbId": 10375,
+    "year": 2002,
+    "genres": [
+      "Thriller",
+      "Crime",
+      "Horror"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 425,
@@ -3385,7 +5790,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Mr+%26+Mrs+Smith",
     "tmdbId": 787,
-    "year": 2005
+    "year": 2005,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 426,
@@ -3393,7 +5805,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Daddy+Day+Care",
     "tmdbId": 10708,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 427,
@@ -3401,7 +5818,11 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Dumb+and+Dumber",
     "tmdbId": 8467,
-    "year": 1994
+    "year": 1994,
+    "genres": [
+      "Comedy"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 428,
@@ -3409,7 +5830,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Jumanji",
     "tmdbId": 8844,
-    "year": 1995
+    "year": 1995,
+    "genres": [
+      "Adventure",
+      "Fantasy",
+      "Family"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 429,
@@ -3417,7 +5844,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Meet+the+Fockers",
     "tmdbId": 693,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 430,
@@ -3425,7 +5857,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Inspector+Gadget+2",
     "tmdbId": 19766,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Family"
+    ],
+    "genre": "Action"
   },
   {
     "id": 431,
@@ -3433,7 +5872,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Catch+Me+If+You+Can",
     "tmdbId": 640,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Drama",
+      "Crime"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 432,
@@ -3441,7 +5885,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Heat",
     "tmdbId": 949,
-    "year": 1995
+    "year": 1995,
+    "genres": [
+      "Crime",
+      "Drama",
+      "Action"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 433,
@@ -3449,7 +5899,11 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=A+Civil+Action",
     "tmdbId": 9422,
-    "year": 1998
+    "year": 1998,
+    "genres": [
+      "Drama"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 434,
@@ -3457,7 +5911,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Basic+Instinct",
     "tmdbId": 402,
-    "year": 1992
+    "year": 1992,
+    "genres": [
+      "Thriller",
+      "Mystery"
+    ],
+    "genre": "Thriller"
   },
   {
     "id": 435,
@@ -3465,7 +5924,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=We+Were+Soldiers",
     "tmdbId": 10590,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Action",
+      "History",
+      "War"
+    ],
+    "genre": "Action"
   },
   {
     "id": 436,
@@ -3473,7 +5938,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Wrong+Turn",
     "tmdbId": 9902,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Horror",
+      "Thriller"
+    ],
+    "genre": "Horror"
   },
   {
     "id": 437,
@@ -3481,7 +5951,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=King+Kong",
     "tmdbId": 254,
-    "year": 2005
+    "year": 2005,
+    "genres": [
+      "Adventure",
+      "Drama",
+      "Action"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 438,
@@ -3489,15 +5965,24 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Monster+in+Law",
     "tmdbId": 4379,
-    "year": 2005
+    "year": 2005,
+    "genres": [
+      "Romance",
+      "Comedy"
+    ],
+    "genre": "Romance"
   },
   {
     "id": 439,
     "title": "Cabin Fever",
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Cabin+Fever",
-    "tmdbId": 819146,
-    "year": 2021
+    "tmdbId": 11547,
+    "year": 2003,
+    "genres": [
+      "Horror"
+    ],
+    "genre": "Horror"
   },
   {
     "id": 440,
@@ -3505,7 +5990,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Lock+Up",
     "tmdbId": 9972,
-    "year": 1989
+    "year": 1989,
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 441,
@@ -3513,7 +6005,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Monster",
     "tmdbId": 504,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Crime",
+      "Drama"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 442,
@@ -3521,7 +6018,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Terminator+2",
     "tmdbId": 66664,
-    "year": 1989
+    "year": 1989,
+    "genres": [
+      "Action",
+      "Science Fiction",
+      "Horror"
+    ],
+    "genre": "Action"
   },
   {
     "id": 443,
@@ -3529,7 +6032,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Nothing+to+Lose",
     "tmdbId": 11676,
-    "year": 1997
+    "year": 1997,
+    "genres": [
+      "Comedy",
+      "Crime",
+      "Action",
+      "Adventure"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 444,
@@ -3537,7 +6047,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Die+Hard",
     "tmdbId": 562,
-    "year": 1988
+    "year": 1988,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 445,
@@ -3545,7 +6060,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Above+the+Law",
     "tmdbId": 9395,
-    "year": 1988
+    "year": 1988,
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 446,
@@ -3553,7 +6074,11 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Remember+the+Titans",
     "tmdbId": 10637,
-    "year": 2000
+    "year": 2000,
+    "genres": [
+      "Drama"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 447,
@@ -3561,7 +6086,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=25th+Hour",
     "tmdbId": 1429,
-    "year": 2002
+    "year": 2002,
+    "genres": [
+      "Crime",
+      "Drama"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 448,
@@ -3569,7 +6099,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Collateral",
     "tmdbId": 1538,
-    "year": 2004
+    "year": 2004,
+    "genres": [
+      "Drama",
+      "Crime",
+      "Thriller"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 449,
@@ -3577,7 +6113,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Wall+Street",
     "tmdbId": 10673,
-    "year": 1987
+    "year": 1987,
+    "genres": [
+      "Crime",
+      "Drama"
+    ],
+    "genre": "Crime"
   },
   {
     "id": 450,
@@ -3585,7 +6126,12 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Wedding+Crashers",
     "tmdbId": 9522,
-    "year": 2005
+    "year": 2005,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "genre": "Comedy"
   },
   {
     "id": 451,
@@ -3593,7 +6139,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=The+Man+in+the+Iron+Mask",
     "tmdbId": 9313,
-    "year": 1998
+    "year": 1998,
+    "genres": [
+      "Adventure",
+      "Action",
+      "Drama"
+    ],
+    "genre": "Adventure"
   },
   {
     "id": 452,
@@ -3601,7 +6153,14 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Runaway+Train",
     "tmdbId": 11893,
-    "year": 1985
+    "year": 1985,
+    "genres": [
+      "Action",
+      "Thriller",
+      "Drama",
+      "Adventure"
+    ],
+    "genre": "Action"
   },
   {
     "id": 453,
@@ -3609,7 +6168,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Once+Upon+a+Time+in+Mexico",
     "tmdbId": 1428,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "genre": "Action"
   },
   {
     "id": 454,
@@ -3617,7 +6182,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=National+Security",
     "tmdbId": 11078,
-    "year": 2003
+    "year": 2003,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Crime"
+    ],
+    "genre": "Action"
   },
   {
     "id": 455,
@@ -3625,7 +6196,11 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Gran+Torino",
     "tmdbId": 13223,
-    "year": 2008
+    "year": 2008,
+    "genres": [
+      "Drama"
+    ],
+    "genre": "Drama"
   },
   {
     "id": 456,
@@ -3633,6 +6208,13 @@ export const movies = [
     "format": "DVD",
     "image": "https://via.placeholder.com/300x450?text=Faster",
     "tmdbId": 41283,
-    "year": 2010
+    "year": 2010,
+    "genres": [
+      "Crime",
+      "Drama",
+      "Action",
+      "Thriller"
+    ],
+    "genre": "Crime"
   }
 ];
