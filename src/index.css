@@ -515,9 +515,15 @@ body.modal-open {
   font-size: 1rem;
   margin: 0 0 0.25rem;
   line-height: 1.2;
+
+  /* Standard (future) syntax – silences warnings */
+  line-clamp: 2;
+
+  /* WebKit-supported implementation */
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+
   overflow: hidden;
 }
 
@@ -1352,4 +1358,36 @@ body.modal-open {
 /* Extra breathing room above the actions (Clear / Random) */
 .sidebar-actions {
   margin-top: 1.3rem;
+}
+/* --------------------------------------------- */
+/* >>>>>>>>>>>>   MOBILE FIX  <<<<<<<<<<<<<<<<<< */
+/* --------------------------------------------- */
+
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar-column {
+    width: 100%;
+    flex: unset;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    position: static;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+
+  .modal-content {
+    flex-direction: column;
+  }
+
+  .modal-poster {
+    max-width: 100%;
+    flex: 1 1 auto;
+  }
 }
