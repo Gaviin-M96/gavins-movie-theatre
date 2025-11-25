@@ -1,3 +1,4 @@
+// src/App.jsx
 import { useState, useMemo, useEffect } from "react";
 import { movies } from "./movies";
 import { fetchDetailsForMovie } from "./api/tmdb";
@@ -37,6 +38,30 @@ function getSortTitle(str) {
   return str.replace(/^\s*the\s+/i, "").trim();
 }
 
+// Static genre list so sidebar never breaks
+const GENRE_FILTERS = [
+  "all",
+  "Action",
+  "Adventure",
+  "Animation",
+  "Comedy",
+  "Crime",
+  "Documentary",
+  "Drama",
+  "Family",
+  "Fantasy",
+  "History",
+  "Horror",
+  "Music",
+  "Mystery",
+  "Romance",
+  "Science Fiction",
+  "TV Movie",
+  "Thriller",
+  "War",
+  "Western",
+];
+
 function App() {
   const [search, setSearch] = useState("");
   const [formatFilter, setFormatFilter] = useState("all");
@@ -66,7 +91,6 @@ function App() {
         if (parsed.genreFilter) setGenreFilter(parsed.genreFilter);
         if (parsed.sortBy) setSortBy(parsed.sortBy);
 
-        // Only allow supported views now: all | favorites | watchlist
         if (parsed.view) {
           const allowedViews = new Set(["all", "favorites", "watchlist"]);
           setView(allowedViews.has(parsed.view) ? parsed.view : "all");
@@ -157,15 +181,7 @@ function App() {
     []
   );
 
-  // ⭐ FIXED: genres always come from your static movies list
-  // (TMDB is only used for per-movie details, not to build the filter list)
-  const genres = useMemo(() => {
-    const set = new Set();
-    movies.forEach((m) => {
-      if (m.genre) set.add(m.genre);
-    });
-    return ["all", ...Array.from(set).sort()];
-  }, []);
+  const genres = GENRE_FILTERS;
 
   const MAX_VISIBLE_CHIPS = 8;
   const visibleFormats = showAllFormats
@@ -194,9 +210,16 @@ function App() {
     let result = baseMovies.filter((movie) => {
       const details = detailsMap[movie.id];
 
-      // genres for this movie: prefer TMDB if present, fall back to static
-      const genresArr = details?.genres || (movie.genre ? [movie.genre] : []);
-      const year = details?.year || movie.year || null;
+      const year = movie.year || details?.year || null;
+
+      let genresArr = [];
+      if (Array.isArray(movie.genres) && movie.genres.length) {
+        genresArr = movie.genres;
+      } else if (movie.genre) {
+        genresArr = [movie.genre];
+      } else if (Array.isArray(details?.genres)) {
+        genresArr = details.genres;
+      }
 
       const basicMatch =
         !lowerSearch ||
@@ -233,8 +256,8 @@ function App() {
       const da = detailsMap[a.id];
       const db = detailsMap[b.id];
 
-      const ya = da?.year || a.year || 0;
-      const yb = db?.year || b?.year || 0;
+      const ya = a.year || da?.year || 0;
+      const yb = b.year || db?.year || 0;
 
       const ga = gavinReviews[a.id]?.rating ?? 0;
       const gb = gavinReviews[b.id]?.rating ?? 0;
@@ -297,14 +320,14 @@ function App() {
     );
   };
 
-  // 🔑 Only load TMDB details when a movie is opened
+  // Only load TMDB details when a movie is opened
   const openModal = (id) => {
     const movie = movies.find((m) => m.id === id);
 
     if (movie && !detailsMap[id]) {
       (async () => {
         try {
-          const details = await fetchDetailsForMovie(movie.title, movie.year);
+          const details = await fetchDetailsForMovie(movie);
           if (details) {
             setDetailsMap((prev) =>
               prev[id] ? prev : { ...prev, [id]: details }
@@ -325,7 +348,7 @@ function App() {
     if (!filteredMovies.length) return;
     const random =
       filteredMovies[Math.floor(Math.random() * filteredMovies.length)];
-    setModalMovieId(random.id);
+    openModal(random.id);
   };
 
   const setGavinRating = (movieId, rating) => {

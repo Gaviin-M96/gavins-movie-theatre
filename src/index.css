@@ -1367,6 +1367,54 @@ body.modal-open {
   .layout {
     flex-direction: column;
   }
+/* Sidebar column wrapper (if not already there) */
+.sidebar-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+/* Logo block */
+.sidebar-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.3rem;
+}
+
+.sidebar-logo {
+  max-width: 100%;
+  width: 210px;         /* tweak to taste */
+  height: auto;
+  display: block;
+  border-radius: 0.75rem;
+}
+
+/* Slightly tighter header row under logo */
+.sidebar-header {
+  margin-top: 0.25rem;
+  margin-bottom: 0.7rem;
+}
+
+/* On mobile: make sidebar full-width and center logo */
+@media (max-width: 900px) {
+  
+  .sidebar-column {
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar-logo-wrapper {
+    margin-bottom: 0.4rem;
+  }
+
+  .sidebar-logo {
+    width: 70%;
+  }
+}
 
   .sidebar-column {
     width: 100%;

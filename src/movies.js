@@ -10,8 +10,7 @@ export const movies = [
       "Action",
       "Thriller",
       "Crime"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 2,
@@ -24,8 +23,7 @@ export const movies = [
       "Action",
       "Comedy",
       "Crime"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 3,
@@ -38,8 +36,7 @@ export const movies = [
       "Action",
       "Comedy",
       "Crime"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 4,
@@ -52,8 +49,7 @@ export const movies = [
       "Crime",
       "Comedy",
       "Action"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 5,
@@ -65,8 +61,7 @@ export const movies = [
     "genres": [
       "Horror",
       "Thriller"
-    ],
-    "genre": "Horror"
+    ]
   },
   {
     "id": 6,
@@ -79,8 +74,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Comedy"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 7,
@@ -92,8 +86,7 @@ export const movies = [
     "genres": [
       "Action",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 8,
@@ -107,8 +100,7 @@ export const movies = [
       "Drama",
       "Mystery",
       "Thriller"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 9,
@@ -122,8 +114,7 @@ export const movies = [
       "Science Fiction",
       "Action",
       "Horror"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 10,
@@ -136,8 +127,7 @@ export const movies = [
       "Adventure",
       "Family",
       "Fantasy"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 11,
@@ -149,8 +139,7 @@ export const movies = [
     "genres": [
       "War",
       "Action"
-    ],
-    "genre": "War"
+    ]
   },
   {
     "id": 12,
@@ -161,8 +150,7 @@ export const movies = [
     "tmdbId": 109443,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 13,
@@ -173,8 +161,7 @@ export const movies = [
     "tmdbId": 8699,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 14,
@@ -188,8 +175,7 @@ export const movies = [
       "Adventure",
       "Fantasy",
       "Science Fiction"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 15,
@@ -203,8 +189,7 @@ export const movies = [
       "Adventure",
       "Science Fiction",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 16,
@@ -217,8 +202,7 @@ export const movies = [
       "Thriller",
       "Action",
       "Crime"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 17,
@@ -229,8 +213,7 @@ export const movies = [
     "tmdbId": 376659,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 18,
@@ -243,8 +226,7 @@ export const movies = [
       "Drama",
       "Crime",
       "Action"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 19,
@@ -257,8 +239,7 @@ export const movies = [
       "Comedy",
       "Action",
       "Crime"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 20,
@@ -270,8 +251,7 @@ export const movies = [
     "genres": [
       "Fantasy",
       "Comedy"
-    ],
-    "genre": "Fantasy"
+    ]
   },
   {
     "id": 21,
@@ -284,8 +264,7 @@ export const movies = [
       "Crime",
       "Action",
       "Thriller"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 22,
@@ -296,8 +275,7 @@ export const movies = [
     "tmdbId": 437557,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 23,
@@ -310,8 +288,7 @@ export const movies = [
       "Drama",
       "Action",
       "History"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 24,
@@ -324,8 +301,7 @@ export const movies = [
       "Action",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 25,
@@ -337,8 +313,7 @@ export const movies = [
     "genres": [
       "Adventure",
       "Comedy"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 26,
@@ -352,8 +327,7 @@ export const movies = [
       "Thriller",
       "Crime",
       "Drama"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 27,
@@ -367,8 +341,7 @@ export const movies = [
       "Action",
       "Drama",
       "Crime"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 28,
@@ -380,8 +353,7 @@ export const movies = [
     "genres": [
       "Drama",
       "Thriller"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 29,
@@ -395,8 +367,7 @@ export const movies = [
       "Drama",
       "Music",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 30,
@@ -409,8 +380,7 @@ export const movies = [
       "Action",
       "Thriller",
       "Crime"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 31,
@@ -423,8 +393,7 @@ export const movies = [
       "Action",
       "Thriller",
       "Crime"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 32,
@@ -435,8 +404,7 @@ export const movies = [
     "tmdbId": 274167,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 33,
@@ -449,8 +417,7 @@ export const movies = [
       "Action",
       "Thriller",
       "Science Fiction"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 34,
@@ -463,8 +430,7 @@ export const movies = [
       "Action",
       "Thriller",
       "Science Fiction"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 35,
@@ -475,8 +441,7 @@ export const movies = [
     "tmdbId": 34803,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 36,
@@ -491,8 +456,7 @@ export const movies = [
       "Comedy",
       "Family",
       "Adventure"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 37,
@@ -505,8 +469,7 @@ export const movies = [
       "Drama",
       "Music",
       "Romance"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 38,
@@ -517,8 +480,7 @@ export const movies = [
     "tmdbId": 17654,
     "genres": [
       "Science Fiction"
-    ],
-    "genre": "Science Fiction"
+    ]
   },
   {
     "id": 39,
@@ -529,8 +491,7 @@ export const movies = [
     "tmdbId": 9472,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 40,
@@ -544,8 +505,7 @@ export const movies = [
       "Comedy",
       "Fantasy",
       "Adventure"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 41,
@@ -557,8 +517,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Drama"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 42,
@@ -571,8 +530,7 @@ export const movies = [
       "Action",
       "Thriller",
       "Crime"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 43,
@@ -583,8 +541,7 @@ export const movies = [
     "tmdbId": 354861,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 44,
@@ -595,8 +552,7 @@ export const movies = [
     "tmdbId": 9532,
     "genres": [
       "Horror"
-    ],
-    "genre": "Horror"
+    ]
   },
   {
     "id": 45,
@@ -607,8 +563,7 @@ export const movies = [
     "tmdbId": 345922,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 46,
@@ -619,8 +574,7 @@ export const movies = [
     "tmdbId": 87502,
     "genres": [
       "Drama"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 47,
@@ -632,8 +586,7 @@ export const movies = [
     "genres": [
       "Drama",
       "Romance"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 48,
@@ -645,8 +598,7 @@ export const movies = [
     "genres": [
       "Horror",
       "Thriller"
-    ],
-    "genre": "Horror"
+    ]
   },
   {
     "id": 49,
@@ -657,8 +609,7 @@ export const movies = [
     "tmdbId": 44363,
     "genres": [
       "Thriller"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 50,
@@ -671,8 +622,7 @@ export const movies = [
       "War",
       "Drama",
       "Action"
-    ],
-    "genre": "War"
+    ]
   },
   {
     "id": 51,
@@ -683,8 +633,7 @@ export const movies = [
     "tmdbId": 257091,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 52,
@@ -696,8 +645,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Fantasy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 53,
@@ -710,8 +658,7 @@ export const movies = [
       "Comedy",
       "Drama",
       "War"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 54,
@@ -722,8 +669,7 @@ export const movies = [
     "tmdbId": 38365,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 55,
@@ -735,8 +681,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 56,
@@ -747,8 +692,7 @@ export const movies = [
     "tmdbId": 9614,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 57,
@@ -761,8 +705,7 @@ export const movies = [
       "Action",
       "Thriller",
       "Drama"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 58,
@@ -775,8 +718,7 @@ export const movies = [
       "Action",
       "Crime",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 59,
@@ -788,8 +730,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Family"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 60,
@@ -801,8 +742,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Crime"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 61,
@@ -813,8 +753,7 @@ export const movies = [
     "tmdbId": 227159,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 62,
@@ -829,8 +768,7 @@ export const movies = [
       "Family",
       "Adventure",
       "Fantasy"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 63,
@@ -841,8 +779,7 @@ export const movies = [
     "tmdbId": 243938,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 64,
@@ -855,8 +792,7 @@ export const movies = [
       "Family",
       "Comedy",
       "Fantasy"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 65,
@@ -872,8 +808,7 @@ export const movies = [
       "Animation",
       "Comedy",
       "Family"
-    ],
-    "genre": "Fantasy"
+    ]
   },
   {
     "id": 66,
@@ -886,8 +821,7 @@ export const movies = [
       "Science Fiction",
       "Adventure",
       "Action"
-    ],
-    "genre": "Science Fiction"
+    ]
   },
   {
     "id": 67,
@@ -900,8 +834,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 68,
@@ -912,8 +845,7 @@ export const movies = [
     "tmdbId": 566927,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 69,
@@ -927,8 +859,7 @@ export const movies = [
       "Adventure",
       "Animation",
       "Family"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 70,
@@ -941,8 +872,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 71,
@@ -954,8 +884,7 @@ export const movies = [
     "genres": [
       "Horror",
       "Mystery"
-    ],
-    "genre": "Horror"
+    ]
   },
   {
     "id": 72,
@@ -967,8 +896,7 @@ export const movies = [
     "genres": [
       "Action",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 73,
@@ -981,8 +909,7 @@ export const movies = [
       "Action",
       "Thriller",
       "Crime"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 74,
@@ -995,8 +922,7 @@ export const movies = [
       "Action",
       "Thriller",
       "Crime"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 75,
@@ -1009,8 +935,7 @@ export const movies = [
       "Crime",
       "Thriller",
       "Drama"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 76,
@@ -1023,8 +948,7 @@ export const movies = [
       "Adventure",
       "Comedy",
       "Fantasy"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 77,
@@ -1039,8 +963,7 @@ export const movies = [
       "Fantasy",
       "Action",
       "Family"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 78,
@@ -1052,8 +975,7 @@ export const movies = [
     "genres": [
       "Adventure",
       "Science Fiction"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 79,
@@ -1067,8 +989,7 @@ export const movies = [
       "Adventure",
       "Science Fiction",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 80,
@@ -1081,8 +1002,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 81,
@@ -1095,8 +1015,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 82,
@@ -1109,8 +1028,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Fantasy"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 83,
@@ -1121,8 +1039,7 @@ export const movies = [
     "tmdbId": 193893,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 84,
@@ -1135,8 +1052,7 @@ export const movies = [
       "Thriller",
       "Mystery",
       "Science Fiction"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 85,
@@ -1149,8 +1065,7 @@ export const movies = [
       "Action",
       "Drama",
       "Science Fiction"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 86,
@@ -1163,8 +1078,7 @@ export const movies = [
       "War",
       "Action",
       "Drama"
-    ],
-    "genre": "War"
+    ]
   },
   {
     "id": 87,
@@ -1176,8 +1090,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 88,
@@ -1189,8 +1102,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Fantasy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 89,
@@ -1203,8 +1115,7 @@ export const movies = [
       "Action",
       "Thriller",
       "Adventure"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 90,
@@ -1217,8 +1128,7 @@ export const movies = [
       "Family",
       "Fantasy",
       "Comedy"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 91,
@@ -1231,8 +1141,7 @@ export const movies = [
       "Comedy",
       "Drama",
       "Family"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 92,
@@ -1244,8 +1153,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Drama"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 93,
@@ -1258,8 +1166,7 @@ export const movies = [
       "Comedy",
       "Fantasy",
       "Family"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 94,
@@ -1270,8 +1177,7 @@ export const movies = [
     "tmdbId": 5825,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 95,
@@ -1284,8 +1190,7 @@ export const movies = [
       "Adventure",
       "Comedy",
       "Romance"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 96,
@@ -1297,8 +1202,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Adventure"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 97,
@@ -1309,8 +1213,7 @@ export const movies = [
     "tmdbId": 11419,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 98,
@@ -1325,8 +1228,7 @@ export const movies = [
       "Comedy",
       "Family",
       "Fantasy"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 99,
@@ -1341,8 +1243,7 @@ export const movies = [
       "Action",
       "Comedy",
       "Family"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 100,
@@ -1354,8 +1255,7 @@ export const movies = [
     "genres": [
       "Thriller",
       "Crime"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 101,
@@ -1366,8 +1266,7 @@ export const movies = [
     "tmdbId": 384682,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 102,
@@ -1380,8 +1279,7 @@ export const movies = [
       "Fantasy",
       "Adventure",
       "Family"
-    ],
-    "genre": "Fantasy"
+    ]
   },
   {
     "id": 103,
@@ -1394,8 +1292,7 @@ export const movies = [
       "Adventure",
       "Fantasy",
       "Action"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 104,
@@ -1408,8 +1305,7 @@ export const movies = [
       "Adventure",
       "Fantasy",
       "Action"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 105,
@@ -1422,8 +1318,7 @@ export const movies = [
       "Adventure",
       "Action",
       "Fantasy"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 106,
@@ -1436,8 +1331,7 @@ export const movies = [
       "Adventure",
       "Fantasy",
       "Action"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 107,
@@ -1450,8 +1344,7 @@ export const movies = [
       "Animation",
       "Fantasy",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 108,
@@ -1464,8 +1357,7 @@ export const movies = [
       "Family",
       "Comedy",
       "Adventure"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 109,
@@ -1478,8 +1370,7 @@ export const movies = [
       "Action",
       "Thriller",
       "War"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 110,
@@ -1492,8 +1383,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Science Fiction"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 111,
@@ -1506,8 +1396,7 @@ export const movies = [
       "Adventure",
       "Action",
       "Science Fiction"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 112,
@@ -1520,8 +1409,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 113,
@@ -1534,8 +1422,7 @@ export const movies = [
       "Crime",
       "Thriller",
       "Mystery"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 114,
@@ -1549,8 +1436,7 @@ export const movies = [
       "Action",
       "Drama",
       "Science Fiction"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 115,
@@ -1561,8 +1447,7 @@ export const movies = [
     "tmdbId": 15373,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 116,
@@ -1575,8 +1460,7 @@ export const movies = [
       "Action",
       "Crime",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 117,
@@ -1589,8 +1473,7 @@ export const movies = [
       "Action",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 118,
@@ -1604,8 +1487,7 @@ export const movies = [
       "Animation",
       "Comedy",
       "Fantasy"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 119,
@@ -1617,8 +1499,7 @@ export const movies = [
     "genres": [
       "Horror",
       "Crime"
-    ],
-    "genre": "Horror"
+    ]
   },
   {
     "id": 120,
@@ -1631,8 +1512,7 @@ export const movies = [
       "Drama",
       "History",
       "War"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 121,
@@ -1645,8 +1525,7 @@ export const movies = [
       "Drama",
       "Action",
       "Thriller"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 122,
@@ -1659,8 +1538,7 @@ export const movies = [
       "Drama",
       "Thriller",
       "Mystery"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 123,
@@ -1673,8 +1551,7 @@ export const movies = [
       "Thriller",
       "Drama",
       "Action"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 124,
@@ -1688,8 +1565,7 @@ export const movies = [
       "Animation",
       "Family",
       "Science Fiction"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 125,
@@ -1703,8 +1579,7 @@ export const movies = [
       "Drama",
       "Thriller",
       "Crime"
-    ],
-    "genre": "Fantasy"
+    ]
   },
   {
     "id": 126,
@@ -1717,8 +1592,7 @@ export const movies = [
       "Drama",
       "Music",
       "History"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 127,
@@ -1729,8 +1603,7 @@ export const movies = [
     "tmdbId": 8363,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 128,
@@ -1742,8 +1615,7 @@ export const movies = [
     "genres": [
       "Action",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 129,
@@ -1755,8 +1627,7 @@ export const movies = [
     "genres": [
       "Action",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 130,
@@ -1769,8 +1640,7 @@ export const movies = [
       "Action",
       "Crime",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 131,
@@ -1782,8 +1652,7 @@ export const movies = [
     "genres": [
       "Thriller",
       "Action"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 132,
@@ -1794,8 +1663,7 @@ export const movies = [
     "tmdbId": 9718,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 133,
@@ -1806,8 +1674,7 @@ export const movies = [
     "tmdbId": 226486,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 134,
@@ -1820,8 +1687,7 @@ export const movies = [
       "Family",
       "Adventure",
       "Animation"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 135,
@@ -1834,8 +1700,7 @@ export const movies = [
       "Crime",
       "Thriller",
       "Drama"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 136,
@@ -1847,8 +1712,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Drama"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 137,
@@ -1862,8 +1726,7 @@ export const movies = [
       "Drama",
       "Mystery",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 138,
@@ -1875,8 +1738,7 @@ export const movies = [
     "genres": [
       "Action",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 139,
@@ -1889,8 +1751,7 @@ export const movies = [
       "Action",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 140,
@@ -1904,8 +1765,7 @@ export const movies = [
       "Drama",
       "Mystery",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 141,
@@ -1919,8 +1779,7 @@ export const movies = [
       "Comedy",
       "Adventure",
       "Fantasy"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 142,
@@ -1934,8 +1793,7 @@ export const movies = [
       "Action",
       "Crime",
       "Thriller"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 143,
@@ -1949,8 +1807,7 @@ export const movies = [
       "Crime",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 144,
@@ -1963,8 +1820,7 @@ export const movies = [
       "Thriller",
       "Adventure",
       "Action"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 145,
@@ -1977,8 +1833,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 146,
@@ -1992,8 +1847,7 @@ export const movies = [
       "Crime",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 147,
@@ -2006,8 +1860,7 @@ export const movies = [
       "Action",
       "Crime",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 148,
@@ -2020,8 +1873,7 @@ export const movies = [
       "Action",
       "Horror",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 149,
@@ -2034,8 +1886,7 @@ export const movies = [
       "Thriller",
       "Crime",
       "Drama"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 150,
@@ -2049,8 +1900,7 @@ export const movies = [
       "Adventure",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 151,
@@ -2063,8 +1913,7 @@ export const movies = [
       "Family",
       "Comedy",
       "Animation"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 152,
@@ -2075,8 +1924,7 @@ export const movies = [
     "tmdbId": 18785,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 153,
@@ -2087,8 +1935,7 @@ export const movies = [
     "tmdbId": 45243,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 154,
@@ -2101,8 +1948,7 @@ export const movies = [
       "Action",
       "Comedy",
       "Crime"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 155,
@@ -2115,8 +1961,7 @@ export const movies = [
       "Drama",
       "Thriller",
       "War"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 156,
@@ -2130,8 +1975,7 @@ export const movies = [
       "Thriller",
       "Horror",
       "Drama"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 157,
@@ -2145,8 +1989,7 @@ export const movies = [
       "Animation",
       "Drama",
       "Adventure"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 158,
@@ -2158,8 +2001,7 @@ export const movies = [
     "genres": [
       "Animation",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 159,
@@ -2171,8 +2013,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 160,
@@ -2184,8 +2025,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Action"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 161,
@@ -2197,8 +2037,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 162,
@@ -2211,8 +2050,7 @@ export const movies = [
       "Action",
       "Crime",
       "Drama"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 163,
@@ -2226,8 +2064,7 @@ export const movies = [
       "Action",
       "Comedy",
       "Thriller"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 164,
@@ -2239,8 +2076,7 @@ export const movies = [
     "genres": [
       "Drama",
       "Crime"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 165,
@@ -2251,8 +2087,7 @@ export const movies = [
     "tmdbId": 57431,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 166,
@@ -2267,8 +2102,7 @@ export const movies = [
       "Adventure",
       "Comedy",
       "Fantasy"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 167,
@@ -2282,8 +2116,7 @@ export const movies = [
       "Family",
       "Comedy",
       "Animation"
-    ],
-    "genre": "Fantasy"
+    ]
   },
   {
     "id": 168,
@@ -2296,8 +2129,7 @@ export const movies = [
       "Adventure",
       "Fantasy",
       "Family"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 169,
@@ -2310,8 +2142,7 @@ export const movies = [
       "Crime",
       "Drama",
       "Comedy"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 170,
@@ -2323,8 +2154,7 @@ export const movies = [
     "genres": [
       "Action",
       "Drama"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 171,
@@ -2336,8 +2166,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Crime"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 172,
@@ -2350,8 +2179,7 @@ export const movies = [
       "Adventure",
       "Science Fiction",
       "Action"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 173,
@@ -2364,8 +2192,7 @@ export const movies = [
       "Science Fiction",
       "Action",
       "Adventure"
-    ],
-    "genre": "Science Fiction"
+    ]
   },
   {
     "id": 174,
@@ -2378,8 +2205,7 @@ export const movies = [
       "Action",
       "Science Fiction",
       "Adventure"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 175,
@@ -2392,8 +2218,7 @@ export const movies = [
       "War",
       "Action",
       "History"
-    ],
-    "genre": "War"
+    ]
   },
   {
     "id": 176,
@@ -2406,8 +2231,7 @@ export const movies = [
       "Drama",
       "Adventure",
       "Western"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 177,
@@ -2420,8 +2244,7 @@ export const movies = [
       "Comedy",
       "Drama",
       "Family"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 178,
@@ -2432,8 +2255,7 @@ export const movies = [
     "tmdbId": 474335,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 179,
@@ -2446,8 +2268,7 @@ export const movies = [
       "Thriller",
       "Drama",
       "Romance"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 180,
@@ -2459,8 +2280,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Adventure"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 181,
@@ -2473,8 +2293,7 @@ export const movies = [
       "Drama",
       "Music",
       "Romance"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 182,
@@ -2487,8 +2306,7 @@ export const movies = [
       "Drama",
       "Science Fiction",
       "War"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 183,
@@ -2501,8 +2319,7 @@ export const movies = [
       "Mystery",
       "Action",
       "Science Fiction"
-    ],
-    "genre": "Mystery"
+    ]
   },
   {
     "id": 184,
@@ -2515,8 +2332,7 @@ export const movies = [
       "Family",
       "Fantasy",
       "Comedy"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 185,
@@ -2529,8 +2345,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Crime"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 186,
@@ -2542,8 +2357,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Action"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 187,
@@ -2555,8 +2369,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Horror"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 188,
@@ -2569,8 +2382,7 @@ export const movies = [
       "Comedy",
       "Family",
       "Adventure"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 189,
@@ -2582,8 +2394,7 @@ export const movies = [
     "genres": [
       "Action",
       "Crime"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 190,
@@ -2595,8 +2406,7 @@ export const movies = [
     "genres": [
       "Action",
       "Drama"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 191,
@@ -2609,8 +2419,7 @@ export const movies = [
       "Animation",
       "Comedy",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 192,
@@ -2621,8 +2430,7 @@ export const movies = [
     "tmdbId": 77953,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 193,
@@ -2635,8 +2443,7 @@ export const movies = [
       "Action",
       "Crime",
       "Drama"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 194,
@@ -2650,8 +2457,7 @@ export const movies = [
       "Adventure",
       "Animation",
       "Family"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 195,
@@ -2664,8 +2470,7 @@ export const movies = [
       "Animation",
       "Comedy",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 196,
@@ -2676,8 +2481,7 @@ export const movies = [
     "tmdbId": 10152,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 197,
@@ -2688,8 +2492,7 @@ export const movies = [
     "tmdbId": 9957,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 198,
@@ -2702,8 +2505,7 @@ export const movies = [
       "Action",
       "Crime",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 199,
@@ -2715,8 +2517,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Crime"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 200,
@@ -2727,8 +2528,7 @@ export const movies = [
     "tmdbId": 9900,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 201,
@@ -2740,8 +2540,7 @@ export const movies = [
     "genres": [
       "Animation",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 202,
@@ -2754,8 +2553,7 @@ export const movies = [
       "Adventure",
       "Comedy",
       "Family"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 203,
@@ -2766,8 +2564,7 @@ export const movies = [
     "tmdbId": 380,
     "genres": [
       "Drama"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 204,
@@ -2780,8 +2577,7 @@ export const movies = [
       "Horror",
       "Mystery",
       "Crime"
-    ],
-    "genre": "Horror"
+    ]
   },
   {
     "id": 205,
@@ -2792,8 +2588,7 @@ export const movies = [
     "tmdbId": 215,
     "genres": [
       "Horror"
-    ],
-    "genre": "Horror"
+    ]
   },
   {
     "id": 206,
@@ -2805,8 +2600,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Music"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 207,
@@ -2818,8 +2612,7 @@ export const movies = [
     "genres": [
       "Horror",
       "Comedy"
-    ],
-    "genre": "Horror"
+    ]
   },
   {
     "id": 208,
@@ -2832,8 +2625,7 @@ export const movies = [
       "Crime",
       "Action",
       "Comedy"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 209,
@@ -2845,8 +2637,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Family"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 210,
@@ -2857,8 +2648,7 @@ export const movies = [
     "tmdbId": 2123,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 211,
@@ -2870,8 +2660,7 @@ export const movies = [
     "genres": [
       "Drama",
       "Comedy"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 212,
@@ -2884,8 +2673,7 @@ export const movies = [
       "Adventure",
       "Family",
       "Fantasy"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 213,
@@ -2899,8 +2687,7 @@ export const movies = [
       "Action",
       "Thriller",
       "Science Fiction"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 215,
@@ -2913,8 +2700,7 @@ export const movies = [
       "Crime",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 216,
@@ -2927,8 +2713,7 @@ export const movies = [
       "Action",
       "Crime",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 217,
@@ -2942,8 +2727,7 @@ export const movies = [
       "Family",
       "Adventure",
       "Science Fiction"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 218,
@@ -2956,8 +2740,7 @@ export const movies = [
       "Drama",
       "Comedy",
       "Crime"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 219,
@@ -2969,8 +2752,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 220,
@@ -2984,8 +2766,7 @@ export const movies = [
       "Adventure",
       "Family",
       "Fantasy"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 221,
@@ -2997,8 +2778,7 @@ export const movies = [
     "genres": [
       "Drama",
       "Crime"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 223,
@@ -3012,8 +2792,7 @@ export const movies = [
       "Adventure",
       "Family",
       "Fantasy"
-    ],
-    "genre": "Science Fiction"
+    ]
   },
   {
     "id": 224,
@@ -3027,8 +2806,7 @@ export const movies = [
       "Comedy",
       "Crime",
       "Fantasy"
-    ],
-    "genre": "Romance"
+    ]
   },
   {
     "id": 225,
@@ -3041,8 +2819,7 @@ export const movies = [
       "Animation",
       "Science Fiction",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 226,
@@ -3053,8 +2830,7 @@ export const movies = [
     "tmdbId": 11635,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 227,
@@ -3067,8 +2843,7 @@ export const movies = [
       "Comedy",
       "Drama",
       "Family"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 228,
@@ -3081,8 +2856,7 @@ export const movies = [
       "Comedy",
       "Romance",
       "Drama"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 229,
@@ -3096,8 +2870,7 @@ export const movies = [
       "Family",
       "Fantasy",
       "Adventure"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 230,
@@ -3109,8 +2882,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 231,
@@ -3122,8 +2894,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 232,
@@ -3134,8 +2905,7 @@ export const movies = [
     "tmdbId": 8274,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 233,
@@ -3148,8 +2918,7 @@ export const movies = [
       "Adventure",
       "Action",
       "Science Fiction"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 234,
@@ -3160,8 +2929,7 @@ export const movies = [
     "tmdbId": 12133,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 235,
@@ -3172,8 +2940,7 @@ export const movies = [
     "tmdbId": 9927,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 236,
@@ -3186,8 +2953,7 @@ export const movies = [
       "Comedy",
       "Drama",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 237,
@@ -3201,8 +2967,7 @@ export const movies = [
       "Adventure",
       "Thriller",
       "War"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 238,
@@ -3216,8 +2981,7 @@ export const movies = [
       "Adventure",
       "Thriller",
       "War"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 239,
@@ -3231,8 +2995,7 @@ export const movies = [
       "Adventure",
       "Thriller",
       "War"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 240,
@@ -3244,8 +3007,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 241,
@@ -3257,8 +3019,7 @@ export const movies = [
     "genres": [
       "Romance",
       "Comedy"
-    ],
-    "genre": "Romance"
+    ]
   },
   {
     "id": 242,
@@ -3270,8 +3031,7 @@ export const movies = [
     "genres": [
       "Drama",
       "Romance"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 243,
@@ -3284,8 +3044,7 @@ export const movies = [
       "Action",
       "Science Fiction",
       "Adventure"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 244,
@@ -3298,8 +3057,7 @@ export const movies = [
       "Drama",
       "War",
       "Action"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 245,
@@ -3315,8 +3073,7 @@ export const movies = [
       "Music",
       "Romance",
       "TV Movie"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 246,
@@ -3328,8 +3085,7 @@ export const movies = [
     "genres": [
       "Western",
       "Action"
-    ],
-    "genre": "Western"
+    ]
   },
   {
     "id": 247,
@@ -3342,8 +3098,7 @@ export const movies = [
       "Comedy",
       "Family",
       "Action"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 248,
@@ -3357,8 +3112,7 @@ export const movies = [
       "Adventure",
       "Comedy",
       "Science Fiction"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 249,
@@ -3370,8 +3124,7 @@ export const movies = [
     "genres": [
       "Romance",
       "Drama"
-    ],
-    "genre": "Romance"
+    ]
   },
   {
     "id": 250,
@@ -3382,8 +3135,7 @@ export const movies = [
     "year": 1999,
     "genres": [
       "Drama"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 251,
@@ -3397,8 +3149,7 @@ export const movies = [
       "History",
       "Adventure",
       "Romance"
-    ],
-    "genre": "War"
+    ]
   },
   {
     "id": 252,
@@ -3411,8 +3162,7 @@ export const movies = [
       "Drama",
       "Thriller",
       "Crime"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 253,
@@ -3423,8 +3173,7 @@ export const movies = [
     "year": 2004,
     "genres": [
       "Drama"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 255,
@@ -3437,8 +3186,7 @@ export const movies = [
       "Comedy",
       "Family",
       "Adventure"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 256,
@@ -3450,8 +3198,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Family"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 257,
@@ -3464,8 +3211,7 @@ export const movies = [
       "Thriller",
       "Mystery",
       "Crime"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 258,
@@ -3478,8 +3224,7 @@ export const movies = [
       "Drama",
       "Thriller",
       "Crime"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 259,
@@ -3494,8 +3239,7 @@ export const movies = [
       "Fantasy",
       "Adventure",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 260,
@@ -3508,8 +3252,7 @@ export const movies = [
       "Drama",
       "Thriller",
       "Crime"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 261,
@@ -3523,8 +3266,7 @@ export const movies = [
       "Thriller",
       "Comedy",
       "Crime"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 262,
@@ -3537,8 +3279,7 @@ export const movies = [
       "Comedy",
       "Crime",
       "Science Fiction"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 263,
@@ -3551,8 +3292,7 @@ export const movies = [
       "Thriller",
       "Action",
       "Fantasy"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 264,
@@ -3565,8 +3305,7 @@ export const movies = [
       "Crime",
       "Mystery",
       "Thriller"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 265,
@@ -3579,8 +3318,7 @@ export const movies = [
       "Drama",
       "Horror",
       "Crime"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 266,
@@ -3594,8 +3332,7 @@ export const movies = [
       "Fantasy",
       "Action",
       "Comedy"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 267,
@@ -3608,8 +3345,7 @@ export const movies = [
       "Drama",
       "History",
       "War"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 268,
@@ -3622,8 +3358,7 @@ export const movies = [
       "Animation",
       "Comedy",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 269,
@@ -3635,8 +3370,7 @@ export const movies = [
     "genres": [
       "Action",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 270,
@@ -3649,8 +3383,7 @@ export const movies = [
       "Thriller",
       "Crime",
       "Mystery"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 271,
@@ -3663,8 +3396,7 @@ export const movies = [
       "Drama",
       "History",
       "War"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 272,
@@ -3677,8 +3409,7 @@ export const movies = [
       "Action",
       "Crime",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 273,
@@ -3693,8 +3424,7 @@ export const movies = [
       "Adventure",
       "Crime",
       "Horror"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 274,
@@ -3708,8 +3438,7 @@ export const movies = [
       "Drama",
       "Action",
       "Thriller"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 275,
@@ -3722,8 +3451,7 @@ export const movies = [
       "Thriller",
       "Crime",
       "Mystery"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 276,
@@ -3735,8 +3463,7 @@ export const movies = [
     "genres": [
       "Crime",
       "Thriller"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 278,
@@ -3750,8 +3477,7 @@ export const movies = [
       "Action",
       "Thriller",
       "Science Fiction"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 279,
@@ -3763,8 +3489,7 @@ export const movies = [
     "genres": [
       "Action",
       "Science Fiction"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 280,
@@ -3777,8 +3502,7 @@ export const movies = [
       "Fantasy",
       "Drama",
       "Crime"
-    ],
-    "genre": "Fantasy"
+    ]
   },
   {
     "id": 281,
@@ -3791,8 +3515,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 282,
@@ -3804,8 +3527,7 @@ export const movies = [
     "genres": [
       "Action",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 283,
@@ -3819,8 +3541,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 284,
@@ -3833,8 +3554,7 @@ export const movies = [
       "Adventure",
       "Action",
       "Comedy"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 285,
@@ -3848,8 +3568,7 @@ export const movies = [
       "Action",
       "Thriller",
       "Science Fiction"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 286,
@@ -3863,8 +3582,7 @@ export const movies = [
       "History",
       "War",
       "Action"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 287,
@@ -3876,8 +3594,7 @@ export const movies = [
     "genres": [
       "War",
       "Action"
-    ],
-    "genre": "War"
+    ]
   },
   {
     "id": 288,
@@ -3889,8 +3606,7 @@ export const movies = [
     "genres": [
       "Drama",
       "Thriller"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 289,
@@ -3903,8 +3619,7 @@ export const movies = [
       "Comedy",
       "Family",
       "Horror"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 290,
@@ -3915,8 +3630,7 @@ export const movies = [
     "year": 2003,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 291,
@@ -3929,8 +3643,7 @@ export const movies = [
       "Comedy",
       "Family",
       "Adventure"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 292,
@@ -3943,8 +3656,7 @@ export const movies = [
       "Crime",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 293,
@@ -3956,8 +3668,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 294,
@@ -3970,8 +3681,7 @@ export const movies = [
       "Horror",
       "Thriller",
       "Mystery"
-    ],
-    "genre": "Horror"
+    ]
   },
   {
     "id": 295,
@@ -3984,8 +3694,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 296,
@@ -3999,8 +3708,7 @@ export const movies = [
       "Crime",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 297,
@@ -4012,8 +3720,7 @@ export const movies = [
     "genres": [
       "Crime",
       "Comedy"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 298,
@@ -4027,8 +3734,7 @@ export const movies = [
       "Adventure",
       "Comedy",
       "Romance"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 299,
@@ -4043,8 +3749,7 @@ export const movies = [
       "Adventure",
       "Fantasy",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 300,
@@ -4057,8 +3762,7 @@ export const movies = [
       "Comedy",
       "Family",
       "Drama"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 301,
@@ -4073,8 +3777,7 @@ export const movies = [
       "Crime",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 302,
@@ -4087,8 +3790,7 @@ export const movies = [
       "Crime",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 303,
@@ -4101,8 +3803,7 @@ export const movies = [
       "Crime",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 304,
@@ -4114,8 +3815,7 @@ export const movies = [
     "genres": [
       "Romance",
       "Comedy"
-    ],
-    "genre": "Romance"
+    ]
   },
   {
     "id": 305,
@@ -4128,8 +3828,7 @@ export const movies = [
       "Action",
       "Crime",
       "Drama"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 306,
@@ -4141,8 +3840,7 @@ export const movies = [
     "genres": [
       "Action",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 307,
@@ -4155,8 +3853,7 @@ export const movies = [
       "Animation",
       "Comedy",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 308,
@@ -4170,8 +3867,7 @@ export const movies = [
       "Horror",
       "Thriller",
       "Crime"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 309,
@@ -4185,8 +3881,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Crime"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 310,
@@ -4200,8 +3895,7 @@ export const movies = [
       "Crime",
       "Mystery",
       "Drama"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 311,
@@ -4214,8 +3908,7 @@ export const movies = [
       "Action",
       "War",
       "History"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 312,
@@ -4227,8 +3920,7 @@ export const movies = [
     "genres": [
       "Action",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 313,
@@ -4241,8 +3933,7 @@ export const movies = [
       "Action",
       "Crime",
       "Comedy"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 314,
@@ -4256,8 +3947,7 @@ export const movies = [
       "Adventure",
       "Fantasy",
       "Drama"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 315,
@@ -4269,8 +3959,7 @@ export const movies = [
     "genres": [
       "Action",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 316,
@@ -4283,8 +3972,7 @@ export const movies = [
       "Comedy",
       "Family",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 317,
@@ -4298,8 +3986,7 @@ export const movies = [
       "Drama",
       "Thriller",
       "War"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 318,
@@ -4312,8 +3999,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 319,
@@ -4327,8 +4013,7 @@ export const movies = [
       "Crime",
       "Drama",
       "Mystery"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 320,
@@ -4341,8 +4026,7 @@ export const movies = [
       "Adventure",
       "Family",
       "Fantasy"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 321,
@@ -4353,8 +4037,7 @@ export const movies = [
     "year": 2004,
     "genres": [
       "Drama"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 322,
@@ -4369,8 +4052,7 @@ export const movies = [
       "Crime",
       "Thriller",
       "Action"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 323,
@@ -4383,8 +4065,7 @@ export const movies = [
       "Drama",
       "Action",
       "Thriller"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 324,
@@ -4396,8 +4077,7 @@ export const movies = [
     "genres": [
       "Action",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 325,
@@ -4411,8 +4091,7 @@ export const movies = [
       "Crime",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 326,
@@ -4425,8 +4104,7 @@ export const movies = [
       "Thriller",
       "Crime",
       "Drama"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 327,
@@ -4438,8 +4116,7 @@ export const movies = [
     "genres": [
       "Fantasy",
       "Comedy"
-    ],
-    "genre": "Fantasy"
+    ]
   },
   {
     "id": 328,
@@ -4452,8 +4129,7 @@ export const movies = [
       "Drama",
       "History",
       "War"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 329,
@@ -4465,8 +4141,7 @@ export const movies = [
     "genres": [
       "Drama",
       "Thriller"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 330,
@@ -4479,8 +4154,7 @@ export const movies = [
       "Drama",
       "Thriller",
       "Mystery"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 331,
@@ -4494,8 +4168,7 @@ export const movies = [
       "Crime",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 332,
@@ -4508,8 +4181,7 @@ export const movies = [
       "Thriller",
       "Science Fiction",
       "Action"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 333,
@@ -4522,8 +4194,7 @@ export const movies = [
       "Action",
       "Crime",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 334,
@@ -4537,8 +4208,7 @@ export const movies = [
       "Family",
       "Music",
       "TV Movie"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 335,
@@ -4551,8 +4221,7 @@ export const movies = [
       "Adventure",
       "Action",
       "Science Fiction"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 336,
@@ -4565,8 +4234,7 @@ export const movies = [
       "Family",
       "Fantasy",
       "Comedy"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 337,
@@ -4580,8 +4248,7 @@ export const movies = [
       "Drama",
       "Action",
       "Romance"
-    ],
-    "genre": "Western"
+    ]
   },
   {
     "id": 338,
@@ -4593,8 +4260,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 339,
@@ -4606,8 +4272,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 340,
@@ -4620,8 +4285,7 @@ export const movies = [
       "Comedy",
       "Drama",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 341,
@@ -4634,8 +4298,7 @@ export const movies = [
       "Adventure",
       "Drama",
       "War"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 342,
@@ -4649,8 +4312,7 @@ export const movies = [
       "Mystery",
       "Thriller",
       "Crime"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 343,
@@ -4666,8 +4328,7 @@ export const movies = [
       "Horror",
       "Romance",
       "Drama"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 344,
@@ -4679,8 +4340,7 @@ export const movies = [
     "genres": [
       "Mystery",
       "Thriller"
-    ],
-    "genre": "Mystery"
+    ]
   },
   {
     "id": 345,
@@ -4694,8 +4354,7 @@ export const movies = [
       "Drama",
       "Family",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 346,
@@ -4708,8 +4367,7 @@ export const movies = [
       "Action",
       "Thriller",
       "Drama"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 347,
@@ -4724,8 +4382,7 @@ export const movies = [
       "Comedy",
       "Family",
       "Mystery"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 348,
@@ -4740,8 +4397,7 @@ export const movies = [
       "Comedy",
       "Adventure",
       "Science Fiction"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 349,
@@ -4755,8 +4411,7 @@ export const movies = [
       "Crime",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 350,
@@ -4767,8 +4422,7 @@ export const movies = [
     "year": 2006,
     "genres": [
       "Documentary"
-    ],
-    "genre": "Documentary"
+    ]
   },
   {
     "id": 351,
@@ -4780,8 +4434,7 @@ export const movies = [
     "genres": [
       "Adventure",
       "Fantasy"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 352,
@@ -4793,8 +4446,7 @@ export const movies = [
     "genres": [
       "Adventure",
       "Fantasy"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 353,
@@ -4807,8 +4459,7 @@ export const movies = [
       "Action",
       "Thriller",
       "Science Fiction"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 354,
@@ -4820,8 +4471,7 @@ export const movies = [
     "genres": [
       "War",
       "Drama"
-    ],
-    "genre": "War"
+    ]
   },
   {
     "id": 355,
@@ -4832,8 +4482,7 @@ export const movies = [
     "year": 2001,
     "genres": [
       "Drama"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 356,
@@ -4845,8 +4494,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Drama"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 357,
@@ -4859,8 +4507,7 @@ export const movies = [
       "Comedy",
       "Drama",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 358,
@@ -4873,8 +4520,7 @@ export const movies = [
       "Fantasy",
       "Comedy",
       "Family"
-    ],
-    "genre": "Fantasy"
+    ]
   },
   {
     "id": 359,
@@ -4887,8 +4533,7 @@ export const movies = [
       "Comedy",
       "Family",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 360,
@@ -4900,8 +4545,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Family"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 361,
@@ -4914,8 +4558,7 @@ export const movies = [
       "Action",
       "Thriller",
       "Science Fiction"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 362,
@@ -4930,8 +4573,7 @@ export const movies = [
       "Mystery",
       "Thriller",
       "Crime"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 363,
@@ -4944,8 +4586,7 @@ export const movies = [
       "Drama",
       "Thriller",
       "Mystery"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 364,
@@ -4959,8 +4600,7 @@ export const movies = [
       "Comedy",
       "Family",
       "Fantasy"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 365,
@@ -4973,8 +4613,7 @@ export const movies = [
       "Action",
       "Crime",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 366,
@@ -4988,8 +4627,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Thriller"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 367,
@@ -5002,8 +4640,7 @@ export const movies = [
       "War",
       "Drama",
       "History"
-    ],
-    "genre": "War"
+    ]
   },
   {
     "id": 368,
@@ -5019,8 +4656,7 @@ export const movies = [
       "Fantasy",
       "Adventure",
       "Romance"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 369,
@@ -5032,8 +4668,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 371,
@@ -5045,8 +4680,7 @@ export const movies = [
     "genres": [
       "Western",
       "Adventure"
-    ],
-    "genre": "Western"
+    ]
   },
   {
     "id": 372,
@@ -5059,8 +4693,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 373,
@@ -5073,8 +4706,7 @@ export const movies = [
       "Family",
       "Music",
       "Animation"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 374,
@@ -5086,8 +4718,7 @@ export const movies = [
     "genres": [
       "Family",
       "Comedy"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 375,
@@ -5102,8 +4733,7 @@ export const movies = [
       "Adventure",
       "Animation",
       "Science Fiction"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 376,
@@ -5117,8 +4747,7 @@ export const movies = [
       "Fantasy",
       "Action",
       "Science Fiction"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 377,
@@ -5130,8 +4759,7 @@ export const movies = [
     "genres": [
       "Animation",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 378,
@@ -5142,8 +4770,7 @@ export const movies = [
     "year": 2004,
     "genres": [
       "Animation"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 379,
@@ -5157,8 +4784,7 @@ export const movies = [
       "Animation",
       "Romance",
       "Adventure"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 380,
@@ -5171,8 +4797,7 @@ export const movies = [
       "Animation",
       "Drama",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 381,
@@ -5185,8 +4810,7 @@ export const movies = [
       "Comedy",
       "Family",
       "Science Fiction"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 382,
@@ -5200,8 +4824,7 @@ export const movies = [
       "Animation",
       "Family",
       "Science Fiction"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 383,
@@ -5214,8 +4837,7 @@ export const movies = [
       "Family",
       "Adventure",
       "Drama"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 384,
@@ -5228,8 +4850,7 @@ export const movies = [
       "Adventure",
       "Comedy",
       "Family"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 385,
@@ -5241,8 +4862,7 @@ export const movies = [
     "genres": [
       "Adventure",
       "Action"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 386,
@@ -5256,8 +4876,7 @@ export const movies = [
       "Adventure",
       "Comedy",
       "Family"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 387,
@@ -5270,8 +4889,7 @@ export const movies = [
       "Animation",
       "Action",
       "Adventure"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 388,
@@ -5284,8 +4902,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Science Fiction"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 389,
@@ -5298,8 +4915,7 @@ export const movies = [
       "Adventure",
       "Family",
       "Science Fiction"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 390,
@@ -5313,8 +4929,7 @@ export const movies = [
       "Action",
       "Comedy",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 391,
@@ -5329,8 +4944,7 @@ export const movies = [
       "Romance",
       "Animation",
       "Family"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 392,
@@ -5345,8 +4959,7 @@ export const movies = [
       "Adventure",
       "Family",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 393,
@@ -5358,8 +4971,7 @@ export const movies = [
     "genres": [
       "Animation",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 394,
@@ -5374,8 +4986,7 @@ export const movies = [
       "Family",
       "Animation",
       "Science Fiction"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 395,
@@ -5388,8 +4999,7 @@ export const movies = [
       "Adventure",
       "Animation",
       "Family"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 396,
@@ -5402,8 +5012,7 @@ export const movies = [
       "Adventure",
       "Fantasy",
       "Action"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 397,
@@ -5424,8 +5033,7 @@ export const movies = [
       "Mystery",
       "Adventure",
       "Comedy"
-    ],
-    "genre": "Mystery"
+    ]
   },
   {
     "id": 399,
@@ -5439,8 +5047,7 @@ export const movies = [
       "Comedy",
       "Family",
       "Adventure"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 400,
@@ -5451,8 +5058,7 @@ export const movies = [
     "tmdbId": 18274,
     "genres": [
       "Horror"
-    ],
-    "genre": "Horror"
+    ]
   },
   {
     "id": 401,
@@ -5465,8 +5071,7 @@ export const movies = [
       "Animation",
       "Adventure",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 402,
@@ -5480,8 +5085,7 @@ export const movies = [
       "Family",
       "Fantasy",
       "Adventure"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 403,
@@ -5494,8 +5098,7 @@ export const movies = [
       "Animation",
       "Adventure",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 404,
@@ -5508,8 +5111,7 @@ export const movies = [
       "Action",
       "Crime",
       "Fantasy"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 406,
@@ -5521,8 +5123,7 @@ export const movies = [
     "genres": [
       "Animation",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 407,
@@ -5536,8 +5137,7 @@ export const movies = [
       "Comedy",
       "Adventure",
       "Animation"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 408,
@@ -5550,8 +5150,7 @@ export const movies = [
       "Family",
       "Adventure",
       "Comedy"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 409,
@@ -5564,8 +5163,7 @@ export const movies = [
       "Adventure",
       "Fantasy",
       "Family"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 410,
@@ -5578,8 +5176,7 @@ export const movies = [
       "Animation",
       "Family",
       "Adventure"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 411,
@@ -5591,8 +5188,7 @@ export const movies = [
     "genres": [
       "Family",
       "Comedy"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 412,
@@ -5606,8 +5202,7 @@ export const movies = [
       "Animation",
       "Comedy",
       "Adventure"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 413,
@@ -5619,8 +5214,7 @@ export const movies = [
     "genres": [
       "Action",
       "Science Fiction"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 414,
@@ -5632,8 +5226,7 @@ export const movies = [
     "genres": [
       "Animation",
       "Family"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 415,
@@ -5645,8 +5238,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Family"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 416,
@@ -5660,8 +5252,7 @@ export const movies = [
       "Animation",
       "Drama",
       "Family"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 417,
@@ -5675,8 +5266,7 @@ export const movies = [
       "Action",
       "Family",
       "Science Fiction"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 418,
@@ -5690,8 +5280,7 @@ export const movies = [
       "Family",
       "Science Fiction",
       "Drama"
-    ],
-    "genre": "Animation"
+    ]
   },
   {
     "id": 419,
@@ -5707,8 +5296,7 @@ export const movies = [
       "Comedy",
       "Fantasy",
       "Mystery"
-    ],
-    "genre": "Family"
+    ]
   },
   {
     "id": 420,
@@ -5723,8 +5311,7 @@ export const movies = [
       "Animation",
       "Adventure",
       "Comedy"
-    ],
-    "genre": "Mystery"
+    ]
   },
   {
     "id": 421,
@@ -5738,8 +5325,7 @@ export const movies = [
       "Action",
       "Adventure",
       "Thriller"
-    ],
-    "genre": "Science Fiction"
+    ]
   },
   {
     "id": 422,
@@ -5754,8 +5340,7 @@ export const movies = [
       "Thriller",
       "Mystery",
       "Drama"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 423,
@@ -5767,8 +5352,7 @@ export const movies = [
     "genres": [
       "Drama",
       "Romance"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 424,
@@ -5781,8 +5365,7 @@ export const movies = [
       "Thriller",
       "Crime",
       "Horror"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 425,
@@ -5796,8 +5379,7 @@ export const movies = [
       "Comedy",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 426,
@@ -5809,8 +5391,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Family"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 427,
@@ -5821,8 +5402,7 @@ export const movies = [
     "year": 1994,
     "genres": [
       "Comedy"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 428,
@@ -5835,8 +5415,7 @@ export const movies = [
       "Adventure",
       "Fantasy",
       "Family"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 429,
@@ -5848,8 +5427,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 430,
@@ -5863,8 +5441,7 @@ export const movies = [
       "Adventure",
       "Comedy",
       "Family"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 431,
@@ -5876,8 +5453,7 @@ export const movies = [
     "genres": [
       "Drama",
       "Crime"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 432,
@@ -5890,8 +5466,7 @@ export const movies = [
       "Crime",
       "Drama",
       "Action"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 433,
@@ -5902,8 +5477,7 @@ export const movies = [
     "year": 1998,
     "genres": [
       "Drama"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 434,
@@ -5915,8 +5489,7 @@ export const movies = [
     "genres": [
       "Thriller",
       "Mystery"
-    ],
-    "genre": "Thriller"
+    ]
   },
   {
     "id": 435,
@@ -5929,8 +5502,7 @@ export const movies = [
       "Action",
       "History",
       "War"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 436,
@@ -5942,8 +5514,7 @@ export const movies = [
     "genres": [
       "Horror",
       "Thriller"
-    ],
-    "genre": "Horror"
+    ]
   },
   {
     "id": 437,
@@ -5956,8 +5527,7 @@ export const movies = [
       "Adventure",
       "Drama",
       "Action"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 438,
@@ -5969,8 +5539,7 @@ export const movies = [
     "genres": [
       "Romance",
       "Comedy"
-    ],
-    "genre": "Romance"
+    ]
   },
   {
     "id": 439,
@@ -5981,8 +5550,7 @@ export const movies = [
     "year": 2003,
     "genres": [
       "Horror"
-    ],
-    "genre": "Horror"
+    ]
   },
   {
     "id": 440,
@@ -5996,8 +5564,7 @@ export const movies = [
       "Crime",
       "Drama",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 441,
@@ -6009,8 +5576,7 @@ export const movies = [
     "genres": [
       "Crime",
       "Drama"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 442,
@@ -6023,8 +5589,7 @@ export const movies = [
       "Action",
       "Science Fiction",
       "Horror"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 443,
@@ -6038,8 +5603,7 @@ export const movies = [
       "Crime",
       "Action",
       "Adventure"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 444,
@@ -6051,8 +5615,7 @@ export const movies = [
     "genres": [
       "Action",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 445,
@@ -6065,8 +5628,7 @@ export const movies = [
       "Action",
       "Crime",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 446,
@@ -6077,8 +5639,7 @@ export const movies = [
     "year": 2000,
     "genres": [
       "Drama"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 447,
@@ -6090,8 +5651,7 @@ export const movies = [
     "genres": [
       "Crime",
       "Drama"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 448,
@@ -6104,8 +5664,7 @@ export const movies = [
       "Drama",
       "Crime",
       "Thriller"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 449,
@@ -6117,8 +5676,7 @@ export const movies = [
     "genres": [
       "Crime",
       "Drama"
-    ],
-    "genre": "Crime"
+    ]
   },
   {
     "id": 450,
@@ -6130,8 +5688,7 @@ export const movies = [
     "genres": [
       "Comedy",
       "Romance"
-    ],
-    "genre": "Comedy"
+    ]
   },
   {
     "id": 451,
@@ -6144,8 +5701,7 @@ export const movies = [
       "Adventure",
       "Action",
       "Drama"
-    ],
-    "genre": "Adventure"
+    ]
   },
   {
     "id": 452,
@@ -6159,8 +5715,7 @@ export const movies = [
       "Thriller",
       "Drama",
       "Adventure"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 453,
@@ -6173,8 +5728,7 @@ export const movies = [
       "Action",
       "Crime",
       "Thriller"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 454,
@@ -6187,8 +5741,7 @@ export const movies = [
       "Action",
       "Comedy",
       "Crime"
-    ],
-    "genre": "Action"
+    ]
   },
   {
     "id": 455,
@@ -6199,8 +5752,7 @@ export const movies = [
     "year": 2008,
     "genres": [
       "Drama"
-    ],
-    "genre": "Drama"
+    ]
   },
   {
     "id": 456,
@@ -6214,7 +5766,6 @@ export const movies = [
       "Drama",
       "Action",
       "Thriller"
-    ],
-    "genre": "Crime"
+    ]
   }
 ];
