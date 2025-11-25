@@ -33,7 +33,7 @@ function fuzzyMatch(query, text) {
 
 function getSortTitle(str) {
   if (!str) return "";
-  return str.replace(/^\s*the\s+/i, "").trim();
+  return str.replace(/^\s*(the|a|an)\s+/i, "").trim();
 }
 
 // Static genre list so sidebar never breaks
@@ -304,7 +304,6 @@ function App() {
     );
   };
 
-  // Modal open: no more TMDB fetching; data is static
   const openModal = (id) => {
     setModalMovieId(id);
   };
@@ -376,70 +375,76 @@ function App() {
   return (
     <div className="app">
       <div className="layout">
-        <div className="sidebar-column">
-          <div className="sidebar-main-title">
-            <h1 className="sidebar-main-title-text">
-              <span>GAVIN&apos;S</span>
-              <span>MOVIE THEATRE</span>
-            </h1>
-          </div>
+  {/* LEFT RAIL: logo above sidebar, both sticky together */}
+  <div className="left-rail">
+  <div className="logo-bar">
+    <img
+      src="/src/assets/reel-room.jpeg"
+      alt="Reel Room"
+      className="header-logo"
+    />
+  </div>
 
-          <FiltersSidebar
-            search={search}
-            sortBy={sortBy}
-            formatFilter={formatFilter}
-            genreFilter={genreFilter}
-            formats={formats}
-            genres={genres}
-            visibleFormats={visibleFormats}
-            visibleGenres={visibleGenres}
-            showAllFormats={showAllFormats}
-            showAllGenres={showAllGenres}
-            onSearchChange={setSearch}
-            onSortChange={setSortBy}
-            onFormatFilterChange={setFormatFilter}
-            onGenreFilterChange={setGenreFilter}
-            onClearFilters={clearFilters}
-            onRandom={handleRandom}
-            onToggleShowAllFormats={() => setShowAllFormats((v) => !v)}
-            onToggleShowAllGenres={() => setShowAllGenres((v) => !v)}
-            currentCount={currentCount}
-            totalCount={totalCount}
-          />
-        </div>
+  <div className="sidebar-column">
+      <FiltersSidebar
+        search={search}
+        sortBy={sortBy}
+        formatFilter={formatFilter}
+        genreFilter={genreFilter}
+        formats={formats}
+        genres={genres}
+        visibleFormats={visibleFormats}
+        visibleGenres={visibleGenres}
+        showAllFormats={showAllFormats}
+        showAllGenres={showAllGenres}
+        onSearchChange={setSearch}
+        onSortChange={setSortBy}
+        onFormatFilterChange={setFormatFilter}
+        onGenreFilterChange={setGenreFilter}
+        onClearFilters={clearFilters}
+        onRandom={handleRandom}
+        onToggleShowAllFormats={() => setShowAllFormats((v) => !v)}
+        onToggleShowAllGenres={() => setShowAllGenres((v) => !v)}
+        currentCount={currentCount}
+        totalCount={totalCount}
+      />
+    </div>
+  </div>
 
-        <main className="content">
-          {filteredMovies.length === 0 ? (
-            <div className="empty">
-              <p>No movies match your current filters.</p>
-              {activeFilters.length > 0 && (
-                <p className="empty-filters">
-                  Active filters: {activeFilters.join(" • ")}
-                </p>
-              )}
-              <div className="empty-actions">
-                <button className="btn-secondary" onClick={clearFilters}>
-                  Clear filters &amp; search
-                </button>
-                {baseMovies.length > 0 && (
-                  <button className="btn-primary" onClick={handleRandom}>
-                    🎲 Random Movie
-                  </button>
-                )}
-              </div>
-            </div>
-          ) : (
-            <MovieGrid
-              movies={filteredMovies}
-              favoriteSet={favoriteSet}
-              watchlistSet={watchlistSet}
-              onToggleFavorite={toggleFavorite}
-              onToggleWatchlist={toggleWatchlist}
-              onOpenModal={openModal}
-            />
+  <main className="content">
+    {/* rest of your content stays the same */}
+    {filteredMovies.length === 0 ? (
+      /* ... empty state ... */
+      <div className="empty">
+        <p>No movies match your current filters.</p>
+        {activeFilters.length > 0 && (
+          <p className="empty-filters">
+            Active filters: {activeFilters.join(" • ")}
+          </p>
+        )}
+        <div className="empty-actions">
+          <button className="btn-secondary" onClick={clearFilters}>
+            Clear filters &amp; search
+          </button>
+          {baseMovies.length > 0 && (
+            <button className="btn-primary" onClick={handleRandom}>
+              🎲 Random Movie
+            </button>
           )}
-        </main>
+        </div>
       </div>
+    ) : (
+      <MovieGrid
+        movies={filteredMovies}
+        favoriteSet={favoriteSet}
+        watchlistSet={watchlistSet}
+        onToggleFavorite={toggleFavorite}
+        onToggleWatchlist={toggleWatchlist}
+        onOpenModal={openModal}
+      />
+    )}
+  </main>
+</div>
 
       <BottomNav view={view} onChangeView={setView} />
 
