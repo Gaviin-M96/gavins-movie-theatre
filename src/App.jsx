@@ -278,55 +278,58 @@ function App() {
     gavinReviews,
   ]);
 
-// TMDB details lazy load – safer for mobile (batched + run once)
-useEffect(() => {
-  let cancelled = false;
+  // TMDB details lazy load – safer for mobile (batched + run once)
+  useEffect(() => {
+    let cancelled = false;
 
-  async function loadDetails() {
-    // Start with all movies that don't have details yet
-    const missing = movies.filter((movie) => !detailsMap[movie.id]);
-    if (!missing.length) return;
+    async function loadDetails() {
+      // Start with all movies that don't have details yet
+      const missing = movies.filter((movie) => !detailsMap[movie.id]);
+      if (!missing.length) return;
 
-    const BATCH_SIZE = 8; // small batches to avoid hammering mobile Safari
+      const BATCH_SIZE = 8; // small batches to avoid hammering mobile Safari
 
-    for (let i = 0; i < missing.length; i += BATCH_SIZE) {
-      if (cancelled) break;
-
-      const batch = missing.slice(i, i + BATCH_SIZE);
-
-      try {
-        const results = await Promise.all(
-          batch.map(async (movie) => {
-            const details = await fetchDetailsForMovie(movie.title, movie.year);
-            return { id: movie.id, details };
-          })
-        );
-
+      for (let i = 0; i < missing.length; i += BATCH_SIZE) {
         if (cancelled) break;
 
-        setDetailsMap((prev) => {
-          const next = { ...prev };
-          for (const { id, details } of results) {
-            if (details && !next[id]) {
-              next[id] = details;
+        const batch = missing.slice(i, i + BATCH_SIZE);
+
+        try {
+          const results = await Promise.all(
+            batch.map(async (movie) => {
+              const details = await fetchDetailsForMovie(
+                movie.title,
+                movie.year
+              );
+              return { id: movie.id, details };
+            })
+          );
+
+          if (cancelled) break;
+
+          setDetailsMap((prev) => {
+            const next = { ...prev };
+            for (const { id, details } of results) {
+              if (details && !next[id]) {
+                next[id] = details;
+              }
             }
-          }
-          return next;
-        });
-      } catch (e) {
-        console.warn("Error loading TMDB details batch:", e);
+            return next;
+          });
+        } catch (e) {
+          console.warn("Error loading TMDB details batch:", e);
+        }
       }
     }
-  }
 
-  loadDetails();
+    loadDetails();
 
-  return () => {
-    cancelled = true;
-  };
-  // run once on mount – no dependency on detailsMap to avoid loops
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, []);
+    return () => {
+      cancelled = true;
+    };
+    // run once on mount – no dependency on detailsMap to avoid loops
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const clearFilters = () => {
     setSearch("");
