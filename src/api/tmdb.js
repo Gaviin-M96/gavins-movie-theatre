@@ -4,7 +4,7 @@ const API_KEY =
   "a6cda52e53695582aacec71e96e84f2c";
 
 const TMDB_BASE_URL = "https://api.themoviedb.org/3";
-const TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
+const TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p/w342";
 
 /**
  * Strict + fallback:

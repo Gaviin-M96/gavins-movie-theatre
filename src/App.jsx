@@ -11,6 +11,7 @@ const FILTERS_STORAGE_KEY = "gmtFilters";
 const FAVORITES_STORAGE_KEY = "gmtFavorites";
 const WATCHLIST_STORAGE_KEY = "gmtWatchlist";
 const GAVIN_REVIEWS_KEY = "gmtGavinReviews";
+const DETAILS_STORAGE_KEY = "gmtDetailsMapV1";
 
 function normalizeForSearch(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, "");
@@ -116,9 +117,27 @@ function App() {
           setGavinReviews(parsedGavin);
         }
       }
+      
     } catch (e) {
       console.warn("Error reading localStorage:", e);
+
+      // Load cached TMDB details (posters, ratings, etc.) so covers appear faster
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(DETAILS_STORAGE_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === "object") {
+          setDetailsMap(parsed);
+        }
+      }
+    } catch (e) {
+      console.warn("Error reading cached TMDB details:", e);
     }
+  }, []);
+
+    }
+
   }, []);
 
   // Save state
@@ -150,6 +169,15 @@ function App() {
     watchlist,
     gavinReviews,
   ]);
+
+    // Persist TMDB details so we don't have to refetch next visit
+  useEffect(() => {
+    try {
+      localStorage.setItem(DETAILS_STORAGE_KEY, JSON.stringify(detailsMap));
+    } catch (e) {
+      console.warn("Error caching TMDB details:", e);
+    }
+  }, [detailsMap]);
 
   // Modal ESC / body scroll lock
   useEffect(() => {
