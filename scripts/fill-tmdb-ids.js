@@ -1,4 +1,4 @@
-import { movies } from "./src/movies.js";
+import { movies } from "../src/movies.js";
 
 const API_KEY = process.env.TMDB_API_KEY; // set this in your env
 

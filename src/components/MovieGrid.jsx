@@ -1,4 +1,5 @@
 // src/components/MovieGrid.jsx
+
 function getRatingBadgeClass(rating) {
   if (!rating) return "card-rating-badge";
   if (rating >= 8) return "card-rating-badge card-rating-badge--high";
@@ -15,29 +16,49 @@ function MovieCard({
   onToggleWatchlist,
   onOpenModal,
 }) {
-  const year = details?.year || movie.year;
+  // Prefer static data from `movie`, fall back to TMDB `details`
+  const year = movie.year || details?.year || null;
   const rating = details?.rating ?? null;
   const ratingClass = getRatingBadgeClass(rating);
+
+  // Posters:
+  // 1) movie.image (your static field, e.g. https://via.placeholder.com/...)
+  // 2) details.posterUrl from TMDB (if cached)
+  // 3) final fallback placeholder
+  const posterUrl =
+    movie.image ||
+    details?.posterUrl ||
+    "https://via.placeholder.com/300x450?text=No+Poster";
+
+  // Genres: use static movie.genres first
+  let genresArr = [];
+  if (Array.isArray(movie.genres) && movie.genres.length) {
+    genresArr = movie.genres;
+  } else if (movie.genre) {
+    genresArr = [movie.genre];
+  } else if (Array.isArray(details?.genres) && details.genres.length) {
+    genresArr = details.genres;
+  }
+
+  const genresText =
+    genresArr && genresArr.length > 0
+      ? genresArr.slice(0, 3).join(", ")
+      : "";
 
   const handleCardClick = () => onOpenModal(movie.id);
 
   return (
     <article className="card" onClick={handleCardClick}>
       <div className="cover">
-        {details?.posterUrl ? (
-          <img src={details.posterUrl} alt={movie.title} loading="lazy" />
-        ) : (
-          <img
-            src="https://via.placeholder.com/300x450?text=No+Poster"
-            alt={movie.title}
-            loading="lazy"
-          />
-        )}
+        <img
+          src={posterUrl}
+          alt={movie.title}
+          loading="lazy"
+        />
       </div>
 
       <div className="card-body">
-        
-        {/* NEW: top row with format + rating pills, aligned under the image */}
+        {/* top row with format + rating pills */}
         <div className="card-top-row">
           {movie.format && (
             <div className="card-format-pill">
@@ -53,14 +74,9 @@ function MovieCard({
         </div>
 
         <h2>{movie.title}</h2>
-
         <p className="meta">
           {year ? year : "Year unknown"}
-          {details?.genres && details.genres.length > 0
-            ? ` · ${details.genres.slice(0, 2).join(", ")}`
-            : movie.genre
-            ? ` · ${movie.genre}`
-            : ""}
+          {genresText ? ` · ${genresText}` : ""}
         </p>
 
         <div className="card-actions" onClick={(e) => e.stopPropagation()}>
@@ -82,9 +98,11 @@ function MovieCard({
               "icon-button" + (inWatchlist ? " icon-button--active" : "")
             }
             onClick={onToggleWatchlist}
-            title={inWatchlist ? "Remove from watchlist" : "Add to watchlist"}
+            title={
+              inWatchlist ? "Remove from watchlist" : "Add to watchlist"
+            }
           >
-            <span className="icon-symbol">📽️</span>
+            <span className="icon-symbol">️</span>
           </button>
         </div>
       </div>
@@ -117,16 +135,6 @@ function MovieGrid({
       ))}
     </section>
   );
-
-  <span
-  className={
-    "format-pill " +
-    (movie.format === "Blu-ray" ? "format-pill--bluray" : "format-pill--dvd")
-  }
->
-  {movie.format}
-</span>
-
 }
 
 export default MovieGrid;
