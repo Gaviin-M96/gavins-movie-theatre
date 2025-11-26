@@ -848,7 +848,7 @@ export const movies = [
     "sortTitle": "Batman Begins",
     "year": 2005,
     "library": {
-      "format": "Blu-ray",
+      "format": "DVD",
       "owned": true,
       "tags": []
     },
@@ -13608,54 +13608,6 @@ export const movies = [
     }
   },
   {
-    "id": "the-patriot-2000",
-    "title": "The Patriot",
-    "sortTitle": "Patriot",
-    "year": 2000,
-    "library": {
-      "format": "DVD",
-      "owned": true,
-      "tags": []
-    },
-    "metadata": {
-      "genres": [
-        "Drama",
-        "History",
-        "War",
-        "Action"
-      ],
-      "tmdbId": 2024,
-      "runtimeMinutes": 165,
-      "imdbId": "tt0187393",
-      "status": "Released",
-      "originalLanguage": "en"
-    },
-    "media": {
-      "poster": "https://image.tmdb.org/t/p/w500/fWZd815QxUCUcrWQZwUkAp9ljG.jpg",
-      "backdrop": "https://image.tmdb.org/t/p/w780/jSHHUHRcShP6DJbg0H2lO4A8m9x.jpg",
-      "placeholder": "https://via.placeholder.com/300x450?text=The+Patriot"
-    },
-    "text": {
-      "overview": "After proving himself on the field of battle in the French and Indian War, Benjamin Martin wants nothing more to do with such things, preferring the simple life of a farmer. But when his son Gabriel enlists in the army to defend their new nation, America, against the British, Benjamin reluctantly returns to his old life to protect his son.",
-      "tagline": "Before they were soldiers, they were family. Before they were legends, they were heroes. Before there was a nation, there was a fight for freedom."
-    },
-    "ratings": {
-      "tmdb": {
-        "voteAverage": 7.2,
-        "voteCount": 4135
-      }
-    },
-    "credits": {
-      "director": "Roland Emmerich",
-      "castPreview": [
-        "Mel Gibson",
-        "Heath Ledger",
-        "Joely Richardson",
-        "Jason Isaacs"
-      ]
-    }
-  },
-  {
     "id": "windtalkers-2002",
     "title": "Windtalkers",
     "sortTitle": "Windtalkers",
@@ -19349,53 +19301,6 @@ export const movies = [
     }
   },
   {
-    "id": "peter-pan-2003",
-    "title": "Peter Pan",
-    "sortTitle": "Peter Pan",
-    "year": 2003,
-    "library": {
-      "format": "DVD",
-      "owned": true,
-      "tags": []
-    },
-    "metadata": {
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Family"
-      ],
-      "tmdbId": 10601,
-      "runtimeMinutes": 113,
-      "imdbId": "tt0316396",
-      "status": "Released",
-      "originalLanguage": "en"
-    },
-    "media": {
-      "poster": "https://image.tmdb.org/t/p/w500/6QdU3TZZrIvXFzoHOwafZAynFjB.jpg",
-      "backdrop": "https://image.tmdb.org/t/p/w780/zyWbOvKCdA9V9P5xuUG2eiPYsUo.jpg",
-      "placeholder": "https://via.placeholder.com/300x450?text=Peter+Pan"
-    },
-    "text": {
-      "overview": "In stifling Edwardian London, Wendy Darling mesmerizes her brothers every night with bedtime tales of swordplay, swashbuckling and the fearsome Captain Hook. But the children become the heroes of an even greater story, when Peter Pan flies into their nursery one night and leads them over moonlit rooftops through a galaxy of stars and to the lush jungles of Neverland.",
-      "tagline": "All children grow up except one."
-    },
-    "ratings": {
-      "tmdb": {
-        "voteAverage": 7.1,
-        "voteCount": 2711
-      }
-    },
-    "credits": {
-      "director": "P.J. Hogan",
-      "castPreview": [
-        "Jeremy Sumpter",
-        "Jason Isaacs",
-        "Rachel Hurd-Wood",
-        "Ludivine Sagnier"
-      ]
-    }
-  },
-  {
     "id": "the-land-before-time-the-wisdom-of-friends-2007",
     "title": "The Land Before Time The Wisdom of Friends",
     "sortTitle": "Land Before Time The Wisdom of Friends",
@@ -21610,4 +21515,427 @@ export const movies = [
       "Jon Voight",
       "Regina King"
     ]
-  }}]
+    }
+  },
+{
+  "id": "the-legend-of-tarzan-2016",
+  "title": "The Legend of Tarzan",
+  "sortTitle": "The Legend of Tarzan",
+  "year": 2016,
+  "library": {
+    "format": "Blu-ray",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Fantasy",
+      "Action",
+      "Adventure"
+    ],
+    "tmdbId": 258489,
+    "runtimeMinutes": 109,
+    "imdbId": "tt0918940",
+    "status": "Released",
+    "originalLanguage": "en"
+  },
+  "media": {
+    "poster": "https://image.tmdb.org/t/p/w500/eJrfz178xBGlxjDGxnBXTzWWa4w.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/btCaMm9aVW1PG485Ef8RMBBALzI.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Legend%20of%20Tarzan"
+  },
+  "text": {
+    "overview": "Tarzan, having acclimated to life in London, is called back to his former home in the jungle to investigate the activities at a mining encampment.",
+    "tagline": "Human. Nature."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.9,
+      "voteCount": 6371
+    }
+  },
+  "credits": {
+    "director": "David Yates",
+    "castPreview": [
+      "Alexander Skarsgård",
+      "Christoph Waltz",
+      "Samuel L. Jackson",
+      "Margot Robbie"
+    ]
+  }
+},
+{
+  "id": "the-matrix-revisited-2001",
+  "title": "The Matrix Revisited",
+  "sortTitle": "The Matrix Revisited",
+  "year": 2001,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Documentary"
+    ],
+    "tmdbId": 14543,
+    "runtimeMinutes": 123,
+    "imdbId": "tt0295432",
+    "status": "Released",
+    "originalLanguage": "en"
+  },
+  "media": {
+    "poster": "https://image.tmdb.org/t/p/w500/2LzFTywrUE3EY45fIhYQskiyshl.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/rAkhyFHg5WUJpKAUf4MecEFazlp.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Matrix%20Revisited"
+  },
+  "text": {
+    "overview": "The film goes behind the scenes of the 1999 sci-fi movie The Matrix.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.8,
+      "voteCount": 199
+    }
+  },
+  "credits": {
+    "director": "Josh Oreck",
+    "castPreview": [
+      "Keanu Reeves",
+      "Hugo Weaving",
+      "Carrie-Anne Moss",
+      "Laurence Fishburne"
+    ]
+  }
+},
+{
+  "id": "cinderella-ii-dreams-come-true-2002",
+  "title": "Cinderella II: Dreams Come True",
+  "sortTitle": "Cinderella II: Dreams Come True",
+  "year": 2002,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Animation",
+      "Romance",
+      "Fantasy"
+    ],
+    "tmdbId": 14128,
+    "runtimeMinutes": 74,
+    "imdbId": "tt0291082",
+    "status": "Released",
+    "originalLanguage": "en"
+  },
+  "media": {
+    "poster": "https://image.tmdb.org/t/p/w500/kEDbtKhZsqPo7ypCzoz3fkq73Pc.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/w7H4II0nbwMLAWJjtC6fQ3EwHEm.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Cinderella%20II%3A%20Dreams%20Come%20True"
+  },
+  "text": {
+    "overview": "As a newly crowned princess, Cinderella quickly learns that life at the Palace - and her royal responsibilities - are more challenging than she had imagined. In three heartwarming tales, Cinderella calls on her animal friends and her Fairy Godmother to help as she brings her own grace and charm to her regal role and discovers that being true to yourself is the best way to make your dreams come true.",
+    "tagline": "The magic didn't end at midnight."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.1,
+      "voteCount": 1504
+    }
+  },
+  "credits": {
+    "director": "John Kafka",
+    "castPreview": [
+      "Jennifer Hale",
+      "Rob Paulsen",
+      "Corey Burton",
+      "Andre Stojka"
+    ]
+  }
+},
+{
+  "id": "dennis-the-menace-strikes-again--1998",
+  "title": "Dennis the Menace Strikes Again!",
+  "sortTitle": "Dennis the Menace Strikes Again!",
+  "year": 1998,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Comedy"
+    ],
+    "tmdbId": 45242,
+    "runtimeMinutes": 71,
+    "imdbId": "tt0129868",
+    "status": "Released",
+    "originalLanguage": "en"
+  },
+  "media": {
+    "poster": "https://image.tmdb.org/t/p/w500/c6fxRpHNdSA3yv8prMo1sNzOcgF.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/syvflmDwYLzH8f4wd2wijvpbg1q.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Dennis%20the%20Menace%20Strikes%20Again!"
+  },
+  "text": {
+    "overview": "Barricade the doors. Lock the windows. Because he's baaaack. That one-boy wrecking crew, Dennis the Menace, returns for more mischief and mayhem. Based on the comic strip and TV show about a mischievous little boy with a gift for the potentially lethal prank.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.4,
+      "voteCount": 224
+    }
+  },
+  "credits": {
+    "director": "Charles T. Kanganis",
+    "castPreview": [
+      "Don Rickles",
+      "George Kennedy",
+      "Justin Cooper",
+      "Betty White"
+    ]
+  }
+},
+{
+  "id": "scooby-doo-and-the-loch-ness-monster-2004",
+  "title": "Scooby-Doo! and the Loch Ness Monster",
+  "sortTitle": "Scooby-Doo! and the Loch Ness Monster",
+  "year": 2004,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Adventure",
+      "Animation",
+      "Comedy",
+      "Fantasy",
+      "Mystery"
+    ],
+    "tmdbId": 12902,
+    "runtimeMinutes": 74,
+    "imdbId": "tt0418141",
+    "status": "Released",
+    "originalLanguage": "en"
+  },
+  "media": {
+    "poster": "https://image.tmdb.org/t/p/w500/hmeJnofknkSnczzN3J7Wvfn7OGI.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/mQqfADnMPodCsY6pamofoxKtQwm.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Scooby-Doo!%20and%20the%20Loch%20Ness%20Monster"
+  },
+  "text": {
+    "overview": "While the gang travel to Scotland to visit Daphne's cousin and witness the annual Highland Games, they find themselves terrorized by the legendary Loch Ness Monster.",
+    "tagline": "Scooby-Doo! and crew tackle their scariest mystery yet!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.3,
+      "voteCount": 439
+    }
+  },
+  "credits": {
+    "director": "Joe Sichta",
+    "castPreview": [
+      "Frank Welker",
+      "Casey Kasem",
+      "Mindy Cohn",
+      "Grey DeLisle-Griffin"
+    ]
+  }
+},
+{
+  "id": "terminator-2-judgment-day-1991",
+  "title": "Terminator 2: Judgment Day",
+  "sortTitle": "Terminator 2: Judgment Day",
+  "year": 1991,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Thriller",
+      "Science Fiction"
+    ],
+    "tmdbId": 280,
+    "runtimeMinutes": 137,
+    "imdbId": "tt0103064",
+    "status": "Released",
+    "originalLanguage": "en"
+  },
+  "media": {
+    "poster": "https://image.tmdb.org/t/p/w500/jFTVD4XoWQTcg7wdyJKa8PEds5q.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/umaoScaCsfl9g2dyrXrvMPp59Q7.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Terminator%202%3A%20Judgment%20Day"  
+  },
+  "text": {
+    "overview": "Ten years after the events of the original, a reprogrammed T-800 is sent back in time to protect young John Connor from the shape-shifting T-1000. Together with his mother Sarah, he fights to stop Skynet from triggering a nuclear apocalypse.",
+    "tagline": "It's nothing personal."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 8.135,
+      "voteCount": 13706
+    }
+  },
+  "credits": {
+    "director": "James Cameron",
+    "castPreview": [
+      "Arnold Schwarzenegger",
+      "Linda Hamilton",
+      "Edward Furlong",
+      "Robert Patrick"
+    ]
+  }
+},
+{
+  "id": "mvp-most-valuable-primate-2000",
+  "title": "MVP: Most Valuable Primate",
+  "sortTitle": "MVP: Most Valuable Primate",
+  "year": 2000,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Comedy",
+      "Family"
+    ],
+    "tmdbId": 32834,
+    "runtimeMinutes": 93,
+    "imdbId": "tt0196106",
+    "status": "Released",
+    "originalLanguage": "en"
+  },
+  "media": {
+    "poster": "https://image.tmdb.org/t/p/w500/pRCciMvFOABm41eat8EKYa0BYIL.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/r4vnelohQBrUKhl181s4PjdRMTz.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=MVP%3A%20Most%20Valuable%20Primate"  
+  },
+  "text": {
+    "overview": "Jack is a three-year-old chimpanzee who has been the subject of a long-term experiment by Dr. Kendall, a researcher who been teaching Jack to communicate through sign language. Jack scrambles onto the ice in the midst of practice for Steven's junior league hockey team, and he and his teammates discover the monkey has a natural talent for the game.",
+    "tagline": "Jack skates a little faster... Shoots a little harder... And is driving everyone bananas."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 4.7,
+      "voteCount": 94
+    }
+  },
+  "credits": {
+    "director": "Robert Vince",
+    "castPreview": [
+      "Kevin Zegers",
+      "Jamie Renée Smith",
+      "Alexa Benette Fox",
+      "Lomax Study"
+    ]
+  }
+},
+{
+  "id": "the-stepfather-2009",
+  "title": "The Stepfather",
+  "sortTitle": "The Stepfather",
+  "year": 2009,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Horror",
+      "Thriller"
+    ],
+    "tmdbId": 19904,
+    "runtimeMinutes": 101,
+    "imdbId": "tt0814335",
+    "status": "Released",
+    "originalLanguage": "en"
+  },
+  "media": {
+    "poster": "https://image.tmdb.org/t/p/w500/bTolBUgHeU4Tcq8HjBxL92f9wLm.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/dcusiv7CYDmAXEYVeBUhvC4YMMU.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Stepfather"
+  },
+  "text": {
+    "overview": "Michael Harding returns home from military school to find his mother happily in love and living with her new boyfriend, David. As the two men get to know each other, Michael becomes more and more suspicious of the man who is always there with a helpful hand. Is he really the man of her dreams or could David be hiding a dark side?",
+    "tagline": "Daddy's home"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.82,
+      "voteCount": 944
+    }
+  },
+  "credits": {
+    "director": "Nelson McCormick",
+    "castPreview": [
+      "Dylan Walsh",
+      "Sela Ward",
+      "Penn Badgley",
+      "Amber Heard"
+    ]
+  }
+},
+{
+  "id": "the-patriot-1998",
+  "title": "The Patriot",
+  "sortTitle": "The Patriot",
+  "year": 1998,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "tmdbId": 6058,
+    "runtimeMinutes": 90,
+    "imdbId": "tt0120786",
+    "status": "Released",
+    "originalLanguage": "en"
+  },
+  "media": {
+    "poster": "https://image.tmdb.org/t/p/w500/5lmW1yBXAHkOc533wRDEqp3jlCV.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/jgnfSyrtonk5U2UMP7MLtgX2eYt.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Patriot"
+  },
+  "text": {
+    "overview": "A deadly virus threatens to wipe out an entire Rocky Mountain town, leaving the town doctor to find some way to escape the soldiers who enforce the town's quarantine and devise an antidote. Matters take a more deadly turn after the physician is captured by a dangerously unstable band of militia extremists.",
+    "tagline": "Every second counts."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.6,
+      "voteCount": 392
+    }
+  },
+  "credits": {
+    "director": "Dean Semler",
+    "castPreview": [
+      "Steven Seagal",
+      "Gailard Sartain",
+      "Silas Weir Mitchell",
+      "Camilla Belle"
+    ]
+  }
+}
+]
