@@ -15,6 +15,7 @@ function MovieCard({
   onToggleWatchlist,
   onOpenModal,
 }) {
+  
   const year = movie.year || null;
   const rating = movie.ratings?.tmdb?.voteAverage ?? null;
   const ratingClass = getRatingBadgeClass(rating);
@@ -32,6 +33,7 @@ function MovieCard({
       ? genresArr.slice(0, 3).join(", ")
       : "";
 
+  // format now comes from the structured `library` field
   const format = movie.library?.format || null;
 
   const handleCardClick = () => onOpenModal(movie.id);
@@ -45,51 +47,62 @@ function MovieCard({
       <div className="card-body">
         {/* top row with format + rating pills */}
         <div className="card-top-row">
-          {format && (
-            <div className="card-format-pill">
-              {format === "Blu-ray" ? "Blu-Ray" : format}
-            </div>
-          )}
+  {format && (
+    <div
+      className={
+        "card-format-pill " +
+        (format === "DVD"
+          ? "card-format-pill--dvd"
+          : format === "Blu-ray"
+          ? "card-format-pill--bluray"
+          : "")
+      }
+    >
+      {format}
+    </div>
+  )}
 
-          {rating && (
-            <div className={ratingClass}>
-              ⭐ {rating.toFixed(1)}
-            </div>
-          )}
-        </div>
+  {rating && (
+    <div className={ratingClass}>
+      ⭐ {rating.toFixed(1)}
+    </div>
+  )}
+</div>
 
         <h2>{movie.title}</h2>
         <p className="meta">
           {year ? year : "Year unknown"}
           {genresText ? ` · ${genresText}` : ""}
         </p>
+       <div className="card-actions" onClick={(e) => e.stopPropagation()}>
+  {/* Favourite button */}
+  <button
+    type="button"
+    className={
+      "icon-button" + (isFavorite ? " icon-button--active" : "")
+    }
+    onClick={onToggleFavorite}
+    title={isFavorite ? "Remove from favourites" : "Add to favourites"}
+  >
+    <span className="icon-symbol">
+      {isFavorite ? "⭐" : "☆"}
+    </span>
+  </button>
 
-        <div className="card-actions" onClick={(e) => e.stopPropagation()}>
-          <button
-            type="button"
-            className={
-              "icon-button" + (isFavorite ? " icon-button--active" : "")
-            }
-            onClick={onToggleFavorite}
-            title={isFavorite ? "Remove from favourites" : "Add to favourites"}
-          >
-            <span className="icon-symbol">
-              {isFavorite ? "⭐" : "☆"}
-            </span>
-          </button>
-          <button
-            type="button"
-            className={
-              "icon-button" + (inWatchlist ? " icon-button--active" : "")
-            }
-            onClick={onToggleWatchlist}
-            title={
-              inWatchlist ? "Remove from watchlist" : "Add to watchlist"
-            }
-          >
-            <span className="icon-symbol">️</span>
-          </button>
-        </div>
+  {/* Watchlist button */}
+  <button
+    type="button"
+    className={
+      "icon-button" + (inWatchlist ? " icon-button--active" : "")
+    }
+    onClick={onToggleWatchlist}
+    title={inWatchlist ? "Remove from watchlist" : "Add to watchlist"}
+  >
+    <span className="icon-symbol">
+    {inWatchlist ? "👁️" : "👁️‍🗨️"}
+    </span>
+  </button>
+</div>
       </div>
     </article>
   );

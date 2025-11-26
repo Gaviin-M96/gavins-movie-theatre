@@ -11,7 +11,7 @@ function BottomNav({ view, onChangeView }) {
         }
         onClick={() => onChangeView("all")}
       >
-        <span className="bottom-nav-item-icon" aria-hidden="true">🎬</span>
+        <span className="bottom-nav-item-icon" aria-hidden="true">🎞️</span>
         <span className="bottom-nav-item-label">Collection</span>
       </button>
 
@@ -35,7 +35,7 @@ function BottomNav({ view, onChangeView }) {
         }
         onClick={() => onChangeView("watchlist")}
       >
-        <span className="bottom-nav-item-icon" aria-hidden="true">🎞️</span>
+        <span className="bottom-nav-item-icon" aria-hidden="true">👁️</span>
         <span className="bottom-nav-item-label">Watchlist</span>
       </button>
     </nav>

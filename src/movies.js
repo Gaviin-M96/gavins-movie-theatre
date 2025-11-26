@@ -21856,5 +21856,50 @@ export const movies = [
         "Maggie Grace"
       ]
     }
-  }
-];
+  },
+  {
+  "id": "enemy-of-the-state-1998",
+  "title": "Enemy of the State",
+  "sortTitle": "Enemy of the State",
+  "year": 1998,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Drama",
+      "Thriller"
+    ],
+    "tmdbId": 9798,
+    "runtimeMinutes": 132,
+    "imdbId": "tt0120660",
+    "status": "Released",
+    "originalLanguage": "en"
+  },
+  "media": {
+    "poster": "https://image.tmdb.org/t/p/w500/x9pXrMKLsBGGOFyyZ0Gwt9YpVub.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/dPVB14zM1KVLNtAhXxumJbHFXtg.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Enemy%20of%20the%20State"
+  },
+  "text": {
+    "overview": "When the videotape of the murder of a congressman unknowingly ends up in the hands of labor lawyer and dedicated family man Robert Clayton Dean, he is framed for the murder. With the help of the mysterious Brill, Dean attempts to throw the NSA off his trail and prove his innocence.",
+    "tagline": "It's not paranoia if they're really after you."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.1,
+      "voteCount": 4084
+    }
+  },
+  "credits": {
+    "director": "Tony Scott",
+    "castPreview": [
+      "Will Smith",
+      "Gene Hackman",
+      "Jon Voight",
+      "Regina King"
+    ]
+  }}]
