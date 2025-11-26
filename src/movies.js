@@ -6469,57 +6469,6 @@ export const movies = [
     }
   },
   {
-    "id": "tarzan-1999",
-    "title": "Tarzan",
-    "sortTitle": "Tarzan",
-    "year": 1999,
-    "library": {
-      "format": "Blu-ray",
-      "owned": true,
-      "tags": []
-    },
-    "metadata": {
-      "genres": [
-        "Family",
-        "Adventure",
-        "Animation"
-      ],
-      "tmdbId": 37135,
-      "runtimeMinutes": 88,
-      "imdbId": "tt0120855",
-      "status": "Released",
-      "originalLanguage": "en"
-    },
-    "media": {
-      "poster": "https://image.tmdb.org/t/p/w500/bTvHlcqiOjGa3lFtbrTLTM3zasY.jpg",
-      "backdrop": "https://image.tmdb.org/t/p/w780/86z1Yrwj7yN1xehSa0gIwHnR7xl.jpg",
-      "placeholder": "https://via.placeholder.com/300x450?text=Tarzan"
-    },
-    "text": {
-      "overview": "Tarzan was a small orphan who was raised by an ape named Kala since he was a child. He believed that this was his family, but on an expedition Jane Porter is rescued by Tarzan. He then finds out that he's human. Now Tarzan must make the decision as to which family he should belong to...",
-      "tagline": "An immortal legend as you've only imagined."
-    },
-    "ratings": {
-      "tmdb": {
-        "voteAverage": 7.4,
-        "voteCount": 7104
-      }
-    },
-    "credits": {
-      "director": "Chris Buck",
-      "castPreview": [
-        "Tony Goldwyn",
-        "Minnie Driver",
-        "Glenn Close",
-        "Alex D. Linz"
-      ]
-    },
-    "collection": {
-      "name": "Tarzan (Animation) Collection",
-      "tmdbId": 106768
-    }
-  },
-  {
     "id": "the-accountant-2016",
     "title": "The Accountant",
     "sortTitle": "Accountant",
