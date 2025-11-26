@@ -35,7 +35,7 @@ function MovieCard({
     : [];
   const genresText =
     genresArr && genresArr.length > 0
-      ? genresArr.slice(0, 3).join(", ")
+      ? genresArr.slice(0, 2).join(", ")
       : "";
 
   const format = movie.library?.format || null;
