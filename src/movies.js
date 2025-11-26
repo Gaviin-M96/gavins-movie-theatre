@@ -14086,53 +14086,6 @@ export const movies = [
     }
   },
   {
-    "id": "cliffhanger-1993",
-    "title": "Cliffhanger",
-    "sortTitle": "Cliffhanger",
-    "year": 1993,
-    "library": {
-      "format": "DVD",
-      "owned": true,
-      "tags": []
-    },
-    "metadata": {
-      "genres": [
-        "Action",
-        "Adventure",
-        "Thriller"
-      ],
-      "tmdbId": 9350,
-      "runtimeMinutes": 112,
-      "imdbId": "tt0106582",
-      "status": "Released",
-      "originalLanguage": "en"
-    },
-    "media": {
-      "poster": "https://image.tmdb.org/t/p/w500/b28DOM54OHb1c7Lsk6Nu7Kwuonj.jpg",
-      "backdrop": "https://image.tmdb.org/t/p/w780/hPTaANKrpghMQeRIOcPJbJA4Yia.jpg",
-      "placeholder": "https://via.placeholder.com/300x450?text=Cliffhanger"
-    },
-    "text": {
-      "overview": "A year after losing his friend in a tragic 4,000-foot fall, former ranger Gabe Walker and his partner, Hal, are called to return to the same peak to rescue a group of stranded climbers, only to learn the climbers are actually thieving hijackers who are looking for boxes full of money.",
-      "tagline": "Hang on."
-    },
-    "ratings": {
-      "tmdb": {
-        "voteAverage": 6.5,
-        "voteCount": 2512
-      }
-    },
-    "credits": {
-      "director": "Renny Harlin",
-      "castPreview": [
-        "Sylvester Stallone",
-        "John Lithgow",
-        "Michael Rooker",
-        "Janine Turner"
-      ]
-    }
-  },
-  {
     "id": "heist-2001",
     "title": "Heist",
     "sortTitle": "Heist",
@@ -14479,53 +14432,6 @@ export const movies = [
         "Ben Chaplin",
         "Ryan Gosling",
         "Michael Pitt"
-      ]
-    }
-  },
-  {
-    "id": "panic-room-2002",
-    "title": "Panic Room",
-    "sortTitle": "Panic Room",
-    "year": 2002,
-    "library": {
-      "format": "DVD",
-      "owned": true,
-      "tags": []
-    },
-    "metadata": {
-      "genres": [
-        "Crime",
-        "Drama",
-        "Thriller"
-      ],
-      "tmdbId": 4547,
-      "runtimeMinutes": 111,
-      "imdbId": "tt0258000",
-      "status": "Released",
-      "originalLanguage": "en"
-    },
-    "media": {
-      "poster": "https://image.tmdb.org/t/p/w500/hANYbvfwxmkC9E4yY6YyJxYxlSJ.jpg",
-      "backdrop": "https://image.tmdb.org/t/p/w780/9G5bteYI8FXaY9EomnUP0kdHm66.jpg",
-      "placeholder": "https://via.placeholder.com/300x450?text=Panic+Room"
-    },
-    "text": {
-      "overview": "Trapped in their New York brownstone's panic room, a hidden chamber built as a sanctuary in the event of break-ins, newly divorced Meg Altman and her young daughter Sarah play a deadly game of cat-and-mouse with three intruders - Burnham, Raoul and Junior - during a brutal home invasion. But the room itself is the focal point because what the intruders really want is inside it.",
-      "tagline": "It was supposed to be the safest room in the house."
-    },
-    "ratings": {
-      "tmdb": {
-        "voteAverage": 6.8,
-        "voteCount": 5231
-      }
-    },
-    "credits": {
-      "director": "David Fincher",
-      "castPreview": [
-        "Jodie Foster",
-        "Kristen Stewart",
-        "Forest Whitaker",
-        "Dwight Yoakam"
       ]
     }
   },
@@ -14966,57 +14872,6 @@ export const movies = [
     "collection": {
       "name": "Die Hard Collection",
       "tmdbId": 1570
-    }
-  },
-  {
-    "id": "bad-boys-ii-2003",
-    "title": "Bad Boys II",
-    "sortTitle": "Bad Boys II",
-    "year": 2003,
-    "library": {
-      "format": "DVD",
-      "owned": true,
-      "tags": []
-    },
-    "metadata": {
-      "genres": [
-        "Action",
-        "Crime",
-        "Comedy"
-      ],
-      "tmdbId": 8961,
-      "runtimeMinutes": 146,
-      "imdbId": "tt0172156",
-      "status": "Released",
-      "originalLanguage": "en"
-    },
-    "media": {
-      "poster": "https://image.tmdb.org/t/p/w500/yCvB5fG5aEPqa1St7ihY6KEAsHD.jpg",
-      "backdrop": "https://image.tmdb.org/t/p/w780/gxSVZCUlDd8upT1G2wdrUdz2hxG.jpg",
-      "placeholder": "https://via.placeholder.com/300x450?text=Bad+Boys+II"
-    },
-    "text": {
-      "overview": "Detectives Marcus Burnett and Mike Lowrey of the Miami Narcotics Task Force are tasked with stopping the flow of the drug Ecstasy into Miami. They track the drugs to the whacked-out Cuban drug lord Johnny Tapia, who is also involved in a bloody war with Russian and Haitian mobsters. If that isn't bad enough, there's tension between the two detectives when Marcus discovers that playboy Mike is secretly romancing Marcus’ sister, Syd.",
-      "tagline": "If you can't stand the heat, get out of Miami."
-    },
-    "ratings": {
-      "tmdb": {
-        "voteAverage": 6.7,
-        "voteCount": 5745
-      }
-    },
-    "credits": {
-      "director": "Michael Bay",
-      "castPreview": [
-        "Martin Lawrence",
-        "Will Smith",
-        "Jordi Mollà",
-        "Gabrielle Union"
-      ]
-    },
-    "collection": {
-      "name": "Bad Boys Collection",
-      "tmdbId": 14890
     }
   },
   {
@@ -19741,56 +19596,6 @@ export const movies = [
     "collection": {
       "name": "The Lion King Collection",
       "tmdbId": 94032
-    }
-  },
-  {
-    "id": "spider-man-2002",
-    "title": "Spider-Man",
-    "sortTitle": "Spider-Man",
-    "year": 2002,
-    "library": {
-      "format": "DVD",
-      "owned": true,
-      "tags": []
-    },
-    "metadata": {
-      "genres": [
-        "Action",
-        "Science Fiction"
-      ],
-      "tmdbId": 557,
-      "runtimeMinutes": 121,
-      "imdbId": "tt0145487",
-      "status": "Released",
-      "originalLanguage": "en"
-    },
-    "media": {
-      "poster": "https://image.tmdb.org/t/p/w500/gh4cZbhZxyTbgxQPxD0dOudNPTn.jpg",
-      "backdrop": "https://image.tmdb.org/t/p/w780/qJzloL8O9YHhiWBrhlPfKAtZu2I.jpg",
-      "placeholder": "https://via.placeholder.com/300x450?text=Spider-Man"
-    },
-    "text": {
-      "overview": "After being bitten by a genetically altered spider at Oscorp, nerdy but endearing high school student Peter Parker is endowed with amazing powers to become the superhero known as Spider-Man.",
-      "tagline": "Go for the ultimate spin."
-    },
-    "ratings": {
-      "tmdb": {
-        "voteAverage": 7.3,
-        "voteCount": 20043
-      }
-    },
-    "credits": {
-      "director": "Sam Raimi",
-      "castPreview": [
-        "Tobey Maguire",
-        "Willem Dafoe",
-        "Kirsten Dunst",
-        "James Franco"
-      ]
-    },
-    "collection": {
-      "name": "Spider-Man Collection",
-      "tmdbId": 556
     }
   },
   {
