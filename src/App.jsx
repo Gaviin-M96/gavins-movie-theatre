@@ -52,7 +52,8 @@ const GENRE_FILTERS = [
   "all",
   "Action",
   "Adventure",
-  "Animation",
+  "Anime",
+  "Biography",
   "Comedy",
   "Crime",
   "Documentary",
@@ -61,14 +62,19 @@ const GENRE_FILTERS = [
   "Fantasy",
   "History",
   "Horror",
+  "Independent",
   "Music",
+  "Musical",
   "Mystery",
+  "Noir",
   "Romance",
   "Science Fiction",
-  "TV Movie",
+  "Sport",
+  "Superhero",
   "Thriller",
+  "TV Movie",
   "War",
-  "Western",
+  "Western"
 ];
 
 function App() {
@@ -188,9 +194,7 @@ function App() {
   const formats = useMemo(
     () => [
       "all",
-      ...new Set(
-        movies.map((m) => m.library?.format || "Unknown")
-      ),
+      ...new Set(movies.map((m) => m.library?.format || "Unknown")),
     ],
     []
   );
@@ -221,9 +225,6 @@ function App() {
     const normalizedSearch = search.trim().toLowerCase();
 
     let result = baseMovies.filter((movie) => {
-      const year = movie.year || null;
-      const yearStr = year ? String(year) : "";
-
       const genresArr = Array.isArray(movie.metadata?.genres)
         ? movie.metadata.genres
         : [];
@@ -232,22 +233,19 @@ function App() {
       let matchesSearch = true;
 
       if (normalizedSearch) {
-        // Title: match on whole words (not fuzzy, not substring-in-word)
-        const titleWords = movie.title.toLowerCase().split(/\s+/);
-        const titleMatch = titleWords.includes(normalizedSearch);
+        const year = movie.year || null;
+        const yearStr = year ? String(year) : "";
 
-        // Genres: match either on full genre *or* any word inside the genre
-        const genreWordMatch = genresArr.some((g) => {
-          const gw = g.toLowerCase().split(/\s+/);
-          return (
-            g.toLowerCase() === normalizedSearch || gw.includes(normalizedSearch)
-          );
-        });
+        const haystackParts = [
+          movie.title,
+          movie.library?.format,
+          yearStr,
+          ...genresArr,
+        ].filter(Boolean);
 
-        // Year: exact match
-        const yearMatch = yearStr === normalizedSearch;
+        const haystack = haystackParts.join(" ").toLowerCase();
 
-        matchesSearch = titleMatch || genreWordMatch || yearMatch;
+        matchesSearch = haystack.includes(normalizedSearch);
       }
 
       // ----- FORMAT & GENRE FILTERS -----
@@ -393,76 +391,74 @@ function App() {
   return (
     <div className="app">
       <div className="layout">
-  {/* LEFT RAIL: logo above sidebar, both sticky together */}
-<div className="left-rail">
-  <div className="logo-bar">
-    <img
-      src={reelRoomLogo}
-      alt="Reel Room by Gavin"
-      className="header-logo"
-    />
-  </div>
+        {/* LEFT RAIL: logo above sidebar, both sticky together */}
+        <div className="left-rail">
+          <div className="logo-bar">
+            <img
+              src={reelRoomLogo}
+              alt="Reel Room by Gavin"
+              className="header-logo"
+            />
+          </div>
 
-  <div className="sidebar-column">
-      <FiltersSidebar
-        search={search}
-        sortBy={sortBy}
-        formatFilter={formatFilter}
-        genreFilter={genreFilter}
-        formats={formats}
-        genres={genres}
-        visibleFormats={visibleFormats}
-        visibleGenres={visibleGenres}
-        showAllFormats={showAllFormats}
-        showAllGenres={showAllGenres}
-        onSearchChange={setSearch}
-        onSortChange={setSortBy}
-        onFormatFilterChange={setFormatFilter}
-        onGenreFilterChange={setGenreFilter}
-        onClearFilters={clearFilters}
-        onRandom={handleRandom}
-        onToggleShowAllFormats={() => setShowAllFormats((v) => !v)}
-        onToggleShowAllGenres={() => setShowAllGenres((v) => !v)}
-        currentCount={currentCount}
-        totalCount={totalCount}
-      />
-    </div>
-  </div>
-
-  <main className="content">
-    {/* rest of your content stays the same */}
-    {filteredMovies.length === 0 ? (
-      /* ... empty state ... */
-      <div className="empty">
-        <p>No movies match your current filters.</p>
-        {activeFilters.length > 0 && (
-          <p className="empty-filters">
-            Active filters: {activeFilters.join(" • ")}
-          </p>
-        )}
-        <div className="empty-actions">
-          <button className="btn-secondary" onClick={clearFilters}>
-            Clear filters &amp; search
-          </button>
-          {baseMovies.length > 0 && (
-            <button className="btn-primary" onClick={handleRandom}>
-              🎲 Random Movie
-            </button>
-          )}
+          <div className="sidebar-column">
+            <FiltersSidebar
+              search={search}
+              sortBy={sortBy}
+              formatFilter={formatFilter}
+              genreFilter={genreFilter}
+              formats={formats}
+              genres={genres}
+              visibleFormats={visibleFormats}
+              visibleGenres={visibleGenres}
+              showAllFormats={showAllFormats}
+              showAllGenres={showAllGenres}
+              onSearchChange={setSearch}
+              onSortChange={setSortBy}
+              onFormatFilterChange={setFormatFilter}
+              onGenreFilterChange={setGenreFilter}
+              onClearFilters={clearFilters}
+              onRandom={handleRandom}
+              onToggleShowAllFormats={() => setShowAllFormats((v) => !v)}
+              onToggleShowAllGenres={() => setShowAllGenres((v) => !v)}
+              currentCount={currentCount}
+              totalCount={totalCount}
+            />
+          </div>
         </div>
+
+        <main className="content">
+          {filteredMovies.length === 0 ? (
+            <div className="empty">
+              <p>No movies match your current filters.</p>
+              {activeFilters.length > 0 && (
+                <p className="empty-filters">
+                  Active filters: {activeFilters.join(" • ")}
+                </p>
+              )}
+              <div className="empty-actions">
+                <button className="btn-secondary" onClick={clearFilters}>
+                  Clear filters &amp; search
+                </button>
+                {baseMovies.length > 0 && (
+                  <button className="btn-primary" onClick={handleRandom}>
+                    🎲 Random Movie
+                  </button>
+                )}
+              </div>
+            </div>
+          ) : (
+            <MovieGrid
+              movies={filteredMovies}
+              favoriteSet={favoriteSet}
+              watchlistSet={watchlistSet}
+              onToggleFavorite={toggleFavorite}
+              onToggleWatchlist={toggleWatchlist}
+              onOpenModal={openModal}
+            />
+          )}
+        </main>
       </div>
-    ) : (
-      <MovieGrid
-        movies={filteredMovies}
-        favoriteSet={favoriteSet}
-        watchlistSet={watchlistSet}
-        onToggleFavorite={toggleFavorite}
-        onToggleWatchlist={toggleWatchlist}
-        onOpenModal={openModal}
-      />
-    )}
-  </main>
-</div>
 
       <BottomNav view={view} onChangeView={setView} />
 

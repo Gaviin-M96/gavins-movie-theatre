@@ -21937,5 +21937,53 @@ export const movies = [
       "Camilla Belle"
     ]
   }
+},
+{
+  "id": "peter-pan-1953",
+  "title": "Peter Pan",
+  "sortTitle": "Peter Pan",
+  "year": 1953,
+  "library": {
+    "format": "Blu-ray",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Family",
+      "Adventure",
+      "Fantasy"
+    ],
+    "tmdbId": 10693,
+    "runtimeMinutes": 77,
+    "imdbId": "tt0046183",
+    "status": "Released",
+    "originalLanguage": "en"
+  },
+  "media": {
+    "poster": "https://image.tmdb.org/t/p/w500/fJJOs1iyrhKfZceANxoPxPwNGF1.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/vwcfvPzYO3Gz975yRXp6DYSSbzo.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Peter%20Pan"
+  },
+  "text": {
+    "overview": "Leaving the safety of their nursery behind, Wendy, Michael and John follow Peter Pan to a magical world where childhood lasts forever. But while in Neverland, the kids must face Captain Hook and foil his attempts to get rid of Peter for good.",
+    "tagline": "It will live in your heart forever!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.2,
+      "voteCount": 5601
+    }
+  },
+   "credits": {
+    "director": "Clyde Geronimi",
+    "castPreview": [
+      "Bobby Driscoll",
+      "Kathryn Beaumont",
+      "Hans Conried",
+      "Bill Thompson"
+    ]
+  }
 }
 ]
