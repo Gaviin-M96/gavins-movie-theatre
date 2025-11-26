@@ -25,7 +25,7 @@ function FiltersSidebar({
       <div className="sidebar-section">
         {/* Compact header row */}
         <div className="sidebar-header">
-          <h2 className="sidebar-title">Filters &amp; Tools</h2>
+          <h2 className="sidebar-title">Movie Finder</h2>
           <span className="sidebar-count">
             {currentCount} / {totalCount}
           </span>

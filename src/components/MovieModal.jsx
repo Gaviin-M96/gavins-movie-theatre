@@ -1,6 +1,8 @@
 // src/components/MovieModal.jsx
 import { useMemo, useState } from "react";
 import { getRatingBadgeClass } from "./MovieGrid"; // reuse badge styling
+import { AiFillStar, AiOutlineStar, AiFillEye, AiOutlineEye } from "react-icons/ai";
+
 
 function MovieModal({
   movie,
@@ -178,7 +180,7 @@ function MovieModal({
             title={isFavorite ? "Remove from favourites" : "Add to favourites"}
           >
             <span className="icon-symbol">
-              {isFavorite ? "⭐" : "☆"}
+              {isFavorite ? <AiFillStar /> : <AiOutlineStar />}
             </span>
           </button>
           <button
@@ -191,7 +193,9 @@ function MovieModal({
               inWatchlist ? "Remove from watchlist" : "Add to watchlist"
             }
           >
-            <span className="icon-symbol">📽️</span>
+            <span className="icon-symbol">
+              {inWatchlist ? <AiFillEye /> : <AiOutlineEye />}
+            </span>
           </button>
           {/* No trailer button for now – we didn't fetch videos in the script */}
         </div>
@@ -206,15 +210,6 @@ function MovieModal({
 
             <div className="gavin-score-row gavin-score-row--slider">
               <span className="gavin-score-star">⭐</span>
-              <input
-                type="range"
-                min="0"
-                max="10"
-                step="0.1"
-                className="gavin-score-slider"
-                value={sliderValue}
-                onChange={handleGavinSliderChange}
-              />
               <span className="gavin-score-outof">
                 {sliderValue.toFixed(1)} / 10
               </span>

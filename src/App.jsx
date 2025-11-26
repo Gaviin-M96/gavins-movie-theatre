@@ -6,6 +6,13 @@ import FiltersSidebar from "./components/FiltersSidebar";
 import MovieGrid from "./components/MovieGrid";
 import MovieModal from "./components/MovieModal";
 import BottomNav from "./components/BottomNav";
+import {
+  AiOutlineAppstore,
+  AiOutlineStar,
+  AiFillStar,
+  AiOutlineEye,
+  AiFillEye,
+} from "react-icons/ai";
 
 // NEW: import the logo so Vite bundles it correctly
 import reelRoomLogo from "./assets/reel-room.jpeg";
@@ -207,37 +214,43 @@ function App() {
       return movies.filter((m) => watchlistSet.has(m.id));
     }
     return movies;
-  }, [view, favoriteSet, watchlistSet]);
+  }, [view, movies, favoriteSet, watchlistSet]);
 
   // Filtering + sorting
   const filteredMovies = useMemo(() => {
-    const lowerSearch = search.toLowerCase().trim();
-    const normalizedSearch = normalizeForSearch(lowerSearch);
+    const normalizedSearch = search.trim().toLowerCase();
 
     let result = baseMovies.filter((movie) => {
       const year = movie.year || null;
+      const yearStr = year ? String(year) : "";
+
       const genresArr = Array.isArray(movie.metadata?.genres)
         ? movie.metadata.genres
         : [];
 
-      const basicMatch =
-        !lowerSearch ||
-        movie.title.toLowerCase().includes(lowerSearch) ||
-        genresArr.some((g) => g.toLowerCase().includes(lowerSearch)) ||
-        (year && String(year).includes(lowerSearch));
+      // ----- SEARCH MATCHING -----
+      let matchesSearch = true;
 
-      let fuzzyHit = false;
-      if (!basicMatch && normalizedSearch.length >= 2) {
-        const searchTargets = [
-          movie.title,
-          genresArr.join(" "),
-          year ? String(year) : "",
-        ];
-        fuzzyHit = searchTargets.some((t) => fuzzyMatch(normalizedSearch, t));
+      if (normalizedSearch) {
+        // Title: match on whole words (not fuzzy, not substring-in-word)
+        const titleWords = movie.title.toLowerCase().split(/\s+/);
+        const titleMatch = titleWords.includes(normalizedSearch);
+
+        // Genres: match either on full genre *or* any word inside the genre
+        const genreWordMatch = genresArr.some((g) => {
+          const gw = g.toLowerCase().split(/\s+/);
+          return (
+            g.toLowerCase() === normalizedSearch || gw.includes(normalizedSearch)
+          );
+        });
+
+        // Year: exact match
+        const yearMatch = yearStr === normalizedSearch;
+
+        matchesSearch = titleMatch || genreWordMatch || yearMatch;
       }
 
-      const matchesSearch = basicMatch || fuzzyHit;
-
+      // ----- FORMAT & GENRE FILTERS -----
       const matchesFormat =
         formatFilter === "all"
           ? true
@@ -249,6 +262,7 @@ function App() {
       return matchesSearch && matchesFormat && matchesGenre;
     });
 
+    // ----- SORTING -----
     result = [...result];
 
     result.sort((a, b) => {
