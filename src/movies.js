@@ -6824,7 +6824,7 @@ export const movies = [
     "sortTitle": "Dark Knight",
     "year": 2008,
     "library": {
-      "format": "Blu-ray",
+      "format": "DVD",
       "owned": true,
       "tags": []
     },
@@ -6876,7 +6876,7 @@ export const movies = [
     "sortTitle": "Dark Knight Rises",
     "year": 2012,
     "library": {
-      "format": "Blu-ray",
+      "format": "DVD",
       "owned": true,
       "tags": []
     },
@@ -20897,52 +20897,6 @@ export const movies = [
         "Christina Ricci",
         "Bruce Dern",
         "Lee Tergesen"
-      ]
-    }
-  },
-  {
-    "id": "terminator-2-1989",
-    "title": "Terminator 2",
-    "sortTitle": "Terminator 2",
-    "year": 1989,
-    "library": {
-      "format": "DVD",
-      "owned": true,
-      "tags": []
-    },
-    "metadata": {
-      "genres": [
-        "Action",
-        "Science Fiction",
-        "Horror"
-      ],
-      "tmdbId": 66664,
-      "runtimeMinutes": 90,
-      "imdbId": "tt0098321",
-      "status": "Released",
-      "originalLanguage": "it"
-    },
-    "media": {
-      "poster": "https://image.tmdb.org/t/p/w500/tztmdSyvfvQBVyzqyh6sKQeJP5g.jpg",
-      "backdrop": "https://image.tmdb.org/t/p/w780/b4oyUTJzHQ4Q2CNoDYtvFJkm29q.jpg",
-      "placeholder": "https://via.placeholder.com/300x450?text=Terminator+2"
-    },
-    "text": {
-      "overview": "In a polluted future Venice researchers work to improve the situation. One day, unknown forces start killing them. A team of soldiers and a couple of civilians is sent to investigate. Soon, they encounter strange murderous creatures."
-    },
-    "ratings": {
-      "tmdb": {
-        "voteAverage": 4.4,
-        "voteCount": 73
-      }
-    },
-    "credits": {
-      "director": "Bruno Mattei",
-      "castPreview": [
-        "Christopher Ahrens",
-        "Haven Tyler",
-        "Mark Steinborn",
-        "Fausto Lombardi"
       ]
     }
   },
