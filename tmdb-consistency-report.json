@@ -1,0 +1,604 @@
+[
+  {
+    "id": "avp-alien-vs-predator-2004",
+    "tmdbId": 395,
+    "title": "AVP: Alien vs Predator",
+    "issues": [
+      {
+        "field": "title",
+        "local": "AVP: Alien vs Predator",
+        "tmdb": "AVP: Alien vs. Predator"
+      }
+    ]
+  },
+  {
+    "id": "cheech-chong-s-up-in-smoke-1978",
+    "tmdbId": 11455,
+    "title": "Cheech & Chong's Up in Smoke",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Cheech & Chong's Up in Smoke",
+        "tmdb": "Up in Smoke"
+      }
+    ]
+  },
+  {
+    "id": "crank-2-high-voltage-2009",
+    "tmdbId": 15092,
+    "title": "Crank 2: High Voltage",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Crank 2: High Voltage",
+        "tmdb": "Crank: High Voltage"
+      }
+    ]
+  },
+  {
+    "id": "dodgeball-2004",
+    "tmdbId": 9472,
+    "title": "Dodgeball",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Dodgeball",
+        "tmdb": "DodgeBall: A True Underdog Story"
+      }
+    ]
+  },
+  {
+    "id": "good-morning-vietnam-1987",
+    "tmdbId": 801,
+    "title": "Good Morning Vietnam",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Good Morning Vietnam",
+        "tmdb": "Good Morning, Vietnam"
+      }
+    ]
+  },
+  {
+    "id": "jigsaw-2017",
+    "tmdbId": 298250,
+    "title": "Jigsaw",
+    "issues": [
+      {
+        "field": "media.backdrop",
+        "local": "https://image.tmdb.org/t/p/w780/ytKpFaLMpFWnuSXStz1GHrtTt6R.jpg",
+        "tmdb": "https://image.tmdb.org/t/p/w780/ucLGZ3zBRFDhdlRNhvXdkjXkNyd.jpg"
+      }
+    ]
+  },
+  {
+    "id": "john-wick-3-2019",
+    "tmdbId": 458156,
+    "title": "John Wick 3",
+    "issues": [
+      {
+        "field": "title",
+        "local": "John Wick 3",
+        "tmdb": "John Wick: Chapter 3 - Parabellum"
+      }
+    ]
+  },
+  {
+    "id": "lone-survivor-2013",
+    "tmdbId": 193756,
+    "title": "Lone Survivor",
+    "issues": [
+      {
+        "field": "media.poster",
+        "local": "https://image.tmdb.org/t/p/w500/zaBIrloyhGK7iNTZMb3f9SARsl8.jpg",
+        "tmdb": "https://image.tmdb.org/t/p/w500/zlT3RSPO6GlSyb5QrLrFcDmhrQ7.jpg"
+      },
+      {
+        "field": "media.backdrop",
+        "local": "https://image.tmdb.org/t/p/w780/nsjMFm2gU14oyJVwX7hgxo1E3qi.jpg",
+        "tmdb": "https://image.tmdb.org/t/p/w780/hmEbQB5UlcwobldcSDNlLZiUnmA.jpg"
+      }
+    ]
+  },
+  {
+    "id": "nanny-mcphee-returns-2010",
+    "tmdbId": 35019,
+    "title": "Nanny McPhee Returns",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Nanny McPhee Returns",
+        "tmdb": "Nanny McPhee and the Big Bang"
+      }
+    ]
+  },
+  {
+    "id": "national-lampoon-s-vegas-vacation-1997",
+    "tmdbId": 11419,
+    "title": "National Lampoon's Vegas Vacation",
+    "issues": [
+      {
+        "field": "title",
+        "local": "National Lampoon's Vegas Vacation",
+        "tmdb": "Vegas Vacation"
+      }
+    ]
+  },
+  {
+    "id": "oz-the-great-and-powerful-2013",
+    "tmdbId": 68728,
+    "title": "Oz: The Great and Powerful",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Oz: The Great and Powerful",
+        "tmdb": "Oz the Great and Powerful"
+      }
+    ]
+  },
+  {
+    "id": "talladega-nights-2006",
+    "tmdbId": 9718,
+    "title": "Talladega Nights",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Talladega Nights",
+        "tmdb": "Talladega Nights: The Ballad of Ricky Bobby"
+      }
+    ]
+  },
+  {
+    "id": "xxx-return-of-xander-cage-2017",
+    "tmdbId": 47971,
+    "title": "XXX: Return of Xander Cage",
+    "issues": [
+      {
+        "field": "title",
+        "local": "XXX: Return of Xander Cage",
+        "tmdb": "xXx: Return of Xander Cage"
+      }
+    ]
+  },
+  {
+    "id": "you-don-t-mess-with-the-zohan-2008",
+    "tmdbId": 10661,
+    "title": "You Don't Mess With the Zohan",
+    "issues": [
+      {
+        "field": "title",
+        "local": "You Don't Mess With the Zohan",
+        "tmdb": "You Don't Mess with the Zohan"
+      }
+    ]
+  },
+  {
+    "id": "gone-in-60-seconds-2000",
+    "tmdbId": 9679,
+    "title": "Gone in 60 Seconds",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Gone in 60 Seconds",
+        "tmdb": "Gone in Sixty Seconds"
+      }
+    ]
+  },
+  {
+    "id": "the-40-year-old-virgin-2005",
+    "tmdbId": 6957,
+    "title": "The 40-Year-Old Virgin",
+    "issues": [
+      {
+        "field": "title",
+        "local": "The 40-Year-Old Virgin",
+        "tmdb": "The 40 Year Old Virgin"
+      }
+    ]
+  },
+  {
+    "id": "die-hard-with-a-vengeance-1995",
+    "tmdbId": 1572,
+    "title": "Die Hard with a Vengeance",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Die Hard with a Vengeance",
+        "tmdb": "Die Hard: With a Vengeance"
+      }
+    ]
+  },
+  {
+    "id": "six-days-seven-nights-1998",
+    "tmdbId": 6068,
+    "title": "Six Days, Seven Nights",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Six Days, Seven Nights",
+        "tmdb": "Six Days Seven Nights"
+      }
+    ]
+  },
+  {
+    "id": "herbie-fully-loaded-2005",
+    "tmdbId": 11451,
+    "title": "Herbie: Fully Loaded",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Herbie: Fully Loaded",
+        "tmdb": "Herbie Fully Loaded"
+      }
+    ]
+  },
+  {
+    "id": "x2-x-men-united-2003",
+    "tmdbId": 36658,
+    "title": "X2: X-Men United",
+    "issues": [
+      {
+        "field": "title",
+        "local": "X2: X-Men United",
+        "tmdb": "X2"
+      }
+    ]
+  },
+  {
+    "id": "freaky-friday-2003",
+    "tmdbId": 10330,
+    "title": "Freaky Friday",
+    "issues": [
+      {
+        "field": "genres",
+        "local": [
+          "Family",
+          "Fantasy",
+          "Comedy"
+        ],
+        "tmdb": [
+          "Family",
+          "Fantasy",
+          "Comedy",
+          "Romance"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "legally-blonde-2-2003",
+    "tmdbId": 10327,
+    "title": "Legally Blonde 2",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Legally Blonde 2",
+        "tmdb": "Legally Blonde 2: Red, White & Blonde"
+      }
+    ]
+  },
+  {
+    "id": "jimmy-neutron-boy-genius-2001",
+    "tmdbId": 12589,
+    "title": "Jimmy Neutron Boy Genius",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Jimmy Neutron Boy Genius",
+        "tmdb": "Jimmy Neutron: Boy Genius"
+      }
+    ]
+  },
+  {
+    "id": "yu-gi-oh-the-movie-2004",
+    "tmdbId": 11052,
+    "title": "Yu-Gi-Oh The Movie",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Yu-Gi-Oh The Movie",
+        "tmdb": "Yu-Gi-Oh! The Movie"
+      }
+    ]
+  },
+  {
+    "id": "spongebob-goes-prehistoric-2004",
+    "tmdbId": 286882,
+    "title": "Spongebob Goes Prehistoric",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Spongebob Goes Prehistoric",
+        "tmdb": "Spongebob Squarepants: Spongebob Goes Prehistoric"
+      }
+    ]
+  },
+  {
+    "id": "spongebob-the-seascape-capers-2004",
+    "tmdbId": 683417,
+    "title": "Spongebob The Seascape Capers",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Spongebob The Seascape Capers",
+        "tmdb": "SpongeBob SquarePants: The Seascape Capers"
+      }
+    ]
+  },
+  {
+    "id": "lady-and-the-tramp-2-2001",
+    "tmdbId": 18269,
+    "title": "Lady and the Tramp 2",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Lady and the Tramp 2",
+        "tmdb": "Lady and the Tramp II: Scamp's Adventure"
+      }
+    ]
+  },
+  {
+    "id": "good-boy-2003",
+    "tmdbId": 21765,
+    "title": "Good Boy",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Good Boy",
+        "tmdb": "Good Boy!"
+      }
+    ]
+  },
+  {
+    "id": "spider-man-the-ultimate-villain-showdown-2002",
+    "tmdbId": 49131,
+    "title": "Spider Man The Ultimate Villain Showdown",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Spider Man The Ultimate Villain Showdown",
+        "tmdb": "Spider-Man: The Ultimate Villain Showdown"
+      }
+    ]
+  },
+  {
+    "id": "spiderman-the-return-of-the-green-goblin-2002",
+    "tmdbId": 270764,
+    "title": "Spiderman The Return of the Green Goblin",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Spiderman The Return of the Green Goblin",
+        "tmdb": "Spider-Man: The Return of the Green Goblin"
+      }
+    ]
+  },
+  {
+    "id": "spiderman-2-2004",
+    "tmdbId": 558,
+    "title": "Spiderman 2",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Spiderman 2",
+        "tmdb": "Spider-Man 2"
+      }
+    ]
+  },
+  {
+    "id": "sharkboy-and-lavagirl-3d-2005",
+    "tmdbId": 14199,
+    "title": "Sharkboy and Lavagirl 3D",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Sharkboy and Lavagirl 3D",
+        "tmdb": "The Adventures of Sharkboy and Lavagirl"
+      }
+    ]
+  },
+  {
+    "id": "goofy-movie-1995",
+    "tmdbId": 15789,
+    "title": "Goofy Movie",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Goofy Movie",
+        "tmdb": "A Goofy Movie"
+      }
+    ]
+  },
+  {
+    "id": "agent-cody-banks-2-2004",
+    "tmdbId": 17047,
+    "title": "Agent Cody Banks 2",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Agent Cody Banks 2",
+        "tmdb": "Agent Cody Banks 2: Destination London"
+      }
+    ]
+  },
+  {
+    "id": "stitch-the-movie-2003",
+    "tmdbId": 15567,
+    "title": "Stitch The Movie",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Stitch The Movie",
+        "tmdb": "Stitch! The Movie"
+      }
+    ]
+  },
+  {
+    "id": "what-s-new-scooby-doo-vol-2-safari-so-good-2004",
+    "tmdbId": 392609,
+    "title": "What's New, Scooby Doo? Vol. 2: Safari So Good!",
+    "issues": [
+      {
+        "field": "title",
+        "local": "What's New, Scooby Doo? Vol. 2: Safari So Good!",
+        "tmdb": "What's New, Scooby-Doo? Vol. 2: Safari So Good!"
+      }
+    ]
+  },
+  {
+    "id": "the-land-before-time-the-great-longneck-migration-2003",
+    "tmdbId": 24554,
+    "title": "The Land Before Time The Great Longneck Migration",
+    "issues": [
+      {
+        "field": "title",
+        "local": "The Land Before Time The Great Longneck Migration",
+        "tmdb": "The Land Before Time X: The Great Longneck Migration"
+      }
+    ]
+  },
+  {
+    "id": "the-land-before-time-invasion-of-the-tinysauruses-2005",
+    "tmdbId": 24556,
+    "title": "The Land Before Time Invasion of the Tinysauruses",
+    "issues": [
+      {
+        "field": "title",
+        "local": "The Land Before Time Invasion of the Tinysauruses",
+        "tmdb": "The Land Before Time XI: Invasion of the Tinysauruses"
+      }
+    ]
+  },
+  {
+    "id": "the-land-before-time-journey-to-big-water-2002",
+    "tmdbId": 25556,
+    "title": "The Land Before Time Journey to Big Water",
+    "issues": [
+      {
+        "field": "title",
+        "local": "The Land Before Time Journey to Big Water",
+        "tmdb": "The Land Before Time IX: Journey to Big Water"
+      }
+    ]
+  },
+  {
+    "id": "garfield-the-movie-2024",
+    "tmdbId": 748783,
+    "title": "Garfield The Movie",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Garfield The Movie",
+        "tmdb": "The Garfield Movie"
+      }
+    ]
+  },
+  {
+    "id": "the-land-before-time-the-wisdom-of-friends-2007",
+    "tmdbId": 39961,
+    "title": "The Land Before Time The Wisdom of Friends",
+    "issues": [
+      {
+        "field": "title",
+        "local": "The Land Before Time The Wisdom of Friends",
+        "tmdb": "The Land Before Time XIII: The Wisdom of Friends"
+      }
+    ]
+  },
+  {
+    "id": "the-lion-king-1-1-2-2004",
+    "tmdbId": 11430,
+    "title": "The Lion King 1 1/2",
+    "issues": [
+      {
+        "field": "title",
+        "local": "The Lion King 1 1/2",
+        "tmdb": "The Lion King 1½"
+      }
+    ]
+  },
+  {
+    "id": "spongebob-halloween-2002",
+    "tmdbId": 358711,
+    "title": "Spongebob Halloween",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Spongebob Halloween",
+        "tmdb": "SpongeBob SquarePants: Halloween"
+      }
+    ]
+  },
+  {
+    "id": "charlottes-web-2-2003",
+    "tmdbId": 21250,
+    "title": "Charlottes Web 2",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Charlottes Web 2",
+        "tmdb": "Charlotte's Web 2: Wilbur's Great Adventure"
+      }
+    ]
+  },
+  {
+    "id": "baby-secret-of-the-lost-legend-1985",
+    "tmdbId": 19736,
+    "title": "Baby Secret of the Lost Legend",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Baby Secret of the Lost Legend",
+        "tmdb": "Baby: Secret of the Lost Legend"
+      }
+    ]
+  },
+  {
+    "id": "aloha-scooby-doo-2005",
+    "tmdbId": 24615,
+    "title": "Aloha Scooby Doo",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Aloha Scooby Doo",
+        "tmdb": "Aloha Scooby-Doo!"
+      }
+    ]
+  },
+  {
+    "id": "eye-see-you-2002",
+    "tmdbId": 10375,
+    "title": "Eye See You",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Eye See You",
+        "tmdb": "D-Tox"
+      }
+    ]
+  },
+  {
+    "id": "mr-mrs-smith-2005",
+    "tmdbId": 787,
+    "title": "Mr & Mrs Smith",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Mr & Mrs Smith",
+        "tmdb": "Mr. & Mrs. Smith"
+      }
+    ]
+  },
+  {
+    "id": "monster-in-law-2005",
+    "tmdbId": 4379,
+    "title": "Monster in Law",
+    "issues": [
+      {
+        "field": "title",
+        "local": "Monster in Law",
+        "tmdb": "Monster-in-Law"
+      }
+    ]
+  }
+]

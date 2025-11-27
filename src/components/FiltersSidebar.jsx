@@ -1,10 +1,13 @@
+// src/components/FiltersSidebar.jsx
 function FiltersSidebar({
   search,
   sortBy,
   formatFilter,
   genreFilter,
+  categoryFilter,
   formats,
   genres,
+  categories,
   visibleFormats,
   visibleGenres,
   showAllFormats,
@@ -13,6 +16,7 @@ function FiltersSidebar({
   onSortChange,
   onFormatFilterChange,
   onGenreFilterChange,
+  onCategoryFilterChange,
   onClearFilters,
   onRandom,
   onToggleShowAllFormats,
@@ -38,11 +42,12 @@ function FiltersSidebar({
           </label>
           <input
             id="search"
-            type="text"
+            type="search"
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Search anything..."
             className="sidebar-input"
+            autoComplete="off"
           />
         </div>
 
@@ -64,6 +69,26 @@ function FiltersSidebar({
             <option value="tmdb-desc">Rating (high–low)</option>
             <option value="tmdb-asc">Rating (low–high)</option>
           </select>
+        </div>
+
+        {/* CATEGORY / TYPE */}
+        <div className="sidebar-block">
+          <span className="sidebar-label">Type</span>
+
+          <div className="chip-row">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                className={`chip${
+                  categoryFilter === cat ? " chip--active" : ""
+                }`}
+                onClick={() => onCategoryFilterChange(cat)}
+              >
+                {cat === "all" ? "All" : cat}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* FORMAT */}

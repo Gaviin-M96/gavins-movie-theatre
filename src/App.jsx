@@ -1,6 +1,6 @@
 // src/App.jsx
 import { useState, useMemo, useEffect } from "react";
-import { movies } from "./movies";
+import { movies } from "./movies_with_category_";
 import { fetchDetailsForMovie } from "./api/tmdb";
 import FiltersSidebar from "./components/FiltersSidebar";
 import MovieGrid from "./components/MovieGrid";
@@ -47,11 +47,11 @@ function getSortTitle(str) {
   return str.replace(/^\s*(the|a|an)\s+/i, "").trim();
 }
 
-// Static genre list so sidebar never breaks
-const GENRE_FILTERS = [
-  "all",
+// Static superset of known genres (canonical + extended)
+const GENRE_FILTERS_ALL = [
   "Action",
   "Adventure",
+  "Animation",
   "Anime",
   "Biography",
   "Comedy",
@@ -74,13 +74,26 @@ const GENRE_FILTERS = [
   "Thriller",
   "TV Movie",
   "War",
-  "Western"
+  "Western",
+];
+
+// Content "type" / category (separate from genre)
+const CATEGORY_TYPES = [
+  "Movie",
+  "TV Show",
+  "Stand-Up",
+  "Concert",
+  "Short Film",
+  "Mini-Series",
+  "Documentary Series",
+  "Special",
 ];
 
 function App() {
   const [search, setSearch] = useState("");
   const [formatFilter, setFormatFilter] = useState("all");
   const [genreFilter, setGenreFilter] = useState("all");
+  const [categoryFilter, setCategoryFilter] = useState("all");
   const [sortBy, setSortBy] = useState("title-asc");
   const [favorites, setFavorites] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
@@ -103,6 +116,7 @@ function App() {
         if (parsed.search !== undefined) setSearch(parsed.search);
         if (parsed.formatFilter) setFormatFilter(parsed.formatFilter);
         if (parsed.genreFilter) setGenreFilter(parsed.genreFilter);
+        if (parsed.categoryFilter) setCategoryFilter(parsed.categoryFilter);
         if (parsed.sortBy) setSortBy(parsed.sortBy);
 
         if (parsed.view) {
@@ -144,6 +158,7 @@ function App() {
           search,
           formatFilter,
           genreFilter,
+          categoryFilter,
           sortBy,
           view,
         })
@@ -158,6 +173,7 @@ function App() {
     search,
     formatFilter,
     genreFilter,
+    categoryFilter,
     sortBy,
     view,
     favorites,
@@ -199,7 +215,55 @@ function App() {
     []
   );
 
-  const genres = GENRE_FILTERS;
+  // Collect which genres actually appear in the dataset
+  const genreUsageSet = useMemo(() => {
+    const s = new Set();
+
+    for (const m of movies) {
+      const arr = Array.isArray(m.metadata?.genres)
+        ? m.metadata.genres
+        : [];
+
+      for (const g of arr) {
+        if (g && typeof g === "string") {
+          s.add(g);
+        }
+      }
+    }
+
+    return s;
+  }, []);
+
+  // Final genre list for the sidebar:
+  // "all" + known genres from the superset that are actually used
+  // plus any extra genres that appear in data but aren't in the superset
+  const genres = useMemo(() => {
+    const used = Array.from(genreUsageSet);
+    const canonical = GENRE_FILTERS_ALL.filter((g) => genreUsageSet.has(g));
+    const extras = used
+      .filter((g) => !GENRE_FILTERS_ALL.includes(g))
+      .sort((a, b) => a.localeCompare(b));
+
+    return ["all", ...canonical, ...extras];
+  }, [genreUsageSet]);
+
+  // Categories based on metadata.category (default "Movie")
+  const categories = useMemo(() => {
+    const usedSet = new Set();
+
+    for (const m of movies) {
+      const cat = m.metadata?.category || "Movie";
+      usedSet.add(cat);
+    }
+
+    const used = Array.from(usedSet);
+    const canonical = CATEGORY_TYPES.filter((c) => usedSet.has(c));
+    const extras = used
+      .filter((c) => !CATEGORY_TYPES.includes(c))
+      .sort((a, b) => a.localeCompare(b));
+
+    return ["all", ...canonical, ...extras];
+  }, []);
 
   const MAX_VISIBLE_CHIPS = 8;
   const visibleFormats = showAllFormats
@@ -218,7 +282,7 @@ function App() {
       return movies.filter((m) => watchlistSet.has(m.id));
     }
     return movies;
-  }, [view, movies, favoriteSet, watchlistSet]);
+  }, [view, favoriteSet, watchlistSet]);
 
   // Filtering + sorting
   const filteredMovies = useMemo(() => {
@@ -257,7 +321,12 @@ function App() {
       const matchesGenre =
         genreFilter === "all" ? true : genresArr.includes(genreFilter);
 
-      return matchesSearch && matchesFormat && matchesGenre;
+      // ----- CATEGORY FILTER -----
+      const category = movie.metadata?.category || "Movie";
+      const matchesCategory =
+        categoryFilter === "all" ? true : category === categoryFilter;
+
+      return matchesSearch && matchesFormat && matchesGenre && matchesCategory;
     });
 
     // ----- SORTING -----
@@ -299,12 +368,21 @@ function App() {
     });
 
     return result;
-  }, [baseMovies, search, formatFilter, genreFilter, sortBy, gavinReviews]);
+  }, [
+    baseMovies,
+    search,
+    formatFilter,
+    genreFilter,
+    categoryFilter,
+    sortBy,
+    gavinReviews,
+  ]);
 
   const clearFilters = () => {
     setSearch("");
     setFormatFilter("all");
     setGenreFilter("all");
+    setCategoryFilter("all");
     setSortBy("title-asc");
   };
 
@@ -379,6 +457,8 @@ function App() {
     );
   }
   if (genreFilter !== "all") activeFilters.push(`${genreFilter} genre`);
+  if (categoryFilter !== "all")
+    activeFilters.push(`${categoryFilter} only`);
   if (view === "favorites") activeFilters.push("Favourites only");
   if (view === "watchlist") activeFilters.push("Watchlist only");
 
@@ -407,8 +487,10 @@ function App() {
               sortBy={sortBy}
               formatFilter={formatFilter}
               genreFilter={genreFilter}
+              categoryFilter={categoryFilter}
               formats={formats}
               genres={genres}
+              categories={categories}
               visibleFormats={visibleFormats}
               visibleGenres={visibleGenres}
               showAllFormats={showAllFormats}
@@ -417,6 +499,7 @@ function App() {
               onSortChange={setSortBy}
               onFormatFilterChange={setFormatFilter}
               onGenreFilterChange={setGenreFilter}
+              onCategoryFilterChange={setCategoryFilter}
               onClearFilters={clearFilters}
               onRandom={handleRandom}
               onToggleShowAllFormats={() => setShowAllFormats((v) => !v)}
