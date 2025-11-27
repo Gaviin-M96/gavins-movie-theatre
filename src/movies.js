@@ -21704,56 +21704,6 @@ export const movies = [
   }
 },
 {
-  "id": "scooby-doo-and-the-loch-ness-monster-2004",
-  "title": "Scooby-Doo! and the Loch Ness Monster",
-  "sortTitle": "Scooby-Doo! and the Loch Ness Monster",
-  "year": 2004,
-  "library": {
-    "format": "DVD",
-    "owned": true,
-    "tags": []
-  },
-  "metadata": {
-    "genres": [
-      "Family",
-      "Adventure",
-      "Animation",
-      "Comedy",
-      "Fantasy",
-      "Mystery"
-    ],
-    "tmdbId": 12902,
-    "runtimeMinutes": 74,
-    "imdbId": "tt0418141",
-    "status": "Released",
-    "originalLanguage": "en"
-  },
-  "media": {
-    "poster": "https://image.tmdb.org/t/p/w500/hmeJnofknkSnczzN3J7Wvfn7OGI.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/mQqfADnMPodCsY6pamofoxKtQwm.jpg",
-    "placeholder": "https://via.placeholder.com/300x450?text=Scooby-Doo!%20and%20the%20Loch%20Ness%20Monster"
-  },
-  "text": {
-    "overview": "While the gang travel to Scotland to visit Daphne's cousin and witness the annual Highland Games, they find themselves terrorized by the legendary Loch Ness Monster.",
-    "tagline": "Scooby-Doo! and crew tackle their scariest mystery yet!"
-  },
-  "ratings": {
-    "tmdb": {
-      "voteAverage": 7.3,
-      "voteCount": 439
-    }
-  },
-  "credits": {
-    "director": "Joe Sichta",
-    "castPreview": [
-      "Frank Welker",
-      "Casey Kasem",
-      "Mindy Cohn",
-      "Grey DeLisle-Griffin"
-    ]
-  }
-},
-{
   "id": "terminator-2-judgment-day-1991",
   "title": "Terminator 2: Judgment Day",
   "sortTitle": "Terminator 2: Judgment Day",
