@@ -9,13 +9,17 @@ import { movies } from "../src/movies_with_category.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 🔑 Get TMDB API key from env variable
-const API_KEY = process.env.TMDB_API_KEY;
+// 🔑 TMDB API key: prefer VITE_TMDB_API_KEY, else take it from CLI arg
+// Usage option 1: VITE_TMDB_API_KEY=xxx node scripts/updateTrailers.mjs
+// Usage option 2: node scripts/updateTrailers.mjs xxx
+const API_KEY = process.env.VITE_TMDB_API_KEY || process.argv[2];
 
 if (!API_KEY) {
   console.error(
-    "❌ TMDB_API_KEY environment variable is not set.\n" +
-    "Set it before running this script."
+    "❌ TMDB API key is not set.\n" +
+      "Set VITE_TMDB_API_KEY or pass it as an argument:\n" +
+      "  VITE_TMDB_API_KEY=YOUR_KEY node scripts/updateTrailers.mjs\n" +
+      "  node scripts/updateTrailers.mjs YOUR_KEY"
   );
   process.exit(1);
 }
@@ -28,7 +32,9 @@ async function fetchYoutubeTrailerKey(tmdbId) {
   try {
     const res = await fetch(url);
     if (!res.ok) {
-      console.warn(`⚠️ TMDB videos request failed for ${tmdbId}: ${res.status}`);
+      console.warn(
+        `⚠️ TMDB videos request failed for tmdbId=${tmdbId}: ${res.status}`
+      );
       return null;
     }
 
@@ -36,14 +42,15 @@ async function fetchYoutubeTrailerKey(tmdbId) {
     const results = data?.results || [];
     if (!results.length) return null;
 
-    // Prefer: official YouTube Trailer
+    // Prefer: official YouTube Trailer → any YouTube Trailer → any YouTube video
     const preferred =
       results.find(
         (v) =>
           v.site === "YouTube" &&
           v.type === "Trailer" &&
           v.official === true
-      ) || results.find((v) => v.site === "YouTube" && v.type === "Trailer") ||
+      ) ||
+      results.find((v) => v.site === "YouTube" && v.type === "Trailer") ||
       results.find((v) => v.site === "YouTube");
 
     return preferred?.key || null;
@@ -69,10 +76,15 @@ async function main() {
 
     console.log(`🔍 Fetching trailer for TMDB ID ${tmdbId} (${movie.title})...`);
 
-    // If you already had a key, keep it as fallback
     const existingKey = movie.metadata?.youtubeTrailerKey ?? null;
     const fetchedKey = await fetchYoutubeTrailerKey(tmdbId);
     const youtubeTrailerKey = fetchedKey || existingKey || null;
+
+    if (youtubeTrailerKey) {
+      console.log(`   ✅ Trailer key found: ${youtubeTrailerKey}`);
+    } else {
+      console.log("   ⚠️ No YouTube trailer found.");
+    }
 
     const updated = {
       ...movie,

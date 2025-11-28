@@ -1,8 +1,12 @@
 // src/components/MovieModal.jsx
 import { useMemo, useState } from "react";
-import { getRatingBadgeClass } from "./MovieGrid"; // reuse badge styling
-import { AiFillStar, AiOutlineStar, AiFillEye, AiOutlineEye } from "react-icons/ai";
-
+import { getRatingBadgeClass } from "./MovieGrid";
+import {
+  AiFillStar,
+  AiOutlineStar,
+  AiFillEye,
+  AiOutlineEye,
+} from "react-icons/ai";
 
 function MovieModal({
   movie,
@@ -11,14 +15,19 @@ function MovieModal({
   onToggleFavorite,
   onToggleWatchlist,
   gavinReview,
-  onSetGavinRating,
-  onSetGavinText, // still accepted if you decide to use text later
+  onSetGavinRating, // kept for future use
+  onSetGavinText,   // kept for future use
   movieReviewKey,
   onQuickSearch,
 }) {
   const year = movie.year || null;
   const runtime = movie.metadata?.runtimeMinutes ?? null;
-  const rating = movie.ratings?.tmdb?.voteAverage ?? null;
+
+  // Combined rating: prefer manual score, then TMDB
+  const manualScore = movie.ratings?.score ?? null;
+  const tmdbScore = movie.ratings?.tmdb?.voteAverage ?? null;
+  const rating = manualScore ?? tmdbScore;
+
   const genres = movie.metadata?.genres || [];
   const director = movie.credits?.director;
   const cast = movie.credits?.castPreview || [];
@@ -31,7 +40,20 @@ function MovieModal({
     movie.media?.placeholder ||
     "https://via.placeholder.com/400x600?text=No+Poster";
 
-  // Local-only community reviews (not persisted)
+  // Trailer support
+  const youtubeKey = movie.metadata?.youtubeTrailerKey ?? null;
+  const directTrailerUrl = movie.metadata?.trailerUrl ?? null;
+
+  const trailerUrl =
+    directTrailerUrl ||
+    (youtubeKey ? `https://www.youtube.com/watch?v=${youtubeKey}` : null);
+
+  // For embedded iframe (YouTube only)
+  const trailerEmbedUrl = youtubeKey
+    ? `https://www.youtube.com/embed/${youtubeKey}`
+    : null;
+
+  // Community reviews (local only)
   const [communityName, setCommunityName] = useState("");
   const [communityRating, setCommunityRating] = useState("");
   const [communityText, setCommunityText] = useState("");
@@ -55,23 +77,16 @@ function MovieModal({
     onQuickSearch(String(year));
   };
 
-  // Gavin rating 0–10 via slider
-  const sliderValue = gavinReview.rating ?? 0;
+  // Gavin rating (display only – "Not Yet Rated" when 0/empty)
+  const gavinScoreRaw = gavinReview?.rating ?? 0;
+  const hasGavinScore =
+    typeof gavinScoreRaw === "number" && gavinScoreRaw > 0;
+  const gavinDisplay = hasGavinScore ? gavinScoreRaw.toFixed(1) : null;
 
-  const handleGavinSliderChange = (e) => {
-    const val = parseFloat(e.target.value);
-    if (isNaN(val)) return;
-    const clamped = Math.max(0, Math.min(10, val));
-    onSetGavinRating(clamped);
-  };
-
-  // Community submit
   const handleCommunitySubmit = (e) => {
     e.preventDefault();
     const num = parseFloat(communityRating);
-    if (isNaN(num) || num < 0 || num > 10) {
-      return;
-    }
+    if (isNaN(num) || num < 0 || num > 10) return;
 
     const review = {
       id: Date.now(),
@@ -94,38 +109,117 @@ function MovieModal({
   return (
     <div className="modal-content">
       {/* Poster column */}
-      <div className="modal-poster">
-        <img src={posterSrc} alt={movie.title} />
+      <div className="modal-poster" style={{ textAlign: "center" }}>
+        <img src={posterSrc} alt={movie.title} className="modal-poster-img" />
+
+        {/* Actions under poster, using SAME structure as grid */}
+        <div
+          className="card-actions"
+          style={{
+            justifyContent: "center",
+            marginTop: "0.75rem",
+          }}
+        >
+          {/* Favourite */}
+          <button
+            type="button"
+            className={
+              "icon-button" + (isFavorite ? " icon-button--active" : "")
+            }
+            onClick={onToggleFavorite}
+            title={isFavorite ? "Remove from favourites" : "Add to favourites"}
+          >
+            <span className="icon-symbol">
+              {isFavorite ? <AiFillStar /> : <AiOutlineStar />}
+            </span>
+          </button>
+
+          {/* Watchlist */}
+          <button
+            type="button"
+            className={
+              "icon-button" + (inWatchlist ? " icon-button--active" : "")
+            }
+            onClick={onToggleWatchlist}
+            title={inWatchlist ? "Remove from watchlist" : "Add to watchlist"}
+          >
+            <span className="icon-symbol">
+              {inWatchlist ? <AiFillEye /> : <AiOutlineEye />}
+            </span>
+          </button>
+
+          {/* Optional external trailer button */}
+          {trailerUrl && (
+            <a
+              href={trailerUrl}
+              className="btn-secondary trailer-button"
+              target="_blank"
+              rel="noreferrer"
+            >
+              ▶ Trailer
+            </a>
+          )}
+        </div>
       </div>
 
       {/* Info + reviews */}
-      <div className="modal-info">
-        <h2>{movie.title}</h2>
+      <div className="modal-info" style={{ textAlign: "center" }}>
+        {/* Title + small runtime */}
+        <div className="modal-title-block">
+          <div
+            className="modal-title-row"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "baseline",
+              gap: "0.75rem",
+              flexWrap: "wrap",
+            }}
+          >
+            <h2 className="modal-title">{movie.title}</h2>
+            {runtimeLabel && (
+              <span className="modal-meta-text">{runtimeLabel}</span>
+            )}
+          </div>
 
-        {/* Meta row: year, runtime, rating */}
-        <div className="modal-meta-row">
-          {year && (
-            <button
-              type="button"
-              className="chip modal-meta-chip"
-              onClick={handleYearClick}
-            >
-              {year}
-            </button>
-          )}
-          {runtimeLabel && (
-            <span className="modal-meta-text">{runtimeLabel}</span>
-          )}
-          {rating && (
-            <span className={getRatingBadgeClass(rating)}>
-              ⭐ {rating.toFixed(1)}
-            </span>
-          )}
+          {/* Year + rating chips centered under title */}
+          <div
+            className="modal-meta-row modal-meta-row--chips"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "0.5rem",
+              marginTop: "0.5rem",
+            }}
+          >
+            {year && (
+              <button
+                type="button"
+                className="chip modal-meta-chip"
+                onClick={handleYearClick}
+              >
+                {year}
+              </button>
+            )}
+
+            {rating != null && (
+              <span
+                className={
+                  "chip modal-rating-chip " + getRatingBadgeClass(rating)
+                }
+              >
+                ⭐ {rating.toFixed(1)}
+              </span>
+            )}
+          </div>
         </div>
 
         {/* Genres row */}
         {genres && genres.length > 0 && (
-          <div className="modal-genre-row">
+          <div
+            className="modal-genre-row"
+            style={{ justifyContent: "center" }}
+          >
             {genres.slice(0, 5).map((g) => (
               <button
                 key={g}
@@ -139,95 +233,159 @@ function MovieModal({
           </div>
         )}
 
-        {/* Director + Cast as pills (top 3 only) */}
+        {/* Directed by / Starring text */}
         {(director || limitedCast.length > 0) && (
-          <div className="modal-chip-section">
+          <div
+            className="modal-people-section"
+            style={{
+              marginTop: "1rem",
+              textAlign: "center",
+              fontSize: "0.8rem",
+              lineHeight: "1.4",
+            }}
+          >
             {director && (
-              <div className="modal-chip-group">
-                <span className="modal-chip-label">Director</span>
-                <div className="modal-chip-list">
-                  <span className="chip modal-chip">{director}</span>
-                </div>
-              </div>
+              <p style={{ margin: "4px 0" }}>
+                <strong style={{ fontWeight: 600 }}>Directed By:</strong>{" "}
+                {director}
+              </p>
             )}
 
             {limitedCast.length > 0 && (
-              <div className="modal-chip-group">
-                <span className="modal-chip-label">Cast</span>
-                <div className="modal-chip-list">
-                  {limitedCast.map((name) => (
-                    <span key={name} className="chip modal-chip">
-                      {name}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <p style={{ margin: "4px 0" }}>
+                <strong style={{ fontWeight: 600 }}>Starring:</strong>{" "}
+                {limitedCast.join(", ")}
+              </p>
             )}
           </div>
         )}
 
-        {/* Overview – smaller text */}
-        {overview && <p className="modal-overview">{overview}</p>}
-
-        {/* Actions: icon-only for Favourite & Watchlist */}
-        <div className="modal-actions">
-          <button
-            type="button"
-            className={
-              "icon-button" + (isFavorite ? " icon-button--active" : "")
-            }
-            onClick={onToggleFavorite}
-            title={isFavorite ? "Remove from favourites" : "Add to favourites"}
+        {/* Overview – centered with max width */}
+        {overview && (
+          <p
+            className="modal-overview"
+            style={{ maxWidth: "600px", margin: "1rem auto" }}
           >
-            <span className="icon-symbol">
-              {isFavorite ? <AiFillStar /> : <AiOutlineStar />}
-            </span>
-          </button>
-          <button
-            type="button"
-            className={
-              "icon-button" + (inWatchlist ? " icon-button--active" : "")
-            }
-            onClick={onToggleWatchlist}
-            title={
-              inWatchlist ? "Remove from watchlist" : "Add to watchlist"
-            }
-          >
-            <span className="icon-symbol">
-              {inWatchlist ? <AiFillEye /> : <AiOutlineEye />}
-            </span>
-          </button>
-          {/* No trailer button for now – we didn't fetch videos in the script */}
-        </div>
+            {overview}
+          </p>
+        )}
 
-        {/* Reviews section */}
-        <div className="review-sections">
-          {/* Gavin's score – slider 0–10 with ⭐ */}
-          <section className="review-section review-section--gavin">
+        {/* 🔹 Embedded Trailer (in-modal) */}
+        {trailerEmbedUrl && (
+          <div
+            className="modal-trailer"
+            style={{
+              margin: "1.25rem auto",
+              maxWidth: "720px",
+            }}
+          >
+            <div
+              className="modal-trailer-inner"
+              style={{
+                position: "relative",
+                paddingBottom: "56.25%", // 16:9
+                height: 0,
+                overflow: "hidden",
+                borderRadius: "12px",
+                border: "1px solid var(--border-color)",
+              }}
+            >
+              <iframe
+                src={trailerEmbedUrl}
+                title={`${movie.title} trailer`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  border: "none",
+                }}
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Reviews section – Gavin + Community (side by side) */}
+        <div
+          className="review-sections"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "1.5rem",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            marginTop: "1.5rem",
+          }}
+        >
+          {/* Gavin's score – card style */}
+          <section
+            className="review-section review-section--gavin"
+            style={{
+              flex: "0 1 260px",
+              maxWidth: "280px",
+            }}
+          >
             <div className="review-section-header">
-              <h3 className="review-section-title">Gavin&apos;s Score</h3>
+              <h3
+                className="review-section-title"
+                style={{ fontSize: "1rem", marginBottom: "0.5rem" }}
+              >
+                Gavin&apos;s Score
+              </h3>
             </div>
 
-            <div className="gavin-score-row gavin-score-row--slider">
-              <span className="gavin-score-star">⭐</span>
-              <span className="gavin-score-outof">
-                {sliderValue.toFixed(1)} / 10
-              </span>
+            <div className="review-section-body">
+              <div className="gavin-score-box">
+                <span className="gavin-score-icon">
+                  {hasGavinScore ? "⭐" : "☆"}
+                </span>
+
+                {hasGavinScore ? (
+                  <span className="gavin-score-text">
+                    {gavinDisplay}/10
+                  </span>
+                ) : (
+                  <span className="gavin-score-text gavin-score-text--empty">
+                    Not Yet Rated
+                  </span>
+                )}
+              </div>
             </div>
           </section>
 
-          {/* Community reviews – 0–10 with decimals */}
-          <section className="review-section">
+          {/* Community reviews */}
+          <section
+            className="review-section review-section--community"
+            style={{
+              flex: "1 1 320px",
+              maxWidth: "480px",
+            }}
+          >
             <div className="review-section-header">
-              <h3 className="review-section-title">Community Reviews</h3>
-              <p className="review-section-sub">
-                Visitors can rate this movie out of 10 and leave a short review
-                (local only for now).
+              <h3
+                className="review-section-title"
+                style={{ fontSize: "1rem", marginBottom: "0.25rem" }}
+              >
+                Community Reviews
+              </h3>
+              <p
+                className="review-section-sub"
+                style={{ fontSize: "0.8rem" }}
+              >
+                Let me know what you thought.{" "}
+                <span style={{ fontWeight: 600 }}>Be honest.</span>
               </p>
             </div>
 
             {communityReviews.length === 0 ? (
-              <p className="community-empty">
+              <p
+                className="community-empty"
+                style={{ fontSize: "0.85rem" }}
+              >
                 No community reviews yet. Be the first to rate this movie.
               </p>
             ) : (
@@ -235,13 +393,23 @@ function MovieModal({
                 {communityReviews.map((r) => (
                   <li key={r.id} className="community-item">
                     <div className="community-meta">
-                      <span className="community-author">{r.name}</span>
+                      <span
+                        className="community-author"
+                        style={{ fontSize: "0.85rem" }}
+                      >
+                        {r.name}
+                      </span>
                       <span className="community-date">
                         ⭐ {r.rating.toFixed(1)} / 10 • {r.date}
                       </span>
                     </div>
                     {r.text && (
-                      <p className="community-body">{r.text}</p>
+                      <p
+                        className="community-body"
+                        style={{ fontSize: "0.85rem" }}
+                      >
+                        {r.text}
+                      </p>
                     )}
                   </li>
                 ))}

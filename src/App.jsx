@@ -1,6 +1,6 @@
 // src/App.jsx
 import { useState, useMemo, useEffect } from "react";
-import { movies } from "./movies_with_category";
+import { movies } from "./movies_with_category_with_trailers";
 import { fetchDetailsForMovie } from "./api/tmdb";
 import FiltersSidebar from "./components/FiltersSidebar";
 import MovieGrid from "./components/MovieGrid";
@@ -330,43 +330,46 @@ function App() {
       return matchesSearch && matchesFormat && matchesGenre && matchesCategory;
     });
 
-    // ----- SORTING -----
-    result = [...result];
+result.sort((a, b) => {
+  const ya = a.year || 0;
+  const yb = b.year || 0;
 
-    result.sort((a, b) => {
-      const ya = a.year || 0;
-      const yb = b.year || 0;
+  const ga = gavinReviews[a.id]?.rating ?? 0;
+  const gb = gavinReviews[b.id]?.rating ?? 0;
 
-      const ga = gavinReviews[a.id]?.rating ?? 0;
-      const gb = gavinReviews[b.id]?.rating ?? 0;
+  // 🔹 Prefer your manual score, then fall back to TMDB voteAverage
+  const ra =
+    (a.ratings?.score ?? null) ??
+    (a.ratings?.tmdb?.voteAverage ?? 0);
 
-      const ta = a.ratings?.tmdb?.voteAverage ?? 0;
-      const tb = b.ratings?.tmdb?.voteAverage ?? 0;
+  const rb =
+    (b.ratings?.score ?? null) ??
+    (b.ratings?.tmdb?.voteAverage ?? 0);
 
-      const titleA = getSortTitle(a.title);
-      const titleB = getSortTitle(b.title);
+  const titleA = getSortTitle(a.title);
+  const titleB = getSortTitle(b.title);
 
-      switch (sortBy) {
-        case "title-asc":
-          return titleA.localeCompare(titleB);
-        case "title-desc":
-          return titleB.localeCompare(titleA);
-        case "year-desc":
-          return yb - ya || titleA.localeCompare(titleB);
-        case "year-asc":
-          return ya - yb || titleA.localeCompare(titleB);
-        case "gavin-desc":
-          return gb - ga || titleA.localeCompare(titleB);
-        case "gavin-asc":
-          return ga - gb || titleA.localeCompare(titleB);
-        case "tmdb-desc":
-          return tb - ta || titleA.localeCompare(titleB);
-        case "tmdb-asc":
-          return ta - tb || titleA.localeCompare(titleB);
-        default:
-          return titleA.localeCompare(titleB);
-      }
-    });
+  switch (sortBy) {
+    case "title-asc":
+      return titleA.localeCompare(titleB);
+    case "title-desc":
+      return titleB.localeCompare(titleA);
+    case "year-desc":
+      return yb - ya || titleA.localeCompare(titleB);
+    case "year-asc":
+      return ya - yb || titleA.localeCompare(titleB);
+    case "gavin-desc":
+      return gb - ga || titleA.localeCompare(titleB);
+    case "gavin-asc":
+      return ga - gb || titleA.localeCompare(titleB);
+    case "tmdb-desc": // really "rating desc" now
+      return rb - ra || titleA.localeCompare(titleB);
+    case "tmdb-asc": // really "rating asc" now
+      return ra - rb || titleA.localeCompare(titleB);
+    default:
+      return titleA.localeCompare(titleB);
+  }
+});
 
     return result;
   }, [

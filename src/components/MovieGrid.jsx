@@ -22,7 +22,12 @@ function MovieCard({
   onOpenModal,
 }) {
   const year = movie.year || null;
-  const rating = movie.ratings?.tmdb?.voteAverage ?? null;
+
+  // 🔹 Prefer manual rating (ratings.score), then fall back to TMDB
+  const manualScore = movie.ratings?.score ?? null;
+  const tmdbScore = movie.ratings?.tmdb?.voteAverage ?? null;
+  const rating = manualScore ?? tmdbScore;
+
   const ratingClass = getRatingBadgeClass(rating);
 
   const posterUrl =
@@ -50,6 +55,7 @@ function MovieCard({
 
   return (
     <article className="card" onClick={handleCardClick}>
+      
       {/* Poster + overlay badges pushed into the cover */}
       <div className="cover">
         <img src={posterUrl} alt={movie.title} loading="lazy" />
@@ -61,7 +67,7 @@ function MovieCard({
             </div>
           )}
 
-          {rating && (
+          {rating != null && (
             <div className={ratingClass}>
               ⭐ {rating.toFixed(1)}
             </div>
