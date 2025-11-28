@@ -11975,7 +11975,6 @@ export const movies = [
         "Family",
         "Music",
         "Romance",
-        "TV Movie"
       ],
       "tmdbId": 13649,
       "runtimeMinutes": 111,
@@ -16085,7 +16084,6 @@ export const movies = [
         "Animation",
         "Family",
         "Music",
-        "TV Movie"
       ],
       "tmdbId": 46963,
       "runtimeMinutes": 25,
@@ -17953,57 +17951,47 @@ export const movies = [
     }
   },
   {
-    "id": "charlotte-s-web-1973",
-    "title": "Charlotte's Web",
-    "sortTitle": "Charlotte's Web",
-    "year": 1973,
-    "library": {
-      "format": "DVD",
-      "owned": true,
-      "tags": []
-    },
-    "metadata": {
-      "genres": [
-        "Family",
-        "Music",
-        "Animation"
-      ],
-      "tmdbId": 15171,
-      "runtimeMinutes": 94,
-      "imdbId": "tt0070016",
-      "status": "Released",
-      "originalLanguage": "en",
-      "category": "Concert"
-    },
-    "media": {
-      "poster": "https://image.tmdb.org/t/p/w500/eLq5bed09bkNVjUfknlbSil2cfR.jpg",
-      "backdrop": "https://image.tmdb.org/t/p/w780/jyO7LscqXmxOjQpkYYBRImwD300.jpg",
-      "placeholder": "https://via.placeholder.com/300x450?text=Charlotte%27s+Web"
-    },
-    "text": {
-      "overview": "Wilbur the pig is scared of the end of the season, because he knows that come that time, he will end up on the dinner table. He hatches a plan with Charlotte, a spider that lives in his pen, to ensure that this will never happen.",
-      "tagline": "That humble radiant terrific book is now a humble radiant terrific movie."
-    },
-    "ratings": {
-      "tmdb": {
-        "voteAverage": 6.8,
-        "voteCount": 396
-      }
-    },
-    "credits": {
-      "director": "Iwao Takamoto",
-      "castPreview": [
-        "Debbie Reynolds",
-        "Henry Gibson",
-        "Danny Bonaduce",
-        "Agnes Moorehead"
-      ]
-    },
-    "collection": {
-      "name": "Charlotte's Web Collection",
-      "tmdbId": 263193
+  "id": "charlottes-web-2001",
+  "title": "Charlotte's Web",
+  "sortTitle": "Charlotte's Web",
+  "year": 2001,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Animation"
+    ],
+    "tmdbId": null,
+    "runtimeMinutes": 79,
+    "imdbId": null,
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie"
+  },
+  "media": {
+    "poster": "/media/charlottes-web-2001.jpg",
+    "backdrop": null,
+    "placeholder": "https://via.placeholder.com/300x450?text=Charlotte%27s+Web+%282001%29"
+  },
+  "text": {
+    "overview": "An animated adaptation of E. B. White's classic tale about the unlikely friendship between Wilbur the pig and Charlotte, a gentle and wise spider.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": null,
+      "voteCount": null
     }
   },
+  "credits": {
+    "director": "",
+    "castPreview": []
+  }
+},
   {
     "id": "beethoven-s-5th-2003",
     "title": "Beethoven's 5th",

@@ -48,6 +48,7 @@ function getSortTitle(str) {
 }
 
 // Static superset of known genres (canonical + extended)
+// NOTE: "TV Movie" has been removed on purpose
 const GENRE_FILTERS_ALL = [
   "Action",
   "Adventure",
@@ -72,7 +73,6 @@ const GENRE_FILTERS_ALL = [
   "Sport",
   "Superhero",
   "Thriller",
-  "TV Movie",
   "War",
   "Western",
 ];
@@ -215,7 +215,8 @@ function App() {
     []
   );
 
-  // Collect which genres actually appear in the dataset
+  // Collect which genres actually appear in the dataset,
+  // skipping "TV Movie" entirely.
   const genreUsageSet = useMemo(() => {
     const s = new Set();
 
@@ -225,9 +226,9 @@ function App() {
         : [];
 
       for (const g of arr) {
-        if (g && typeof g === "string") {
-          s.add(g);
-        }
+        if (!g || typeof g !== "string") continue;
+        if (g.toLowerCase() === "tv movie") continue; // ignore this one
+        s.add(g);
       }
     }
 
