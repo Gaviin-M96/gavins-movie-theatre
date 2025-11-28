@@ -111,55 +111,6 @@ function MovieModal({
       {/* Poster column */}
       <div className="modal-poster" style={{ textAlign: "center" }}>
         <img src={posterSrc} alt={movie.title} className="modal-poster-img" />
-
-        {/* Actions under poster, using SAME structure as grid */}
-        <div
-          className="card-actions"
-          style={{
-            justifyContent: "center",
-            marginTop: "0.75rem",
-          }}
-        >
-          {/* Favourite */}
-          <button
-            type="button"
-            className={
-              "icon-button" + (isFavorite ? " icon-button--active" : "")
-            }
-            onClick={onToggleFavorite}
-            title={isFavorite ? "Remove from favourites" : "Add to favourites"}
-          >
-            <span className="icon-symbol">
-              {isFavorite ? <AiFillStar /> : <AiOutlineStar />}
-            </span>
-          </button>
-
-          {/* Watchlist */}
-          <button
-            type="button"
-            className={
-              "icon-button" + (inWatchlist ? " icon-button--active" : "")
-            }
-            onClick={onToggleWatchlist}
-            title={inWatchlist ? "Remove from watchlist" : "Add to watchlist"}
-          >
-            <span className="icon-symbol">
-              {inWatchlist ? <AiFillEye /> : <AiOutlineEye />}
-            </span>
-          </button>
-
-          {/* Optional external trailer button */}
-          {trailerUrl && (
-            <a
-              href={trailerUrl}
-              className="btn-secondary trailer-button"
-              target="_blank"
-              rel="noreferrer"
-            >
-              ▶ Trailer
-            </a>
-          )}
-        </div>
       </div>
 
       {/* Info + reviews */}
@@ -232,6 +183,43 @@ function MovieModal({
             ))}
           </div>
         )}
+
+        {/* Actions under poster, using SAME structure as grid */}
+        <div
+          className="card-actions"
+          style={{
+            justifyContent: "center",
+            marginTop: "0.75rem",
+          }}
+        >
+          {/* Favourite */}
+          <button
+            type="button"
+            className={
+              "icon-button" + (isFavorite ? " icon-button--active" : "")
+            }
+            onClick={onToggleFavorite}
+            title={isFavorite ? "Remove from favourites" : "Add to favourites"}
+          >
+            <span className="icon-symbol">
+              {isFavorite ? <AiFillStar /> : <AiOutlineStar />}
+            </span>
+          </button>
+
+          {/* Watchlist */}
+          <button
+            type="button"
+            className={
+              "icon-button" + (inWatchlist ? " icon-button--active" : "")
+            }
+            onClick={onToggleWatchlist}
+            title={inWatchlist ? "Remove from watchlist" : "Add to watchlist"}
+          >
+            <span className="icon-symbol">
+              {inWatchlist ? <AiFillEye /> : <AiOutlineEye />}
+            </span>
+          </button>
+        </div>
 
         {/* Directed by / Starring text */}
         {(director || limitedCast.length > 0) && (
