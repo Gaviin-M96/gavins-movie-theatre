@@ -1,6 +1,7 @@
 // src/components/MovieModal.jsx
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { getRatingBadgeClass } from "./MovieGrid";
+import { supabase } from "../supabaseClient";
 import {
   AiFillStar,
   AiOutlineStar,
@@ -14,7 +15,7 @@ function MovieModal({
   inWatchlist,
   onToggleFavorite,
   onToggleWatchlist,
-  gavinReview,
+  gavinReview,      // kept for compatibility, not used now
   onSetGavinRating, // kept for future use
   onSetGavinText,   // kept for future use
   movieReviewKey,
@@ -53,11 +54,43 @@ function MovieModal({
     ? `https://www.youtube.com/embed/${youtubeKey}`
     : null;
 
-  // Community reviews (local only)
+  // Supabase-backed reviews
+  const [reviews, setReviews] = useState([]);
+  const [loadingReviews, setLoadingReviews] = useState(true);
+  const [reviewsError, setReviewsError] = useState(null);
+
+  // Community form state
   const [communityName, setCommunityName] = useState("");
   const [communityRating, setCommunityRating] = useState("");
   const [communityText, setCommunityText] = useState("");
-  const [communityReviews, setCommunityReviews] = useState([]);
+
+  // Load reviews for this movie from Supabase
+  useEffect(() => {
+    if (!movieReviewKey) return;
+
+    async function loadReviews() {
+      setLoadingReviews(true);
+      setReviewsError(null);
+
+      const { data, error } = await supabase
+        .from("reviews")
+        .select("*")
+        .eq("movie_id", movieReviewKey)
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error("Error loading reviews:", error);
+        setReviewsError("Could not load reviews.");
+        setReviews([]);
+      } else {
+        setReviews(data || []);
+      }
+
+      setLoadingReviews(false);
+    }
+
+    loadReviews();
+  }, [movieReviewKey]);
 
   const runtimeLabel = useMemo(() => {
     if (!runtime) return null;
@@ -77,30 +110,51 @@ function MovieModal({
     onQuickSearch(String(year));
   };
 
-  // Gavin rating (display only – "Not Yet Rated" when 0/empty)
-  const gavinScoreRaw = gavinReview?.rating ?? 0;
+  // Derive Gavin's review from Supabase data (name === "Gavin")
+  const gavinReviewRow = reviews.find(
+    (r) => r.name && r.name.trim().toLowerCase() === "gavin"
+  );
+  const gavinScoreRaw = gavinReviewRow?.rating ?? null;
   const hasGavinScore =
     typeof gavinScoreRaw === "number" && gavinScoreRaw > 0;
   const gavinDisplay = hasGavinScore ? gavinScoreRaw.toFixed(1) : null;
 
-  const handleCommunitySubmit = (e) => {
-    e.preventDefault();
-    const num = parseFloat(communityRating);
-    if (isNaN(num) || num < 0 || num > 10) return;
+  // Everyone else = community reviews
+  const communityReviews = reviews.filter(
+    (r) => !gavinReviewRow || r.id !== gavinReviewRow.id
+  );
 
-    const review = {
-      id: Date.now(),
+  // Submit a new community (or Gavin) review to Supabase
+  const handleCommunitySubmit = async (e) => {
+    e.preventDefault();
+
+    const num = parseFloat(communityRating);
+    if (isNaN(num) || num < 0 || num > 10) {
+      return;
+    }
+
+    const payload = {
+      movie_id: movieReviewKey,
       name: communityName.trim() || "Anonymous",
       rating: num,
-      text: communityText.trim(),
-      date: new Date().toLocaleDateString(undefined, {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      }),
+      comment: communityText.trim() || null,
+      // created_at will default from Supabase if you set default now()
     };
 
-    setCommunityReviews((prev) => [review, ...prev]);
+    const { data, error } = await supabase
+      .from("reviews")
+      .insert([payload])
+      .select()
+      .single();
+
+    if (error) {
+      console.error("Error saving review:", error);
+      return;
+    }
+
+    // Prepend new review to local list so UI updates immediately
+    setReviews((prev) => [data, ...prev]);
+
     setCommunityName("");
     setCommunityRating("");
     setCommunityText("");
@@ -258,7 +312,7 @@ function MovieModal({
           </p>
         )}
 
-        {/* 🔹 Embedded Trailer (in-modal) */}
+        {/* Embedded Trailer (in-modal) */}
         {trailerEmbedUrl && (
           <div
             className="modal-trailer"
@@ -369,7 +423,21 @@ function MovieModal({
               </p>
             </div>
 
-            {communityReviews.length === 0 ? (
+            {loadingReviews ? (
+              <p
+                className="community-empty"
+                style={{ fontSize: "0.85rem" }}
+              >
+                Loading reviews...
+              </p>
+            ) : reviewsError ? (
+              <p
+                className="community-empty"
+                style={{ fontSize: "0.85rem" }}
+              >
+                {reviewsError}
+              </p>
+            ) : communityReviews.length === 0 ? (
               <p
                 className="community-empty"
                 style={{ fontSize: "0.85rem" }}
@@ -388,15 +456,25 @@ function MovieModal({
                         {r.name}
                       </span>
                       <span className="community-date">
-                        ⭐ {r.rating.toFixed(1)} / 10 • {r.date}
+                        ⭐ {Number(r.rating).toFixed(1)} / 10 •{" "}
+                        {r.created_at
+                          ? new Date(r.created_at).toLocaleDateString(
+                              undefined,
+                              {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                              }
+                            )
+                          : ""}
                       </span>
                     </div>
-                    {r.text && (
+                    {r.comment && (
                       <p
                         className="community-body"
                         style={{ fontSize: "0.85rem" }}
                       >
-                        {r.text}
+                        {r.comment}
                       </p>
                     )}
                   </li>
