@@ -6292,54 +6292,54 @@ export const movies = [
     }
   },
   {
-    "id": "split-2016",
-    "title": "Split",
-    "sortTitle": "Split",
-    "year": 2016,
-    "library": {
-      "format": "Blu-ray",
-      "owned": true,
-      "tags": []
-    },
-    "metadata": {
-      "genres": [
-        "Fantasy",
-        "Drama",
-        "Thriller",
-        "Crime"
-      ],
-      "tmdbId": 358364,
-      "runtimeMinutes": 150,
-      "imdbId": "tt3315656",
-      "status": "Released",
-      "originalLanguage": "en",
-      "category": "Movie",
-      "youtubeTrailerKey": "qAUjgF4Nlgo"
-    },
-    "media": {
-      "poster": "https://image.tmdb.org/t/p/w500/8nn3m1wyu3woLg2tW1CAr44q53K.jpg",
-      "backdrop": "https://image.tmdb.org/t/p/w780/t4L7TKCUU57YhDS2gfWOWWDbwYH.jpg",
-      "placeholder": "https://via.placeholder.com/300x450?text=Split"
-    },
-    "text": {
-      "overview": "The story of a young woman who takes an epic journey to claim her own darkness and sexuality so she can stop putting it into the hands of her abusive lover.  When Inanna, a young actress, working as a stripper, becomes obsessed with a mask maker, she sacrifices parts of herself and her life, piece by piece, in order to win his love.  At the same time she enters a mythic journey in the theater.  One that forces her to face the many abuses endured by women around that world and that blurs her performance, her dreams and her real life and results in a provocative and powerful confrontation that frees her. -- from official website"
-    },
-    "ratings": {
-      "tmdb": {
-        "voteAverage": 5.643,
-        "voteCount": 42
-      }
-    },
-    "credits": {
-      "director": "Deborah Kampmeier",
-      "castPreview": [
-        "Amy Ferguson",
-        "Morgan Spector",
-        "Anna Mouglalis",
-        "Fredric Lehne"
-      ]
+  "id": "split-2017",
+  "title": "Split",
+  "sortTitle": "Split",
+  "year": 2017,
+  "library": {
+    "format": "Blu-ray",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Horror",
+      "Thriller"
+    ],
+    "tmdbId": 381288,
+    "runtimeMinutes": 117,
+    "imdbId": "tt4972582",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "youtubeTrailerKey": "6bfooooTKyM"
+  },
+  "media": {
+    "poster": "https://image.tmdb.org/t/p/w500/lli31lYTFpvxVBeFHWoe5PMfW5s.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/9pkZesKMnblFfKxEhQx45YQ2kIe.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Split"
+  },
+  "text": {
+    "overview": "Though Kevin has evidenced 23 personalities to his trusted psychiatrist, Dr. Fletcher, there remains one still submerged who is set to materialize and dominate all the others. Compelled to abduct three teenage girls led by the willful, observant Casey, Kevin reaches a war for survival among all of those contained within him — as well as everyone around him — as the walls between his compartments shatter apart.",
+    "tagline": "Kevin has 23 distinct personalities. The 24th is about to be unleashed."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.343,
+      "voteCount": 17970
     }
   },
+  "credits": {
+    "director": "M. Night Shyamalan & Nicole Agostino & Mike Gioulakis & John Rusk & Amy Lauritsen",
+    "castPreview": [
+      "James McAvoy",
+      "Anya Taylor-Joy",
+      "Betty Buckley",
+      "Haley Lu Richardson",
+      "Jessica Sula"
+    ]
+  }
+},
   {
     "id": "straight-outta-compton-2015",
     "title": "Straight Outta Compton",
@@ -15895,53 +15895,56 @@ export const movies = [
     }
   },
   {
-    "id": "the-siege-2023",
-    "title": "The Siege",
-    "sortTitle": "Siege",
-    "year": 2023,
-    "library": {
-      "format": "DVD",
-      "owned": true,
-      "tags": []
-    },
-    "metadata": {
-      "genres": [
-        "Action",
-        "Thriller"
-      ],
-      "tmdbId": 1092899,
-      "runtimeMinutes": 97,
-      "imdbId": "tt16916320",
-      "status": "Released",
-      "originalLanguage": "en",
-      "category": "Movie",
-      "youtubeTrailerKey": "zt8Q9lqaAFE"
-    },
-    "media": {
-      "poster": "https://image.tmdb.org/t/p/w500/hVh4hMzkXNLnScudbid6hDvjMPk.jpg",
-      "backdrop": "https://image.tmdb.org/t/p/w780/4eC0tsU9OxR3Adlo1yRJYUDraW9.jpg",
-      "placeholder": "https://via.placeholder.com/300x450?text=The+Siege"
-    },
-    "text": {
-      "overview": "International assassin Walker is compromised during a mission and sent to a reassignment center for a new identity. During his stay at the facility, a ruthless assault team storms the compound searching for someone their boss has lost. Walker begrudgingly falls in with skilled hitwoman Elda and her mysterious ward Juliet in order to survive the night.",
-      "tagline": "Unleash hell."
-    },
-    "ratings": {
-      "tmdb": {
-        "voteAverage": 5.457,
-        "voteCount": 58
-      }
-    },
-    "credits": {
-      "director": "Brad Watson",
-      "castPreview": [
-        "Daniel Stisen",
-        "Lauren Okadigbo",
-        "Yennis Cheung",
-        "Byron Gibson"
-      ]
+  "id": "the-siege-1998",
+  "title": "The Siege",
+  "sortTitle": "The Siege",
+  "year": 1998,
+  "library": {
+    "format": "Blu-ray",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Drama",
+      "Action",
+      "Thriller",
+      "Crime"
+    ],
+    "tmdbId": 9882,
+    "runtimeMinutes": 116,
+    "imdbId": "tt0133952",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "youtubeTrailerKey": "87Rai0X97Fc"
+  },
+  "media": {
+    "poster": "https://image.tmdb.org/t/p/w500/gbeeWu8rYaIYMyq9ayN1AepjNxP.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/c2B8gl2ZLbelWxS0ZODPKGJxdWX.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%2BSiege"
+  },
+  "text": {
+    "overview": "The secret US abduction of a suspected terrorist from his Middle East homeland leads to a wave of terrorist attacks in New York.  An FBI senior agent and his team attempt to locate and decommission the enemy cells, but must also deal with an Army General gone rogue and a female CIA agent of uncertain loyalties.",
+    "tagline": "An enemy they can't see. A nation under siege. A crisis they can't control."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.3,
+      "voteCount": 1417
     }
   },
+  "credits": {
+    "director": "Roger Deakins & Edward Zwick & John Warnke & Jess Gonchor & T. Sean Ferguson & Paul Bernard & Greg Hale & Craig Haagensen & Thomas A. Irvine",
+    "castPreview": [
+      "Denzel Washington",
+      "Annette Bening",
+      "Bruce Willis",
+      "Tony Shalhoub",
+      "Sami Bouajila"
+    ]
+  }
+},
   {
     "id": "out-for-justice-1991",
     "title": "Out for Justice",
