@@ -1,7 +1,7 @@
 // src/components/MovieModal.jsx
 import { useMemo, useState, useEffect } from "react";
 import { getRatingBadgeClass } from "./MovieGrid";
-import { supabase } from "../supabaseClient";
+import { supabase } from "../api/supabaseClient";
 import {
   AiFillStar,
   AiOutlineStar,
