@@ -5,4 +5,5 @@ export default defineConfig({
   // base: "/blu-ray-gallery/",
   base: "/",
   plugins: [react()],
+  
 });
