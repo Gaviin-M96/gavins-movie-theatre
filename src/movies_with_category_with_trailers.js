@@ -22899,9 +22899,9 @@ export const movies = [
   "youtubeTrailerKey": null
 },
 {
-  "id": "lost-2004",
-  "title": "Lost",
-  "sortTitle": "Lost",
+  "id": "dog-the-bounty-hunter-2004",
+  "title": "Dog the Bounty Hunter",
+  "sortTitle": "Dog the Bounty Hunter",
   "year": 2004,
   "library": {
     "format": "DVD",
@@ -22909,12 +22909,129 @@ export const movies = [
     "tags": []
   },
   "metadata": {
+    "genres": [],
+    "tmdbId": 1883,
+    "runtimeMinutes": null,
+    "imdbId": null,
+    "status": "Canceled",
+    "originalLanguage": "en",
+    "category": "TV Show",
+    "seasons": [
+      {
+        "seasonNumber": 2,
+        "seasonName": "Season 2",
+        "firstAirDate": "2005-04-05",
+        "lastAirDate": null,
+        "episodeCount": 23
+      },
+      {
+        "seasonNumber": 3,
+        "seasonName": "Season 3",
+        "firstAirDate": "2006-03-21",
+        "lastAirDate": null,
+        "episodeCount": 31
+      },
+      {
+        "seasonNumber": 4,
+        "seasonName": "Season 4",
+        "firstAirDate": "2007-04-10",
+        "lastAirDate": null,
+        "episodeCount": 40
+      }
+    ]
+  },
+  "media": {
+    "poster": "/assets/posters/dog-the-bounty-hunter-2004-poster.jpg",
+    "backdrop": "/assets/posters/dog-the-bounty-hunter-2004-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Dog%20the%20Bounty%20Hunter"
+  },
+  "text": {
+    "overview": "Dog the Bounty Hunter was an American reality television series on A&E which chronicled Duane \"Dog\" Chapman's adventures as a fugitive recovery agent, or bounty hunter. With a few exceptions, the series took place in Hawaii or Dog's home state of Colorado.\n\nOn May 21, 2012, A&E cancelled the series after eight seasons, citing the popular phrase: \"Every dog has its day\".",     
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.295,
+      "voteCount": 61
+    }
+  },
+  "credits": {
+    "director": "",
+    "castPreview": [
+      "Duane 'Dog' Chapman",
+      "Leland Chapman",
+      "Beth Chapman",
+      "Lyssa 'Baby' Chapman"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "andrew-dice-clay-dice-rules-1991",
+  "title": "Andrew Dice Clay: Dice Rules",
+  "sortTitle": "Andrew Dice Clay: Dice Rules",
+  "year": 1991,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
     "genres": [
-      "Mystery",
-      "Action & Adventure",
-      "Drama"
+      "Comedy"
     ],
-    "tmdbId": 4607,
+    "tmdbId": 37891,
+    "runtimeMinutes": 85,
+    "imdbId": "tt0101726",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/andrew-dice-clay-dice-rules-1991-poster.jpg",
+    "backdrop": null,
+    "placeholder": "https://via.placeholder.com/300x450?text=Andrew%20Dice%20Clay%3A%20Dice%20Rules"
+  },
+  "text": {
+    "overview": "Outrageous, misogynistic and vulgar-to-the-max comedian Andrew Dice Clay does his stuff in this combination stand-up concert video and series of comedy sketches. The sketches, demonstrating that The Dice Man used to be a klutzy wimp, begin the film which then jumps into a filled-to-capacity performance at Madison Square Gardens. The film contains strong profanity, blatant racist remarks, graphic references to sex and other \"adult\" subjects.",    
+    "tagline": "Untamed! Uncut! Unbelievable!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.7,
+      "voteCount": 9
+    }
+  },
+  "credits": {
+    "director": "Jay Dubin",
+    "castPreview": [
+      "Andrew Dice Clay",
+      "Eddie Griffin",
+      "Sylvia Harman",
+      "Lee Lawrence",
+      "Noodles Levenstein"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "criss-angel-mindfreak-2005",
+  "title": "Criss Angel Mindfreak",
+  "sortTitle": "Criss Angel Mindfreak",
+  "year": 2005,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Reality"
+    ],
+    "tmdbId": 12278,
     "runtimeMinutes": null,
     "imdbId": null,
     "status": "Ended",
@@ -22922,82 +23039,36 @@ export const movies = [
     "category": "TV Show",
     "seasons": [
       {
-        "seasonNumber": 0,
-        "seasonName": "Specials",
-        "firstAirDate": "2005-04-27",
-        "lastAirDate": null,
-        "episodeCount": 161
-      },
-      {
-        "seasonNumber": 1,
-        "seasonName": "Season 1",
-        "firstAirDate": "2004-09-22",
-        "lastAirDate": null,
-        "episodeCount": 24
-      },
-      {
-        "seasonNumber": 2,
-        "seasonName": "Season 2",
-        "firstAirDate": "2005-09-21",
-        "lastAirDate": null,
-        "episodeCount": 24
-      },
-      {
         "seasonNumber": 3,
         "seasonName": "Season 3",
-        "firstAirDate": "2006-10-04",
+        "firstAirDate": "2007-06-05",
         "lastAirDate": null,
-        "episodeCount": 23
-      },
-      {
-        "seasonNumber": 4,
-        "seasonName": "Season 4",
-        "firstAirDate": "2008-01-31",
-        "lastAirDate": null,
-        "episodeCount": 13
-      },
-      {
-        "seasonNumber": 5,
-        "seasonName": "Season 5",
-        "firstAirDate": "2009-01-21",
-        "lastAirDate": null,
-        "episodeCount": 17
-      },
-      {
-        "seasonNumber": 6,
-        "seasonName": "Season 6",
-        "firstAirDate": "2010-02-02",
-        "lastAirDate": null,
-        "episodeCount": 17
+        "episodeCount": 26
       }
     ]
   },
   "media": {
-    "poster": "/assets/posters/lost-2004-poster.jpg",
-    "backdrop": "/assets/posters/lost-2004-backdrop.jpg",
-    "placeholder": "https://via.placeholder.com/300x450?text=Lost" 
+    "poster": "/assets/posters/criss-angel-mindfreak-2005-poster.jpg",
+    "backdrop": "/assets/posters/criss-angel-mindfreak-2005-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Criss%20Angel%20Mindfreak"
   },
   "text": {
-    "overview": "Stripped of everything, the survivors of a horrific plane crash  must work together to stay alive. But the island holds many secrets.",
-    "tagline": "Everything happens for a reason."
+    "overview": "Criss Angel Mindfreak is a show that aired on A&E Network. It debuted in 2005 and ended in 2010. It centered on stunts and street magic acts by magician Criss Angel.",
+    "tagline": ""
   },
   "ratings": {
     "tmdb": {
-      "voteAverage": 7.947,
-      "voteCount": 4765
+      "voteAverage": 5.4,
+      "voteCount": 38
     }
   },
   "credits": {
     "director": "",
     "castPreview": [
-      "Matthew Fox",
-      "Evangeline Lilly",
-      "Terry O'Quinn",
-      "Josh Holloway",
-      "Michael Emerson"
+      "Criss Angel"
     ]
   },
-  "youtubeTrailerKey": "KTu8iDynwNc"
+  "youtubeTrailerKey": null
 },
 {
   "id": "down-to-earth-2001",

@@ -47,19 +47,25 @@ async function downloadImage(url, filename) {
 }
 
 async function fetchDetails(tmdbId) {
-  let details, type;
+  // Try movie first
   try {
-    details = await j(`${BASE}/tv/${tmdbId}?api_key=${API_KEY}&language=en-US`);
-    type = "tv";
-  } catch {
-    details = await j(`${BASE}/movie/${tmdbId}?api_key=${API_KEY}&language=en-US`);
-    type = "movie";
-  }
-  return { details, type };
+    const movie = await j(`${BASE}/movie/${tmdbId}?api_key=${API_KEY}&language=en-US`);
+    if (movie && movie.title) return { details: movie, type: "movie" };
+  } catch {}
+
+  // Then TV
+  try {
+    const tv = await j(`${BASE}/tv/${tmdbId}?api_key=${API_KEY}&language=en-US`);
+    if (tv && tv.name) return { details: tv, type: "tv" };
+  } catch {}
+
+  throw new Error(`TMDb ID ${tmdbId} not found as movie or TV show`);
 }
 
 async function main() {
   const { details, type } = await fetchDetails(tmdbId);
+
+  console.log(`Fetched ${type.toUpperCase()}: ${details.title || details.name}`);
 
   const credits = await j(`${BASE}/${type}/${tmdbId}/credits?api_key=${API_KEY}&language=en-US`);
   const videos = await j(`${BASE}/${type}/${tmdbId}/videos?api_key=${API_KEY}&language=en-US`);
