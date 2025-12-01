@@ -22899,6 +22899,107 @@ export const movies = [
   "youtubeTrailerKey": null
 },
 {
+  "id": "lost-2004",
+  "title": "Lost",
+  "sortTitle": "Lost",
+  "year": 2004,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Mystery",
+      "Action & Adventure",
+      "Drama"
+    ],
+    "tmdbId": 4607,
+    "runtimeMinutes": null,
+    "imdbId": null,
+    "status": "Ended",
+    "originalLanguage": "en",
+    "category": "TV Show",
+    "seasons": [
+      {
+        "seasonNumber": 0,
+        "seasonName": "Specials",
+        "firstAirDate": "2005-04-27",
+        "lastAirDate": null,
+        "episodeCount": 161
+      },
+      {
+        "seasonNumber": 1,
+        "seasonName": "Season 1",
+        "firstAirDate": "2004-09-22",
+        "lastAirDate": null,
+        "episodeCount": 24
+      },
+      {
+        "seasonNumber": 2,
+        "seasonName": "Season 2",
+        "firstAirDate": "2005-09-21",
+        "lastAirDate": null,
+        "episodeCount": 24
+      },
+      {
+        "seasonNumber": 3,
+        "seasonName": "Season 3",
+        "firstAirDate": "2006-10-04",
+        "lastAirDate": null,
+        "episodeCount": 23
+      },
+      {
+        "seasonNumber": 4,
+        "seasonName": "Season 4",
+        "firstAirDate": "2008-01-31",
+        "lastAirDate": null,
+        "episodeCount": 13
+      },
+      {
+        "seasonNumber": 5,
+        "seasonName": "Season 5",
+        "firstAirDate": "2009-01-21",
+        "lastAirDate": null,
+        "episodeCount": 17
+      },
+      {
+        "seasonNumber": 6,
+        "seasonName": "Season 6",
+        "firstAirDate": "2010-02-02",
+        "lastAirDate": null,
+        "episodeCount": 17
+      }
+    ]
+  },
+  "media": {
+    "poster": "/assets/posters/lost-2004-poster.jpg",
+    "backdrop": "/assets/posters/lost-2004-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Lost" 
+  },
+  "text": {
+    "overview": "Stripped of everything, the survivors of a horrific plane crash  must work together to stay alive. But the island holds many secrets.",
+    "tagline": "Everything happens for a reason."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.947,
+      "voteCount": 4765
+    }
+  },
+  "credits": {
+    "director": "",
+    "castPreview": [
+      "Matthew Fox",
+      "Evangeline Lilly",
+      "Terry O'Quinn",
+      "Josh Holloway",
+      "Michael Emerson"
+    ]
+  },
+  "youtubeTrailerKey": "KTu8iDynwNc"
+},
+{
   "id": "dog-the-bounty-hunter-2004",
   "title": "Dog the Bounty Hunter",
   "sortTitle": "Dog the Bounty Hunter",
@@ -22917,13 +23018,6 @@ export const movies = [
     "originalLanguage": "en",
     "category": "TV Show",
     "seasons": [
-      {
-        "seasonNumber": 2,
-        "seasonName": "Season 2",
-        "firstAirDate": "2005-04-05",
-        "lastAirDate": null,
-        "episodeCount": 23
-      },
       {
         "seasonNumber": 3,
         "seasonName": "Season 3",
