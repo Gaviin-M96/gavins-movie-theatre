@@ -15,16 +15,15 @@ function MovieModal({
   inWatchlist,
   onToggleFavorite,
   onToggleWatchlist,
-  gavinReview,      // kept for compatibility, not used now
-  onSetGavinRating, // kept for future use
-  onSetGavinText,   // kept for future use
+  gavinReview,
+  onSetGavinRating,
+  onSetGavinText,
   movieReviewKey,
   onQuickSearch,
 }) {
   const year = movie.year || null;
   const runtime = movie.metadata?.runtimeMinutes ?? null;
 
-  // Combined rating: prefer manual score, then TMDB
   const manualScore = movie.ratings?.score ?? null;
   const tmdbScore = movie.ratings?.tmdb?.voteAverage ?? null;
   const rating = manualScore ?? tmdbScore;
@@ -41,30 +40,26 @@ function MovieModal({
     movie.media?.placeholder ||
     "https://via.placeholder.com/400x600?text=No+Poster";
 
-  // Trailer support
-  const youtubeKey = movie.metadata?.youtubeTrailerKey ?? null;
+  // Trailer support (updated path)
+  const youtubeKey = movie.youtubeTrailerKey ?? null;
   const directTrailerUrl = movie.metadata?.trailerUrl ?? null;
 
   const trailerUrl =
     directTrailerUrl ||
     (youtubeKey ? `https://www.youtube.com/watch?v=${youtubeKey}` : null);
 
-  // For embedded iframe (YouTube only)
   const trailerEmbedUrl = youtubeKey
     ? `https://www.youtube.com/embed/${youtubeKey}`
     : null;
 
-  // Supabase-backed reviews
   const [reviews, setReviews] = useState([]);
   const [loadingReviews, setLoadingReviews] = useState(true);
   const [reviewsError, setReviewsError] = useState(null);
 
-  // Community form state
   const [communityName, setCommunityName] = useState("");
   const [communityRating, setCommunityRating] = useState("");
   const [communityText, setCommunityText] = useState("");
 
-  // Load reviews for this movie from Supabase
   useEffect(() => {
     if (!movieReviewKey) return;
 
@@ -100,6 +95,15 @@ function MovieModal({
     return `${hours}h ${mins.toString().padStart(2, "0")}m`;
   }, [runtime]);
 
+  const isTV = movie.metadata?.category === "TV Show";
+  const seasons = movie.metadata?.seasons || [];
+  const seasonSummary = isTV
+    ? `${seasons.length} season${seasons.length > 1 ? "s" : ""} • ${seasons.reduce(
+        (sum, s) => sum + (s.episodeCount || 0),
+        0
+      )} episodes`
+    : null;
+
   const handleGenreClick = (g) => {
     if (!g) return;
     onQuickSearch(g);
@@ -110,7 +114,6 @@ function MovieModal({
     onQuickSearch(String(year));
   };
 
-  // Derive Gavin's review from Supabase data (name === "Gavin")
   const gavinReviewRow = reviews.find(
     (r) => r.name && r.name.trim().toLowerCase() === "gavin"
   );
@@ -119,26 +122,21 @@ function MovieModal({
     typeof gavinScoreRaw === "number" && gavinScoreRaw > 0;
   const gavinDisplay = hasGavinScore ? gavinScoreRaw.toFixed(1) : null;
 
-  // Everyone else = community reviews
   const communityReviews = reviews.filter(
     (r) => !gavinReviewRow || r.id !== gavinReviewRow.id
   );
 
-  // Submit a new community (or Gavin) review to Supabase
   const handleCommunitySubmit = async (e) => {
     e.preventDefault();
 
     const num = parseFloat(communityRating);
-    if (isNaN(num) || num < 0 || num > 10) {
-      return;
-    }
+    if (isNaN(num) || num < 0 || num > 10) return;
 
     const payload = {
       movie_id: movieReviewKey,
       name: communityName.trim() || "Anonymous",
       rating: num,
       comment: communityText.trim() || null,
-      // created_at will default from Supabase if you set default now()
     };
 
     const { data, error } = await supabase
@@ -152,9 +150,7 @@ function MovieModal({
       return;
     }
 
-    // Prepend new review to local list so UI updates immediately
     setReviews((prev) => [data, ...prev]);
-
     setCommunityName("");
     setCommunityRating("");
     setCommunityText("");
@@ -169,7 +165,7 @@ function MovieModal({
 
       {/* Info + reviews */}
       <div className="modal-info" style={{ textAlign: "center" }}>
-        {/* Title + small runtime */}
+        {/* Title + runtime + season summary */}
         <div className="modal-title-block">
           <div
             className="modal-title-row"
@@ -182,12 +178,13 @@ function MovieModal({
             }}
           >
             <h2 className="modal-title">{movie.title}</h2>
-            {runtimeLabel && (
-              <span className="modal-meta-text">{runtimeLabel}</span>
+            {runtimeLabel && <span className="modal-meta-text">{runtimeLabel}</span>}
+            {isTV && seasonSummary && (
+              <span className="modal-meta-text">{seasonSummary}</span>
             )}
           </div>
 
-          {/* Year + rating chips centered under title */}
+          {/* Year + rating chips */}
           <div
             className="modal-meta-row modal-meta-row--chips"
             style={{
@@ -209,9 +206,7 @@ function MovieModal({
 
             {rating != null && (
               <span
-                className={
-                  "chip modal-rating-chip " + getRatingBadgeClass(rating)
-                }
+                className={"chip modal-rating-chip " + getRatingBadgeClass(rating)}
               >
                 ⭐ {rating.toFixed(1)}
               </span>
@@ -219,12 +214,9 @@ function MovieModal({
           </div>
         </div>
 
-        {/* Genres row */}
+        {/* Genres */}
         {genres && genres.length > 0 && (
-          <div
-            className="modal-genre-row"
-            style={{ justifyContent: "center" }}
-          >
+          <div className="modal-genre-row" style={{ justifyContent: "center" }}>
             {genres.slice(0, 5).map((g) => (
               <button
                 key={g}
@@ -238,245 +230,107 @@ function MovieModal({
           </div>
         )}
 
-        {/* Actions under poster, using SAME structure as grid */}
-        <div
-          className="card-actions"
-          style={{
-            justifyContent: "center",
-            marginTop: "0.75rem",
-          }}
-        >
-          {/* Favourite */}
+        {/* Favorite / Watchlist buttons */}
+        <div className="card-actions" style={{ justifyContent: "center", marginTop: "0.75rem" }}>
           <button
             type="button"
-            className={
-              "icon-button" + (isFavorite ? " icon-button--active" : "")
-            }
+            className={"icon-button" + (isFavorite ? " icon-button--active" : "")}
             onClick={onToggleFavorite}
             title={isFavorite ? "Remove from favourites" : "Add to favourites"}
           >
-            <span className="icon-symbol">
-              {isFavorite ? <AiFillStar /> : <AiOutlineStar />}
-            </span>
+            <span className="icon-symbol">{isFavorite ? <AiFillStar /> : <AiOutlineStar />}</span>
           </button>
 
-          {/* Watchlist */}
           <button
             type="button"
-            className={
-              "icon-button" + (inWatchlist ? " icon-button--active" : "")
-            }
+            className={"icon-button" + (inWatchlist ? " icon-button--active" : "")}
             onClick={onToggleWatchlist}
             title={inWatchlist ? "Remove from watchlist" : "Add to watchlist"}
           >
-            <span className="icon-symbol">
-              {inWatchlist ? <AiFillEye /> : <AiOutlineEye />}
-            </span>
+            <span className="icon-symbol">{inWatchlist ? <AiFillEye /> : <AiOutlineEye />}</span>
           </button>
         </div>
 
-        {/* Directed by / Starring text */}
+        {/* Director / Cast */}
         {(director || limitedCast.length > 0) && (
-          <div
-            className="modal-people-section"
-            style={{
-              marginTop: "1rem",
-              textAlign: "center",
-              fontSize: "0.8rem",
-              lineHeight: "1.4",
-            }}
-          >
+          <div className="modal-people-section" style={{ marginTop: "1rem", textAlign: "center", fontSize: "0.8rem", lineHeight: "1.4" }}>
             {director && (
               <p style={{ margin: "4px 0" }}>
-                <strong style={{ fontWeight: 600 }}>Directed By:</strong>{" "}
-                {director}
+                <strong>Directed By:</strong> {director}
               </p>
             )}
-
             {limitedCast.length > 0 && (
               <p style={{ margin: "4px 0" }}>
-                <strong style={{ fontWeight: 600 }}>Starring:</strong>{" "}
-                {limitedCast.join(", ")}
+                <strong>Starring:</strong> {limitedCast.join(", ")}
               </p>
             )}
           </div>
         )}
 
-        {/* Overview – centered with max width */}
+        {/* Overview */}
         {overview && (
-          <p
-            className="modal-overview"
-            style={{ maxWidth: "600px", margin: "1rem auto" }}
-          >
+          <p className="modal-overview" style={{ maxWidth: "600px", margin: "1rem auto" }}>
             {overview}
           </p>
         )}
 
-        {/* Embedded Trailer (in-modal) */}
+        {/* Trailer */}
         {trailerEmbedUrl && (
-          <div
-            className="modal-trailer"
-            style={{
-              margin: "1.25rem auto",
-              maxWidth: "720px",
-            }}
-          >
-            <div
-              className="modal-trailer-inner"
-              style={{
-                position: "relative",
-                paddingBottom: "56.25%", // 16:9
-                height: 0,
-                overflow: "hidden",
-                borderRadius: "12px",
-                border: "1px solid var(--border-color)",
-              }}
-            >
+          <div className="modal-trailer" style={{ margin: "1.25rem auto", maxWidth: "720px" }}>
+            <div className="modal-trailer-inner" style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", borderRadius: "12px", border: "1px solid var(--border-color)" }}>
               <iframe
                 src={trailerEmbedUrl}
                 title={`${movie.title} trailer`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  border: "none",
-                }}
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
               />
             </div>
           </div>
         )}
 
-        {/* Reviews section – Gavin + Community (side by side) */}
-        <div
-          className="review-sections"
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "1.5rem",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            marginTop: "1.5rem",
-          }}
-        >
-          {/* Gavin's score – card style */}
-          <section
-            className="review-section review-section--gavin"
-            style={{
-              flex: "0 1 260px",
-              maxWidth: "280px",
-            }}
-          >
+        {/* Reviews */}
+        <div className="review-sections" style={{ display: "flex", flexWrap: "wrap", gap: "1.5rem", justifyContent: "center", alignItems: "flex-start", marginTop: "1.5rem" }}>
+          {/* Gavin */}
+          <section className="review-section review-section--gavin" style={{ flex: "0 1 260px", maxWidth: "280px" }}>
             <div className="review-section-header">
-              <h3
-                className="review-section-title"
-                style={{ fontSize: "1rem", marginBottom: "0.5rem" }}
-              >
-                Gavin&apos;s Score
-              </h3>
+              <h3 style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>Gavin&apos;s Score</h3>
             </div>
-
             <div className="review-section-body">
               <div className="gavin-score-box">
-                <span className="gavin-score-icon">
-                  {hasGavinScore ? "⭐" : "☆"}
-                </span>
-
+                <span className="gavin-score-icon">{hasGavinScore ? "⭐" : "☆"}</span>
                 {hasGavinScore ? (
-                  <span className="gavin-score-text">
-                    {gavinDisplay}/10
-                  </span>
+                  <span className="gavin-score-text">{gavinDisplay}/10</span>
                 ) : (
-                  <span className="gavin-score-text gavin-score-text--empty">
-                    Not Yet Rated
-                  </span>
+                  <span className="gavin-score-text gavin-score-text--empty">Not Yet Rated</span>
                 )}
               </div>
             </div>
           </section>
 
-          {/* Community reviews */}
-          <section
-            className="review-section review-section--community"
-            style={{
-              flex: "1 1 320px",
-              maxWidth: "480px",
-            }}
-          >
+          {/* Community */}
+          <section className="review-section review-section--community" style={{ flex: "1 1 320px", maxWidth: "480px" }}>
             <div className="review-section-header">
-              <h3
-                className="review-section-title"
-                style={{ fontSize: "1rem", marginBottom: "0.25rem" }}
-              >
-                Community Reviews
-              </h3>
-              <p
-                className="review-section-sub"
-                style={{ fontSize: "0.8rem" }}
-              >
-                Let me know what you thought.{" "}
-                <span style={{ fontWeight: 600 }}>Be honest.</span>
-              </p>
+              <h3 style={{ fontSize: "1rem", marginBottom: "0.25rem" }}>Community Reviews</h3>
+              <p style={{ fontSize: "0.8rem" }}>Let me know what you thought. <span style={{ fontWeight: 600 }}>Be honest.</span></p>
             </div>
 
             {loadingReviews ? (
-              <p
-                className="community-empty"
-                style={{ fontSize: "0.85rem" }}
-              >
-                Loading reviews...
-              </p>
+              <p style={{ fontSize: "0.85rem" }}>Loading reviews...</p>
             ) : reviewsError ? (
-              <p
-                className="community-empty"
-                style={{ fontSize: "0.85rem" }}
-              >
-                {reviewsError}
-              </p>
+              <p style={{ fontSize: "0.85rem" }}>{reviewsError}</p>
             ) : communityReviews.length === 0 ? (
-              <p
-                className="community-empty"
-                style={{ fontSize: "0.85rem" }}
-              >
-                No community reviews yet. Be the first to rate this movie.
-              </p>
+              <p style={{ fontSize: "0.85rem" }}>No community reviews yet. Be the first to rate this movie.</p>
             ) : (
               <ul className="community-list">
                 {communityReviews.map((r) => (
                   <li key={r.id} className="community-item">
                     <div className="community-meta">
-                      <span
-                        className="community-author"
-                        style={{ fontSize: "0.85rem" }}
-                      >
-                        {r.name}
-                      </span>
-                      <span className="community-date">
-                        ⭐ {Number(r.rating).toFixed(1)} / 10 •{" "}
-                        {r.created_at
-                          ? new Date(r.created_at).toLocaleDateString(
-                              undefined,
-                              {
-                                year: "numeric",
-                                month: "short",
-                                day: "numeric",
-                              }
-                            )
-                          : ""}
-                      </span>
+                      <span style={{ fontSize: "0.85rem" }}>{r.name}</span>
+                      <span> ⭐ {Number(r.rating).toFixed(1)} / 10 • {r.created_at ? new Date(r.created_at).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : ""}</span>
                     </div>
-                    {r.comment && (
-                      <p
-                        className="community-body"
-                        style={{ fontSize: "0.85rem" }}
-                      >
-                        {r.comment}
-                      </p>
-                    )}
+                    {r.comment && <p style={{ fontSize: "0.85rem" }}>{r.comment}</p>}
                   </li>
                 ))}
               </ul>
@@ -486,36 +340,31 @@ function MovieModal({
               <div style={{ display: "flex", gap: "0.5rem" }}>
                 <input
                   type="text"
-                  className="community-input"
                   placeholder="Your name (optional)"
                   value={communityName}
                   onChange={(e) => setCommunityName(e.target.value)}
+                  className="community-input"
                 />
                 <input
                   type="number"
                   min="0"
                   max="10"
                   step="0.1"
-                  className="community-input"
                   style={{ maxWidth: "110px" }}
                   placeholder="Rating"
                   value={communityRating}
                   onChange={(e) => setCommunityRating(e.target.value)}
+                  className="community-input"
                 />
               </div>
               <textarea
-                className="community-textarea"
                 rows={2}
                 placeholder="What did you think?"
                 value={communityText}
                 onChange={(e) => setCommunityText(e.target.value)}
+                className="community-textarea"
               />
-              <button
-                type="submit"
-                className="btn-primary community-submit"
-              >
-                Submit review
-              </button>
+              <button type="submit" className="btn-primary community-submit">Submit review</button>
             </form>
           </section>
         </div>

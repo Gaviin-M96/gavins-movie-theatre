@@ -22779,6 +22779,226 @@ export const movies = [
       ]
     }
   },
+  {
+  "id": "the-office-2005",
+  "title": "The Office",
+  "sortTitle": "The Office",
+  "year": 2005,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Comedy"
+    ],
+    "tmdbId": 2316,
+    "runtimeMinutes": null,
+    "imdbId": null,
+    "status": "Ended",
+    "originalLanguage": "en",
+    "category": "TV Show",
+    "seasons": [
+      {
+        "seasonNumber": 0,
+        "seasonName": "Specials",
+        "firstAirDate": "2006-07-13",
+        "lastAirDate": null,
+        "episodeCount": 94
+      },
+      {
+        "seasonNumber": 1,
+        "seasonName": "Season 1",
+        "firstAirDate": "2005-03-24",
+        "lastAirDate": null,
+        "episodeCount": 6
+      },
+      {
+        "seasonNumber": 2,
+        "seasonName": "Season 2",
+        "firstAirDate": "2005-09-20",
+        "lastAirDate": null,
+        "episodeCount": 22
+      },
+      {
+        "seasonNumber": 3,
+        "seasonName": "Season 3",
+        "firstAirDate": "2006-09-21",
+        "lastAirDate": null,
+        "episodeCount": 23
+      },
+      {
+        "seasonNumber": 4,
+        "seasonName": "Season 4",
+        "firstAirDate": "2007-09-27",
+        "lastAirDate": null,
+        "episodeCount": 14
+      },
+      {
+        "seasonNumber": 5,
+        "seasonName": "Season 5",
+        "firstAirDate": "2008-09-25",
+        "lastAirDate": null,
+        "episodeCount": 26
+      },
+      {
+        "seasonNumber": 6,
+        "seasonName": "Season 6",
+        "firstAirDate": "2009-09-17",
+        "lastAirDate": null,
+        "episodeCount": 24
+      },
+      {
+        "seasonNumber": 7,
+        "seasonName": "Season 7",
+        "firstAirDate": "2010-09-23",
+        "lastAirDate": null,
+        "episodeCount": 24
+      },
+      {
+        "seasonNumber": 8,
+        "seasonName": "Season 8",
+        "firstAirDate": "2011-09-22",
+        "lastAirDate": null,
+        "episodeCount": 24
+      },
+      {
+        "seasonNumber": 9,
+        "seasonName": "Season 9",
+        "firstAirDate": "2012-09-20",
+        "lastAirDate": null,
+        "episodeCount": 23
+      }
+    ]
+  },
+  "media": {
+    "poster": "/assets/posters/the-office-2005-poster.jpg",        
+    "backdrop": "/assets/posters/the-office-2005-backdrop.jpg",    
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Office"
+  },
+  "text": {
+    "overview": "The everyday lives of office employees in the Scranton, Pennsylvania branch of the fictional Dunder Mifflin Paper Company.",
+    "tagline": "A comedy for anyone whose boss is an idiot."       
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 8.588,
+      "voteCount": 4805
+    }
+  },
+  "credits": {
+    "director": "",
+    "castPreview": [
+      "Rainn Wilson",
+      "John Krasinski",
+      "Jenna Fischer",
+      "Ed Helms"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "lost-2004",
+  "title": "Lost",
+  "sortTitle": "Lost",
+  "year": 2004,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Mystery",
+      "Action & Adventure",
+      "Drama"
+    ],
+    "tmdbId": 4607,
+    "runtimeMinutes": null,
+    "imdbId": null,
+    "status": "Ended",
+    "originalLanguage": "en",
+    "category": "TV Show",
+    "seasons": [
+      {
+        "seasonNumber": 0,
+        "seasonName": "Specials",
+        "firstAirDate": "2005-04-27",
+        "lastAirDate": null,
+        "episodeCount": 161
+      },
+      {
+        "seasonNumber": 1,
+        "seasonName": "Season 1",
+        "firstAirDate": "2004-09-22",
+        "lastAirDate": null,
+        "episodeCount": 24
+      },
+      {
+        "seasonNumber": 2,
+        "seasonName": "Season 2",
+        "firstAirDate": "2005-09-21",
+        "lastAirDate": null,
+        "episodeCount": 24
+      },
+      {
+        "seasonNumber": 3,
+        "seasonName": "Season 3",
+        "firstAirDate": "2006-10-04",
+        "lastAirDate": null,
+        "episodeCount": 23
+      },
+      {
+        "seasonNumber": 4,
+        "seasonName": "Season 4",
+        "firstAirDate": "2008-01-31",
+        "lastAirDate": null,
+        "episodeCount": 13
+      },
+      {
+        "seasonNumber": 5,
+        "seasonName": "Season 5",
+        "firstAirDate": "2009-01-21",
+        "lastAirDate": null,
+        "episodeCount": 17
+      },
+      {
+        "seasonNumber": 6,
+        "seasonName": "Season 6",
+        "firstAirDate": "2010-02-02",
+        "lastAirDate": null,
+        "episodeCount": 17
+      }
+    ]
+  },
+  "media": {
+    "poster": "/assets/posters/lost-2004-poster.jpg",
+    "backdrop": "/assets/posters/lost-2004-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Lost" 
+  },
+  "text": {
+    "overview": "Stripped of everything, the survivors of a horrific plane crash  must work together to stay alive. But the island holds many secrets.",
+    "tagline": "Everything happens for a reason."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.947,
+      "voteCount": 4765
+    }
+  },
+  "credits": {
+    "director": "",
+    "castPreview": [
+      "Matthew Fox",
+      "Evangeline Lilly",
+      "Terry O'Quinn",
+      "Josh Holloway",
+      "Michael Emerson"
+    ]
+  },
+  "youtubeTrailerKey": "KTu8iDynwNc"
+},
 {
   "id": "down-to-earth-2001",
   "title": "Down to Earth",
