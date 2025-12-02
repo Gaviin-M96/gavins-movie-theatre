@@ -40,17 +40,16 @@ function MovieModal({
     movie.media?.placeholder ||
     "https://via.placeholder.com/400x600?text=No+Poster";
 
-  // Trailer support (updated path)
+  // Trailer info
   const youtubeKey = movie.youtubeTrailerKey ?? null;
-  const directTrailerUrl = movie.metadata?.trailerUrl ?? null;
-
-  const trailerUrl =
-    directTrailerUrl ||
-    (youtubeKey ? `https://www.youtube.com/watch?v=${youtubeKey}` : null);
-
   const trailerEmbedUrl = youtubeKey
     ? `https://www.youtube.com/embed/${youtubeKey}`
     : null;
+
+  // State for lazy trailer modal
+  const [trailerOpen, setTrailerOpen] = useState(false);
+  const openTrailer = () => setTrailerOpen(true);
+  const closeTrailer = () => setTrailerOpen(false);
 
   const [reviews, setReviews] = useState([]);
   const [loadingReviews, setLoadingReviews] = useState(true);
@@ -62,17 +61,14 @@ function MovieModal({
 
   useEffect(() => {
     if (!movieReviewKey) return;
-
     async function loadReviews() {
       setLoadingReviews(true);
       setReviewsError(null);
-
       const { data, error } = await supabase
         .from("reviews")
         .select("*")
         .eq("movie_id", movieReviewKey)
         .order("created_at", { ascending: false });
-
       if (error) {
         console.error("Error loading reviews:", error);
         setReviewsError("Could not load reviews.");
@@ -80,10 +76,8 @@ function MovieModal({
       } else {
         setReviews(data || []);
       }
-
       setLoadingReviews(false);
     }
-
     loadReviews();
   }, [movieReviewKey]);
 
@@ -108,7 +102,6 @@ function MovieModal({
     if (!g) return;
     onQuickSearch(g);
   };
-
   const handleYearClick = () => {
     if (!year) return;
     onQuickSearch(String(year));
@@ -118,8 +111,7 @@ function MovieModal({
     (r) => r.name && r.name.trim().toLowerCase() === "gavin"
   );
   const gavinScoreRaw = gavinReviewRow?.rating ?? null;
-  const hasGavinScore =
-    typeof gavinScoreRaw === "number" && gavinScoreRaw > 0;
+  const hasGavinScore = typeof gavinScoreRaw === "number" && gavinScoreRaw > 0;
   const gavinDisplay = hasGavinScore ? gavinScoreRaw.toFixed(1) : null;
 
   const communityReviews = reviews.filter(
@@ -128,28 +120,23 @@ function MovieModal({
 
   const handleCommunitySubmit = async (e) => {
     e.preventDefault();
-
     const num = parseFloat(communityRating);
     if (isNaN(num) || num < 0 || num > 10) return;
-
     const payload = {
       movie_id: movieReviewKey,
       name: communityName.trim() || "Anonymous",
       rating: num,
       comment: communityText.trim() || null,
     };
-
     const { data, error } = await supabase
       .from("reviews")
       .insert([payload])
       .select()
       .single();
-
     if (error) {
       console.error("Error saving review:", error);
       return;
     }
-
     setReviews((prev) => [data, ...prev]);
     setCommunityName("");
     setCommunityRating("");
@@ -158,12 +145,12 @@ function MovieModal({
 
   return (
     <div className="modal-content">
-      {/* Poster column */}
+      {/* Poster */}
       <div className="modal-poster" style={{ textAlign: "center" }}>
         <img src={posterSrc} alt={movie.title} className="modal-poster-img" />
       </div>
 
-      {/* Info + reviews */}
+      {/* Info */}
       <div className="modal-info" style={{ textAlign: "center" }}>
         {/* Title + runtime + season summary */}
         <div className="modal-title-block">
@@ -184,7 +171,7 @@ function MovieModal({
             )}
           </div>
 
-          {/* Year + rating chips */}
+          {/* Year + rating */}
           <div
             className="modal-meta-row modal-meta-row--chips"
             style={{
@@ -203,11 +190,8 @@ function MovieModal({
                 {year}
               </button>
             )}
-
             {rating != null && (
-              <span
-                className={"chip modal-rating-chip " + getRatingBadgeClass(rating)}
-              >
+              <span className={"chip modal-rating-chip " + getRatingBadgeClass(rating)}>
                 ⭐ {rating.toFixed(1)}
               </span>
             )}
@@ -230,7 +214,7 @@ function MovieModal({
           </div>
         )}
 
-        {/* Favorite / Watchlist buttons */}
+        {/* Favorite / Watchlist */}
         <div className="card-actions" style={{ justifyContent: "center", marginTop: "0.75rem" }}>
           <button
             type="button"
@@ -254,43 +238,24 @@ function MovieModal({
         {/* Director / Cast */}
         {(director || limitedCast.length > 0) && (
           <div className="modal-people-section" style={{ marginTop: "1rem", textAlign: "center", fontSize: "0.8rem", lineHeight: "1.4" }}>
-            {director && (
-              <p style={{ margin: "4px 0" }}>
-                <strong>Directed By:</strong> {director}
-              </p>
-            )}
-            {limitedCast.length > 0 && (
-              <p style={{ margin: "4px 0" }}>
-                <strong>Starring:</strong> {limitedCast.join(", ")}
-              </p>
-            )}
+            {director && <p><strong>Directed By:</strong> {director}</p>}
+            {limitedCast.length > 0 && <p><strong>Starring:</strong> {limitedCast.join(", ")}</p>}
           </div>
         )}
 
         {/* Overview */}
-        {overview && (
-          <p className="modal-overview" style={{ maxWidth: "600px", margin: "1rem auto" }}>
-            {overview}
-          </p>
-        )}
+        {overview && <p className="modal-overview" style={{ maxWidth: "600px", margin: "1rem auto" }}>{overview}</p>}
 
-        {/* Trailer */}
+        {/* Trailer Button */}
         {trailerEmbedUrl && (
-          <div className="modal-trailer" style={{ margin: "1.25rem auto", maxWidth: "720px" }}>
-            <div className="modal-trailer-inner" style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", borderRadius: "12px", border: "1px solid var(--border-color)" }}>
-              <iframe
-                src={trailerEmbedUrl}
-                title={`${movie.title} trailer`}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
-              />
-            </div>
+          <div style={{ margin: "1rem 0" }}>
+            <button className="btn-primary" onClick={openTrailer}>
+              ▶ Play Trailer
+            </button>
           </div>
         )}
 
-        {/* Reviews */}
+        {/* Reviews (Gavin + Community) */}
         <div className="review-sections" style={{ display: "flex", flexWrap: "wrap", gap: "1.5rem", justifyContent: "center", alignItems: "flex-start", marginTop: "1.5rem" }}>
           {/* Gavin */}
           <section className="review-section review-section--gavin" style={{ flex: "0 1 260px", maxWidth: "280px" }}>
@@ -313,7 +278,7 @@ function MovieModal({
           <section className="review-section review-section--community" style={{ flex: "1 1 320px", maxWidth: "480px" }}>
             <div className="review-section-header">
               <h3 style={{ fontSize: "1rem", marginBottom: "0.25rem" }}>Community Reviews</h3>
-              <p style={{ fontSize: "0.8rem" }}>Let me know what you thought. <span style={{ fontWeight: 600 }}>Be honest.</span></p>
+              <p style={{ fontSize: "0.8rem" }}>Let me know what you thought. <strong>Be honest.</strong></p>
             </div>
 
             {loadingReviews ? (
@@ -338,37 +303,75 @@ function MovieModal({
 
             <form className="community-form" onSubmit={handleCommunitySubmit}>
               <div style={{ display: "flex", gap: "0.5rem" }}>
-                <input
-                  type="text"
-                  placeholder="Your name (optional)"
-                  value={communityName}
-                  onChange={(e) => setCommunityName(e.target.value)}
-                  className="community-input"
-                />
-                <input
-                  type="number"
-                  min="0"
-                  max="10"
-                  step="0.1"
-                  style={{ maxWidth: "110px" }}
-                  placeholder="Rating"
-                  value={communityRating}
-                  onChange={(e) => setCommunityRating(e.target.value)}
-                  className="community-input"
-                />
+                <input type="text" placeholder="Your name (optional)" value={communityName} onChange={(e) => setCommunityName(e.target.value)} className="community-input" />
+                <input type="number" min="0" max="10" step="0.1" style={{ maxWidth: "110px" }} placeholder="Rating" value={communityRating} onChange={(e) => setCommunityRating(e.target.value)} className="community-input" />
               </div>
-              <textarea
-                rows={2}
-                placeholder="What did you think?"
-                value={communityText}
-                onChange={(e) => setCommunityText(e.target.value)}
-                className="community-textarea"
-              />
+              <textarea rows={2} placeholder="What did you think?" value={communityText} onChange={(e) => setCommunityText(e.target.value)} className="community-textarea" />
               <button type="submit" className="btn-primary community-submit">Submit review</button>
             </form>
           </section>
         </div>
       </div>
+
+      {/* Trailer Modal */}
+      {trailerOpen && (
+        <div
+          className="trailer-modal-overlay"
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "rgba(0,0,0,0.7)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 9999,
+          }}
+          onClick={closeTrailer}
+        >
+          <div
+            className="trailer-modal-content"
+            style={{
+              position: "relative",
+              width: "80%",
+              maxWidth: "720px",
+              aspectRatio: "16/9",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <iframe
+              src={trailerEmbedUrl}
+              title={`${movie.title} trailer`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                width: "100%",
+                height: "100%",
+                border: "none",
+                borderRadius: "12px",
+              }}
+            />
+            <button
+              onClick={closeTrailer}
+              style={{
+                position: "absolute",
+                top: "-30px",
+                right: 0,
+                background: "transparent",
+                color: "#fff",
+                fontSize: "1.5rem",
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
+              ✖
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

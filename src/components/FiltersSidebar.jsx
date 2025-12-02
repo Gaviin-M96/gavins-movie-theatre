@@ -1,4 +1,6 @@
 // src/components/FiltersSidebar.jsx
+import SidebarDropdown from "./SidebarDropdown";
+
 function FiltersSidebar({
   search,
   sortBy,
@@ -51,25 +53,20 @@ function FiltersSidebar({
           />
         </div>
 
-        {/* SORT */}
-        <div className="sidebar-block">
-          <label className="sidebar-label" htmlFor="sortBy">
-            Sort by
-          </label>
-          <select
-            id="sortBy"
-            value={sortBy}
-            onChange={(e) => onSortChange(e.target.value)}
-            className="sidebar-select"
-          >
-            <option value="title-asc">Title (A–Z)</option>
-            <option value="title-desc">Title (Z–A)</option>
-            <option value="year-desc">Year (newest first)</option>
-            <option value="year-asc">Year (oldest first)</option>
-            <option value="tmdb-desc">Rating (high–low)</option>
-            <option value="tmdb-asc">Rating (low–high)</option>
-          </select>
-        </div>
+{/* SORT */}
+<SidebarDropdown
+  label="Sort by"
+  value={sortBy}
+  onChange={onSortChange}
+  options={[
+    { value: "title-asc", label: "Title (A–Z)" },
+    { value: "title-desc", label: "Title (Z–A)" },
+    { value: "year-desc", label: "Year (newest first)" },
+    { value: "year-asc", label: "Year (oldest first)" },
+    { value: "tmdb-desc", label: "Rating (high–low)" },
+    { value: "tmdb-asc", label: "Rating (low–high)" },
+  ]}
+/>
 
         {/* CATEGORY / TYPE */}
         <div className="sidebar-block">

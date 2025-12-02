@@ -1,6 +1,6 @@
 // src/App.jsx
 import { useState, useMemo, useEffect } from "react";
-import { movies } from "./movies_with_category_with_trailers";
+import { movies } from "./movies_updated.js";
 import { fetchDetailsForMovie } from "./api/tmdb";
 import FiltersSidebar from "./components/FiltersSidebar";
 import MovieGrid from "./components/MovieGrid";
