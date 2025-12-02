@@ -16411,7 +16411,6 @@ export const movies = [
       "genres": [
         "Animation",
         "Family",
-        "Music"
       ],
       "tmdbId": 46963,
       "runtimeMinutes": 25,
@@ -22779,6 +22778,96 @@ export const movies = [
       ]
     }
   },
+  {
+  "id": "shania-twain-the-platinum-collection-2001",
+  "title": "Shania Twain - The Platinum Collection",
+  "sortTitle": "Shania Twain - The Platinum Collection",
+  "year": 2001,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Music"
+    ],
+    "tmdbId": 38182,
+    "runtimeMinutes": 80,
+    "imdbId": "tt1663942",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Concert",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/shania-twain-the-platinum-collection-2001-poster.jpg",
+    "backdrop": "/assets/posters/shania-twain-the-platinum-collection-2001-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Shania%20Twain%20-%20The%20Platinum%20Collection"
+  },
+  "text": {
+    "overview": "Nothing encourages one to ignore those silly contradictions in Shania Twain's music (is she country? is she pop?) like a collection of her highly playful videos. The Platinum Collection rolls right over boundaries of tradition and genre with its concentration of imaginative, often surprising visuals. \"The Woman in Me,\" for instance, is set among Egypt's pyramids, while \"Man! I Feel Like a Woman!\" finds a stunning Twain fronting a band of mindless hunks in a funny reversal of Robert Palmer's \"Addicted to Love\" video. \"You're Still the One,\" easily one of Twain's most affecting songs, still holds up as a softly erotic short film. Even Twain's more prosaic videos (the go-kart mania of \"You Win My Love\") bear repeat viewing, but it's her heck-with-it aesthetic that leads to such unexpected sights as Irish step dancing in \"Don't Be Stupid (You Know I Love You).\" Then, of course, there are those hot pants in \"Rock This Country!\" Long may Shania wave.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.5,
+      "voteCount": 6
+    }
+  },
+  "credits": {
+    "director": "",
+    "castPreview": [
+      "Shania Twain"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "barenaked-ladies-the-barenaked-truth-2002",
+  "title": "Barenaked Ladies: The Barenaked Truth",
+  "sortTitle": "Barenaked Ladies: The Barenaked Truth",
+  "year": 2002,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [],
+    "tmdbId": 320191,
+    "runtimeMinutes": 0,
+    "imdbId": null,
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Concert",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/shania-twain-the-platinum-collection-2001-backdrop.jpg",
+    "backdrop": null,
+    "placeholder": "https://via.placeholder.com/300x450?text=Barenaked%20Ladies%3A%20The%20Barenaked%20Truth"
+  },
+  "text": {
+    "overview": "Quirky alternative rockers Barenaked Ladies got their start in their parents' rec rooms and quickly gained international fame. This documentary features interviews with band members as they discuss the evolution of the group and the shifting relationships between the various members. Exclusive concert footage includes performances of \"It's All Been Done,\" \"Enid,\" \"One Week,\" \"Be My Yoko Ono,\" \"Grade 9,\" \"Brian Wilson\" and many more.",  
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 0,
+      "voteCount": 0
+    }
+  },
+  "credits": {
+    "director": "David Langer",
+    "castPreview": [
+      "Anne-Marie MacDonald", 
+      "Terry McBride",
+      "Ed Robertson"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
   {
   "id": "the-office-2005",
   "title": "The Office",

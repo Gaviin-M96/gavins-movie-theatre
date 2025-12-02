@@ -85,8 +85,8 @@ const CATEGORY_TYPES = [
   "Concert",
   "Short Film",
   "Mini-Series",
-  "Documentary Series",
-  "Special",
+  "Documentary",
+  "Sports",
 ];
 
 function App() {
