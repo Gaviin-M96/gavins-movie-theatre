@@ -2342,7 +2342,8 @@ export const movies = [
     "metadata": {
       "genres": [
         "Drama",
-        "Romance"
+        "Romance",
+        "Music"
       ],
       "tmdbId": 1788,
       "runtimeMinutes": 107,
@@ -4373,7 +4374,8 @@ export const movies = [
     "metadata": {
       "genres": [
         "Comedy",
-        "Romance"
+        "Romance",
+        "Music"
       ],
       "tmdbId": 11631,
       "runtimeMinutes": 108,
@@ -11303,7 +11305,8 @@ export const movies = [
       "genres": [
         "Comedy",
         "Drama",
-        "Family"
+        "Family",
+        "Music"
       ],
       "tmdbId": 15739,
       "runtimeMinutes": 127,
