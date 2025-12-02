@@ -22834,7 +22834,9 @@ export const movies = [
     "tags": []
   },
   "metadata": {
-    "genres": [],
+    "genres": [
+    "Music"
+    ],
     "tmdbId": 320191,
     "runtimeMinutes": 0,
     "imdbId": null,
@@ -22854,8 +22856,8 @@ export const movies = [
   },
   "ratings": {
     "tmdb": {
-      "voteAverage": 0,
-      "voteCount": 0
+      "voteAverage": 8.6,
+      "voteCount": 320
     }
   },
   "credits": {
@@ -22864,6 +22866,427 @@ export const movies = [
       "Anne-Marie MacDonald", 
       "Terry McBride",
       "Ed Robertson"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "cher-the-farewell-tour-2003",
+  "title": "Cher: The Farewell Tour",
+  "sortTitle": "Cher: The Farewell Tour",
+  "year": 2003,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Music"
+    ],
+    "tmdbId": 27199,
+    "runtimeMinutes": 92,
+    "imdbId": "tt0381083",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Concert",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/cher-the-farewell-tour-2003-poster.jpg",
+    "backdrop": "/assets/posters/cher-the-farewell-tour-2003-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Cher%3A%20The%20Farewell%20Tour"
+  },
+  "text": {
+    "overview": "Cher: The Farewell Tour Live in Miami is the third live music video title by singer-actress Cher. Released by Warner Music Video in 2003, it contained a live date from The Farewell Tour, filmed at American Airlines Arena in Miami on November 8, 2002. It was originally aired as a television special on American network NBC. The same performance is also available on CD format as Live! The Farewell Tour.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.4,
+      "voteCount": 9
+    }
+  },
+  "credits": {
+    "director": "David Mallet",
+    "castPreview": [
+      "Cher"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "hysteria-the-def-leppard-story-2001",
+  "title": "Hysteria: The Def Leppard Story",
+  "sortTitle": "Hysteria: The Def Leppard Story",
+  "year": 2001,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Music"
+    ],
+    "tmdbId": 25320,
+    "runtimeMinutes": 90,
+    "imdbId": "tt0280754",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Concert",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/hysteria-the-def-leppard-story-2001-poster.jpg",
+    "backdrop": null,
+    "placeholder": "https://via.placeholder.com/300x450?text=Hysteria%3A%20The%20Def%20Leppard%20Story"
+  },
+  "text": {
+    "overview": "A dramatization of the early years of the hard rock band, Def Leppard, the group faces both success and personal tragedies such as drummer, Rick Allen losing his arm in a car accident and guitarist Steve Clark's alcohol addiction.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7,
+      "voteCount": 45
+    }
+  },
+  "credits": {
+    "director": "Robert Mandel",
+    "castPreview": [
+      "Nick Bagnall",
+      "Karl Geary",
+      "Adam MacDonald",
+      "Esteban Powell",
+      "Orlando Seale"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "amanda-marshall-everybodys-got-a-story-2002",
+  "title": "Amanda Marshall — Everybody's Got a Story",
+  "sortTitle": "Amanda Marshall — Everybody's Got a Story",
+  "year": 2001,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Music"
+    ],
+    "tmdbId": null,
+    "runtimeMinutes": 71,
+    "imdbId": null,
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Concert",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/amanda-marshall-everybody-s-got-a-story.jpg",
+    "backdrop": null,
+    "placeholder": "https://via.placeholder.com/300x450?text=Amanda%20Marshall%20%E2%80%94%20Everybody%27s%20Got%20a%20Story"
+  },
+  "text": {
+    "overview": "Live concert and music video collection featuring Amanda Marshall performing songs from her third album Everybody's Got a Story. Includes live performances (recorded at The Corona Theatre), music videos and bonus footage from the album era.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 8.8,
+      "voteCount": 113,
+    }
+  },
+  "credits": {
+    "director": "",
+    "castPreview": [
+      "Amanda Marshall"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "history-on-film-volume-ii-1997",
+  "title": "HIStory on Film, Volume II",
+  "sortTitle": "HIStory on Film, Volume II",
+  "year": 1997,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Music"
+    ],
+    "tmdbId": 30621,
+    "runtimeMinutes": 106,
+    "imdbId": "tt0168070",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Concert",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/history-on-film-volume-ii-1997-poster.jpg",
+    "backdrop": "/assets/posters/history-on-film-volume-ii-1997-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=HIStory%20on%20Film%2C%20Volume%20II"
+  },
+  "text": {
+    "overview": "Nearly 2 hours of the short films that made HIStory... Including never before released short films.",
+    "tagline": "Volume II"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 8.6,
+      "voteCount": 104
+    }
+  },
+  "credits": {
+    "director": "Nicholas Brandt, Colin Chilvers, Bob Giraldi, Wayne Isham, John Landis, Spike Lee, Don Mischer, Vincent Paterson, Mark Romanek, James Yukich",
+    "castPreview": [
+      "Michael Jackson"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "a-concert-behind-prison-walls-1978",
+  "title": "A Concert: Behind Prison Walls",
+  "sortTitle": "A Concert: Behind Prison Walls",
+  "year": 1978,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Music"
+    ],
+    "tmdbId": 103297,
+    "runtimeMinutes": 90,
+    "imdbId": null,
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Concert",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/a-concert-behind-prison-walls-1978-poster.jpg",
+    "backdrop": "/assets/posters/a-concert-behind-prison-walls-1978-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=A%20Concert%3A%20Behind%20Prison%20Walls"
+  },
+  "text": {
+    "overview": "A Concert: Behind the Prison Walls features Cash performing for inmates inside the Tennessee State Penitentiary in Nashville. Shot in 1976, this is only one of two prison concerts Cash ever shot for broadcast and features legendary performers Johnny Cash, Linda Rondstadt and Roy Clark performing their greatest hits. The concert aired on national television, and this Collector's edition video features rare, live performances of mega hits Folsom Prison Blues, Sunday Morning Coming Down, Hey Porter, Boy Names Sue, Love Has No Pride, and more.  Performing for the prisoners of Tennessee State Penitentiary, Johnny Cash takes to the stage to deliver an incendiary set, circa 1976. An array of special guests join the Man in Black onstage, including Linda Rondstadt and Roy Clark. Tracks include \"Folsom Prison Blues,\" \"Boy Named Sue,\" \"Half as Much,\" and many more!",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 8.7,
+      "voteCount": 3
+    }
+  },
+  "credits": {
+    "director": "Dick Carson",
+    "castPreview": [
+      "Johnny Cash",
+      "Roy Clark",
+      "Linda Ronstadt",
+      "Foster Brooks"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "ron-james-west-coast-wild-2005",
+  "title": "Ron James — West Coast Wild",
+  "sortTitle": "Ron James — West Coast Wild",
+  "year": 2006,
+  "library": {
+    "format": "Digital",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Comedy"
+    ],
+    "tmdbId": null,
+    "runtimeMinutes": 60,
+    "imdbId": null,
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Stand-Up",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/ron-james-west-coast-wild-2006.jpg",
+    "backdrop": null,
+    "placeholder": "https://via.placeholder.com/300x450?text=Ron%20James%20West%20Coast%20Wild"
+  },
+  "text": {
+    "overview": "Ron James takes the stage for his 2005 comedy special West Coast Wild, delivering sharp, fast-paced stand-up filled with Canadian humour, storytelling, and his signature high-energy wit.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 9,
+      "voteCount": 14,
+    }
+  },
+  "credits": {
+    "director": "",
+    "castPreview": [
+      "Ron James"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "wwe-blood-sport-ecw-the-most-violent-matches-2006",       
+  "title": "WWE: Blood Sport ECW - The Most Violent Matches",      
+  "sortTitle": "WWE: Blood Sport ECW - The Most Violent Matches",  
+  "year": 2006,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Sports"
+    ],
+    "tmdbId": 333441,
+    "runtimeMinutes": 0,
+    "imdbId": "tt1363097",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Sports",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/wwe-blood-sport-ecw-the-most-violent-matches-2006-poster.jpg",
+    "backdrop": null,
+    "placeholder": "https://via.placeholder.com/300x450?text=WWE%3A%20Blood%20Sport%20ECW%20-%20The%20Most%20Violent%20Matches"       
+  },
+  "text": {
+    "overview": "Blood Sport: ECW's Most Violent Matches Vol. 1 features eight of the most brutal matches in the history of ECW - Extreme Championship Wrestling, including all your favorite ECW stars such as Tommy Dreamer, Rob Van Dam, Cactus Jack, Chris Jericho, Sabu and many more.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 8,
+      "voteCount": 1
+    }
+  },
+  "credits": {
+    "director": "",
+    "castPreview": [
+      "Mick Foley",
+      "John Watson",
+      "Mike Durham",
+      "Ted Petty",
+      "Jim Fullington"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "ultimate-gretzky-2003",
+  "title": "Ultimate Gretzky",
+  "sortTitle": "Ultimate Gretzky",
+  "year": 2003,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Documentary",
+      "Sports"
+    ],
+    "tmdbId": 30076,
+    "runtimeMinutes": 120,
+    "imdbId": "tt0395797",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Sports",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/ultimate-gretzky-2003-poster.jpg",  
+    "backdrop": null,
+    "placeholder": "https://via.placeholder.com/300x450?text=Ultimate%20Gretzky"
+  },
+  "text": {
+    "overview": "They call him \"the Great One\" and this is the first time ever he has told the many stories behind his greatest accomplishments and moments. Hosted by hockey personality John Davidson and Wayne's good friend, Keifer Sutherland, sports fans take a journey into the man that is Wayne Gretzky.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7,
+      "voteCount": 3
+    }
+  },
+  "credits": {
+    "director": "",
+    "castPreview": [
+      "Wayne Gretzky",
+      "Kiefer Sutherland",
+      "Don Cherry",
+      "Janet Jones",
+      "Gordie Howe"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "gold-rush-2002-2002",
+  "title": "Gold Rush 2002",
+  "sortTitle": "Gold Rush 2002",
+  "year": 2002,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [],
+    "tmdbId": 523650,
+    "runtimeMinutes": 107,
+    "imdbId": "tt0319455",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/gold-rush-2002-2002-poster.jpg",    
+    "backdrop": null,
+    "placeholder": "https://via.placeholder.com/300x450?text=Gold%20Rush%202002"
+  },
+  "text": {
+    "overview": "A behind the scenes look at the creation of the Canadian Olympic Hockey Team and their quest for the Gold Medal.",   
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 8.5,
+      "voteCount": 129,
+    }
+  },
+  "credits": {
+    "director": "Mykhailo Belikov",
+    "castPreview": [
+      "Wayne Gretzky",
+      "Rob Blake",
+      "Eric Brewer"
     ]
   },
   "youtubeTrailerKey": null
