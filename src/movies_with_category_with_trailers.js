@@ -22987,8 +22987,8 @@ export const movies = [
     "seasons": []
   },
   "media": {
-    "poster": "/assets/posters/amanda-marshall-everybody-s-got-a-story.jpg",
-    "backdrop": null,
+    "poster": "/assets/posters/amanda-marshall-everybody-s-got-a-story-2001.jpg",
+    "backdrop": "/assets/posters/amanda-marshall-everybody-s-got-a-story-2001.jpg",
     "placeholder": "https://via.placeholder.com/300x450?text=Amanda%20Marshall%20%E2%80%94%20Everybody%27s%20Got%20a%20Story"
   },
   "text": {
