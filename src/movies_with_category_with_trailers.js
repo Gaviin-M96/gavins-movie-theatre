@@ -23104,11 +23104,11 @@ export const movies = [
 },
 {
   "id": "ron-james-west-coast-wild-2005",
-  "title": "Ron James — West Coast Wild",
-  "sortTitle": "Ron James — West Coast Wild",
+  "title": "Ron James: West Coast Wild",
+  "sortTitle": "Ron James: West Coast Wild",
   "year": 2006,
   "library": {
-    "format": "Digital",
+    "format": "DVD",
     "owned": true,
     "tags": []
   },
@@ -23771,6 +23771,63 @@ export const movies = [
       "Frankie Faison"
     ]
   }
+},
+{
+  "id": "where-eagles-dare-1968",
+  "title": "Where Eagles Dare",
+  "sortTitle": "Where Eagles Dare",
+  "year": 1968,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Adventure",
+      "War"
+    ],
+    "tmdbId": 11046,
+    "runtimeMinutes": 155,
+    "imdbId": "tt0065207",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": [],
+    "collection": {
+      "name": "Clint Eastwood: 35 Films 35 Years",
+      "id": "clint-eastwood-35-films-35-years",
+      "description": "Box set collecting 35 films starring or directed by Clint Eastwood over 35 years.",
+      "movies": ["where-eagles-dare-1968"] 
+    }
+  },
+  "media": {
+    "poster": "/assets/posters/where-eagles-dare-1968-poster.jpg", 
+    "backdrop": "/assets/posters/where-eagles-dare-1968-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Where%20Eagles%20Dare"
+  },
+  "text": {
+    "overview": "World War II is raging, and an American general has been captured and is being held hostage in the Schloss Adler, a Bavarian castle that's nearly impossible to breach. It's up to a group of skilled Allied soldiers to liberate the general before it's too late.",
+    "tagline": "One weekend Major Smith, Lieutenant Schaffer, and a beautiful blonde named Mary decided to win World War II."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.5,
+      "voteCount": 943
+    }
+  },
+  "credits": {
+    "director": "Brian G. Hutton",
+    "castPreview": [
+      "Richard Burton",
+      "Clint Eastwood",
+      "Mary Ure",
+      "Patrick Wymark",
+      "Michael Hordern"
+    ]
+  },
+  "youtubeTrailerKey": "J80nOz7wFqY"
 },
   {
     "id": "peter-pan-1953",
