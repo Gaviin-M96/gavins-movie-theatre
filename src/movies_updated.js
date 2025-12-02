@@ -21256,6 +21256,1631 @@ export const movies = [
     "youtubeTrailerKey": "TWB_icm5M38"
   },
   {
+  "id": "kelly-s-heroes-1970",
+  "title": "Kelly's Heroes",
+  "sortTitle": "Kelly's Heroes",
+  "year": 1970,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "War"
+    ],
+    "tmdbId": 11589,
+    "runtimeMinutes": 144,
+    "imdbId": "tt0065938",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/kelly-s-heroes-1970-poster.jpg",    
+    "backdrop": "/assets/posters/kelly-s-heroes-1970-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Kelly's%20Heroes"
+  },
+  "text": {
+    "overview": "A misfit group of World War II American soldiers goes AWOL to rob a bank behind German lines.",
+    "tagline": "They set out to rob a bank... and damn near won a war instead!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.3,
+      "voteCount": 768
+    }
+  },
+  "credits": {
+    "director": "Brian G. Hutton",
+    "castPreview": [
+      "Clint Eastwood",
+      "Telly Savalas",
+      "Don Rickles",
+      "Carroll O'Connor",
+      "Donald Sutherland"
+    ]
+  },
+  "youtubeTrailerKey": "2W58fJvUMbQ"
+},
+{
+  "id": "dirty-harry-1971",
+  "title": "Dirty Harry",
+  "sortTitle": "Dirty Harry",
+  "year": 1971,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "tmdbId": 984,
+    "runtimeMinutes": 102,
+    "imdbId": "tt0066999",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/dirty-harry-1971-poster.jpg",       
+    "backdrop": "/assets/posters/dirty-harry-1971-backdrop.jpg",   
+    "placeholder": "https://via.placeholder.com/300x450?text=Dirty%20Harry"
+  },
+  "text": {
+    "overview": "When a madman dubbed 'Scorpio' terrorizes San Francisco, hard-nosed cop, Harry Callahan – famous for his take-no-prisoners approach to law enforcement – is tasked with hunting down the psychopath.",
+    "tagline": "Dirty Harry And The Homicidal Maniac...Harry's The One With The Badge."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.451,
+      "voteCount": 2621
+    }
+  },
+  "credits": {
+    "director": "Don Siegel",
+    "castPreview": [
+      "Clint Eastwood",
+      "Harry Guardino",
+      "Reni Santoni",
+      "John Vernon",
+      "Andrew Robinson"
+    ]
+  },
+  "youtubeTrailerKey": "K6Vi1VurN9s"
+},
+{
+  "id": "magnum-force-1973",
+  "title": "Magnum Force",
+  "sortTitle": "Magnum Force",
+  "year": 1973,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Drama",
+      "Crime",
+      "Action"
+    ],
+    "tmdbId": 10648,
+    "runtimeMinutes": 124,
+    "imdbId": "tt0070355",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/magnum-force-1973-poster.jpg",      
+    "backdrop": "/assets/posters/magnum-force-1973-backdrop.jpg",  
+    "placeholder": "https://via.placeholder.com/300x450?text=Magnum%20Force"
+  },
+  "text": {
+    "overview": "\"Dirty\" Harry Callahan is a San Francisco Police Inspector on the trail of a group of rogue cops who have taken justice into their own hands. When shady characters are murdered one after another in grisly fashion, only Dirty Harry can stop them.",  
+    "tagline": "This time the bullets are hitting pretty close to home."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.1,
+      "voteCount": 1139
+    }
+  },
+  "credits": {
+    "director": "Ted Post",
+    "castPreview": [
+      "Clint Eastwood",
+      "Hal Holbrook",
+      "Mitchell Ryan",
+      "David Soul",
+      "Felton Perry"
+    ]
+  },
+  "youtubeTrailerKey": "83iV6rVG-qw"
+},
+{
+  "id": "the-enforcer-1976",
+  "title": "The Enforcer",
+  "sortTitle": "The Enforcer",
+  "year": 1976,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Crime",
+      "Action"
+    ],
+    "tmdbId": 10649,
+    "runtimeMinutes": 96,
+    "imdbId": "tt0074483",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-enforcer-1976-poster.jpg",      
+    "backdrop": "/assets/posters/the-enforcer-1976-backdrop.jpg",  
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Enforcer"
+  },
+  "text": {
+    "overview": "Dirty Harry Callahan returns again, this time saddled with a rookie female partner. Together, they must stop a terrorist group consisting of angry Vietnam veterans.",
+    "tagline": "The dirtiest Harry of them all."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.7,
+      "voteCount": 936
+    }
+  },
+  "credits": {
+    "director": "James Fargo",
+    "castPreview": [
+      "Clint Eastwood",
+      "Tyne Daly",
+      "Harry Guardino",
+      "Bradford Dillman",
+      "John Mitchum"
+    ]
+  },
+  "youtubeTrailerKey": "ocz7A2B9H-c"
+},
+{
+  "id": "the-outlaw-josey-wales-1976",
+  "title": "The Outlaw Josey Wales",
+  "sortTitle": "The Outlaw Josey Wales",
+  "year": 1976,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Western"
+    ],
+    "tmdbId": 10747,
+    "runtimeMinutes": 135,
+    "imdbId": "tt0075029",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-outlaw-josey-wales-1976-poster.jpg",
+    "backdrop": "/assets/posters/the-outlaw-josey-wales-1976-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Outlaw%20Josey%20Wales"
+  },
+  "text": {
+    "overview": "After avenging his family's brutal murder, Wales is pursued by a pack of soldiers. He prefers to travel alone, but ragtag outcasts are drawn to him - and Wales can't bring himself to leave them unprotected.",
+    "tagline": "...an army of one."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.434,
+      "voteCount": 1228
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Clint Eastwood",
+      "Chief Dan George",
+      "Sondra Locke",
+      "Bill McKinney",
+      "John Vernon"
+    ]
+  },
+  "youtubeTrailerKey": "YvXl6Ij-LhQ"
+},
+{
+  "id": "the-gauntlet-1977",
+  "title": "The Gauntlet",
+  "sortTitle": "The Gauntlet",
+  "year": 1977,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Drama",
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "tmdbId": 17689,
+    "runtimeMinutes": 109,
+    "imdbId": "tt0076070",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-gauntlet-1977-poster.jpg",      
+    "backdrop": "/assets/posters/the-gauntlet-1977-backdrop.jpg",  
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Gauntlet"
+  },
+  "text": {
+    "overview": "Phoenix cop Ben Shockley is well on his way to becoming a derelict when he is assigned to transport a witness from Las Vegas. The witness turns out to be a belligerent prostitute with mob ties—and incriminating information regarding a high-ranking official.",
+    "tagline": "Clint Eastwood is the man in the middle of The Gauntlet"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.5,
+      "voteCount": 577
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Clint Eastwood",
+      "Sondra Locke",
+      "Pat Hingle",
+      "William Prince",
+      "Bill McKinney"
+    ]
+  },
+  "youtubeTrailerKey": "Ws3mkfSkvYo"
+},
+{
+  "id": "every-which-way-but-loose-1978",
+  "title": "Every Which Way but Loose",
+  "sortTitle": "Every Which Way but Loose",
+  "year": 1978,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Comedy",
+      "Adventure",
+      "Romance",
+      "Drama"
+    ],
+    "tmdbId": 15417,
+    "runtimeMinutes": 110,
+    "imdbId": "tt0077523",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/every-which-way-but-loose-1978-poster.jpg",
+    "backdrop": "/assets/posters/every-which-way-but-loose-1978-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Every%20Which%20Way%20but%20Loose"
+  },
+  "text": {
+    "overview": "Philo Beddoe is your regular, easygoing, truck-driving guy. He's also the best bar-room brawler west of the Rockies. And he lives with a 165-pound orangutan named Clyde. Like other guys, Philo finally falls in love - with a flighty singer who leads him on a screwball chase across the American Southwest. Nothing's in the way except a motorcycle gang, some cops, and legendary brawler Tank Murdock.",
+    "tagline": "Clint Eastwood will turn you Every Which Way But Loose"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.1,
+      "voteCount": 484
+    }
+  },
+  "credits": {
+    "director": "James Fargo",
+    "castPreview": [
+      "Clint Eastwood",
+      "Sondra Locke",
+      "Geoffrey Lewis",
+      "Manis",
+      "Beverly D'Angelo"
+    ]
+  },
+  "youtubeTrailerKey": "aB0PFiL9QV0"
+},
+{
+  "id": "any-which-way-you-can-1980",
+  "title": "Any Which Way You Can",
+  "sortTitle": "Any Which Way You Can",
+  "year": 1980,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy"
+    ],
+    "tmdbId": 17169,
+    "runtimeMinutes": 115,
+    "imdbId": "tt0080377",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/any-which-way-you-can-1980-poster.jpg",
+    "backdrop": "/assets/posters/any-which-way-you-can-1980-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Any%20Which%20Way%20You%20Can"
+  },
+  "text": {
+    "overview": "Philo takes part in a bare knuckle fight – as he does – to make more money than he can earn from his car repair business. He decides to retire, but when the Mafia come along and arrange another fight, he's pushed into it. A motorcycle gang and an orangutan called Clyde all add to the 'fun'.",
+    "tagline": "Get it with Clint and Clyde"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.7,
+      "voteCount": 353
+    }
+  },
+  "credits": {
+    "director": "Buddy Van Horn",
+    "castPreview": [
+      "Clint Eastwood",
+      "Sondra Locke",
+      "Geoffrey Lewis",
+      "William Smith",
+      "Harry Guardino"
+    ]
+  },
+  "youtubeTrailerKey": "ZHto8p6qIDg"
+},
+{
+  "id": "bronco-billy-1980",
+  "title": "Bronco Billy",
+  "sortTitle": "Bronco Billy",
+  "year": 1980,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Drama",
+      "Romance",
+      "Comedy"
+    ],
+    "tmdbId": 21866,
+    "runtimeMinutes": 116,
+    "imdbId": "tt0080472",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/bronco-billy-1980-poster.jpg",      
+    "backdrop": "/assets/posters/bronco-billy-1980-backdrop.jpg",  
+    "placeholder": "https://via.placeholder.com/300x450?text=Bronco%20Billy"
+  },
+  "text": {
+    "overview": "An idealistic, modern-day cowboy struggles to keep his Wild West show afloat in the face of hard luck and waning interest.",
+    "tagline": "The most outrageous of 'em all."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.302,
+      "voteCount": 280
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Clint Eastwood",
+      "Sondra Locke",
+      "Geoffrey Lewis",
+      "Scatman Crothers",
+      "Bill McKinney"
+    ]
+  },
+  "youtubeTrailerKey": "oqyBr-07Eh0"
+},
+{
+  "id": "honkytonk-man-1982",
+  "title": "Honkytonk Man",
+  "sortTitle": "Honkytonk Man",
+  "year": 1982,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Drama",
+      "Music"
+    ],
+    "tmdbId": 37917,
+    "runtimeMinutes": 123,
+    "imdbId": "tt0084088",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/honkytonk-man-1982-poster.jpg",     
+    "backdrop": "/assets/posters/honkytonk-man-1982-backdrop.jpg", 
+    "placeholder": "https://via.placeholder.com/300x450?text=Honkytonk%20Man"
+  },
+  "text": {
+    "overview": "During the Great Depression, a young boy leaves his family's Oklahoma farm to travel with his country musician uncle who is trying out for the Grand Ole Opry.",
+    "tagline": "The boy is on his way to becoming a man. The man is on his way to becoming a legend."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.3,
+      "voteCount": 186
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Clint Eastwood",
+      "Kyle Eastwood",
+      "John McIntire",
+      "Alexa Kenin",
+      "Verna Bloom"
+    ]
+  },
+  "youtubeTrailerKey": "g8yb0Jrcjps"
+},
+{
+  "id": "firefox-1982",
+  "title": "Firefox",
+  "sortTitle": "Firefox",
+  "year": 1982,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Science Fiction",
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "tmdbId": 10724,
+    "runtimeMinutes": 136,
+    "imdbId": "tt0083943",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/firefox-1982-poster.jpg",
+    "backdrop": "/assets/posters/firefox-1982-backdrop.jpg",       
+    "placeholder": "https://via.placeholder.com/300x450?text=Firefox"
+  },
+  "text": {
+    "overview": "The Soviets have developed a revolutionary new jet fighter, called 'Firefox'. Worried that the jet will be used as a first-strike weapon—as there are rumours that it is undetectable by radar—the British send ex-Vietnam War pilot, Mitchell Gant on a covert mission into the Soviet Union to steal the Firefox.",
+    "tagline": "...the most devastating killing machine ever built... his job... steal it!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6,
+      "voteCount": 586
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Clint Eastwood",
+      "Freddie Jones",
+      "David Huffman",
+      "Warren Clarke",
+      "Ronald Lacey"
+    ]
+  },
+  "youtubeTrailerKey": "T5W4MiBuEnY"
+},
+{
+  "id": "sudden-impact-1983",
+  "title": "Sudden Impact",
+  "sortTitle": "Sudden Impact",
+  "year": 1983,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Thriller",
+      "Crime",
+      "Action"
+    ],
+    "tmdbId": 10650,
+    "runtimeMinutes": 117,
+    "imdbId": "tt0086383",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/sudden-impact-1983-poster.jpg",     
+    "backdrop": "/assets/posters/sudden-impact-1983-backdrop.jpg", 
+    "placeholder": "https://via.placeholder.com/300x450?text=Sudden%20Impact"
+  },
+  "text": {
+    "overview": "When a young rape victim takes justice into her own hands and becomes a serial killer, it's up to Dirty Harry Callahan, on suspension from the SFPD, to bring her to justice.",
+    "tagline": "Dirty Harry is at it again"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.551,
+      "voteCount": 957
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Clint Eastwood",
+      "Sondra Locke",
+      "Pat Hingle",
+      "Bradford Dillman",
+      "Paul Drake"
+    ]
+  },
+  "youtubeTrailerKey": "8AnAgwxJk0Y"
+},
+{
+  "id": "tightrope-1984",
+  "title": "Tightrope",
+  "sortTitle": "Tightrope",
+  "year": 1984,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Mystery",
+      "Thriller",
+      "Crime",
+      "Horror"
+    ],
+    "tmdbId": 11707,
+    "runtimeMinutes": 115,
+    "imdbId": "tt0088272",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/tightrope-1984-poster.jpg",
+    "backdrop": "/assets/posters/tightrope-1984-backdrop.jpg",     
+    "placeholder": "https://via.placeholder.com/300x450?text=Tightrope"
+  },
+  "text": {
+    "overview": "Wes Block is a detective who's put on the case of a serial killer whose victims are young and pretty women. The murders are getting personal when the killer chooses victims who are acquaintances of Block. Even his daughters are threatened.",
+    "tagline": "A cop on the edge."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.142,
+      "voteCount": 367
+    }
+  },
+  "credits": {
+    "director": "Richard Tuggle",
+    "castPreview": [
+      "Clint Eastwood",
+      "Geneviève Bujold",
+      "Dan Hedaya",
+      "Alison Eastwood",
+      "Jenny Beck"
+    ]
+  },
+  "youtubeTrailerKey": "tRfPbgje1a8"
+},
+{
+  "id": "city-heat-1984",
+  "title": "City Heat",
+  "sortTitle": "City Heat",
+  "year": 1984,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Crime",
+      "Comedy"
+    ],
+    "tmdbId": 16969,
+    "runtimeMinutes": 97,
+    "imdbId": "tt0087062",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/city-heat-1984-poster.jpg",
+    "backdrop": "/assets/posters/city-heat-1984-backdrop.jpg",     
+    "placeholder": "https://via.placeholder.com/300x450?text=City%20Heat"
+  },
+  "text": {
+    "overview": "Set in Kansas City in 1933, Eastwood plays a police lieutenant known simply by his last name, Speer. Reynolds plays a former cop turned private eye named Mike Murphy. Both Speer and Murphy served on the force together and were once good friends, but are now bitter enemies. When Murphy's partner is slain they team up again to fight the mob.",
+    "tagline": "When a hotshot cop and a wise-guy detective get together... the heat is on!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.465,
+      "voteCount": 202
+    }
+  },
+  "credits": {
+    "director": "Richard Benjamin",
+    "castPreview": [
+      "Clint Eastwood",
+      "Burt Reynolds",
+      "Jane Alexander",
+      "Madeline Kahn",
+      "Rip Torn"
+    ]
+  },
+  "youtubeTrailerKey": "DVqkhTYLJJw"
+},
+{
+  "id": "pale-rider-1985",
+  "title": "Pale Rider",
+  "sortTitle": "Pale Rider",
+  "year": 1985,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Western",
+      "Drama"
+    ],
+    "tmdbId": 8879,
+    "runtimeMinutes": 115,
+    "imdbId": "tt0089767",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/pale-rider-1985-poster.jpg",        
+    "backdrop": "/assets/posters/pale-rider-1985-backdrop.jpg",    
+    "placeholder": "https://via.placeholder.com/300x450?text=Pale%20Rider"
+  },
+  "text": {
+    "overview": "A mysterious preacher protects a humble prospector village from a greedy mining company trying to encroach on their land.",
+    "tagline": "...and hell followed with him."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.167,
+      "voteCount": 1151
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Clint Eastwood",
+      "Michael Moriarty",
+      "Carrie Snodgress",
+      "Chris Penn",
+      "Richard Dysart"
+    ]
+  },
+  "youtubeTrailerKey": "lCVgv2Gsc9E"
+},
+{
+  "id": "heartbreak-ridge-1986",
+  "title": "Heartbreak Ridge",
+  "sortTitle": "Heartbreak Ridge",
+  "year": 1986,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "War",
+      "Drama"
+    ],
+    "tmdbId": 10015,
+    "runtimeMinutes": 130,
+    "imdbId": "tt0091187",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/heartbreak-ridge-1986-poster.jpg",  
+    "backdrop": "/assets/posters/heartbreak-ridge-1986-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Heartbreak%20Ridge"
+  },
+  "text": {
+    "overview": "A hard-nosed, hard-living Marine gunnery sergeant clashes with his superiors and his ex-wife as he takes command of a spoiled recon platoon with a bad attitude.",
+    "tagline": "...the scars run deep."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.883,
+      "voteCount": 1074
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Clint Eastwood",
+      "Marsha Mason",
+      "Everett McGill",
+      "Moses Gunn",
+      "Mario Van Peebles"
+    ]
+  },
+  "youtubeTrailerKey": "AzmKOwtSCkg"
+},
+{
+  "id": "the-dead-pool-1988",
+  "title": "The Dead Pool",
+  "sortTitle": "The Dead Pool",
+  "year": 1988,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "tmdbId": 10651,
+    "runtimeMinutes": 91,
+    "imdbId": "tt0094963",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-dead-pool-1988-poster.jpg",     
+    "backdrop": "/assets/posters/the-dead-pool-1988-backdrop.jpg", 
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Dead%20Pool"
+  },
+  "text": {
+    "overview": "Dirty Harry Callahan returns for his final film adventure. Together with his partner Al Quan, he must investigate the systematic murder of actors and musicians. By the time Harry learns that the murders are a part of a sick game to predict the deaths of celebrities before they happen, it may be too late...",
+    "tagline": "Dirty Harry just learned a new game."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.3,
+      "voteCount": 894
+    }
+  },
+  "credits": {
+    "director": "Buddy Van Horn",
+    "castPreview": [
+      "Clint Eastwood",
+      "Patricia Clarkson",
+      "Liam Neeson",
+      "Evan C. Kim",
+      "Jim Carrey"
+    ]
+  },
+  "youtubeTrailerKey": "n41u5nOsuBM"
+},
+{
+  "id": "pink-cadillac-1989",
+  "title": "Pink Cadillac",
+  "sortTitle": "Pink Cadillac",
+  "year": 1989,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Drama",
+      "Romance"
+    ],
+    "tmdbId": 20006,
+    "runtimeMinutes": 122,
+    "imdbId": "tt0098097",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/pink-cadillac-1989-poster.jpg",     
+    "backdrop": "/assets/posters/pink-cadillac-1989-backdrop.jpg", 
+    "placeholder": "https://via.placeholder.com/300x450?text=Pink%20Cadillac"
+  },
+  "text": {
+    "overview": "A bounty hunter helps out the wife of a bail-jumper after her child is kidnapped by neo-Nazi types.",
+    "tagline": "It takes a real man to bring in a lady in a pink Cadillac."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.5,
+      "voteCount": 246
+    }
+  },
+  "credits": {
+    "director": "Buddy Van Horn",
+    "castPreview": [
+      "Clint Eastwood",
+      "Bernadette Peters",
+      "Timothy Carhart",
+      "Jim Carrey",
+      "John Dennis Johnston"
+    ]
+  },
+  "youtubeTrailerKey": "I5P2UWe-c1I"
+},
+{
+  "id": "the-rookie-1990",
+  "title": "The Rookie",
+  "sortTitle": "The Rookie",
+  "year": 1990,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "tmdbId": 6723,
+    "runtimeMinutes": 120,
+    "imdbId": "tt0100514",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-rookie-1990-poster.jpg",        
+    "backdrop": "/assets/posters/the-rookie-1990-backdrop.jpg",    
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Rookie"
+  },
+  "text": {
+    "overview": "Veteran cop Nick Pulovski is used to playing musical partners; many of the partners he's had in the past have died on the job, and often as a result of Nick's risky tactics. But the rookie who's been assigned to help Nick bust a carjacking ring is almost as hotheaded as he is … and when Nick gets kidnapped, his newbie partner is his only hope.",
+    "tagline": "Packing years of experience and a .45 automatic, L.A. detective Nick Pulovski figures he's got all the help he needs. He's also got all the help he doesn't need. His new partner is The Rookie."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.879,
+      "voteCount": 584
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Clint Eastwood",
+      "Charlie Sheen",
+      "Raúl Juliá",
+      "Sônia Braga",
+      "Tom Skerritt"
+    ]
+  },
+  "youtubeTrailerKey": "gWMmFCWRE3E"
+},
+{
+  "id": "white-hunter-black-heart-1990",
+  "title": "White Hunter, Black Heart",
+  "sortTitle": "White Hunter, Black Heart",
+  "year": 1990,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Adventure",
+      "Drama"
+    ],
+    "tmdbId": 28761,
+    "runtimeMinutes": 112,
+    "imdbId": "tt0100928",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/white-hunter-black-heart-1990-poster.jpg",
+    "backdrop": "/assets/posters/white-hunter-black-heart-1990-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=White%20Hunter%2C%20Black%20Heart"
+  },
+  "text": {
+    "overview": "Renowned filmmaker John Wilson travels to Africa to direct a new movie, but constantly leaves to hunt elephants and other game, to the dismay of his cast and crew. He eventually becomes obsessed with hunting down and killing one specific elephant.",  
+    "tagline": "An adventure in obsession..."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.4,
+      "voteCount": 290
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Clint Eastwood",
+      "Jeff Fahey",
+      "George Dzundza",
+      "Alun Armstrong",
+      "Mel Martin"
+    ]
+  },
+  "youtubeTrailerKey": "YflvYAX3hJM"
+},
+{
+  "id": "unforgiven-1992",
+  "title": "Unforgiven",
+  "sortTitle": "Unforgiven",
+  "year": 1992,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Western"
+    ],
+    "tmdbId": 33,
+    "runtimeMinutes": 130,
+    "imdbId": "tt0105695",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/unforgiven-1992-poster.jpg",        
+    "backdrop": "/assets/posters/unforgiven-1992-backdrop.jpg",    
+    "placeholder": "https://via.placeholder.com/300x450?text=Unforgiven"
+  },
+  "text": {
+    "overview": "William Munny is a retired, once-ruthless killer turned gentle widower and hog farmer. To help support his two motherless children, he accepts one last bounty-hunter mission to find the men who brutalized a prostitute. Joined by his former partner and a cocky greenhorn, he takes on a corrupt sheriff.",
+    "tagline": "Some legends will never be forgotten. Some wrongs can never be forgiven."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.907,
+      "voteCount": 4736
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Clint Eastwood",
+      "Gene Hackman",
+      "Morgan Freeman",
+      "Jaimz Woolvett",
+      "Richard Harris"
+    ]
+  },
+  "youtubeTrailerKey": "amE57OniG9Y"
+},
+{
+  "id": "a-perfect-world-1993",
+  "title": "A Perfect World",
+  "sortTitle": "A Perfect World",
+  "year": 1993,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Drama",
+      "Crime",
+      "Thriller"
+    ],
+    "tmdbId": 9559,
+    "runtimeMinutes": 138,
+    "imdbId": "tt0107808",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/a-perfect-world-1993-poster.jpg",   
+    "backdrop": "/assets/posters/a-perfect-world-1993-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=A%20Perfect%20World"
+  },
+  "text": {
+    "overview": "A kidnapped boy strikes up a friendship with his captor: an escaped convict on the run from the law, headed by an honorable U.S. Marshal.",
+    "tagline": "A convict. A cop. A hostage that will make one of them a hero."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.484,
+      "voteCount": 1770
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Kevin Costner",
+      "Clint Eastwood",
+      "Laura Dern",
+      "T.J. Lowther",
+      "Bradley Whitford"
+    ]
+  },
+  "youtubeTrailerKey": "_Qm-UhA3b4g"
+},
+{
+  "id": "the-bridges-of-madison-county-1995",
+  "title": "The Bridges of Madison County",
+  "sortTitle": "The Bridges of Madison County",
+  "year": 1995,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "tmdbId": 688,
+    "runtimeMinutes": 135,
+    "imdbId": "tt0112579",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-bridges-of-madison-county-1995-poster.jpg",
+    "backdrop": "/assets/posters/the-bridges-of-madison-county-1995-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Bridges%20of%20Madison%20County"
+  },
+  "text": {
+    "overview": "Photographer Robert Kincaid wanders into the life of housewife Francesca Johnson for four days in the 1960s.",       
+    "tagline": "The path of Francesca Johnson's future seems destined due to an unexpected fork in the road..."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.71,
+      "voteCount": 2281
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Meryl Streep",
+      "Clint Eastwood",
+      "Annie Corley",
+      "Victor Slezak",
+      "Jim Haynie"
+    ]
+  },
+  "youtubeTrailerKey": "ZoJJkAQV0Bg"
+},
+{
+  "id": "midnight-in-the-garden-of-good-and-evil-1997",
+  "title": "Midnight in the Garden of Good and Evil",
+  "sortTitle": "Midnight in the Garden of Good and Evil",
+  "year": 1997,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Mystery",
+      "Crime",
+      "Drama"
+    ],
+    "tmdbId": 8197,
+    "runtimeMinutes": 155,
+    "imdbId": "tt0119668",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/midnight-in-the-garden-of-good-and-evil-1997-poster.jpg",
+    "backdrop": "/assets/posters/midnight-in-the-garden-of-good-and-evil-1997-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Midnight%20in%20the%20Garden%20of%20Good%20and%20Evil"
+  },
+  "text": {
+    "overview": "A visiting city reporter's assignment suddenly revolves around the murder trial of a local millionaire, whom he befriends.",
+    "tagline": "Welcome to Savannah, Georgia. A city of hot nights and cold blooded murder."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.356,
+      "voteCount": 606
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "John Cusack",
+      "Kevin Spacey",
+      "Jude Law",
+      "Alison Eastwood",
+      "Jack Thompson"
+    ]
+  },
+  "youtubeTrailerKey": "78sBVWigwB0"
+},
+{
+  "id": "true-crime-1999",
+  "title": "True Crime",
+  "sortTitle": "True Crime",
+  "year": 1999,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Drama",
+      "Crime",
+      "Thriller",
+      "Mystery"
+    ],
+    "tmdbId": 10354,
+    "runtimeMinutes": 127,
+    "imdbId": "tt0139668",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/true-crime-1999-poster.jpg",        
+    "backdrop": "/assets/posters/true-crime-1999-backdrop.jpg",    
+    "placeholder": "https://via.placeholder.com/300x450?text=True%20Crime"
+  },
+  "text": {
+    "overview": "Boozer, skirt chaser, careless father. You could create your own list of reporter Steve Everett's faults but there's no time. A San Quentin Death Row prisoner is slated to die at midnight – a man Everett has suddenly realized is innocent.",
+    "tagline": "An innocent man has only 12 hours to live..."      
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.536,
+      "voteCount": 827
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Clint Eastwood",
+      "Isaiah Washington",
+      "LisaGay Hamilton",
+      "James Woods",
+      "Denis Leary"
+    ]
+  },
+  "youtubeTrailerKey": "vL3TFv5H794"
+},
+{
+  "id": "space-cowboys-2000",
+  "title": "Space Cowboys",
+  "sortTitle": "Space Cowboys",
+  "year": 2000,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "tmdbId": 5551,
+    "runtimeMinutes": 130,
+    "imdbId": "tt0186566",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/space-cowboys-2000-poster.jpg",     
+    "backdrop": "/assets/posters/space-cowboys-2000-backdrop.jpg", 
+    "placeholder": "https://via.placeholder.com/300x450?text=Space%20Cowboys"
+  },
+  "text": {
+    "overview": "Frank Corvin, ‘Hawk’ Hawkins, Jerry O'Neill and ‘Tank’ Sullivan were hotdog members of Project Daedalus, the Air Force's test program for space travel, but their hopes were dashed in 1958 with the formation of NASA and the use of trained chimps. They blackmail their way into orbit when Russia's mysterious ‘Ikon’ communications satellite's orbit begins to degrade and threatens to crash to Earth.",
+    "tagline": "Space will never be the same."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.4,
+      "voteCount": 1456
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Clint Eastwood",
+      "Tommy Lee Jones",
+      "Donald Sutherland",
+      "James Garner",
+      "James Cromwell"
+    ]
+  },
+  "youtubeTrailerKey": "Upug_1gc7hk"
+},
+{
+  "id": "blood-work-2002",
+  "title": "Blood Work",
+  "sortTitle": "Blood Work",
+  "year": 2002,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Thriller",
+      "Crime",
+      "Action",
+      "Mystery"
+    ],
+    "tmdbId": 9573,
+    "runtimeMinutes": 110,
+    "imdbId": "tt0309377",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/blood-work-2002-poster.jpg",        
+    "backdrop": "/assets/posters/blood-work-2002-backdrop.jpg",    
+    "placeholder": "https://via.placeholder.com/300x450?text=Blood%20Work"
+  },
+  "text": {
+    "overview": "Still recovering from a heart transplant, a retired FBI profiler returns to service when his own blood analysis offers clues to the identity of a serial killer.",
+    "tagline": "He's a heartbeat away from catching the killer."   
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.2,
+      "voteCount": 862
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Clint Eastwood",
+      "Jeff Daniels",
+      "Anjelica Huston",
+      "Wanda De Jesus",
+      "Tina Lifford"
+    ]
+  },
+  "youtubeTrailerKey": "vMg7LZ-JF6I"
+},
+{
+  "id": "flags-of-our-fathers-2006",
+  "title": "Flags of Our Fathers",
+  "sortTitle": "Flags of Our Fathers",
+  "year": 2006,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "War",
+      "Drama",
+      "History"
+    ],
+    "tmdbId": 3683,
+    "runtimeMinutes": 135,
+    "imdbId": "tt0418689",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/flags-of-our-fathers-2006-poster.jpg",
+    "backdrop": "/assets/posters/flags-of-our-fathers-2006-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Flags%20of%20Our%20Fathers"
+  },
+  "text": {
+    "overview": "There were five Marines and one Navy Corpsman photographed raising the U.S. flag on Mt. Suribachi by Joe Rosenthal on February 23, 1945. This is the story of three of the six surviving servicemen - John 'Doc' Bradley, Pvt. Rene Gagnon and Pvt. Ira Hayes - who fought in the battle to take Iwo Jima from the Japanese.",
+    "tagline": "A single shot can end the war."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.858,
+      "voteCount": 1942
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Ryan Phillippe",
+      "Jesse Bradford",
+      "Adam Beach",
+      "John Benjamin Hickey",
+      "John Slattery"
+    ]
+  },
+  "youtubeTrailerKey": "2GdDPaT2nEo"
+},
+{
+  "id": "letters-from-iwo-jima-2006",
+  "title": "Letters from Iwo Jima",
+  "sortTitle": "Letters from Iwo Jima",
+  "year": 2006,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Drama",
+      "War"
+    ],
+    "tmdbId": 1251,
+    "runtimeMinutes": 141,
+    "imdbId": "tt0498380",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/letters-from-iwo-jima-2006-poster.jpg",
+    "backdrop": "/assets/posters/letters-from-iwo-jima-2006-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Letters%20from%20Iwo%20Jima"
+  },
+  "text": {
+    "overview": "The story of the battle of Iwo Jima between the United States and Imperial Japan during World War II, as told from the perspective of the Japanese who fought it.",
+    "tagline": "The battle of Iwo Jima seen through the eyes of the Japanese soldiers."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.478,
+      "voteCount": 2181
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Ken Watanabe",
+      "Kazunari Ninomiya",
+      "Tsuyoshi Ihara",
+      "Ryo Kase",
+      "Shido Nakamura"
+    ]
+  },
+  "youtubeTrailerKey": "g65ewJJ1USc"
+},
+{
+  "id": "gran-torino-2008",
+  "title": "Gran Torino",
+  "sortTitle": "Gran Torino",
+  "year": 2008,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Drama"
+    ],
+    "tmdbId": 13223,
+    "runtimeMinutes": 116,
+    "imdbId": "tt1205489",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/gran-torino-2008-poster.jpg",       
+    "backdrop": "/assets/posters/gran-torino-2008-backdrop.jpg",   
+    "placeholder": "https://via.placeholder.com/300x450?text=Gran%20Torino"
+  },
+  "text": {
+    "overview": "Disgruntled Korean War veteran Walt Kowalski sets out to reform his neighbor, Thao Lor, a Hmong teenager who tried to steal Kowalski's prized possession: a 1972 Gran Torino.",
+    "tagline": "Get off my lawn."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.989,
+      "voteCount": 11218
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Clint Eastwood",
+      "Christopher Carley",
+      "Bee Vang",
+      "Ahney Her",
+      "Brian Haley"
+    ]
+  },
+  "youtubeTrailerKey": "F8zue_BzNsw"
+},
+{
+  "id": "invictus-2009",
+  "title": "Invictus",
+  "sortTitle": "Invictus",
+  "year": 2009,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Drama",
+      "History"
+    ],
+    "tmdbId": 22954,
+    "runtimeMinutes": 134,
+    "imdbId": "tt1057500",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/invictus-2009-poster.jpg",
+    "backdrop": "/assets/posters/invictus-2009-backdrop.jpg",      
+    "placeholder": "https://via.placeholder.com/300x450?text=Invictus"
+  },
+  "text": {
+    "overview": "Newly elected President Nelson Mandela knows his nation remains racially and economically divided in the wake of apartheid. Believing he can bring his people together through the universal language of sport, Mandela rallies South Africa's rugby union team as they make their historic run to the 1995 Rugby World Cup Championship match.",
+    "tagline": "His people needed a leader. He gave them a champion."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.2,
+      "voteCount": 4253
+    }
+  },
+  "credits": {
+    "director": "Clint Eastwood",
+    "castPreview": [
+      "Morgan Freeman",
+      "Matt Damon",
+      "Tony Kgoroge",
+      "Patrick Mofokeng",
+      "Matt Stern"
+    ]
+  },
+  "youtubeTrailerKey": "kKLDqC0rLIY"
+},
+{
+  "id": "the-eastwood-factor-2010",
+  "title": "The Eastwood Factor",
+  "sortTitle": "The Eastwood Factor",
+  "year": 2010,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Documentary"
+    ],
+    "tmdbId": 155060,
+    "runtimeMinutes": 85,
+    "imdbId": "tt1661274",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-eastwood-factor-2010-poster.jpg",
+    "backdrop": "/assets/posters/the-eastwood-factor-2010-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Eastwood%20Factor"
+  },
+  "text": {
+    "overview": "For 35 years Clint Eastwood has called Warner Bros. home. In The Eastwood Factor, film historian Richard Schickel ventures beyond Eastwood’s tough, iconic screen personas to reveal the easygoing and thoughtful man behind the magic. Morgan Freeman narrates this insightful profile that features memorable film clips and visits to movie locations, the Warner Bros. lot and Eastwood’s hometown Carmel where, with humor, candor and intelligence, Eastwood illuminates the craft behind his legendary work on both sides of the camera to create a rare experience that is pure, unadulterated Clint.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6,
+      "voteCount": 12
+    }
+  },
+  "credits": {
+    "director": "Richard Schickel",
+    "castPreview": [
+      "Morgan Freeman",
+      "Clint Eastwood",
+      "Deborah Hopper"
+    ]
+  },
+  "youtubeTrailerKey": "8weTf8FwgpQ"
+},
+  {
     "id": "daddy-day-care-2003",
     "title": "Daddy Day Care",
     "sortTitle": "Daddy Day Care",
