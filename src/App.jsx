@@ -249,22 +249,28 @@ function App() {
   }, [genreUsageSet]);
 
   // Categories based on metadata.category (default "Movie")
-  const categories = useMemo(() => {
-    const usedSet = new Set();
+// Categories based on metadata.category (default "Movie") — normalized & stable
+const categories = useMemo(() => {
+  const usedSet = new Set();
 
-    for (const m of movies) {
-      const cat = m.metadata?.category || "Movie";
-      usedSet.add(cat);
+  for (const m of movies) {
+    let cat = m.metadata?.category ?? "Movie";
+    if (typeof cat === "string") {
+      cat = cat.trim();
+      if (cat.length) usedSet.add(cat);
     }
+  }
 
-    const used = Array.from(usedSet);
-    const canonical = CATEGORY_TYPES.filter((c) => usedSet.has(c));
-    const extras = used
-      .filter((c) => !CATEGORY_TYPES.includes(c))
-      .sort((a, b) => a.localeCompare(b));
+  // canonical categories present in data (keeps order from CATEGORY_TYPES)
+  const canonical = CATEGORY_TYPES.filter((c) => usedSet.has(c));
 
-    return ["all", ...canonical, ...extras];
-  }, []);
+  // extras discovered in data but not in CATEGORY_TYPES
+  const extras = Array.from(usedSet)
+    .filter((c) => !CATEGORY_TYPES.includes(c))
+    .sort((a, b) => a.localeCompare(b));
+
+  return ["all", ...canonical, ...extras];
+}, [movies]);
 
   const MAX_VISIBLE_CHIPS = 8;
   const visibleFormats = showAllFormats

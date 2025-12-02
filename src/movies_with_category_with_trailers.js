@@ -3104,7 +3104,7 @@ export const movies = [
       "status": "Released",
       "originalLanguage": "en",
       "category": "Movie",
-      "youtubeTrailerKey": null
+      "youtubeTrailerKey": "0c57WC9Vc30"
     },
     "media": {
       "poster": "https://image.tmdb.org/t/p/w500/6k47Z3A5zI2rxubTMwiLyIqQLLr.jpg",
@@ -9602,7 +9602,7 @@ export const movies = [
       "imdbId": "tt2069885",
       "status": "Released",
       "originalLanguage": "en",
-      "category": "Special",
+      "category": "Short Film",
       "youtubeTrailerKey": "Vzx9TFSF2Xc"
     },
     "media": {
@@ -16265,7 +16265,7 @@ export const movies = [
       "status": "Released",
       "originalLanguage": "en",
       "category": "Movie",
-      "youtubeTrailerKey": null
+      "youtubeTrailerKey": "eb2-ojUuEQ8"
     },
     "media": {
       "poster": "https://image.tmdb.org/t/p/w500/xYaetJsSm5FC1zxhdW8UR1NVXzc.jpg",
@@ -16367,7 +16367,7 @@ export const movies = [
       "status": "Released",
       "originalLanguage": "en",
       "category": "Movie",
-      "youtubeTrailerKey": null
+      "youtubeTrailerKey": "ElmnmSiexRE"
     },
     "media": {
       "poster": "https://image.tmdb.org/t/p/w500/d5CoQrPoN0h6h2BaZHAJNgWalJx.jpg",
@@ -16418,8 +16418,8 @@ export const movies = [
       "imdbId": "tt0213689",
       "status": "Released",
       "originalLanguage": "en",
-      "category": "Special",
-      "youtubeTrailerKey": null
+      "category": "Short Film",
+      "youtubeTrailerKey": "DJWym3bUODo"
     },
     "media": {
       "poster": "https://image.tmdb.org/t/p/w500/jBESaIVmnw9LevvsSwyzET1dOeM.jpg",
@@ -18771,7 +18771,7 @@ export const movies = [
       "status": "Released",
       "originalLanguage": "en",
       "category": "Movie",
-      "youtubeTrailerKey": null
+      "youtubeTrailerKey": "B1alzO1E9tg"
     },
     "media": {
       "poster": "https://image.tmdb.org/t/p/w500/lCf91jiFiPC8lJ4tu9NqZN0v7ob.jpg",
@@ -18924,7 +18924,7 @@ export const movies = [
       "status": "Released",
       "originalLanguage": "en",
       "category": "Movie",
-      "youtubeTrailerKey": null
+      "youtubeTrailerKey": "bPeuojNahGM"
     },
     "media": {
       "poster": "https://image.tmdb.org/t/p/w500/kp4gfmC7O10lAuBCDn1cbnPdudU.jpg",
@@ -19026,7 +19026,7 @@ export const movies = [
       "status": "Released",
       "originalLanguage": "en",
       "category": "Movie",
-      "youtubeTrailerKey": null
+      "youtubeTrailerKey": "aKcsGj9z6Bc"
     },
     "media": {
       "poster": "https://image.tmdb.org/t/p/w500/ypr5VQZUAGd1eY2HU08aJhx9Kzl.jpg",
@@ -19542,7 +19542,7 @@ export const movies = [
       "status": "Released",
       "originalLanguage": "en",
       "category": "Movie",
-      "youtubeTrailerKey": null
+      "youtubeTrailerKey": "J49i6O_4NEA"
     },
     "media": {
       "poster": "https://image.tmdb.org/t/p/w500/sp1MZ6S9K0QnCxML8Occ0YKDqzi.jpg",
@@ -21774,7 +21774,7 @@ export const movies = [
       "status": "Released",
       "originalLanguage": "en",
       "category": "Movie",
-      "youtubeTrailerKey": null
+      "youtubeTrailerKey": "BsbYE-Q474I"
     },
     "media": {
       "poster": "https://image.tmdb.org/t/p/w500/pS6j4cIrv1LWSIk5NxYvpQwNTsT.jpg",
@@ -22896,7 +22896,7 @@ export const movies = [
       "Ed Helms"
     ]
   },
-  "youtubeTrailerKey": null
+  "youtubeTrailerKey": "BsbYE-Q474I"
 },
 {
   "id": "lost-2004",
@@ -23058,7 +23058,7 @@ export const movies = [
       "Lyssa 'Baby' Chapman"
     ]
   },
-  "youtubeTrailerKey": null
+  "youtubeTrailerKey": "rBfxkaZf0uM"
 },
 {
   "id": "andrew-dice-clay-dice-rules-1991",
@@ -23079,7 +23079,7 @@ export const movies = [
     "imdbId": "tt0101726",
     "status": "Released",
     "originalLanguage": "en",
-    "category": "Movie",
+    "category": "Stand-Up",
     "seasons": []
   },
   "media": {
@@ -23109,6 +23109,52 @@ export const movies = [
   },
   "youtubeTrailerKey": null
 },
+{
+  "id": "chris-rock-bring-the-pain-1996",
+  "title": "Chris Rock: Bring the Pain",
+  "sortTitle": "Chris Rock: Bring the Pain",
+  "year": 1996,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Comedy"
+    ],
+    "tmdbId": 18128,
+    "runtimeMinutes": 58,
+    "imdbId": "tt0200529",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Stand-Up",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/chris-rock-bring-the-pain-1996-poster.jpg",
+    "backdrop": "/assets/posters/chris-rock-bring-the-pain-1996-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Chris%20Rock%3A%20Bring%20the%20Pain"
+  },
+  "text": {
+    "overview": "A true equal-opportunity offender, Chris Rock's brand of humor will make you think after you're done laughing.",     
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.1,
+      "voteCount": 76
+    }
+  },
+  "credits": {
+    "director": "Keith Truesdell",
+    "castPreview": [
+      "Chris Rock"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+
 {
   "id": "criss-angel-mindfreak-2005",
   "title": "Criss Angel Mindfreak",
@@ -23162,7 +23208,7 @@ export const movies = [
       "Criss Angel"
     ]
   },
-  "youtubeTrailerKey": null
+  "youtubeTrailerKey": "GS2HdJZwFnI"
 },
 {
   "id": "down-to-earth-2001",
