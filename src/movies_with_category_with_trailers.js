@@ -22844,7 +22844,7 @@ export const movies = [
     "seasons": []
   },
   "media": {
-    "poster": "/assets/posters/shania-twain-the-platinum-collection-2001-backdrop.jpg",
+    "poster": "/assets/posters/the-barenaked-truth-2002.jpg",
     "backdrop": null,
     "placeholder": "https://via.placeholder.com/300x450?text=Barenaked%20Ladies%3A%20The%20Barenaked%20Truth"
   },
