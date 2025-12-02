@@ -40,13 +40,11 @@ function MovieModal({
     movie.media?.placeholder ||
     "https://via.placeholder.com/400x600?text=No+Poster";
 
-  // Trailer info
   const youtubeKey = movie.youtubeTrailerKey ?? null;
   const trailerEmbedUrl = youtubeKey
     ? `https://www.youtube.com/embed/${youtubeKey}`
     : null;
 
-  // State for lazy trailer modal
   const [trailerOpen, setTrailerOpen] = useState(false);
   const openTrailer = () => setTrailerOpen(true);
   const closeTrailer = () => setTrailerOpen(false);
@@ -144,7 +142,7 @@ function MovieModal({
   };
 
   return (
-    <div className="modal-content">
+    <div className={`modal-content${movie.tags?.includes("superbit") ? " superbit" : ""}`}>
       {/* Poster */}
       <div className="modal-poster" style={{ textAlign: "center" }}>
         <img src={posterSrc} alt={movie.title} className="modal-poster-img" />
@@ -164,7 +162,24 @@ function MovieModal({
               flexWrap: "wrap",
             }}
           >
-            <h2 className="modal-title">{movie.title}</h2>
+            <h2 className="modal-title">
+              {movie.title}
+              {movie.tags?.includes("superbit") && (
+                <span className="badge-superbit">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                    style={{ marginRight: "4px" }}
+                  >
+                    <path d="M8 0L6.5 5H1L5 8L3.5 13L8 10L12.5 13L11 8L15 5H9.5L8 0Z" />
+                  </svg>
+                  Superbit
+                </span>
+              )}
+            </h2>
             {runtimeLabel && <span className="modal-meta-text">{runtimeLabel}</span>}
             {isTV && seasonSummary && (
               <span className="modal-meta-text">{seasonSummary}</span>

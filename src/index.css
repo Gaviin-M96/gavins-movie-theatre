@@ -408,6 +408,25 @@ body.modal-open {
   border-color: rgba(148, 163, 184, 1);
 }
 
+.badge-superbit {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(90deg, #8b5cf6, #6366f1);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.modal-content.superbit {
+  border: 2px solid #8b5cf6;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+
 /* Primary chip (modal) */
 .chip--primary {
   background: var(--grad-primary);

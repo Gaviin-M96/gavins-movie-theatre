@@ -23486,7 +23486,7 @@ export const movies = [
       "tmdbId": 30621
     },
     "media": {
-      "backdrop": "/assets/posters/history-on-film-volume-ii-1997-backdrop.jpg",
+      "backdrop": "/assets/posters/history-on-film-volume-ii-1997-poster.jpg",
       "placeholder": "https://via.placeholder.com/300x450?text=HIStory%20on%20Film%2C%20Volume%20II",
       "poster": "/assets/posters/history-on-film-volume-ii-1997-poster.jpg"
     },
@@ -23676,7 +23676,7 @@ export const movies = [
     "media": {
       "backdrop": null,
       "placeholder": "https://via.placeholder.com/300x450?text=Ultimate%20Gretzky",
-      "poster": "/assets/posters/ultimate-gretzky-2003-poster.jpg"
+      "poster": "/assets/posters/ultimate-gretzky-2003.jpg"
     },
     "text": {
       "overview": "They call him \"the Great One\" and this is the first time ever he has told the many stories behind his greatest accomplishments and moments. Hosted by hockey personality John Davidson and Wayne's good friend, Keifer Sutherland, sports fans take a journey into the man that is Wayne Gretzky.",
