@@ -17,6 +17,16 @@ const hasTag = (movie, tag) =>
       movie.library.tags.includes(tag))
   );
 
+// For safety: if profile nickname is bad/empty, fall back
+function getSafeDisplayName(raw) {
+  if (!raw) return "A movie watcher";
+  const cleaned = raw.trim().replace(/\s+/g, " ");
+  if (cleaned.length < 2 || !/[a-zA-Z]/.test(cleaned)) {
+    return "A movie watcher";
+  }
+  return cleaned;
+}
+
 function MovieModal({
   movie,
   isFavorite,
@@ -28,6 +38,7 @@ function MovieModal({
   onSetGavinText,
   movieReviewKey,
   onQuickSearch,
+  user, // NEW: Supabase auth user
 }) {
   const year = movie.year || null;
   const runtime = movie.metadata?.runtimeMinutes ?? null;
@@ -61,9 +72,13 @@ function MovieModal({
   const [loadingReviews, setLoadingReviews] = useState(true);
   const [reviewsError, setReviewsError] = useState(null);
 
-  const [communityName, setCommunityName] = useState("");
+  // Community review form state
   const [communityRating, setCommunityRating] = useState("");
   const [communityText, setCommunityText] = useState("");
+
+  // Nickname from profiles
+  const [profileDisplayName, setProfileDisplayName] = useState("");
+  const [profileLoading, setProfileLoading] = useState(false);
 
   useEffect(() => {
     if (!movieReviewKey) return;
@@ -88,6 +103,61 @@ function MovieModal({
     loadReviews();
   }, [movieReviewKey]);
 
+  // Load profile nickname for the current user
+  useEffect(() => {
+    if (!user) {
+      setProfileDisplayName("");
+      return;
+    }
+
+    let cancelled = false;
+    const loadProfileName = async () => {
+      setProfileLoading(true);
+      const { data, error } = await supabase
+        .from("profiles")
+        .select("display_name")
+        .eq("id", user.id)
+        .single()
+        .catch((err) => ({ data: null, error: err }));
+
+      if (cancelled) return;
+
+      if (error) {
+        console.warn("Profile load error (ok if no row yet):", error);
+        setProfileDisplayName("");
+      } else {
+        const raw = data?.display_name || "";
+        setProfileDisplayName(raw.trim());
+      }
+      setProfileLoading(false);
+    };
+
+    loadProfileName();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [user]);
+
+  // When reviews load or user changes, pre-fill the form with their existing review if any
+  useEffect(() => {
+    if (!user) {
+      setCommunityRating("");
+      setCommunityText("");
+      return;
+    }
+    const existing = reviews.find((r) => r.user_id === user.id);
+    if (existing) {
+      setCommunityRating(
+        existing.rating != null ? String(existing.rating) : ""
+      );
+      setCommunityText(existing.comment || "");
+    } else {
+      setCommunityRating("");
+      setCommunityText("");
+    }
+  }, [user, reviews]);
+
   const runtimeLabel = useMemo(() => {
     if (!runtime) return null;
     const hours = Math.floor(runtime / 60);
@@ -99,7 +169,9 @@ function MovieModal({
   const isTV = movie.metadata?.category === "TV Show";
   const seasons = movie.metadata?.seasons || [];
   const seasonSummary = isTV
-    ? `${seasons.length} season${seasons.length > 1 ? "s" : ""} • ${seasons.reduce(
+    ? `${seasons.length} season${
+        seasons.length > 1 ? "s" : ""
+      } • ${seasons.reduce(
         (sum, s) => sum + (s.episodeCount || 0),
         0
       )} episodes`
@@ -114,44 +186,86 @@ function MovieModal({
     onQuickSearch(String(year));
   };
 
+  // Existing "Gavin" review (special highlight)
   const gavinReviewRow = reviews.find(
-    (r) => r.name && r.name.trim().toLowerCase() === "gavin"
+    (r) =>
+      r.name && r.name.trim().toLowerCase() === "gavin"
   );
   const gavinScoreRaw = gavinReviewRow?.rating ?? null;
-  const hasGavinScore = typeof gavinScoreRaw === "number" && gavinScoreRaw > 0;
+  const hasGavinScore =
+    typeof gavinScoreRaw === "number" && gavinScoreRaw > 0;
   const gavinDisplay = hasGavinScore ? gavinScoreRaw.toFixed(1) : null;
 
+  // Current user's review, if logged in
+  const currentUserReview =
+    user && reviews.length
+      ? reviews.find((r) => r.user_id === user.id)
+      : null;
+
+  // Community reviews = everyone except the "Gavin" row
   const communityReviews = reviews.filter(
     (r) => !gavinReviewRow || r.id !== gavinReviewRow.id
   );
 
   const handleCommunitySubmit = async (e) => {
     e.preventDefault();
-    const num = parseFloat(communityRating);
-    if (isNaN(num) || num < 0 || num > 10) return;
-
-    const payload = {
-      movie_id: movieReviewKey,
-      name: communityName.trim() || "Anonymous",
-      rating: num,
-      comment: communityText.trim() || null,
-    };
-
-    const { data, error } = await supabase
-      .from("reviews")
-      .insert([payload])
-      .select()
-      .single();
-
-    if (error) {
-      console.error("Error saving review:", error);
+    if (!user) {
+      setReviewsError("Please sign in to leave a review.");
       return;
     }
 
-    setReviews((prev) => [data, ...prev]);
-    setCommunityName("");
-    setCommunityRating("");
-    setCommunityText("");
+    const num = parseFloat(communityRating);
+    if (isNaN(num) || num < 0 || num > 10) {
+      setReviewsError("Rating must be between 0 and 10.");
+      return;
+    }
+
+    const safeName = getSafeDisplayName(profileDisplayName);
+
+    const payload = {
+      movie_id: movieReviewKey,
+      rating: num,
+      comment: communityText.trim() || null,
+      user_id: user.id,
+      display_name: safeName,
+    };
+
+    setReviewsError(null);
+
+    if (currentUserReview) {
+      // Update existing review
+      const { data, error } = await supabase
+        .from("reviews")
+        .update(payload)
+        .eq("id", currentUserReview.id)
+        .select()
+        .single();
+
+      if (error) {
+        console.error("Error updating review:", error);
+        setReviewsError("Could not update your review.");
+        return;
+      }
+
+      setReviews((prev) =>
+        prev.map((r) => (r.id === data.id ? data : r))
+      );
+    } else {
+      // Insert new review
+      const { data, error } = await supabase
+        .from("reviews")
+        .insert([payload])
+        .select()
+        .single();
+
+      if (error) {
+        console.error("Error saving review:", error);
+        setReviewsError("Could not save your review.");
+        return;
+      }
+
+      setReviews((prev) => [data, ...prev]);
+    }
   };
 
   return (
@@ -188,7 +302,7 @@ function MovieModal({
             )}
           </div>
 
-          {/* Year + rating + Superbit / 4K chips */}
+          {/* Year + rating + Superbit pill */}
           <div
             className="modal-meta-row modal-meta-row--chips"
             style={{
@@ -208,25 +322,18 @@ function MovieModal({
                 {year}
               </button>
             )}
-
             {rating != null && (
               <span
                 className={
-                  "chip modal-rating-chip " + getRatingBadgeClass(rating)
+                  "chip modal-rating-chip " +
+                  getRatingBadgeClass(rating)
                 }
               >
                 ⭐ {rating.toFixed(1)}
               </span>
             )}
-
             {hasTag(movie, "superbit") && (
               <span className="chip modal-meta-chip">Superbit</span>
-            )}
-
-            {hasTag(movie, "4k") && (
-              <span className="chip modal-meta-chip modal-4k-chip">
-                4K UHD
-              </span>
             )}
           </div>
         </div>
@@ -379,7 +486,8 @@ function MovieModal({
                 Community Reviews
               </h3>
               <p style={{ fontSize: "0.8rem" }}>
-                Let me know what you thought. <strong>Be honest.</strong>
+                Leave a rating once you&apos;re signed in.{" "}
+                <strong>Emails are never shown.</strong>
               </p>
             </div>
 
@@ -393,68 +501,118 @@ function MovieModal({
               </p>
             ) : (
               <ul className="community-list">
-                {communityReviews.map((r) => (
-                  <li key={r.id} className="community-item">
-                    <div className="community-meta">
-                      <span style={{ fontSize: "0.85rem" }}>{r.name}</span>
-                      <span>
-                        {" "}
-                        ⭐ {Number(r.rating).toFixed(1)} / 10 •{" "}
-                        {r.created_at
-                          ? new Date(r.created_at).toLocaleDateString(
-                              undefined,
-                              {
+                {communityReviews.map((r) => {
+                  const displayName =
+                    r.display_name ||
+                    r.name ||
+                    "A movie watcher";
+                  const isYou =
+                    user && r.user_id === user.id;
+                  return (
+                    <li key={r.id} className="community-item">
+                      <div className="community-meta">
+                        <span style={{ fontSize: "0.85rem" }}>
+                          {displayName}
+                          {isYou && (
+                            <span
+                              style={{
+                                marginLeft: "0.4rem",
+                                fontSize: "0.7rem",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.08em",
+                                opacity: 0.8,
+                              }}
+                            >
+                              (You)
+                            </span>
+                          )}
+                        </span>
+                        <span>
+                          ⭐{" "}
+                          {Number(r.rating).toFixed(1)} / 10 •{" "}
+                          {r.created_at
+                            ? new Date(
+                                r.created_at
+                              ).toLocaleDateString(undefined, {
                                 year: "numeric",
                                 month: "short",
                                 day: "numeric",
-                              }
-                            )
-                          : ""}
-                      </span>
-                    </div>
-                    {r.comment && (
-                      <p style={{ fontSize: "0.85rem" }}>{r.comment}</p>
-                    )}
-                  </li>
-                ))}
+                              })
+                            : ""}
+                        </span>
+                      </div>
+                      {r.comment && (
+                        <p style={{ fontSize: "0.85rem" }}>
+                          {r.comment}
+                        </p>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             )}
 
-            <form className="community-form" onSubmit={handleCommunitySubmit}>
-              <div style={{ display: "flex", gap: "0.5rem" }}>
-                <input
-                  type="text"
-                  placeholder="Your name (optional)"
-                  value={communityName}
-                  onChange={(e) => setCommunityName(e.target.value)}
-                  className="community-input"
-                />
-                <input
-                  type="number"
-                  min="0"
-                  max="10"
-                  step="0.1"
-                  style={{ maxWidth: "110px" }}
-                  placeholder="Rating"
-                  value={communityRating}
-                  onChange={(e) => setCommunityRating(e.target.value)}
-                  className="community-input"
-                />
-              </div>
-              <textarea
-                rows={2}
-                placeholder="What did you think?"
-                value={communityText}
-                onChange={(e) => setCommunityText(e.target.value)}
-                className="community-textarea"
-              />
-              <button
-                type="submit"
-                className="btn-primary community-submit"
+            {/* Review form */}
+            {!user ? (
+              <p
+                style={{
+                  fontSize: "0.8rem",
+                  marginTop: "0.75rem",
+                  color: "#9ca3af",
+                }}
               >
-                Submit review
-              </button>
-            </form>
+                Sign in from the left sidebar to leave a review.
+              </p>
+            ) : (
+              <form
+                className="community-form"
+                onSubmit={handleCommunitySubmit}
+              >
+                <p
+                  style={{
+                    fontSize: "0.78rem",
+                    margin: "0 0 0.4rem",
+                    color: "#9ca3af",
+                  }}
+                >
+                  Posting as{" "}
+                  <strong>
+                    {getSafeDisplayName(profileDisplayName)}
+                  </strong>
+                  .
+                </p>
+                <div style={{ display: "flex", gap: "0.5rem" }}>
+                  <input
+                    type="number"
+                    min="0"
+                    max="10"
+                    step="0.1"
+                    style={{ maxWidth: "110px" }}
+                    placeholder="Rating"
+                    value={communityRating}
+                    onChange={(e) =>
+                      setCommunityRating(e.target.value)
+                    }
+                    className="community-input"
+                  />
+                </div>
+                <textarea
+                  rows={2}
+                  placeholder="What did you think?"
+                  value={communityText}
+                  onChange={(e) =>
+                    setCommunityText(e.target.value)
+                  }
+                  className="community-textarea"
+                />
+                <button
+                  type="submit"
+                  className="btn-primary community-submit"
+                >
+                  {currentUserReview ? "Update review" : "Submit review"}
+                </button>
+              </form>
+            )}
           </section>
         </div>
       </div>

@@ -6,6 +6,9 @@ import FiltersSidebar from "./components/FiltersSidebar";
 import MovieGrid from "./components/MovieGrid";
 import MovieModal from "./components/MovieModal";
 import BottomNav from "./components/BottomNav";
+import AuthPanel from "./components/AuthPanel";
+import { supabase } from "./api/supabaseClient";
+
 import {
   AiOutlineAppstore,
   AiOutlineStar,
@@ -48,7 +51,6 @@ function getSortTitle(str) {
 }
 
 // Static superset of known genres (canonical + extended)
-// NOTE: "TV Movie" has been removed on purpose
 const GENRE_FILTERS_ALL = [
   "Action",
   "Adventure",
@@ -103,8 +105,37 @@ function App() {
   const [showAllGenres, setShowAllGenres] = useState(false);
   const [gavinReviews, setGavinReviews] = useState({});
 
+  // NEW: auth state
+  const [user, setUser] = useState(null);
+  const [authLoading, setAuthLoading] = useState(true);
+
   useEffect(() => {
     document.title = "Gavin's Movie Theatre";
+  }, []);
+
+  // Load auth session
+  useEffect(() => {
+    const initAuth = async () => {
+      setAuthLoading(true);
+      const { data, error } = await supabase.auth.getUser();
+      if (error) {
+        console.error("Error getting user:", error);
+      }
+      setUser(data?.user ?? null);
+      setAuthLoading(false);
+    };
+
+    initAuth();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
   }, []);
 
   // Load saved state
@@ -235,9 +266,7 @@ function App() {
     return s;
   }, []);
 
-  // Final genre list for the sidebar:
-  // "all" + known genres from the superset that are actually used
-  // plus any extra genres that appear in data but aren't in the superset
+  // Final genre list for the sidebar
   const genres = useMemo(() => {
     const used = Array.from(genreUsageSet);
     const canonical = GENRE_FILTERS_ALL.filter((g) => genreUsageSet.has(g));
@@ -249,28 +278,24 @@ function App() {
   }, [genreUsageSet]);
 
   // Categories based on metadata.category (default "Movie")
-// Categories based on metadata.category (default "Movie") — normalized & stable
-const categories = useMemo(() => {
-  const usedSet = new Set();
+  const categories = useMemo(() => {
+    const usedSet = new Set();
 
-  for (const m of movies) {
-    let cat = m.metadata?.category ?? "Movie";
-    if (typeof cat === "string") {
-      cat = cat.trim();
-      if (cat.length) usedSet.add(cat);
+    for (const m of movies) {
+      let cat = m.metadata?.category ?? "Movie";
+      if (typeof cat === "string") {
+        cat = cat.trim();
+        if (cat.length) usedSet.add(cat);
+      }
     }
-  }
 
-  // canonical categories present in data (keeps order from CATEGORY_TYPES)
-  const canonical = CATEGORY_TYPES.filter((c) => usedSet.has(c));
+    const canonical = CATEGORY_TYPES.filter((c) => usedSet.has(c));
+    const extras = Array.from(usedSet)
+      .filter((c) => !CATEGORY_TYPES.includes(c))
+      .sort((a, b) => a.localeCompare(b));
 
-  // extras discovered in data but not in CATEGORY_TYPES
-  const extras = Array.from(usedSet)
-    .filter((c) => !CATEGORY_TYPES.includes(c))
-    .sort((a, b) => a.localeCompare(b));
-
-  return ["all", ...canonical, ...extras];
-}, [movies]);
+    return ["all", ...canonical, ...extras];
+  }, [movies]);
 
   const MAX_VISIBLE_CHIPS = 8;
   const visibleFormats = showAllFormats
@@ -336,46 +361,45 @@ const categories = useMemo(() => {
       return matchesSearch && matchesFormat && matchesGenre && matchesCategory;
     });
 
-result.sort((a, b) => {
-  const ya = a.year || 0;
-  const yb = b.year || 0;
+    result.sort((a, b) => {
+      const ya = a.year || 0;
+      const yb = b.year || 0;
 
-  const ga = gavinReviews[a.id]?.rating ?? 0;
-  const gb = gavinReviews[b.id]?.rating ?? 0;
+      const ga = gavinReviews[a.id]?.rating ?? 0;
+      const gb = gavinReviews[b.id]?.rating ?? 0;
 
-  // 🔹 Prefer your manual score, then fall back to TMDB voteAverage
-  const ra =
-    (a.ratings?.score ?? null) ??
-    (a.ratings?.tmdb?.voteAverage ?? 0);
+      const ra =
+        (a.ratings?.score ?? null) ??
+        (a.ratings?.tmdb?.voteAverage ?? 0);
 
-  const rb =
-    (b.ratings?.score ?? null) ??
-    (b.ratings?.tmdb?.voteAverage ?? 0);
+      const rb =
+        (b.ratings?.score ?? null) ??
+        (b.ratings?.tmdb?.voteAverage ?? 0);
 
-  const titleA = getSortTitle(a.title);
-  const titleB = getSortTitle(b.title);
+      const titleA = getSortTitle(a.title);
+      const titleB = getSortTitle(b.title);
 
-  switch (sortBy) {
-    case "title-asc":
-      return titleA.localeCompare(titleB);
-    case "title-desc":
-      return titleB.localeCompare(titleA);
-    case "year-desc":
-      return yb - ya || titleA.localeCompare(titleB);
-    case "year-asc":
-      return ya - yb || titleA.localeCompare(titleB);
-    case "gavin-desc":
-      return gb - ga || titleA.localeCompare(titleB);
-    case "gavin-asc":
-      return ga - gb || titleA.localeCompare(titleB);
-    case "tmdb-desc": // really "rating desc" now
-      return rb - ra || titleA.localeCompare(titleB);
-    case "tmdb-asc": // really "rating asc" now
-      return ra - rb || titleA.localeCompare(titleB);
-    default:
-      return titleA.localeCompare(titleB);
-  }
-});
+      switch (sortBy) {
+        case "title-asc":
+          return titleA.localeCompare(titleB);
+        case "title-desc":
+          return titleB.localeCompare(titleA);
+        case "year-desc":
+          return yb - ya || titleA.localeCompare(titleB);
+        case "year-asc":
+          return ya - yb || titleA.localeCompare(titleB);
+        case "gavin-desc":
+          return gb - ga || titleA.localeCompare(titleB);
+        case "gavin-asc":
+          return ga - gb || titleA.localeCompare(titleB);
+        case "tmdb-desc":
+          return rb - ra || titleA.localeCompare(titleB);
+        case "tmdb-asc":
+          return ra - rb || titleA.localeCompare(titleB);
+        default:
+          return titleA.localeCompare(titleB);
+      }
+    });
 
     return result;
   }, [
@@ -481,7 +505,7 @@ result.sort((a, b) => {
   return (
     <div className="app">
       <div className="layout">
-        {/* LEFT RAIL: logo above sidebar, both sticky together */}
+        {/* LEFT RAIL */}
         <div className="left-rail">
           <div className="logo-bar">
             <img
@@ -492,6 +516,9 @@ result.sort((a, b) => {
           </div>
 
           <div className="sidebar-column">
+            {/* Compact auth pill + modal */}
+            <AuthPanel user={user} loading={authLoading} />
+
             <FiltersSidebar
               search={search}
               sortBy={sortBy}
@@ -574,6 +601,7 @@ result.sort((a, b) => {
               onSetGavinText={(text) => setGavinText(modalMovie.id, text)}
               movieReviewKey={movieReviewKey}
               onQuickSearch={handleQuickSearch}
+              user={user}
             />
           </div>
         </div>
