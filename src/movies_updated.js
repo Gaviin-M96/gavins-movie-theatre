@@ -22880,6 +22880,58 @@ export const movies = [
   },
   "youtubeTrailerKey": "8weTf8FwgpQ"
 },
+{
+  "id": "air-force-one-1997",
+  "title": "Air Force One",
+  "sortTitle": "Air Force One",
+  "year": 1997,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": [
+      "superbit"
+    ]
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "tmdbId": 9772,
+    "runtimeMinutes": 124,
+    "imdbId": "tt0118571",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/air-force-one-1997-poster.jpg",     
+    "backdrop": "/assets/posters/air-force-one-1997-backdrop.jpg", 
+    "placeholder": "https://via.placeholder.com/300x450?text=Air%20Force%20One"
+  },
+  "text": {
+    "overview": "When Russian neo-nationalists hijack Air Force One, the world's most secure and extraordinary aircraft, the President is faced with a nearly impossible decision to give in to terrorist demands or sacrifice not only the country's dignity, but the lives of his wife and daughter.",
+    "tagline": "The fate of the nation rests on the courage of one man."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.479,
+      "voteCount": 3178
+    }
+  },
+  "credits": {
+    "director": "Wolfgang Petersen",
+    "castPreview": [
+      "Harrison Ford",
+      "Gary Oldman",
+      "Glenn Close",
+      "Wendy Crewson",
+      "Liesel Matthews"
+    ]
+  },
+  "youtubeTrailerKey": "FItgZOuaPVY"
+},
   {
     "id": "daddy-day-care-2003",
     "title": "Daddy Day Care",
