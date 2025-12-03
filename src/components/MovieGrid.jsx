@@ -13,6 +13,14 @@ export function getRatingBadgeClass(rating) {
   return "card-rating-badge card-rating-badge--low";
 }
 
+// Helper – supports tags on movie.tags OR movie.library.tags
+const hasTag = (movie, tag) =>
+  !!(
+    (Array.isArray(movie?.tags) && movie.tags.includes(tag)) ||
+    (Array.isArray(movie?.library?.tags) &&
+      movie.library.tags.includes(tag))
+  );
+
 function MovieCard({
   movie,
   isFavorite,
@@ -23,11 +31,10 @@ function MovieCard({
 }) {
   const year = movie.year || null;
 
-  // 🔹 Prefer manual rating (ratings.score), then fall back to TMDB
+  // Prefer manual rating, then TMDB
   const manualScore = movie.ratings?.score ?? null;
   const tmdbScore = movie.ratings?.tmdb?.voteAverage ?? null;
   const rating = manualScore ?? tmdbScore;
-
   const ratingClass = getRatingBadgeClass(rating);
 
   const posterUrl =
@@ -44,7 +51,6 @@ function MovieCard({
       : "";
 
   const format = movie.library?.format || null;
-
   const formatClass =
     "card-format-pill " +
     (format && format.toUpperCase() === "DVD"
@@ -55,8 +61,7 @@ function MovieCard({
 
   return (
     <article className="card" onClick={handleCardClick}>
-      
-      {/* Poster + overlay badges pushed into the cover */}
+      {/* Poster */}
       <div className="cover">
         <img src={posterUrl} alt={movie.title} loading="lazy" />
 
@@ -68,13 +73,12 @@ function MovieCard({
           )}
 
           {rating != null && (
-            <div className={ratingClass}>
-              ⭐ {rating.toFixed(1)}
-            </div>
+            <div className={ratingClass}>⭐ {rating.toFixed(1)}</div>
           )}
         </div>
       </div>
 
+      {/* Card body */}
       <div className="card-body">
         <h2>{movie.title}</h2>
         <p className="meta">
@@ -82,35 +86,64 @@ function MovieCard({
           {genresText ? ` · ${genresText}` : ""}
         </p>
 
-        {/* Clean, consistent icon buttons */}
-        <div className="card-actions" onClick={(e) => e.stopPropagation()}>
-          {/* Favourite */}
-          <button
-            type="button"
-            className={
-              "icon-button" + (isFavorite ? " icon-button--active" : "")
-            }
-            onClick={onToggleFavorite}
-            title={isFavorite ? "Remove from favourites" : "Add to favourites"}
-          >
-            <span className="icon-symbol">
-              {isFavorite ? <AiFillStar /> : <AiOutlineStar />}
-            </span>
-          </button>
+        {/* Icon buttons + right-side pills (Superbit / 4K) */}
+        <div
+          className="card-actions-row"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginTop: "0.5rem",
+          }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Left: favourite / watchlist icons */}
+          <div className="card-actions">
+            <button
+              type="button"
+              className={
+                "icon-button" + (isFavorite ? " icon-button--active" : "")
+              }
+              onClick={onToggleFavorite}
+              title={
+                isFavorite
+                  ? "Remove from favourites"
+                  : "Add to favourites"
+              }
+            >
+              <span className="icon-symbol">
+                {isFavorite ? <AiFillStar /> : <AiOutlineStar />}
+              </span>
+            </button>
 
-          {/* Watchlist */}
-          <button
-            type="button"
-            className={
-              "icon-button" + (inWatchlist ? " icon-button--active" : "")
-            }
-            onClick={onToggleWatchlist}
-            title={inWatchlist ? "Remove from watchlist" : "Add to watchlist"}
-          >
-            <span className="icon-symbol">
-              {inWatchlist ? <AiFillEye /> : <AiOutlineEye />}
-            </span>
-          </button>
+            <button
+              type="button"
+              className={
+                "icon-button" + (inWatchlist ? " icon-button--active" : "")
+              }
+              onClick={onToggleWatchlist}
+              title={
+                inWatchlist
+                  ? "Remove from watchlist"
+                  : "Add to watchlist"
+              }
+            >
+              <span className="icon-symbol">
+                {inWatchlist ? <AiFillEye /> : <AiOutlineEye />}
+              </span>
+            </button>
+          </div>
+
+          {/* Right: Superbit / 4K pills */}
+          <div className="card-extra-badges">
+            {hasTag(movie, "superbit") && (
+              <span className="card-superbit-badge">Superbit</span>
+            )}
+
+            {hasTag(movie, "4k") && (
+              <span className="card-4k-badge">4K UHD</span>
+            )}
+          </div>
         </div>
       </div>
     </article>

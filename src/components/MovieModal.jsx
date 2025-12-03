@@ -9,6 +9,14 @@ import {
   AiOutlineEye,
 } from "react-icons/ai";
 
+// Supports tags stored in either movie.tags or movie.library.tags
+const hasTag = (movie, tag) =>
+  !!(
+    (Array.isArray(movie?.tags) && movie.tags.includes(tag)) ||
+    (Array.isArray(movie?.library?.tags) &&
+      movie.library.tags.includes(tag))
+  );
+
 function MovieModal({
   movie,
   isFavorite,
@@ -67,6 +75,7 @@ function MovieModal({
         .select("*")
         .eq("movie_id", movieReviewKey)
         .order("created_at", { ascending: false });
+
       if (error) {
         console.error("Error loading reviews:", error);
         setReviewsError("Could not load reviews.");
@@ -120,21 +129,25 @@ function MovieModal({
     e.preventDefault();
     const num = parseFloat(communityRating);
     if (isNaN(num) || num < 0 || num > 10) return;
+
     const payload = {
       movie_id: movieReviewKey,
       name: communityName.trim() || "Anonymous",
       rating: num,
       comment: communityText.trim() || null,
     };
+
     const { data, error } = await supabase
       .from("reviews")
       .insert([payload])
       .select()
       .single();
+
     if (error) {
       console.error("Error saving review:", error);
       return;
     }
+
     setReviews((prev) => [data, ...prev]);
     setCommunityName("");
     setCommunityRating("");
@@ -142,7 +155,11 @@ function MovieModal({
   };
 
   return (
-    <div className={`modal-content${movie.tags?.includes("superbit") ? " superbit" : ""}`}>
+    <div
+      className={`modal-content${
+        hasTag(movie, "superbit") ? " superbit" : ""
+      }`}
+    >
       {/* Poster */}
       <div className="modal-poster" style={{ textAlign: "center" }}>
         <img src={posterSrc} alt={movie.title} className="modal-poster-img" />
@@ -162,31 +179,16 @@ function MovieModal({
               flexWrap: "wrap",
             }}
           >
-            <h2 className="modal-title">
-              {movie.title}
-              {movie.tags?.includes("superbit") && (
-                <span className="badge-superbit">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="12"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    style={{ marginRight: "4px" }}
-                  >
-                    <path d="M8 0L6.5 5H1L5 8L3.5 13L8 10L12.5 13L11 8L15 5H9.5L8 0Z" />
-                  </svg>
-                  Superbit
-                </span>
-              )}
-            </h2>
-            {runtimeLabel && <span className="modal-meta-text">{runtimeLabel}</span>}
+            <h2 className="modal-title">{movie.title}</h2>
+            {runtimeLabel && (
+              <span className="modal-meta-text">{runtimeLabel}</span>
+            )}
             {isTV && seasonSummary && (
               <span className="modal-meta-text">{seasonSummary}</span>
             )}
           </div>
 
-          {/* Year + rating */}
+          {/* Year + rating + Superbit / 4K chips */}
           <div
             className="modal-meta-row modal-meta-row--chips"
             style={{
@@ -194,6 +196,7 @@ function MovieModal({
               justifyContent: "center",
               gap: "0.5rem",
               marginTop: "0.5rem",
+              flexWrap: "wrap",
             }}
           >
             {year && (
@@ -205,9 +208,24 @@ function MovieModal({
                 {year}
               </button>
             )}
+
             {rating != null && (
-              <span className={"chip modal-rating-chip " + getRatingBadgeClass(rating)}>
+              <span
+                className={
+                  "chip modal-rating-chip " + getRatingBadgeClass(rating)
+                }
+              >
                 ⭐ {rating.toFixed(1)}
+              </span>
+            )}
+
+            {hasTag(movie, "superbit") && (
+              <span className="chip modal-meta-chip">Superbit</span>
+            )}
+
+            {hasTag(movie, "4k") && (
+              <span className="chip modal-meta-chip modal-4k-chip">
+                4K UHD
               </span>
             )}
           </div>
@@ -215,7 +233,10 @@ function MovieModal({
 
         {/* Genres */}
         {genres && genres.length > 0 && (
-          <div className="modal-genre-row" style={{ justifyContent: "center" }}>
+          <div
+            className="modal-genre-row"
+            style={{ justifyContent: "center" }}
+          >
             {genres.slice(0, 5).map((g) => (
               <button
                 key={g}
@@ -230,36 +251,74 @@ function MovieModal({
         )}
 
         {/* Favorite / Watchlist */}
-        <div className="card-actions" style={{ justifyContent: "center", marginTop: "0.75rem" }}>
+        <div
+          className="card-actions"
+          style={{ justifyContent: "center", marginTop: "0.75rem" }}
+        >
           <button
             type="button"
-            className={"icon-button" + (isFavorite ? " icon-button--active" : "")}
+            className={
+              "icon-button" + (isFavorite ? " icon-button--active" : "")
+            }
             onClick={onToggleFavorite}
-            title={isFavorite ? "Remove from favourites" : "Add to favourites"}
+            title={
+              isFavorite ? "Remove from favourites" : "Add to favourites"
+            }
           >
-            <span className="icon-symbol">{isFavorite ? <AiFillStar /> : <AiOutlineStar />}</span>
+            <span className="icon-symbol">
+              {isFavorite ? <AiFillStar /> : <AiOutlineStar />}
+            </span>
           </button>
 
           <button
             type="button"
-            className={"icon-button" + (inWatchlist ? " icon-button--active" : "")}
+            className={
+              "icon-button" + (inWatchlist ? " icon-button--active" : "")
+            }
             onClick={onToggleWatchlist}
-            title={inWatchlist ? "Remove from watchlist" : "Add to watchlist"}
+            title={
+              inWatchlist ? "Remove from watchlist" : "Add to watchlist"
+            }
           >
-            <span className="icon-symbol">{inWatchlist ? <AiFillEye /> : <AiOutlineEye />}</span>
+            <span className="icon-symbol">
+              {inWatchlist ? <AiFillEye /> : <AiOutlineEye />}
+            </span>
           </button>
         </div>
 
         {/* Director / Cast */}
         {(director || limitedCast.length > 0) && (
-          <div className="modal-people-section" style={{ marginTop: "1rem", textAlign: "center", fontSize: "0.8rem", lineHeight: "1.4" }}>
-            {director && <p><strong>Directed By:</strong> {director}</p>}
-            {limitedCast.length > 0 && <p><strong>Starring:</strong> {limitedCast.join(", ")}</p>}
+          <div
+            className="modal-people-section"
+            style={{
+              marginTop: "1rem",
+              textAlign: "center",
+              fontSize: "0.8rem",
+              lineHeight: "1.4",
+            }}
+          >
+            {director && (
+              <p>
+                <strong>Directed By:</strong> {director}
+              </p>
+            )}
+            {limitedCast.length > 0 && (
+              <p>
+                <strong>Starring:</strong> {limitedCast.join(", ")}
+              </p>
+            )}
           </div>
         )}
 
         {/* Overview */}
-        {overview && <p className="modal-overview" style={{ maxWidth: "600px", margin: "1rem auto" }}>{overview}</p>}
+        {overview && (
+          <p
+            className="modal-overview"
+            style={{ maxWidth: "600px", margin: "1rem auto" }}
+          >
+            {overview}
+          </p>
+        )}
 
         {/* Trailer Button */}
         {trailerEmbedUrl && (
@@ -271,29 +330,57 @@ function MovieModal({
         )}
 
         {/* Reviews (Gavin + Community) */}
-        <div className="review-sections" style={{ display: "flex", flexWrap: "wrap", gap: "1.5rem", justifyContent: "center", alignItems: "flex-start", marginTop: "1.5rem" }}>
+        <div
+          className="review-sections"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "1.5rem",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            marginTop: "1.5rem",
+          }}
+        >
           {/* Gavin */}
-          <section className="review-section review-section--gavin" style={{ flex: "0 1 260px", maxWidth: "280px" }}>
+          <section
+            className="review-section review-section--gavin"
+            style={{ flex: "0 1 260px", maxWidth: "280px" }}
+          >
             <div className="review-section-header">
-              <h3 style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>Gavin&apos;s Score</h3>
+              <h3 style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>
+                Gavin&apos;s Score
+              </h3>
             </div>
             <div className="review-section-body">
               <div className="gavin-score-box">
-                <span className="gavin-score-icon">{hasGavinScore ? "⭐" : "☆"}</span>
+                <span className="gavin-score-icon">
+                  {hasGavinScore ? "⭐" : "☆"}
+                </span>
                 {hasGavinScore ? (
-                  <span className="gavin-score-text">{gavinDisplay}/10</span>
+                  <span className="gavin-score-text">
+                    {gavinDisplay}/10
+                  </span>
                 ) : (
-                  <span className="gavin-score-text gavin-score-text--empty">Not Yet Rated</span>
+                  <span className="gavin-score-text gavin-score-text--empty">
+                    Not Yet Rated
+                  </span>
                 )}
               </div>
             </div>
           </section>
 
           {/* Community */}
-          <section className="review-section review-section--community" style={{ flex: "1 1 320px", maxWidth: "480px" }}>
+          <section
+            className="review-section review-section--community"
+            style={{ flex: "1 1 320px", maxWidth: "480px" }}
+          >
             <div className="review-section-header">
-              <h3 style={{ fontSize: "1rem", marginBottom: "0.25rem" }}>Community Reviews</h3>
-              <p style={{ fontSize: "0.8rem" }}>Let me know what you thought. <strong>Be honest.</strong></p>
+              <h3 style={{ fontSize: "1rem", marginBottom: "0.25rem" }}>
+                Community Reviews
+              </h3>
+              <p style={{ fontSize: "0.8rem" }}>
+                Let me know what you thought. <strong>Be honest.</strong>
+              </p>
             </div>
 
             {loadingReviews ? (
@@ -301,16 +388,33 @@ function MovieModal({
             ) : reviewsError ? (
               <p style={{ fontSize: "0.85rem" }}>{reviewsError}</p>
             ) : communityReviews.length === 0 ? (
-              <p style={{ fontSize: "0.85rem" }}>No community reviews yet. Be the first to rate this movie.</p>
+              <p style={{ fontSize: "0.85rem" }}>
+                No community reviews yet. Be the first to rate this movie.
+              </p>
             ) : (
               <ul className="community-list">
                 {communityReviews.map((r) => (
                   <li key={r.id} className="community-item">
                     <div className="community-meta">
                       <span style={{ fontSize: "0.85rem" }}>{r.name}</span>
-                      <span> ⭐ {Number(r.rating).toFixed(1)} / 10 • {r.created_at ? new Date(r.created_at).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : ""}</span>
+                      <span>
+                        {" "}
+                        ⭐ {Number(r.rating).toFixed(1)} / 10 •{" "}
+                        {r.created_at
+                          ? new Date(r.created_at).toLocaleDateString(
+                              undefined,
+                              {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                              }
+                            )
+                          : ""}
+                      </span>
                     </div>
-                    {r.comment && <p style={{ fontSize: "0.85rem" }}>{r.comment}</p>}
+                    {r.comment && (
+                      <p style={{ fontSize: "0.85rem" }}>{r.comment}</p>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -318,11 +422,38 @@ function MovieModal({
 
             <form className="community-form" onSubmit={handleCommunitySubmit}>
               <div style={{ display: "flex", gap: "0.5rem" }}>
-                <input type="text" placeholder="Your name (optional)" value={communityName} onChange={(e) => setCommunityName(e.target.value)} className="community-input" />
-                <input type="number" min="0" max="10" step="0.1" style={{ maxWidth: "110px" }} placeholder="Rating" value={communityRating} onChange={(e) => setCommunityRating(e.target.value)} className="community-input" />
+                <input
+                  type="text"
+                  placeholder="Your name (optional)"
+                  value={communityName}
+                  onChange={(e) => setCommunityName(e.target.value)}
+                  className="community-input"
+                />
+                <input
+                  type="number"
+                  min="0"
+                  max="10"
+                  step="0.1"
+                  style={{ maxWidth: "110px" }}
+                  placeholder="Rating"
+                  value={communityRating}
+                  onChange={(e) => setCommunityRating(e.target.value)}
+                  className="community-input"
+                />
               </div>
-              <textarea rows={2} placeholder="What did you think?" value={communityText} onChange={(e) => setCommunityText(e.target.value)} className="community-textarea" />
-              <button type="submit" className="btn-primary community-submit">Submit review</button>
+              <textarea
+                rows={2}
+                placeholder="What did you think?"
+                value={communityText}
+                onChange={(e) => setCommunityText(e.target.value)}
+                className="community-textarea"
+              />
+              <button
+                type="submit"
+                className="btn-primary community-submit"
+              >
+                Submit review
+              </button>
             </form>
           </section>
         </div>
