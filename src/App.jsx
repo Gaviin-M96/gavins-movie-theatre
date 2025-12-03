@@ -588,21 +588,21 @@ function App() {
             <button className="modal-close" onClick={closeModal}>
               ✕
             </button>
-            <MovieModal
-              movie={modalMovie}
-              isFavorite={favoriteSet.has(modalMovie.id)}
-              inWatchlist={watchlistSet.has(modalMovie.id)}
-              onToggleFavorite={() => toggleFavorite(modalMovie.id)}
-              onToggleWatchlist={() => toggleWatchlist(modalMovie.id)}
-              gavinReview={gavinReview}
-              onSetGavinRating={(rating) =>
-                setGavinRating(modalMovie.id, rating)
-              }
-              onSetGavinText={(text) => setGavinText(modalMovie.id, text)}
-              movieReviewKey={movieReviewKey}
-              onQuickSearch={handleQuickSearch}
-              user={user}
-            />
+           <MovieModal
+  movie={modalMovie}
+  user={user}
+  isFavorite={favoriteSet.has(modalMovie.id)}
+  inWatchlist={watchlistSet.has(modalMovie.id)}
+  onToggleFavorite={() => toggleFavorite(modalMovie.id)}
+  onToggleWatchlist={() => toggleWatchlist(modalMovie.id)}
+  gavinReview={gavinReview}
+  onSetGavinRating={(rating) =>
+    setGavinRating(modalMovie.id, rating)
+  }
+  onSetGavinText={(text) => setGavinText(modalMovie.id, text)}
+  movieReviewKey={movieReviewKey}
+  onQuickSearch={handleQuickSearch}
+/>
           </div>
         </div>
       )}

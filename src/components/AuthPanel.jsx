@@ -74,11 +74,11 @@ function AuthPanel({ user, loading }) {
     setErrorMsg("");
 
     const { error } = await supabase.auth.signInWithOtp({
-      email: email.trim(),
-      options: {
-        emailRedirectTo: window.location.origin,
-      },
-    });
+  email: email.trim(),
+  options: {
+    emailRedirectTo: "https://movies.gavinmoore.ca",
+  },
+});
 
     if (error) {
       console.error("Error sending magic link:", error);
