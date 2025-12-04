@@ -596,9 +596,7 @@ function App() {
   onToggleFavorite={() => toggleFavorite(modalMovie.id)}
   onToggleWatchlist={() => toggleWatchlist(modalMovie.id)}
   gavinReview={gavinReview}
-  onSetGavinRating={(rating) =>
-    setGavinRating(modalMovie.id, rating)
-  }
+  onSetGavinRating={(rating) => setGavinRating(modalMovie.id, rating)}
   onSetGavinText={(text) => setGavinText(modalMovie.id, text)}
   movieReviewKey={movieReviewKey}
   onQuickSearch={handleQuickSearch}
