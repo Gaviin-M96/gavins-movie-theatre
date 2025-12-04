@@ -9,6 +9,8 @@ import {
   AiOutlineEye,
 } from "react-icons/ai";
 
+const GAVIN_EMAIL = "gavinmoore.cs@gmail.com";
+
 // Supports tags stored in either movie.tags or movie.library.tags
 const hasTag = (movie, tag) =>
   !!(
@@ -33,12 +35,12 @@ function MovieModal({
   inWatchlist,
   onToggleFavorite,
   onToggleWatchlist,
-  gavinReview,
-  onSetGavinRating,
-  onSetGavinText,
+  gavinReview,        // still accepted so App.jsx doesn't break (unused now)
+  onSetGavinRating,   // unused
+  onSetGavinText,     // unused
   movieReviewKey,
   onQuickSearch,
-  user, // NEW: Supabase auth user
+  user,               // Supabase auth user
 }) {
   const year = movie.year || null;
   const runtime = movie.metadata?.runtimeMinutes ?? null;
@@ -68,6 +70,7 @@ function MovieModal({
   const openTrailer = () => setTrailerOpen(true);
   const closeTrailer = () => setTrailerOpen(false);
 
+  // All reviews for this movie
   const [reviews, setReviews] = useState([]);
   const [loadingReviews, setLoadingReviews] = useState(true);
   const [reviewsError, setReviewsError] = useState(null);
@@ -80,11 +83,17 @@ function MovieModal({
   const [profileDisplayName, setProfileDisplayName] = useState("");
   const [profileLoading, setProfileLoading] = useState(false);
 
+  // Gavin's rating UI state
+  const [gavinRating, setGavinRating] = useState("");
+
+  // Load all reviews for this movie
   useEffect(() => {
     if (!movieReviewKey) return;
+
     async function loadReviews() {
       setLoadingReviews(true);
       setReviewsError(null);
+
       const { data, error } = await supabase
         .from("reviews")
         .select("*")
@@ -98,8 +107,10 @@ function MovieModal({
       } else {
         setReviews(data || []);
       }
+
       setLoadingReviews(false);
     }
+
     loadReviews();
   }, [movieReviewKey]);
 
@@ -139,24 +150,51 @@ function MovieModal({
     };
   }, [user]);
 
-  // When reviews load or user changes, pre-fill the form with their existing review if any
+  // Special: existing Gavin review (by name)
+  const gavinReviewRow = reviews.find(
+    (r) =>
+      r.name && r.name.trim().toLowerCase() === "gavin"
+  );
+
+  // Keep local gavinRating in sync with DB
+  useEffect(() => {
+    if (gavinReviewRow?.rating != null) {
+      setGavinRating(String(gavinReviewRow.rating));
+    } else {
+      setGavinRating("");
+    }
+  }, [gavinReviewRow]);
+
+  // Current user's review, if logged in
+  const currentUserReview =
+    user && reviews.length
+      ? reviews.find((r) => r.user_id === user.id)
+      : null;
+
+  // Community reviews = everyone except the "Gavin" row
+  const communityReviews = reviews.filter(
+    (r) => !gavinReviewRow || r.id !== gavinReviewRow.id
+  );
+
+  // Pre-fill community form with user's existing review (if any)
   useEffect(() => {
     if (!user) {
       setCommunityRating("");
       setCommunityText("");
       return;
     }
-    const existing = reviews.find((r) => r.user_id === user.id);
-    if (existing) {
+    if (currentUserReview) {
       setCommunityRating(
-        existing.rating != null ? String(existing.rating) : ""
+        currentUserReview.rating != null
+          ? String(currentUserReview.rating)
+          : ""
       );
-      setCommunityText(existing.comment || "");
+      setCommunityText(currentUserReview.comment || "");
     } else {
       setCommunityRating("");
       setCommunityText("");
     }
-  }, [user, reviews]);
+  }, [user, currentUserReview]);
 
   const runtimeLabel = useMemo(() => {
     if (!runtime) return null;
@@ -181,31 +219,11 @@ function MovieModal({
     if (!g) return;
     onQuickSearch(g);
   };
+
   const handleYearClick = () => {
     if (!year) return;
     onQuickSearch(String(year));
   };
-
-  // Existing "Gavin" review (special highlight)
-  const gavinReviewRow = reviews.find(
-    (r) =>
-      r.name && r.name.trim().toLowerCase() === "gavin"
-  );
-  const gavinScoreRaw = gavinReviewRow?.rating ?? null;
-  const hasGavinScore =
-    typeof gavinScoreRaw === "number" && gavinScoreRaw > 0;
-  const gavinDisplay = hasGavinScore ? gavinScoreRaw.toFixed(1) : null;
-
-  // Current user's review, if logged in
-  const currentUserReview =
-    user && reviews.length
-      ? reviews.find((r) => r.user_id === user.id)
-      : null;
-
-  // Community reviews = everyone except the "Gavin" row
-  const communityReviews = reviews.filter(
-    (r) => !gavinReviewRow || r.id !== gavinReviewRow.id
-  );
 
   const handleCommunitySubmit = async (e) => {
     e.preventDefault();
@@ -266,6 +284,45 @@ function MovieModal({
 
       setReviews((prev) => [data, ...prev]);
     }
+  };
+
+  // Gavin-only: save Gavin’s Score to Supabase so everyone sees it
+  const saveGavinReview = async () => {
+    if (!user || user.email !== GAVIN_EMAIL) return;
+    if (!movieReviewKey) return;
+
+    const num = parseFloat(gavinRating);
+    if (isNaN(num) || num < 0 || num > 10) return;
+
+    // Remove existing Gavin review to enforce one per movie
+    await supabase
+      .from("reviews")
+      .delete()
+      .eq("movie_id", movieReviewKey)
+      .eq("name", "Gavin");
+
+    const { error } = await supabase.from("reviews").insert([
+      {
+        movie_id: movieReviewKey,
+        rating: num,
+        comment: null,
+        name: "Gavin",
+      },
+    ]);
+
+    if (error) {
+      console.error("Error saving Gavin rating:", error);
+      return;
+    }
+
+    // Reload reviews so UI updates
+    const { data } = await supabase
+      .from("reviews")
+      .select("*")
+      .eq("movie_id", movieReviewKey)
+      .order("created_at", { ascending: false });
+
+    setReviews(data || []);
   };
 
   return (
@@ -455,25 +512,87 @@ function MovieModal({
           >
             <div className="review-section-header">
               <h3 style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>
-                Gavin&apos;s Score
+                Gavin’s Score
               </h3>
             </div>
-            <div className="review-section-body">
-              <div className="gavin-score-box">
-                <span className="gavin-score-icon">
-                  {hasGavinScore ? "⭐" : "☆"}
+
+            {user?.email === GAVIN_EMAIL ? (
+              <>
+                <div className="review-section-body">
+                  <div
+                    className="gavin-score-box"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.35rem",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <span
+                      className="gavin-score-icon"
+                      style={{
+                        color: "#FFD700",
+                        fontSize: "1.4rem",
+                        filter: "drop-shadow(0 0 4px #ffef9f)",
+                      }}
+                    >
+                      ⭐
+                    </span>
+
+                    <input
+                      type="number"
+                      min="0"
+                      max="10"
+                      step="0.1"
+                      value={gavinRating}
+                      onChange={(e) => setGavinRating(e.target.value)}
+                      className="community-input"
+                      style={{
+                        width: "70px",
+                        textAlign: "center",
+                        fontSize: "1rem",
+                        padding: "2px 4px",
+                        borderRadius: "6px",
+                      }}
+                    />
+                    <span>/ 10</span>
+                  </div>
+                  <button
+                    className="btn-primary"
+                    style={{ marginTop: "0.5rem" }}
+                    onClick={saveGavinReview}
+                  >
+                    Save Gavin’s Score
+                  </button>
+                </div>
+              </>
+            ) : gavinReviewRow ? (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.4rem",
+                  justifyContent: "center",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#FFD700",
+                    fontSize: "1.4rem",
+                    filter: "drop-shadow(0 0 4px #ffef9f)",
+                  }}
+                >
+                  ⭐
                 </span>
-                {hasGavinScore ? (
-                  <span className="gavin-score-text">
-                    {gavinDisplay}/10
-                  </span>
-                ) : (
-                  <span className="gavin-score-text gavin-score-text--empty">
-                    Not Yet Rated
-                  </span>
-                )}
+                <span className="gavin-score-text">
+                  {Number(gavinReviewRow.rating).toFixed(1)} / 10
+                </span>
               </div>
-            </div>
+            ) : (
+              <p style={{ fontSize: ".85rem", color: "#888" }}>
+                Gavin hasn’t rated this yet.
+              </p>
+            )}
           </section>
 
           {/* Community */}
@@ -506,8 +625,7 @@ function MovieModal({
                     r.display_name ||
                     r.name ||
                     "A movie watcher";
-                  const isYou =
-                    user && r.user_id === user.id;
+                  const isYou = user && r.user_id === user.id;
                   return (
                     <li key={r.id} className="community-item">
                       <div className="community-meta">
@@ -528,8 +646,7 @@ function MovieModal({
                           )}
                         </span>
                         <span>
-                          ⭐{" "}
-                          {Number(r.rating).toFixed(1)} / 10 •{" "}
+                          ⭐ {Number(r.rating).toFixed(1)} / 10 •{" "}
                           {r.created_at
                             ? new Date(
                                 r.created_at
