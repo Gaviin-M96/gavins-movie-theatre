@@ -1813,3 +1813,49 @@ body.modal-open {
   border-top: 1px solid rgba(55, 65, 81, 0.9);
   margin: 0.8rem 0 0.6rem;
 }
+
+/* --- Gavin Score Box --- */
+.review-section--gavin .gavin-score-box {
+  border: none !important;        /* Remove the red border */
+  padding: 0.4rem 0.4rem !important;  /* Reduce left/right padding */
+  background: rgba(255, 215, 0, 0.08); /* Soft gold glow */
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* Input inside the Gavin score box */
+.review-section--gavin .gavin-input {
+  border: 1px solid #ccc;
+  padding: 2px 4px;               /* tighter */
+  border-radius: 6px;
+  width: 60px !important;         /* narrower */
+  text-align: center;
+}
+
+/* ===================== */
+/* FIX: Gavin Score Box  */
+/* ===================== */
+
+/* Remove red border, remove gold glow, add subtle white outline */
+.review-section--gavin {
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+}
+
+/* Clean Gavin score box */
+.review-section--gavin .gavin-score-box {
+  background: transparent !important;
+  border: none !important;
+  padding: 0.35rem 0.45rem !important;
+}
+
+/* Clean input styling */
+.review-section--gavin .gavin-input {
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  padding: 2px 4px !important;
+  border-radius: 6px !important;
+  width: 60px !important;
+  text-align: center;
+}

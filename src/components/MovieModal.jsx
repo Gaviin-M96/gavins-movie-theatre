@@ -562,7 +562,7 @@ function MovieModal({
                     style={{ marginTop: "0.5rem" }}
                     onClick={saveGavinReview}
                   >
-                    Save Gavin’s Score
+                    Save
                   </button>
                 </div>
               </>

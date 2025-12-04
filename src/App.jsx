@@ -20,6 +20,10 @@ import {
 // NEW: import the logo so Vite bundles it correctly
 import reelRoomLogo from "./assets/reel-room.jpeg";
 
+const isDev = import.meta.env.DEV;
+const devEmail = import.meta.env.VITE_DEV_ADMIN_EMAIL;
+const devPassword = import.meta.env.VITE_DEV_ADMIN_PASSWORD;
+
 const FILTERS_STORAGE_KEY = "gmtFilters";
 const FAVORITES_STORAGE_KEY = "gmtFavorites";
 const WATCHLIST_STORAGE_KEY = "gmtWatchlist";
@@ -113,30 +117,63 @@ function App() {
     document.title = "Gavin's Movie Theatre";
   }, []);
 
-  // Load auth session
-  useEffect(() => {
-    const initAuth = async () => {
-      setAuthLoading(true);
-      const { data, error } = await supabase.auth.getUser();
-      if (error) {
-        console.error("Error getting user:", error);
-      }
-      setUser(data?.user ?? null);
+  // Load auth session + dev auto-login
+useEffect(() => {
+  let ignore = false;
+
+  const initAuth = async () => {
+    setAuthLoading(true);
+
+    // 1. Check existing session first
+    const { data: sessionData } = await supabase.auth.getSession();
+    const currentUser = sessionData?.session?.user ?? null;
+
+    if (!ignore && currentUser) {
+      setUser(currentUser);
       setAuthLoading(false);
-    };
+      return;
+    }
 
-    initAuth();
+    // 2. DEV: auto-login admin account
+    if (isDev && devEmail && devPassword) {
+      console.log("DEV: Auto-signing in admin user...");
 
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: devEmail,
+        password: devPassword,
+      });
 
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, []);
+      if (error) {
+        console.error("DEV: Auto-login failed:", error);
+      } else if (!ignore) {
+        setUser(data.user);
+      }
+
+      setAuthLoading(false);
+      return;
+    }
+
+    // 3. Production + no session
+    setUser(null);
+    setAuthLoading(false);
+  };
+
+  initAuth();
+
+  // Subscribe to auth changes
+  const { data: listener } = supabase.auth.onAuthStateChange(
+    (_event, session) => {
+      if (!ignore) {
+        setUser(session?.user ?? null);
+      }
+    }
+  );
+
+  return () => {
+    ignore = true;
+    listener.subscription.unsubscribe();
+  };
+}, []);
 
   // Load saved state
   useEffect(() => {
