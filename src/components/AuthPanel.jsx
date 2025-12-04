@@ -20,7 +20,7 @@ function AuthPanel({ user, loading }) {
   const [displayName, setDisplayName] = useState("");
   const [profileStatus, setProfileStatus] = useState(null); // "saved" | "error" | null
   const [profileError, setProfileError] = useState("");
-  const [profileLoading, setProfileLoading] = useState(false);
+  const [profileSaving, setProfileSaving] = useState(false); // 🔹 only for saving
 
   // Load profile.display_name when user changes
   useEffect(() => {
@@ -34,29 +34,31 @@ function AuthPanel({ user, loading }) {
     let cancelled = false;
 
     const loadProfile = async () => {
-      setProfileLoading(true);
       setProfileStatus(null);
       setProfileError("");
 
-      const { data, error } = await supabase
-        .from("profiles")
-        .select("display_name")
-        .eq("id", user.id)
-        .single()
-        .catch((err) => ({ data: null, error: err }));
+      try {
+        const { data, error } = await supabase
+          .from("profiles")
+          .select("display_name")
+          .eq("id", user.id)
+          .single();
 
-      if (cancelled) return;
+        if (cancelled) return;
 
-      if (error) {
-        // If no row yet, that's fine
-        console.warn("Profile load error (safe to ignore if 406):", error);
+        if (error) {
+          // If no row yet, that's fine
+          console.warn("Profile load error (safe to ignore if 406):", error);
+          setDisplayName("");
+        } else {
+          const raw = data?.display_name || "";
+          setDisplayName(raw.trim());
+        }
+      } catch (err) {
+        if (cancelled) return;
+        console.warn("Profile load threw:", err);
         setDisplayName("");
-      } else {
-        const raw = data?.display_name || "";
-        setDisplayName(raw.trim());
       }
-
-      setProfileLoading(false);
     };
 
     loadProfile();
@@ -74,11 +76,11 @@ function AuthPanel({ user, loading }) {
     setErrorMsg("");
 
     const { error } = await supabase.auth.signInWithOtp({
-  email: email.trim(),
-  options: {
-    emailRedirectTo: "https://movies.gavinmoore.ca",
-  },
-});
+      email: email.trim(),
+      options: {
+        emailRedirectTo: "https://movies.gavinmoore.ca",
+      },
+    });
 
     if (error) {
       console.error("Error sending magic link:", error);
@@ -129,7 +131,7 @@ function AuthPanel({ user, loading }) {
 
     setProfileStatus(null);
     setProfileError("");
-    setProfileLoading(true);
+    setProfileSaving(true); // 🔹 only here
 
     const { error } = await supabase
       .from("profiles")
@@ -141,7 +143,7 @@ function AuthPanel({ user, loading }) {
         { onConflict: "id" }
       );
 
-    setProfileLoading(false);
+    setProfileSaving(false);
 
     if (error) {
       console.error("Error saving display name:", error);
@@ -188,10 +190,7 @@ function AuthPanel({ user, loading }) {
       {/* Auth modal */}
       {isOpen && (
         <div className="auth-modal-backdrop" onClick={closeModal}>
-          <div
-            className="auth-modal"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="auth-modal" onClick={(e) => e.stopPropagation()}>
             <button
               type="button"
               className="auth-modal-close"
@@ -234,9 +233,9 @@ function AuthPanel({ user, loading }) {
                   <button
                     type="submit"
                     className="btn-primary auth-button"
-                    disabled={profileLoading}
+                    disabled={profileSaving}
                   >
-                    {profileLoading ? "Saving…" : "Save nickname"}
+                    {profileSaving ? "Saving…" : "Save nickname"}
                   </button>
                 </form>
 
