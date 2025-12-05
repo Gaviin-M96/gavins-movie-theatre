@@ -590,7 +590,7 @@ function MovieModal({
               </div>
             ) : (
               <p style={{ fontSize: ".85rem", color: "#888" }}>
-                Gavin hasn’t rated this yet.
+                Not yet rated.
               </p>
             )}
           </section>
