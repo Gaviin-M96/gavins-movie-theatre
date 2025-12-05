@@ -687,7 +687,6 @@ body.modal-open {
   align-items: center;
 }
 
-/* Base format pill */
 .card-format-pill {
   padding: 0.2rem 0.55rem;
   border-radius: 999px;
@@ -697,18 +696,22 @@ body.modal-open {
   border: 1px solid rgba(46, 184, 255, 0.45);
 }
 
-/* Blu-ray – blue */
 .card-format-pill--bluray {
   background: rgba(1, 20, 37, 0.56);
   color: var(--accent-blue);
   border-color: rgba(65, 166, 255, 0.75);
 }
 
-/* DVD – green */
 .card-format-pill--dvd {
   background: rgba(2, 47, 20, 0.56);
   color: #2ecc71;
   border-color: rgba(46, 204, 113, 0.75);
+}
+
+.card-format-pill--vhs {
+  background: rgba(50, 23, 7, 0.6);
+  color: #ffb088;
+  border-color: rgba(255, 180, 120, 0.75);
 }
 
 /* Rating badges */

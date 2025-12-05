@@ -2032,7 +2032,9 @@ export const movies = [
     "library": {
       "format": "Blu-ray",
       "owned": true,
-      "tags": []
+      "tags": [
+        "4k"
+      ]
     },
     "metadata": {
       "category": "Movie",
@@ -3723,7 +3725,9 @@ export const movies = [
     "library": {
       "format": "Blu-ray",
       "owned": true,
-      "tags": []
+      "tags": [
+        "4k"
+      ]
     },
     "metadata": {
       "category": "Movie",
@@ -3831,7 +3835,9 @@ export const movies = [
     "library": {
       "format": "Blu-ray",
       "owned": true,
-      "tags": []
+      "tags": [
+        "4k"
+      ]
     },
     "metadata": {
       "category": "Movie",
@@ -26664,13 +26670,309 @@ export const movies = [
     },
     "youtubeTrailerKey": "J80nOz7wFqY"
   },
+{
+  "id": "batman-mr-freeze-subzero-1998",
+  "title": "Batman & Mr. Freeze: SubZero",
+  "sortTitle": "Batman & Mr. Freeze: SubZero",
+  "year": 1998,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Action",
+      "Crime"
+    ],
+    "tmdbId": 15805,
+    "runtimeMinutes": 67,
+    "imdbId": "tt0143127",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/batman-mr-freeze-subzero-1998-poster.jpg",
+    "backdrop": "/assets/posters/batman-mr-freeze-subzero-1998-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Batman%20%26%20Mr.%20Freeze%3A%20SubZero"
+  },
+  "text": {
+    "overview": "When Mr. Freeze kidnaps Barbara Gordon, as an involuntary organ donor to save his dying wife, Batman and Robin must find her before the operation can begin.",
+    "tagline": "It's going to get Cold this Summer!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.921,
+      "voteCount": 481
+    }
+  },
+  "credits": {
+    "director": "Boyd Kirkland",
+    "castPreview": [
+      "Kevin Conroy",
+      "Michael Ansara",
+      "Loren Lester",
+      "Mary Kay Bergman",
+      "Robert Costanzo"
+    ]
+  },
+  "youtubeTrailerKey": "nSfidAYMx7o"
+},
+{
+  "id": "the-many-adventures-of-winnie-the-pooh-1977",
+  "title": "The Many Adventures of Winnie the Pooh",
+  "sortTitle": "The Many Adventures of Winnie the Pooh",
+  "year": 1977,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Family",
+      "Adventure"
+    ],
+    "tmdbId": 250480,
+    "runtimeMinutes": 74,
+    "imdbId": "tt0076363",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-many-adventures-of-winnie-the-pooh-1977-poster.jpg",
+    "backdrop": "/assets/posters/the-many-adventures-of-winnie-the-pooh-1977-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Many%20Adventures%20of%20Winnie%20the%20Pooh"
+  },
+  "text": {
+    "overview": "Whether we’re young or forever young at heart, the Hundred Acre Wood calls to that place in each of us that still believes in magic. Join pals Pooh, Piglet, Kanga, Roo, Owl, Rabbit, Tigger and Christopher Robin as they enjoy their days together and sing their way through adventures.",    
+    "tagline": "Hip Hip Poohray!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.246,
+      "voteCount": 1121
+    }
+  },
+  "credits": {
+    "director": "John Lounsbery, Wolfgang Reitherman",
+    "castPreview": [
+      "Sterling Holloway",
+      "John Fiedler",
+      "Junius Matthews",
+      "Paul Winchell",
+      "Ralph Wright"
+    ]
+  },
+  "youtubeTrailerKey": "CRSCO78EuFU"
+},
+{
+  "id": "the-land-before-time-iii-the-time-of-the-great-giving-1995",
+  "title": "The Land Before Time III: The Time of the Great Giving",
+  "sortTitle": "The Land Before Time III: The Time of the Great Giving",
+  "year": 1995,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Adventure",
+      "Family"
+    ],
+    "tmdbId": 19004,
+    "runtimeMinutes": 70,
+    "imdbId": "tt0113596",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-land-before-time-iii-the-time-of-the-great-giving-1995-poster.jpg",
+    "backdrop": "/assets/posters/the-land-before-time-iii-the-time-of-the-great-giving-1995-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Land%20Before%20Time%20III%3A%20The%20Time%20of%20the%20Great%20Giving"
+  },
+  "text": {
+    "overview": "When a sudden shortage of water threatens all life in the great valley, The gang of young dinosaur must cooperate with a group of bullies to make a risky journey outside the valley and find the cause.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.2,
+      "voteCount": 398
+    }
+  },
+  "credits": {
+    "director": "Roy Allen Smith",
+    "castPreview": [
+      "Scott McAfee",
+      "Candace Hutson",
+      "Heather Hogan",
+      "Jeff Bennett",
+      "Rob Paulsen"
+    ]
+  },
+  "youtubeTrailerKey": "aStODvSPBPI"
+},
+{
+  "id": "franklin-in-the-dark-2003",
+  "title": "Franklin in the Dark",
+  "sortTitle": "Franklin in the Dark",
+  "year": 2003,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [],
+    "tmdbId": 801966,
+    "runtimeMinutes": 60,
+    "imdbId": null,
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/franklin-in-the-dark-2003-poster.jpg",
+    "backdrop": null,
+    "placeholder": "https://via.placeholder.com/300x450?text=Franklin%20in%20the%20Dark"
+  },
+  "text": {
+    "overview": "When Franklin's parents discover he's afraid of small dark places, including his own shell, Mrs. Turtle tells him the story of a little turtle just like him that was afraid of the very same thing.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 0,
+      "voteCount": 0
+    }
+  },
+  "credits": {
+    "director": "",
+    "castPreview": []
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "the-land-before-time-vi-the-secret-of-saurus-rock-1998",
+  "title": "The Land Before Time VI: The Secret of Saurus Rock",
+  "sortTitle": "The Land Before Time VI: The Secret of Saurus Rock",
+  "year": 1998,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Adventure",
+      "Family"
+    ],
+    "tmdbId": 17337,
+    "runtimeMinutes": 77,
+    "imdbId": "tt0167247",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-land-before-time-vi-the-secret-of-saurus-rock-1998-poster.jpg",    
+    "backdrop": "/assets/posters/the-land-before-time-vi-the-secret-of-saurus-rock-1998-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Land%20Before%20Time%20VI%3A%20The%20Secret%20of%20Saurus%20Rock"
+  },
+  "text": {
+    "overview": "Legends claim that Saurus Rock keeps bad luck out of the Great Valley. Is it really true? Could the mysterious Longneck named Doc be the famous Lone Dinosaur, who can defeat a Sharptooth with his lasso-like tail To find out, Littlefoot and company must cross the great Valley and face a dangerous Sharptooth themselves!",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.2,
+      "voteCount": 281
+    }
+  },
+  "credits": {
+    "director": "Charles Grosvenor",
+    "castPreview": [
+      "Thomas Dekker",
+      "Kenneth Mars",
+      "Anndi McAfee",
+      "Aria Noelle Curzon",
+      "Jeff Bennett"
+    ]
+  },
+  "youtubeTrailerKey": "tHZrJ5cTOrQ"
+},
+{
+  "id": "an-extremely-goofy-movie-2000",
+  "title": "An Extremely Goofy Movie",
+  "sortTitle": "An Extremely Goofy Movie",
+  "year": 2000,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Family",
+      "Comedy"
+    ],
+    "tmdbId": 15653,
+    "runtimeMinutes": 79,
+    "imdbId": "tt0208185",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/an-extremely-goofy-movie-2000-poster.jpg",
+    "backdrop": "/assets/posters/an-extremely-goofy-movie-2000-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=An%20Extremely%20Goofy%20Movie"
+  },
+  "text": {
+    "overview": "It's all extreme sports and a life of freedom as Max sets off for college -- but Goofy misses Max so much he loses his job and goes to finish college alongside Max and his friends. But as Goofy tries to get closer to Max, both must go to the extreme to learn how to live their own lives together.",
+    "tagline": "Shredding onto video. Leap day 2000."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.4,
+      "voteCount": 671
+    }
+  },
+  "credits": {
+    "director": "Douglas McCarthy",
+    "castPreview": [
+      "Bill Farmer",
+      "Jason Marsden",
+      "Jeff Bennett",
+      "Jim Cummings",
+      "Brad Garrett"
+    ]
+  },
+  "youtubeTrailerKey": "MdfXfkuhPqo"
+},
   {
     "id": "peter-pan-1953",
     "title": "Peter Pan",
     "sortTitle": "Peter Pan",
     "year": 1953,
     "library": {
-      "format": "Blu-ray",
+      "format": "DVD",
       "owned": true,
       "tags": []
     },

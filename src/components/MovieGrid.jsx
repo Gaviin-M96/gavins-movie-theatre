@@ -13,13 +13,47 @@ export function getRatingBadgeClass(rating) {
   return "card-rating-badge card-rating-badge--low";
 }
 
-// Helper – supports tags on movie.tags OR movie.library.tags
+// Tag helper
 const hasTag = (movie, tag) =>
   !!(
     (Array.isArray(movie?.tags) && movie.tags.includes(tag)) ||
     (Array.isArray(movie?.library?.tags) &&
       movie.library.tags.includes(tag))
   );
+
+// NEW: resolve formats cleanly
+function getFormats(movie) {
+  const lib = movie.library || {};
+
+  // New format: multiple formats
+  if (Array.isArray(lib.formats) && lib.formats.length > 0) {
+    return lib.formats.map((f) => f.trim());
+  }
+
+  // Backwards compatible fallback
+  if (lib.format && typeof lib.format === "string") {
+    return [lib.format.trim()];
+  }
+
+  return [];
+}
+
+// NEW: map formats → CSS class
+function getFormatClass(format) {
+  const f = format.toLowerCase();
+
+  switch (f) {
+    case "dvd":
+      return "card-format-pill card-format-pill--dvd";
+    case "vhs":
+      return "card-format-pill card-format-pill--vhs";
+    case "blu-ray":
+    case "bluray":
+      return "card-format-pill card-format-pill--bluray";
+    default:
+      return "card-format-pill"; // fallback
+  }
+}
 
 function MovieCard({
   movie,
@@ -31,7 +65,6 @@ function MovieCard({
 }) {
   const year = movie.year || null;
 
-  // Prefer manual rating, then TMDB
   const manualScore = movie.ratings?.score ?? null;
   const tmdbScore = movie.ratings?.tmdb?.voteAverage ?? null;
   const rating = manualScore ?? tmdbScore;
@@ -50,12 +83,8 @@ function MovieCard({
       ? genresArr.slice(0, 2).join(", ")
       : "";
 
-  const format = movie.library?.format || null;
-  const formatClass =
-    "card-format-pill " +
-    (format && format.toUpperCase() === "DVD"
-      ? "card-format-pill--dvd"
-      : "card-format-pill--bluray");
+  // NEW — support multiple formats
+  const formats = getFormats(movie);
 
   const handleCardClick = () => onOpenModal(movie.id);
 
@@ -66,9 +95,14 @@ function MovieCard({
         <img src={posterUrl} alt={movie.title} loading="lazy" />
 
         <div className="cover-badges">
-          {format && (
-            <div className={formatClass}>
-              {format === "Blu-ray" ? "Blu-ray" : format}
+          {/* MULTIPLE FORMAT PILLS */}
+          {formats.length > 0 && (
+            <div style={{ display: "flex", gap: "0.3rem" }}>
+              {formats.map((fmt) => (
+                <div key={fmt} className={getFormatClass(fmt)}>
+                  {fmt}
+                </div>
+              ))}
             </div>
           )}
 
@@ -86,7 +120,6 @@ function MovieCard({
           {genresText ? ` · ${genresText}` : ""}
         </p>
 
-        {/* Icon buttons + right-side pills (Superbit / 4K) */}
         <div
           className="card-actions-row"
           style={{
@@ -97,7 +130,7 @@ function MovieCard({
           }}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Left: favourite / watchlist icons */}
+          {/* Icons */}
           <div className="card-actions">
             <button
               type="button"
@@ -134,7 +167,7 @@ function MovieCard({
             </button>
           </div>
 
-          {/* Right: Superbit / 4K pills */}
+          {/* Pills on right */}
           <div className="card-extra-badges">
             {hasTag(movie, "superbit") && (
               <span className="card-superbit-badge">Superbit</span>
