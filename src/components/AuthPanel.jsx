@@ -1,7 +1,7 @@
+// src/components/AuthPanel.jsx
 import { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 import { supabase } from "../api/supabaseClient";
-
-const ADMIN_EMAIL = "gavin@gavinmoore.ca"; // ← CHANGE this if needed
 
 function sanitizeDisplayName(raw) {
   if (!raw) return "";
@@ -12,256 +12,230 @@ function sanitizeDisplayName(raw) {
 
 function AuthPanel({ user, loading }) {
   const [email, setEmail] = useState("");
-  const [statusMsg, setStatusMsg] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
+  const [status, setStatus] = useState(null);      // sent | error | null
+  const [errorMsg, setErrorMsg] = useState("");
 
+  const [isOpen, setIsOpen] = useState(false);     // modal open
   const [displayName, setDisplayName] = useState("");
-  const [saveStatus, setSaveStatus] = useState("");
-  const [saveError, setSaveError] = useState("");
-
-  // NEW: Session expiration detection
-  const [sessionExpired, setSessionExpired] = useState(false);
+  const [profileStatus, setProfileStatus] = useState(null); // saved/error
+  const [profileError, setProfileError] = useState("");
+  const [profileSaving, setProfileSaving] = useState(false);
 
   // Load profile nickname
   useEffect(() => {
     if (!user) {
       setDisplayName("");
+      setProfileStatus(null);
+      setProfileError("");
       return;
     }
 
     let cancelled = false;
 
-    const load = async () => {
-      const { data, error } = await supabase
-        .from("profiles")
-        .select("display_name")
-        .eq("id", user.id)
-        .single();
+    const loadProfile = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("profiles")
+          .select("display_name")
+          .eq("id", user.id)
+          .single();
 
-      if (cancelled) return;
+        if (cancelled) return;
 
-      if (!error && data?.display_name) {
-        setDisplayName(data.display_name.trim());
+        if (error) {
+          console.warn("Profile load error:", error);
+          setDisplayName("");
+        } else {
+          setDisplayName(data?.display_name?.trim() || "");
+        }
+      } catch (err) {
+        console.warn("Profile load threw:", err);
+        if (!cancelled) setDisplayName("");
       }
     };
 
-    load();
+    loadProfile();
     return () => {
       cancelled = true;
     };
   }, [user]);
 
-  // NEW: Listen for token refresh / expiration
-  useEffect(() => {
-    const { data: listener } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        if (event === "TOKEN_REFRESHED") {
-          setSessionExpired(false);
-        }
-
-        if (event === "TOKEN_REFRESH_FAILED") {
-          setSessionExpired(true);
-        }
-      }
-    );
-
-    return () => listener.subscription.unsubscribe();
-  }, []);
-
-  // NEW: Cross-tab session sync
-  useEffect(() => {
-    const channel = new BroadcastChannel("auth");
-    const sync = () => supabase.auth.getSession();
-
-    channel.onmessage = sync;
-    return () => channel.close();
-  }, []);
-
-  const broadcastAuth = () => {
-    new BroadcastChannel("auth").postMessage("refresh");
-  };
-
+  // Send magic link
   const handleSendLink = async (e) => {
     e.preventDefault();
+    if (!email.trim()) return;
 
-    setStatusMsg("");
+    setStatus(null);
+    setErrorMsg("");
 
     const { error } = await supabase.auth.signInWithOtp({
-      email,
+      email: email.trim(),
       options: {
         emailRedirectTo: window.location.origin,
       },
     });
 
     if (error) {
-      setStatusMsg("Error: " + error.message);
-      return;
+      setStatus("error");
+      setErrorMsg(error.message || "Could not send link.");
+    } else {
+      setStatus("sent");
     }
-
-    setStatusMsg("Magic link sent! Check your email.");
   };
 
-  const handleSignOut = async () => {
-    await supabase.auth.signOut();
-    setIsOpen(false);
-    broadcastAuth();
-  };
-
+  // Save nickname
   const handleSaveDisplayName = async (e) => {
     e.preventDefault();
     if (!user) return;
 
     const cleaned = sanitizeDisplayName(displayName);
     if (!cleaned) {
-      setSaveError("Name must be at least 2 letters.");
+      setProfileStatus("error");
+      setProfileError("Nickname must be at least 2 characters and include a letter.");
       return;
     }
 
+    setProfileSaving(true);
     const { error } = await supabase
       .from("profiles")
       .upsert({ id: user.id, display_name: cleaned }, { onConflict: "id" });
 
+    setProfileSaving(false);
+
     if (error) {
-      setSaveError("Error saving name.");
+      setProfileStatus("error");
+      setProfileError("Could not save nickname. Try again.");
       return;
     }
 
-    setSaveError("");
-    setSaveStatus("Saved!");
+    setProfileStatus("saved");
   };
+
+  // Sign out
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    setIsOpen(false);
+    setStatus(null);
+    setProfileStatus(null);
+    setProfileError("");
+    setDisplayName("");
+  };
+
+  const openModal = () => {
+    setIsOpen(true);
+    setStatus(null);
+    setErrorMsg("");
+    setProfileStatus(null);
+    setProfileError("");
+  };
+
+  const closeModal = () => setIsOpen(false);
+
+  // -------- PORTALED MODAL CONTENT --------
+  const modalContent = isOpen ? (
+    <div className="auth-modal-backdrop" onClick={closeModal}>
+      <div className="auth-modal" onClick={(e) => e.stopPropagation()}>
+        <button className="auth-modal-close" onClick={closeModal}>✕</button>
+
+        <h2 className="auth-modal-title">Account</h2>
+
+        {loading ? (
+          <p className="auth-text auth-text-muted">Checking your session…</p>
+        ) : user ? (
+          <>
+            <p className="auth-text">You're signed in and can leave reviews.</p>
+            <p className="auth-text auth-text-muted">
+              Your email is used only for login and is <strong>never shown publicly</strong>.
+            </p>
+
+            <form onSubmit={handleSaveDisplayName} className="auth-form">
+              <label className="auth-label">Nickname</label>
+              <input
+                type="text"
+                className="auth-input"
+                placeholder="e.g. The Projectionist"
+                value={displayName}
+                onChange={(e) => {
+                  setDisplayName(e.target.value);
+                  setProfileStatus(null);
+                  setProfileError("");
+                }}
+              />
+
+              <button type="submit" className="btn-primary auth-button" disabled={profileSaving}>
+                {profileSaving ? "Saving…" : "Save nickname"}
+              </button>
+            </form>
+
+            {profileStatus === "saved" && (
+              <p className="auth-text auth-text-success">Nickname saved!</p>
+            )}
+            {profileStatus === "error" && (
+              <p className="auth-text auth-text-error">{profileError}</p>
+            )}
+
+            <hr className="auth-divider" />
+
+            <button type="button" className="btn-secondary auth-button" onClick={handleSignOut}>
+              Sign out
+            </button>
+          </>
+        ) : (
+          <>
+            <p className="auth-text auth-text-muted">
+              Enter your email and you'll receive a magic link to sign in.
+            </p>
+
+            <form onSubmit={handleSendLink} className="auth-form">
+              <input
+                type="email"
+                className="auth-input"
+                placeholder="you@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <button type="submit" className="btn-primary auth-button">
+                Send magic link
+              </button>
+            </form>
+
+            {status === "sent" && (
+              <p className="auth-text auth-text-success">Check your email!</p>
+            )}
+            {status === "error" && (
+              <p className="auth-text auth-text-error">{errorMsg}</p>
+            )}
+          </>
+        )}
+      </div>
+    </div>
+  ) : null;
 
   return (
     <>
-      {/* Compact pill in sidebar */}
+      {/* Compact pill inside the sidebar */}
       <div className="auth-panel-compact">
         {loading ? (
-          <span className="auth-compact-text">Checking…</span>
+          <span className="auth-compact-text">Checking account…</span>
         ) : user ? (
           <>
-            <span className="auth-compact-text">
-              {displayName || user.email}
-              {user.email === ADMIN_EMAIL && (
-                <span style={{
-                  marginLeft: "6px",
-                  color: "#ffd75a",
-                  fontWeight: "600",
-                  fontSize: "0.75rem"
-                }}>
-                  (Admin)
-                </span>
-              )}
-            </span>
-
-            <button
-              className="btn-secondary auth-compact-button"
-              onClick={() => setIsOpen(true)}
-            >
+            <span className="auth-compact-text">Signed in</span>
+            <button className="btn-secondary auth-compact-button" onClick={openModal}>
               Account
             </button>
           </>
         ) : (
           <>
             <span className="auth-compact-text">Want to leave reviews?</span>
-            <button
-              className="btn-primary auth-compact-button"
-              onClick={() => setIsOpen(true)}
-            >
-              Sign In
+            <button className="btn-primary auth-compact-button" onClick={openModal}>
+              Sign in
             </button>
           </>
         )}
       </div>
 
-      {/* Modal */}
-      {isOpen && (
-        <div className="auth-modal-backdrop" onClick={() => setIsOpen(false)}>
-          <div className="auth-modal" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="auth-modal-close"
-              onClick={() => setIsOpen(false)}
-            >
-              ✕
-            </button>
-
-            <h2 className="auth-modal-title">Account</h2>
-
-            {sessionExpired && (
-              <p className="auth-text-error" style={{ marginBottom: "0.5rem" }}>
-                ⚠️ Your session expired — please sign in again.
-              </p>
-            )}
-
-            {!user ? (
-              <>
-                <p className="auth-text auth-text-muted">
-                  Enter your email and I’ll send you a magic login link.
-                </p>
-
-                <form onSubmit={handleSendLink} className="auth-form">
-                  <input
-                    type="email"
-                    className="auth-input"
-                    placeholder="you@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <button className="btn-primary auth-button">
-                    Send Link
-                  </button>
-                </form>
-
-                {statusMsg && (
-                  <p className="auth-text auth-text-success">{statusMsg}</p>
-                )}
-              </>
-            ) : (
-              <>
-                <p className="auth-text">
-                  Signed in as <strong>{user.email}</strong>
-                  {user.email === ADMIN_EMAIL && (
-                    <span style={{ color: "#ffd75a", marginLeft: "6px" }}>
-                      (Admin)
-                    </span>
-                  )}
-                </p>
-
-                {/* Nickname editor */}
-                <form onSubmit={handleSaveDisplayName} className="auth-form">
-                  <label className="auth-label">Nickname</label>
-                  <input
-                    className="auth-input"
-                    value={displayName}
-                    onChange={(e) => {
-                      setDisplayName(e.target.value);
-                      setSaveStatus("");
-                    }}
-                  />
-
-                  <button className="btn-primary auth-button">
-                    Save Name
-                  </button>
-                </form>
-
-                {saveStatus && (
-                  <p className="auth-text-success">{saveStatus}</p>
-                )}
-                {saveError && (
-                  <p className="auth-text-error">{saveError}</p>
-                )}
-
-                <hr className="auth-divider" />
-
-                <button
-                  className="btn-secondary auth-button"
-                  onClick={handleSignOut}
-                >
-                  Sign Out
-                </button>
-              </>
-            )}
-          </div>
-        </div>
-      )}
+      {/* PORTAL renders modal into <body> */}
+      {ReactDOM.createPortal(modalContent, document.body)}
     </>
   );
 }
