@@ -943,99 +943,97 @@ body.modal-open {
 }
 
 /* ===================== */
-/* MODAL                 */
+/* ✅ SINGLE-COLUMN MODAL */
 /* ===================== */
 
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);       /* darker, cleaner */
-  backdrop-filter: blur(10px);           /* strong blur */
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 3000;
+  z-index: 9999;
 }
 
 .modal {
   position: relative;
   background: radial-gradient(circle at top, #121b2f 0%, #070f21 60%, #020612 100%);
   border-radius: 16px;
-  padding: 1rem 1rem 0.75rem;            /* tighter padding */
-  width: min(900px, 96vw);
-  max-height: 88vh;                      /* allow scrollbar */
-  overflow-y: auto;                      /* SCROLLABLE */
+  padding: 1rem;
+  width: min(900px, 95vw);
+  max-height: 90vh;
+  overflow-y: auto;
   box-shadow:
     0 20px 55px rgba(0, 0, 0, 0.9),
     0 0 25px rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  z-index: 3100;
+  z-index: 10000;
 }
 
+/* ✅ CLOSE BUTTON */
 .modal-close {
   position: sticky;
-  top: 0.3rem;
+  top: 0.35rem;
   margin-left: auto;
   border: none;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
   color: var(--text-main);
   border-radius: 999px;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-
-  transition: background 150ms ease, transform 150ms ease;
 }
 
-.modal-close:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px);
-}
-
-/* Two-column modal layout used everywhere */
+/* ✅ FORCE SINGLE COLUMN */
 .modal-content {
-  display: grid;
-  grid-template-columns: 240px minmax(0, 1fr);
+  display: flex !important;
+  flex-direction: column !important;
   gap: 1rem;
-  align-items: flex-start;
-  padding-right: 0.25rem; /* prevents overlap with scrollbar */
+  width: 100%;
+}
+
+/* ✅ POSTER ON TOP */
+.modal-poster {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .modal-poster img {
   width: 100%;
+  max-width: 320px;
   border-radius: 14px;
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.85);
-  object-fit: cover;
 }
 
-.modal-info h2 {
-  margin: 0 0 0.35rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+/* ✅ INFO BELOW POSTER */
+.modal-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
+/* ✅ METADATA */
 .modal-meta-row {
   display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-bottom: 0.4rem;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
 }
 
 .modal-meta-chip {
   background: rgba(255, 255, 255, 0.07);
   border-radius: 999px;
-  padding: 0.18rem 0.55rem;
+  padding: 0.2rem 0.6rem;
   border: 1px solid rgba(255, 255, 255, 0.16);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
 }
 
 .modal-meta-text {
@@ -1043,51 +1041,36 @@ body.modal-open {
   color: var(--text-muted);
 }
 
-/* Genres row */
+/* ✅ GENRES */
 .modal-genre-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
-  margin-bottom: 0.5rem;
+  justify-content: center;
 }
 
-/* Director / Cast chips */
-.modal-chip-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
-}
-
-.modal-chip-group {
-  min-width: 0;
-}
-
-.modal-chip-label {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-bottom: 0.25rem;
-}
-
-.modal-chip-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-
+/* ✅ OVERVIEW */
 .modal-overview {
-  font-size: 0.75rem;
-  line-height: 1.48;
-  margin: 0.4rem 0 0.75rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
   color: var(--text-main);
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-/* Actions row */
+/* ✅ ACTION ROW */
 .modal-actions {
   display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding-bottom: 0.5rem;
+}
+
+/* ✅ REVIEWS STACKED */
+.review-sections {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 /* ===================== */
@@ -1668,3 +1651,4 @@ body.modal-open {
   filter: none !important;
   isolation: auto !important;
 }
+

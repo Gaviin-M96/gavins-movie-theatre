@@ -55,6 +55,8 @@ function App() {
   const [user, setUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
 
+  /* -------------------- AUTH INIT -------------------- */
+
   useEffect(() => {
     let ignore = false;
 
@@ -98,6 +100,8 @@ function App() {
     };
   }, []);
 
+  /* -------------------- LOAD STATE -------------------- */
+
   useEffect(() => {
     try {
       const rawFilters = localStorage.getItem(FILTERS_STORAGE_KEY);
@@ -122,21 +126,33 @@ function App() {
     } catch {}
   }, []);
 
+  /* -------------------- SAVE STATE -------------------- */
+
   useEffect(() => {
     localStorage.setItem(
       FILTERS_STORAGE_KEY,
       JSON.stringify({
-        search, formatFilter, genreFilter,
-        categoryFilter, sortBy, view,
+        search,
+        formatFilter,
+        genreFilter,
+        categoryFilter,
+        sortBy,
+        view,
       })
     );
     localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favorites));
     localStorage.setItem(WATCHLIST_STORAGE_KEY, JSON.stringify(watchlist));
     localStorage.setItem(GAVIN_REVIEWS_KEY, JSON.stringify(gavinReviews));
   }, [
-    search, formatFilter, genreFilter,
-    categoryFilter, sortBy, view,
-    favorites, watchlist, gavinReviews,
+    search,
+    formatFilter,
+    genreFilter,
+    categoryFilter,
+    sortBy,
+    view,
+    favorites,
+    watchlist,
+    gavinReviews,
   ]);
 
   const favoriteSet = useMemo(() => new Set(favorites), [favorites]);
@@ -360,7 +376,10 @@ function App() {
 
       {modalMovie && (
         <div className="modal-backdrop" onClick={() => setModalMovieId(null)}>
-          <div className="modal" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="modal modal--single-column"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button className="modal-close" onClick={() => setModalMovieId(null)}>
               ✕
             </button>
