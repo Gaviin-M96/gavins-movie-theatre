@@ -1634,3 +1634,21 @@ body.modal-open {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* ================================================== */
+/* FIX: Force auth modal + movie modal above all UI   */
+/* ================================================== */
+
+.modal-backdrop,
+.auth-modal-backdrop,
+.trailer-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999 !important;
+}
+
+.modal,
+.auth-modal {
+  position: relative;
+  z-index: 100000 !important;
+}
