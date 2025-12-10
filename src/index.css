@@ -71,7 +71,7 @@ body.modal-open {
 /* LAYOUT */
 /* ===================== */
 
-/* MOBILE-FIRST: stacked layout */
+/* Single (mobile-style) stacked layout for ALL screen sizes */
 .layout {
   display: flex;
   flex-direction: column;
@@ -81,30 +81,13 @@ body.modal-open {
   margin: 0 auto;
 }
 
-/* Left rail (logo + sidebar), full width on mobile */
+/* Left rail (logo + sidebar), full width on all screens */
 .left-rail {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   width: 100%;
   position: static;
-}
-
-/* DESKTOP: 2-column layout with sticky left rail */
-@media (min-width: 900px) {
-  .layout {
-    display: grid;
-    grid-template-columns: 320px minmax(0, 1fr); /* col1: left rail, col2: grid */
-    gap: 1.5rem;
-    align-items: flex-start;
-  }
-
-  .left-rail {
-    width: 100%;
-    position: sticky;
-    top: 1.25rem;
-    align-self: flex-start;
-  }
 }
 
 /* LOGO AREA — FINAL POLISHED VERSION */
@@ -582,18 +565,11 @@ body.modal-open {
 /* GRID + CARDS          */
 /* ===================== */
 
-/* ===== GRID LAYOUT ONLY ===== */
-
+/* GRID LAYOUT — single behavior on all screens */
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* default: 2 columns */
-  gap: 0.9rem;                                      /* even spacing */
-}
-
-@media (min-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 columns on desktop */
-  }
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns everywhere */
+  gap: 0.9rem;
 }
 
 .card {
@@ -1001,6 +977,7 @@ body.modal-open {
   transform: translateY(-1px);
 }
 
+/* Two-column modal layout used everywhere */
 .modal-content {
   display: grid;
   grid-template-columns: 240px minmax(0, 1fr);
@@ -1215,145 +1192,6 @@ body.modal-open {
 }
 
 /* ===================== */
-/* MODAL RESPONSIVE      */
-/* ===================== */
-
-@media (max-width: 900px) {
-  .modal-content {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .modal-poster {
-    max-width: 260px;
-    margin: 0 auto;
-  }
-
-  .review-sections {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-/* ===================== */
-/* REVIEWS               */
-/* ===================== */
-
-.review-sections {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
-  gap: 0.8rem;
-  margin-top: 0.3rem;
-}
-
-.review-section {
-  background: rgba(5, 9, 24, 0.95);
-  border-radius: 14px;
-  padding: 0.6rem 0.7rem;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.review-section--gavin {
-  border-color: rgba(255, 122, 60, 0.5);
-}
-
-.review-section-title {
-  margin: 0;
-  font-size: 0.9rem;
-}
-
-.review-section-sub {
-  margin: 0.15rem 0 0;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-.gavin-score-row {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin-top: 0.45rem;
-}
-
-.gavin-score-star {
-  font-size: 1.2rem;
-}
-
-.gavin-score-slider {
-  flex: 1;
-}
-
-.gavin-score-outof {
-  font-size: 0.82rem;
-}
-
-/* ===================== */
-/* COMMUNITY REVIEWS     */
-/* ===================== */
-
-.community-empty {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.community-list {
-  list-style: none;
-  padding: 0;
-  margin: 0.4rem 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.community-item {
-  background: rgba(4, 8, 22, 0.95);
-  border-radius: 10px;
-  padding: 0.4rem 0.5rem;
-}
-
-.community-meta {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-.community-author {
-  font-weight: 600;
-  color: var(--text-main);
-}
-
-.community-body {
-  margin: 0.2rem 0 0;
-  font-size: 0.8rem;
-}
-
-.community-form {
-  margin-top: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.community-input,
-.community-textarea {
-  width: 100%;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(3, 6, 18, 0.95);
-  color: var(--text-main);
-  font-size: 0.8rem;
-  padding: 0.35rem 0.45rem;
-}
-
-.community-textarea {
-  resize: vertical;
-}
-
-.community-submit {
-  align-self: flex-end;
-  font-size: 0.8rem;
-}
-
-/* ===================== */
 /* BOTTOM NAV – CLEAN UI */
 /* ===================== */
 
@@ -1426,15 +1264,6 @@ body.modal-open {
     border-color var(--transition-fast);
 }
 
-/* tie into your icon-circle style */
-.bottom-nav-item .icon-circle {
-  width: 30px;
-  height: 30px;
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.24);
-  box-shadow: none;
-}
-
 .bottom-nav-item-label {
   white-space: nowrap;
 }
@@ -1455,30 +1284,9 @@ body.modal-open {
     0 0 0 1px rgba(255, 255, 255, 0.14);
 }
 
-/* active icon circle inside active tab */
-.bottom-nav-item--active .icon-circle {
-  background: rgba(65, 166, 255, 0.20);
-  border-color: rgba(65, 166, 255, 0.9);
-  box-shadow: 0 0 10px rgba(65, 166, 255, 0.55);
-}
-
 /* keep icons bright */
-.bottom-nav-item .icon-circle svg {
+.bottom-nav-item-icon svg {
   color: #ffffff !important;
-}
-
-/* Bottom nav mobile tweaks */
-@media (max-width: 480px) {
-  .bottom-nav {
-    bottom: 0.75rem;
-    width: min(100% - 1.5rem, 420px);
-    padding-inline: 0.4rem;
-  }
-
-  .bottom-nav-item {
-    padding-inline: 0.4rem;
-    font-size: 0.66rem;
-  }
 }
 
 /* ===================== */
@@ -1512,9 +1320,8 @@ body.modal-open {
   box-shadow: 0 0 8px #8b5cf6, 0 0 12px #6366f1;
   transform: translateY(-1px);
 }
-/* ===================== */
+
 /* EXTRA BADGES (SUPERBIT / 4K) */
-/* ===================== */
 
 .card-extra-badges {
   display: flex;
@@ -1522,7 +1329,6 @@ body.modal-open {
   gap: 0.25rem;
 }
 
-/* Superbit pill on grid – uses your existing purple style */
 .card-superbit-badge {
   display: inline-flex;
   align-items: center;
@@ -1586,105 +1392,6 @@ body.modal-open {
 /* AUTH – COMPACT + MODAL */
 /* ===================== */
 
-/* Tiny strip in sidebar */
-.auth-panel-compact {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  gap: 0.5rem;
-  margin-bottom: 0.6rem;
-  padding: 0.35rem 0.4rem;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(51, 65, 85, 0.9);
-}
-
-.auth-compact-text {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.auth-compact-button {
-  padding: 0.3rem 0.7rem;
-  font-size: 0.7rem;
-  white-space: nowrap;
-}
-
-/* Full-screen overlay just for auth */
-.auth-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3100;
-}
-
-/* Smaller modal than the main movie modal */
-.auth-modal {
-  position: relative;
-  width: min(420px, 94vw);
-  padding: 1rem 1.1rem 0.9rem;
-  border-radius: 14px;
-  background: radial-gradient(
-    circle at top,
-    #121826 0%,
-    #050816 60%,
-    #020410 100%
-  );
-  box-shadow:
-    0 18px 42px rgba(0, 0, 0, 0.9),
-    0 0 0 1px rgba(148, 163, 184, 0.4);
-}
-
-.auth-modal-title {
-  margin: 0 0 0.5rem;
-  font-size: 1rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.auth-modal-close {
-  position: absolute;
-  top: 0.4rem;
-  right: 0.45rem;
-  border: none;
-  background: rgba(15, 23, 42, 0.9);
-  color: var(--text-main);
-  border-radius: 999px;
-  width: 26px;
-  height: 26px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  transition: background 150ms ease, transform 150ms ease;
-}
-
-.auth-modal-close:hover {
-  background: rgba(148, 163, 184, 0.4);
-  transform: translateY(-1px);
-}
-
-/* Reuse existing auth text styles from earlier panel */
-.auth-button {
-  width: 100%;
-  margin-top: 0.4rem;
-  font-size: 0.8rem;
-  padding-block: 0.45rem;
-}
-
-/* ===================== */
-/* AUTH PANEL + MODAL    */
-/* ===================== */
-
 .auth-panel-compact {
   display: inline-flex;
   align-items: center;
@@ -1696,7 +1403,6 @@ body.modal-open {
   border: 1px solid rgba(51, 65, 85, 0.9);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
   margin: 0 0 0.75rem;
-  /* center horizontally */
   margin-left: auto;
   margin-right: auto;
   width: auto;
@@ -1711,8 +1417,6 @@ body.modal-open {
   font-size: 0.75rem;
   padding: 0.3rem 0.7rem;
 }
-
-/* Auth modal */
 
 .auth-modal-backdrop {
   position: fixed;
@@ -1819,9 +1523,9 @@ body.modal-open {
 
 /* --- Gavin Score Box --- */
 .review-section--gavin .gavin-score-box {
-  border: none !important;        /* Remove the red border */
-  padding: 0.4rem 0.4rem !important;  /* Reduce left/right padding */
-  background: rgba(255, 215, 0, 0.08); /* Soft gold glow */
+  border: none !important;
+  padding: 0.4rem 0.4rem !important;
+  background: rgba(255, 215, 0, 0.08);
   border-radius: 8px;
   display: inline-flex;
   align-items: center;
@@ -1829,32 +1533,26 @@ body.modal-open {
   gap: 4px;
 }
 
-/* Input inside the Gavin score box */
 .review-section--gavin .gavin-input {
   border: 1px solid #ccc;
-  padding: 2px 4px;               /* tighter */
+  padding: 2px 4px;
   border-radius: 6px;
-  width: 60px !important;         /* narrower */
+  width: 60px !important;
   text-align: center;
 }
 
-/* ===================== */
-/* FIX: Gavin Score Box  */
-/* ===================== */
+/* FIX: Gavin Score Box */
 
-/* Remove red border, remove gold glow, add subtle white outline */
 .review-section--gavin {
   border: 1px solid rgba(255, 255, 255, 0.10) !important;
 }
 
-/* Clean Gavin score box */
 .review-section--gavin .gavin-score-box {
   background: transparent !important;
   border: none !important;
   padding: 0.35rem 0.45rem !important;
 }
 
-/* Clean input styling */
 .review-section--gavin .gavin-input {
   border: 1px solid rgba(255, 255, 255, 0.25) !important;
   padding: 2px 4px !important;

@@ -14,7 +14,8 @@ function BottomNav({ view, onChangeView }) {
       <button
         type="button"
         className={
-          "bottom-nav-item" + (view === "all" ? " bottom-nav-item--active" : "")
+          "bottom-nav-item" +
+          (view === "all" ? " bottom-nav-item--active" : "")
         }
         onClick={() => onChangeView("all")}
       >

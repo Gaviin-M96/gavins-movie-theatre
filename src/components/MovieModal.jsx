@@ -35,12 +35,12 @@ function MovieModal({
   inWatchlist,
   onToggleFavorite,
   onToggleWatchlist,
-  gavinReview,        // still accepted so App.jsx doesn't break (unused now)
-  onSetGavinRating,   // unused
-  onSetGavinText,     // unused
+  gavinReview,
+  onSetGavinRating,
+  onSetGavinText,
   movieReviewKey,
   onQuickSearch,
-  user,               // Supabase auth user
+  user,
 }) {
   const year = movie.year || null;
   const runtime = movie.metadata?.runtimeMinutes ?? null;
@@ -152,8 +152,7 @@ function MovieModal({
 
   // Special: existing Gavin review (by name)
   const gavinReviewRow = reviews.find(
-    (r) =>
-      r.name && r.name.trim().toLowerCase() === "gavin"
+    (r) => r.name && r.name.trim().toLowerCase() === "gavin"
   );
 
   // Keep local gavinRating in sync with DB
@@ -382,8 +381,7 @@ function MovieModal({
             {rating != null && (
               <span
                 className={
-                  "chip modal-rating-chip " +
-                  getRatingBadgeClass(rating)
+                  "chip modal-rating-chip " + getRatingBadgeClass(rating)
                 }
               >
                 ⭐ {rating.toFixed(1)}
@@ -622,9 +620,7 @@ function MovieModal({
               <ul className="community-list">
                 {communityReviews.map((r) => {
                   const displayName =
-                    r.display_name ||
-                    r.name ||
-                    "A movie watcher";
+                    r.display_name || r.name || "A movie watcher";
                   const isYou = user && r.user_id === user.id;
                   return (
                     <li key={r.id} className="community-item">
@@ -659,9 +655,7 @@ function MovieModal({
                         </span>
                       </div>
                       {r.comment && (
-                        <p style={{ fontSize: "0.85rem" }}>
-                          {r.comment}
-                        </p>
+                        <p style={{ fontSize: "0.85rem" }}>{r.comment}</p>
                       )}
                     </li>
                   );

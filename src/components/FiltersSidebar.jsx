@@ -53,20 +53,20 @@ function FiltersSidebar({
           />
         </div>
 
-{/* SORT */}
-<SidebarDropdown
-  label="Sort by"
-  value={sortBy}
-  onChange={onSortChange}
-  options={[
-    { value: "title-asc", label: "Title (A–Z)" },
-    { value: "title-desc", label: "Title (Z–A)" },
-    { value: "year-desc", label: "Year (newest first)" },
-    { value: "year-asc", label: "Year (oldest first)" },
-    { value: "tmdb-desc", label: "Rating (high–low)" },
-    { value: "tmdb-asc", label: "Rating (low–high)" },
-  ]}
-/>
+        {/* SORT */}
+        <SidebarDropdown
+          label="Sort by"
+          value={sortBy}
+          onChange={onSortChange}
+          options={[
+            { value: "title-asc", label: "Title (A–Z)" },
+            { value: "title-desc", label: "Title (Z–A)" },
+            { value: "year-desc", label: "Year (newest first)" },
+            { value: "year-asc", label: "Year (oldest first)" },
+            { value: "tmdb-desc", label: "Rating (high–low)" },
+            { value: "tmdb-asc", label: "Rating (low–high)" },
+          ]}
+        />
 
         {/* CATEGORY / TYPE */}
         <div className="sidebar-block">

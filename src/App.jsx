@@ -118,62 +118,62 @@ function App() {
   }, []);
 
   // Load auth session + dev auto-login
-useEffect(() => {
-  let ignore = false;
+  useEffect(() => {
+    let ignore = false;
 
-  const initAuth = async () => {
-    setAuthLoading(true);
+    const initAuth = async () => {
+      setAuthLoading(true);
 
-    // 1. Check existing session first
-    const { data: sessionData } = await supabase.auth.getSession();
-    const currentUser = sessionData?.session?.user ?? null;
+      // 1. Check existing session first
+      const { data: sessionData } = await supabase.auth.getSession();
+      const currentUser = sessionData?.session?.user ?? null;
 
-    if (!ignore && currentUser) {
-      setUser(currentUser);
-      setAuthLoading(false);
-      return;
-    }
-
-    // 2. DEV: auto-login admin account
-    if (isDev && devEmail && devPassword) {
-      console.log("DEV: Auto-signing in admin user...");
-
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: devEmail,
-        password: devPassword,
-      });
-
-      if (error) {
-        console.error("DEV: Auto-login failed:", error);
-      } else if (!ignore) {
-        setUser(data.user);
+      if (!ignore && currentUser) {
+        setUser(currentUser);
+        setAuthLoading(false);
+        return;
       }
 
-      setAuthLoading(false);
-      return;
-    }
+      // 2. DEV: auto-login admin account
+      if (isDev && devEmail && devPassword) {
+        console.log("DEV: Auto-signing in admin user...");
 
-    // 3. Production + no session
-    setUser(null);
-    setAuthLoading(false);
-  };
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email: devEmail,
+          password: devPassword,
+        });
 
-  initAuth();
+        if (error) {
+          console.error("DEV: Auto-login failed:", error);
+        } else if (!ignore) {
+          setUser(data.user);
+        }
 
-  // Subscribe to auth changes
-  const { data: listener } = supabase.auth.onAuthStateChange(
-    (_event, session) => {
-      if (!ignore) {
-        setUser(session?.user ?? null);
+        setAuthLoading(false);
+        return;
       }
-    }
-  );
 
-  return () => {
-    ignore = true;
-    listener.subscription.unsubscribe();
-  };
-}, []);
+      // 3. Production + no session
+      setUser(null);
+      setAuthLoading(false);
+    };
+
+    initAuth();
+
+    // Subscribe to auth changes
+    const { data: listener } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        if (!ignore) {
+          setUser(session?.user ?? null);
+        }
+      }
+    );
+
+    return () => {
+      ignore = true;
+      listener.subscription.unsubscribe();
+    };
+  }, []);
 
   // Load saved state
   useEffect(() => {
@@ -625,19 +625,23 @@ useEffect(() => {
             <button className="modal-close" onClick={closeModal}>
               ✕
             </button>
-           <MovieModal
-  movie={modalMovie}
-  user={user}
-  isFavorite={favoriteSet.has(modalMovie.id)}
-  inWatchlist={watchlistSet.has(modalMovie.id)}
-  onToggleFavorite={() => toggleFavorite(modalMovie.id)}
-  onToggleWatchlist={() => toggleWatchlist(modalMovie.id)}
-  gavinReview={gavinReview}
-  onSetGavinRating={(rating) => setGavinRating(modalMovie.id, rating)}
-  onSetGavinText={(text) => setGavinText(modalMovie.id, text)}
-  movieReviewKey={movieReviewKey}
-  onQuickSearch={handleQuickSearch}
-/>
+            <MovieModal
+              movie={modalMovie}
+              user={user}
+              isFavorite={favoriteSet.has(modalMovie.id)}
+              inWatchlist={watchlistSet.has(modalMovie.id)}
+              onToggleFavorite={() => toggleFavorite(modalMovie.id)}
+              onToggleWatchlist={() => toggleWatchlist(modalMovie.id)}
+              gavinReview={gavinReview}
+              onSetGavinRating={(rating) =>
+                setGavinRating(modalMovie.id, rating)
+              }
+              onSetGavinText={(text) =>
+                setGavinText(modalMovie.id, text)
+              }
+              movieReviewKey={movieReviewKey}
+              onQuickSearch={handleQuickSearch}
+            />
           </div>
         </div>
       )}
