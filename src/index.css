@@ -117,6 +117,7 @@ body.modal-open {
 
 /* Sidebar container */
 .sidebar-column {
+  z-index: 1;
   display: flex;
   flex-direction: column;  /* stack logo + menu */
   max-height: 100vh;       /* full viewport height */
@@ -263,10 +264,9 @@ body.modal-open {
   gap: 0.35rem;
 }
 
-/* Ensure main content doesn’t overlap the fixed sidebar */
 .main-content {
-  margin-left: 300px; /* same as sidebar width */
-  padding: 1rem;
+  width: 100%;
+  min-width: 0;
 }
 
 /* Dropdown wrapper */
@@ -593,6 +593,28 @@ body.modal-open {
     box-shadow 200ms ease,
     border-color 200ms ease,
     background 200ms ease;
+}
+
+/* ===================== */
+/* DESKTOP STICKY SIDEBAR FIX */
+/* ===================== */
+
+@media (min-width: 900px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 1.5rem;              /* ✅ prevents sticking to the very top */
+    height: fit-content;     /* ✅ prevents stretching */
+    max-height: calc(100vh - 3rem);
+    overflow-y: auto;        /* ✅ scrolls internally if needed */
+    align-self: start;
+  }
 }
 
 /* Clean Netflix-style hover */
@@ -1559,4 +1581,56 @@ body.modal-open {
   border-radius: 6px !important;
   width: 60px !important;
   text-align: center;
+}
+
+/* =============================== */
+/* MODAL Z-INDEX SAFETY FIX */
+/* =============================== */
+
+.modal-backdrop,
+.auth-modal-backdrop,
+.trailer-modal-overlay {
+  z-index: 5000;
+}
+
+.modal,
+.auth-modal {
+  z-index: 5100;
+  position: relative;
+}
+
+/* ===================== */
+/* ✅ FIX STICKY SIDEBAR SAFELY */
+/* ===================== */
+
+@media (min-width: 900px) {
+  .layout {
+    display: grid !important;
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .left-rail {
+    position: sticky;
+    top: 1.5rem;
+    align-self: start;
+    height: fit-content;
+  }
+
+  /* REMOVE SCROLL TRAPS */
+  .sidebar-column {
+    overflow: visible !important;
+    max-height: none !important;
+  }
+}
+
+/* ===================== */
+/* 3-WIDE MOVIE GRID ON DESKTOP */
+/* ===================== */
+
+@media (min-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
