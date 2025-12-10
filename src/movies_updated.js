@@ -25952,7 +25952,7 @@ export const movies = [
     "metadata": {
       "category": "Stand-Up",
       "genres": [
-        "Comedy"
+        "Stand-Up"
       ],
       "imdbId": null,
       "originalLanguage": "en",
@@ -26426,7 +26426,7 @@ export const movies = [
     "metadata": {
       "category": "Stand-Up",
       "genres": [
-        "Comedy"
+        "Stand-Up"
       ],
       "imdbId": "tt0101726",
       "originalLanguage": "en",
@@ -26475,7 +26475,7 @@ export const movies = [
     "metadata": {
       "category": "Stand-Up",
       "genres": [
-        "Comedy"
+        "Stand-Up"
       ],
       "imdbId": "tt0200529",
       "originalLanguage": "en",
