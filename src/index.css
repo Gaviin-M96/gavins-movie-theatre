@@ -1634,3 +1634,36 @@ body.modal-open {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* =============================== */
+/* AUTH MODAL – HARD Z-INDEX FIX   */
+/* =============================== */
+
+.auth-modal-backdrop {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  isolation: isolate;
+}
+
+.auth-modal {
+  position: relative !important;
+  z-index: 100000 !important;
+}
+
+/* Kill ALL stacking contexts that could trap it */
+.layout,
+.content,
+.grid,
+.card,
+.sidebar-column {
+  transform: none !important;
+  filter: none !important;
+  isolation: auto !important;
+}

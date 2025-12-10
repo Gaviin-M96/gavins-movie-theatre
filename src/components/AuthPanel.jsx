@@ -1,98 +1,110 @@
-// src/components/AuthPanel.jsx
 import { useState, useEffect } from "react";
-import { createPortal } from "react-dom";
 import { supabase } from "../api/supabaseClient";
+
+const ADMIN_EMAIL = "gavin@gavinmoore.ca"; // ← CHANGE this if needed
 
 function sanitizeDisplayName(raw) {
   if (!raw) return "";
   const cleaned = raw.trim().replace(/\s+/g, " ");
-  if (cleaned.length < 2 || !/[a-zA-Z]/.test(cleaned)) {
-    return "";
-  }
+  if (cleaned.length < 2 || !/[a-zA-Z]/.test(cleaned)) return "";
   return cleaned;
 }
 
 function AuthPanel({ user, loading }) {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState(null); // "sent" | "error" | null
-  const [errorMsg, setErrorMsg] = useState("");
+  const [statusMsg, setStatusMsg] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
   const [displayName, setDisplayName] = useState("");
-  const [profileStatus, setProfileStatus] = useState(null); // "saved" | "error" | null
-  const [profileError, setProfileError] = useState("");
-  const [profileSaving, setProfileSaving] = useState(false);
+  const [saveStatus, setSaveStatus] = useState("");
+  const [saveError, setSaveError] = useState("");
 
-  // Load profile.display_name when user changes
+  // NEW: Session expiration detection
+  const [sessionExpired, setSessionExpired] = useState(false);
+
+  // Load profile nickname
   useEffect(() => {
     if (!user) {
       setDisplayName("");
-      setProfileStatus(null);
-      setProfileError("");
       return;
     }
 
     let cancelled = false;
 
-    const loadProfile = async () => {
-      try {
-        const { data, error } = await supabase
-          .from("profiles")
-          .select("display_name")
-          .eq("id", user.id)
-          .single();
+    const load = async () => {
+      const { data, error } = await supabase
+        .from("profiles")
+        .select("display_name")
+        .eq("id", user.id)
+        .single();
 
-        if (cancelled) return;
+      if (cancelled) return;
 
-        if (!error && data?.display_name) {
-          setDisplayName(data.display_name.trim());
-        } else {
-          setDisplayName("");
-        }
-      } catch {
-        if (!cancelled) setDisplayName("");
+      if (!error && data?.display_name) {
+        setDisplayName(data.display_name.trim());
       }
     };
 
-    loadProfile();
+    load();
     return () => {
       cancelled = true;
     };
   }, [user]);
 
+  // NEW: Listen for token refresh / expiration
+  useEffect(() => {
+    const { data: listener } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        if (event === "TOKEN_REFRESHED") {
+          setSessionExpired(false);
+        }
+
+        if (event === "TOKEN_REFRESH_FAILED") {
+          setSessionExpired(true);
+        }
+      }
+    );
+
+    return () => listener.subscription.unsubscribe();
+  }, []);
+
+  // NEW: Cross-tab session sync
+  useEffect(() => {
+    const channel = new BroadcastChannel("auth");
+    const sync = () => supabase.auth.getSession();
+
+    channel.onmessage = sync;
+    return () => channel.close();
+  }, []);
+
+  const broadcastAuth = () => {
+    new BroadcastChannel("auth").postMessage("refresh");
+  };
+
   const handleSendLink = async (e) => {
     e.preventDefault();
-    if (!email.trim()) return;
 
-    setStatus(null);
-    setErrorMsg("");
+    setStatusMsg("");
 
     const { error } = await supabase.auth.signInWithOtp({
-      email: email.trim(),
+      email,
       options: {
-        emailRedirectTo: "https://movies.gavinmoore.ca",
+        emailRedirectTo: window.location.origin,
       },
     });
 
     if (error) {
-      console.error("Error sending magic link:", error);
-      setStatus("error");
-      setErrorMsg(error.message || "Could not send link.");
+      setStatusMsg("Error: " + error.message);
       return;
     }
 
-    setStatus("sent");
+    setStatusMsg("Magic link sent! Check your email.");
   };
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
-    setStatus(null);
-    setErrorMsg("");
-    setEmail("");
     setIsOpen(false);
-    setDisplayName("");
-    setProfileStatus(null);
-    setProfileError("");
+    broadcastAuth();
   };
 
   const handleSaveDisplayName = async (e) => {
@@ -100,191 +112,49 @@ function AuthPanel({ user, loading }) {
     if (!user) return;
 
     const cleaned = sanitizeDisplayName(displayName);
-
     if (!cleaned) {
-      setProfileStatus("error");
-      setProfileError(
-        "Nickname must be at least 2 characters and include a letter."
-      );
+      setSaveError("Name must be at least 2 letters.");
       return;
     }
-
-    setProfileStatus(null);
-    setProfileError("");
-    setProfileSaving(true);
 
     const { error } = await supabase
       .from("profiles")
-      .upsert(
-        {
-          id: user.id,
-          display_name: cleaned,
-        },
-        { onConflict: "id" }
-      );
-
-    setProfileSaving(false);
+      .upsert({ id: user.id, display_name: cleaned }, { onConflict: "id" });
 
     if (error) {
-      console.error("Error saving display name:", error);
-      setProfileStatus("error");
-      setProfileError("Could not save nickname. Please try again.");
+      setSaveError("Error saving name.");
       return;
     }
 
-    setDisplayName(cleaned);
-    setProfileStatus("saved");
+    setSaveError("");
+    setSaveStatus("Saved!");
   };
-
-  const openModal = () => {
-    setIsOpen(true);
-    setStatus(null);
-    setErrorMsg("");
-    setProfileStatus(null);
-    setProfileError("");
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-
-  // ---------- PORTAL MODAL CONTENT ----------
-  const modal = isOpen
-    ? createPortal(
-        <div
-          className="auth-modal-backdrop"
-          onClick={closeModal}
-          style={{
-            // hard safety net in case CSS gets weird
-            zIndex: 6000,
-          }}
-        >
-          <div
-            className="auth-modal"
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              position: "relative",
-              zIndex: 6100,
-            }}
-          >
-            <button
-              type="button"
-              className="auth-modal-close"
-              onClick={closeModal}
-            >
-              ✕
-            </button>
-
-            <h2 className="auth-modal-title">Account</h2>
-
-            {loading ? (
-              <p className="auth-text auth-text-muted">
-                Checking your session…
-              </p>
-            ) : user ? (
-              <>
-                <p className="auth-text">
-                  You&apos;re signed in and can leave community reviews.
-                </p>
-                <p className="auth-text auth-text-muted">
-                  Your email is used only for sign-in. It is{" "}
-                  <strong>never shown publicly</strong>.
-                </p>
-
-                <form onSubmit={handleSaveDisplayName} className="auth-form">
-                  <label className="auth-label">
-                    Nickname (shown next to your reviews)
-                  </label>
-                  <input
-                    type="text"
-                    className="auth-input"
-                    placeholder="e.g. The Projectionist"
-                    value={displayName}
-                    onChange={(e) => {
-                      setDisplayName(e.target.value);
-                      setProfileStatus(null);
-                      setProfileError("");
-                    }}
-                  />
-                  <button
-                    type="submit"
-                    className="btn-primary auth-button"
-                    disabled={profileSaving}
-                  >
-                    {profileSaving ? "Saving…" : "Save nickname"}
-                  </button>
-                </form>
-
-                {profileStatus === "saved" && (
-                  <p className="auth-text auth-text-success">
-                    Nickname saved. Future reviews will use this.
-                  </p>
-                )}
-                {profileStatus === "error" && (
-                  <p className="auth-text auth-text-error">
-                    {profileError}
-                  </p>
-                )}
-
-                <hr className="auth-divider" />
-
-                <button
-                  type="button"
-                  className="btn-secondary auth-button"
-                  onClick={handleSignOut}
-                >
-                  Sign out
-                </button>
-              </>
-            ) : (
-              <>
-                <p className="auth-text auth-text-muted">
-                  Enter your email and I&apos;ll send you a magic link to sign
-                  in.
-                </p>
-                <form onSubmit={handleSendLink} className="auth-form">
-                  <input
-                    type="email"
-                    className="auth-input"
-                    placeholder="you@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    autoComplete="email"
-                  />
-                  <button type="submit" className="btn-primary auth-button">
-                    Send magic link
-                  </button>
-                </form>
-
-                {status === "sent" && (
-                  <p className="auth-text auth-text-success">
-                    Link sent! Check your email.
-                  </p>
-                )}
-                {status === "error" && (
-                  <p className="auth-text auth-text-error">{errorMsg}</p>
-                )}
-              </>
-            )}
-          </div>
-        </div>,
-        document.body
-      )
-    : null;
 
   return (
     <>
-      {/* Compact sidebar pill */}
+      {/* Compact pill in sidebar */}
       <div className="auth-panel-compact">
         {loading ? (
-          <span className="auth-compact-text">Checking account…</span>
+          <span className="auth-compact-text">Checking…</span>
         ) : user ? (
           <>
-            <span className="auth-compact-text">Signed in</span>
+            <span className="auth-compact-text">
+              {displayName || user.email}
+              {user.email === ADMIN_EMAIL && (
+                <span style={{
+                  marginLeft: "6px",
+                  color: "#ffd75a",
+                  fontWeight: "600",
+                  fontSize: "0.75rem"
+                }}>
+                  (Admin)
+                </span>
+              )}
+            </span>
+
             <button
-              type="button"
               className="btn-secondary auth-compact-button"
-              onClick={openModal}
+              onClick={() => setIsOpen(true)}
             >
               Account
             </button>
@@ -293,18 +163,105 @@ function AuthPanel({ user, loading }) {
           <>
             <span className="auth-compact-text">Want to leave reviews?</span>
             <button
-              type="button"
               className="btn-primary auth-compact-button"
-              onClick={openModal}
+              onClick={() => setIsOpen(true)}
             >
-              Sign in
+              Sign In
             </button>
           </>
         )}
       </div>
 
-      {/* Portal-rendered modal */}
-      {modal}
+      {/* Modal */}
+      {isOpen && (
+        <div className="auth-modal-backdrop" onClick={() => setIsOpen(false)}>
+          <div className="auth-modal" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="auth-modal-close"
+              onClick={() => setIsOpen(false)}
+            >
+              ✕
+            </button>
+
+            <h2 className="auth-modal-title">Account</h2>
+
+            {sessionExpired && (
+              <p className="auth-text-error" style={{ marginBottom: "0.5rem" }}>
+                ⚠️ Your session expired — please sign in again.
+              </p>
+            )}
+
+            {!user ? (
+              <>
+                <p className="auth-text auth-text-muted">
+                  Enter your email and I’ll send you a magic login link.
+                </p>
+
+                <form onSubmit={handleSendLink} className="auth-form">
+                  <input
+                    type="email"
+                    className="auth-input"
+                    placeholder="you@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <button className="btn-primary auth-button">
+                    Send Link
+                  </button>
+                </form>
+
+                {statusMsg && (
+                  <p className="auth-text auth-text-success">{statusMsg}</p>
+                )}
+              </>
+            ) : (
+              <>
+                <p className="auth-text">
+                  Signed in as <strong>{user.email}</strong>
+                  {user.email === ADMIN_EMAIL && (
+                    <span style={{ color: "#ffd75a", marginLeft: "6px" }}>
+                      (Admin)
+                    </span>
+                  )}
+                </p>
+
+                {/* Nickname editor */}
+                <form onSubmit={handleSaveDisplayName} className="auth-form">
+                  <label className="auth-label">Nickname</label>
+                  <input
+                    className="auth-input"
+                    value={displayName}
+                    onChange={(e) => {
+                      setDisplayName(e.target.value);
+                      setSaveStatus("");
+                    }}
+                  />
+
+                  <button className="btn-primary auth-button">
+                    Save Name
+                  </button>
+                </form>
+
+                {saveStatus && (
+                  <p className="auth-text-success">{saveStatus}</p>
+                )}
+                {saveError && (
+                  <p className="auth-text-error">{saveError}</p>
+                )}
+
+                <hr className="auth-divider" />
+
+                <button
+                  className="btn-secondary auth-button"
+                  onClick={handleSignOut}
+                >
+                  Sign Out
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </>
   );
 }
