@@ -26824,18 +26824,22 @@ export const movies = [
   "youtubeTrailerKey": "aStODvSPBPI"
 },
 {
-  "id": "franklin-in-the-dark-2003",
+  "id": "franklin-volume-7-franklin-in-the-dark-vhs",
   "title": "Franklin in the Dark",
   "sortTitle": "Franklin in the Dark",
-  "year": 2003,
+  "year": 1997,
   "library": {
     "format": "VHS",
     "owned": true,
     "tags": []
   },
   "metadata": {
-    "genres": [],
-    "tmdbId": 801966,
+    "genres": [
+      "Animation",
+      "Family",
+      "Children"
+    ],
+    "tmdbId": null,
     "runtimeMinutes": 60,
     "imdbId": null,
     "status": "Released",
@@ -26844,22 +26848,22 @@ export const movies = [
     "seasons": []
   },
   "media": {
-    "poster": "/assets/posters/franklin-in-the-dark-2003-poster.jpg",
+    "poster": "/assets/posters/franklin-in-the-dark-1997.jpg",
     "backdrop": null,
     "placeholder": "https://via.placeholder.com/300x450?text=Franklin%20in%20the%20Dark"
   },
   "text": {
-    "overview": "When Franklin's parents discover he's afraid of small dark places, including his own shell, Mrs. Turtle tells him the story of a little turtle just like him that was afraid of the very same thing.",
+    "overview": "Franklin – Volume 7: Franklin in the Dark is a direct-to-VHS children's release featuring the classic episode 'Franklin in the Dark' from the animated Franklin television series. In the story, Franklin must overcome his fear of the dark with help from his friends. This tape was distributed in Canada by Telegenic as part of a numbered home video collection.",
     "tagline": ""
   },
-  "ratings": {
+    "ratings": {
     "tmdb": {
-      "voteAverage": 0,
-      "voteCount": 0
+      "voteAverage": 7.2,
+      "voteCount": 17
     }
   },
   "credits": {
-    "director": "",
+    "director": null,
     "castPreview": []
   },
   "youtubeTrailerKey": null
@@ -26914,6 +26918,206 @@ export const movies = [
     ]
   },
   "youtubeTrailerKey": "tHZrJ5cTOrQ"
+},
+{
+  "id": "franklin-plants-a-tree-vhs",
+  "title": "Franklin Plants a Tree",
+  "sortTitle": "Franklin Plants a Tree",
+  "year": 1997,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Family",
+      "Children"
+    ],
+    "tmdbId": null,
+    "runtimeMinutes": 60,
+    "imdbId": null,
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/franklin-plants-a-tree-1997.jpg",
+    "backdrop": null,
+    "placeholder": "https://via.placeholder.com/300x450?text=Franklin%20Plants%20a%20Tree"
+  },
+  "text": {
+    "overview": "Franklin – Volume 13: Franklin Plants a Tree is a direct-to-VHS children's release featuring the episode 'Franklin Plants a Tree' from the animated Franklin television series. In this story, Franklin learns about patience, responsibility, and the importance of caring for nature after planting his very own tree. This tape was distributed in Canada by Telegenic as part of their Franklin home video collection.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.0,
+      "voteCount": 15
+    }
+  },
+  "credits": {
+    "director": null,
+    "castPreview": []
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "a-bug-s-life-1998",
+  "title": "A Bug's Life",
+  "sortTitle": "A Bug's Life",
+  "year": 1998,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Animation",
+      "Adventure",
+      "Comedy"
+    ],
+    "tmdbId": 9487,
+    "runtimeMinutes": 95,
+    "imdbId": "tt0120623",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/a-bug-s-life-1998-poster.jpg",
+    "backdrop": "/assets/posters/a-bug-s-life-1998-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=A%20Bug's%20Life"       
+  },
+  "text": {
+    "overview": "On behalf of \"oppressed bugs everywhere,\" an inventive ant named Flik hires a troupe of warrior bugs to defend his bustling colony from a horde of freeloading grasshoppers led by the evil-minded Hopper.",
+    "tagline": "An epic of miniature proportions."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7,
+      "voteCount": 9526
+    }
+  },
+  "credits": {
+    "director": "John Lasseter",
+    "castPreview": [
+      "Dave Foley",
+      "Kevin Spacey",
+      "Julia Louis-Dreyfus",
+      "Hayden Panettiere",
+      "Phyllis Diller"
+    ]
+  },
+  "youtubeTrailerKey": "mE35XQFxbeo"
+},
+{
+  "id": "happily-ever-after-1989",
+  "title": "Happily Ever After",
+  "sortTitle": "Happily Ever After",
+  "year": 1989,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Animation",
+      "Fantasy"
+    ],
+    "tmdbId": 44283,
+    "runtimeMinutes": 75,
+    "imdbId": "tt0099733",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/happily-ever-after-1989-poster.jpg",
+    "backdrop": "/assets/posters/happily-ever-after-1989-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Happily%20Ever%20After" 
+  },
+  "text": {
+    "overview": "The Wicked Queen is dead but her brother, Lord Maliss, seeks for revenge. Using the Magic Mirror to locate Snow White and the Prince, he transforms into a dragon and attacks. Maliss takes the Prince to the Realm of Doom. Snow White, with the aid of the Seven Dwarfesses, cousins of the Sevens Dwarves, must embark on a quest to save her true love.",
+    "tagline": "Whatever happened to Snow White?"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.7,
+      "voteCount": 55
+    }
+  },
+  "credits": {
+    "director": "John Howley",
+    "castPreview": [
+      "Irene Cara",
+      "Malcolm McDowell",
+      "Dom DeLuise",
+      "Carol Channing",
+      "Phyllis Diller"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "the-land-before-time-iv-journey-through-the-mists-1996",
+  "title": "The Land Before Time IV: Journey Through the Mists",
+  "sortTitle": "The Land Before Time IV: Journey Through the Mists",
+  "year": 1996,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Adventure",
+      "Animation",
+      "Comedy",
+      "Family"
+    ],
+    "tmdbId": 19164,
+    "runtimeMinutes": 74,
+    "imdbId": "tt0116817",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-land-before-time-iv-journey-through-the-mists-1996-poster.jpg",
+    "backdrop": "/assets/posters/the-land-before-time-iv-journey-through-the-mists-1996-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Land%20Before%20Time%20IV%3A%20Journey%20Through%20the%20Mists"
+  },
+  "text": {
+    "overview": "When Littlefoot grandfather falls ill, The dinosaurs only way to cure him is a flower in the forbidding land of mist which hold unexpecting perils and danger.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.2,
+      "voteCount": 349
+    }
+  },
+  "credits": {
+    "director": "Roy Allen Smith",
+    "castPreview": [
+      "John Ingle",
+      "Candace Hutson",
+      "Heather Hogan",
+      "Rob Paulsen",
+      "Jeff Bennett"
+    ]
+  },
+  "youtubeTrailerKey": null
 },
 {
   "id": "an-extremely-goofy-movie-2000",
