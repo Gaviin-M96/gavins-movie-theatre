@@ -1,5 +1,6 @@
 // src/components/AuthPanel.jsx
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { supabase } from "../api/supabaseClient";
 
 function sanitizeDisplayName(raw) {
@@ -15,12 +16,12 @@ function AuthPanel({ user, loading }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState(null); // "sent" | "error" | null
   const [errorMsg, setErrorMsg] = useState("");
-  const [isOpen, setIsOpen] = useState(false); // modal open/close
+  const [isOpen, setIsOpen] = useState(false);
 
   const [displayName, setDisplayName] = useState("");
   const [profileStatus, setProfileStatus] = useState(null); // "saved" | "error" | null
   const [profileError, setProfileError] = useState("");
-  const [profileSaving, setProfileSaving] = useState(false); // 🔹 only for saving
+  const [profileSaving, setProfileSaving] = useState(false);
 
   // Load profile.display_name when user changes
   useEffect(() => {
@@ -34,9 +35,6 @@ function AuthPanel({ user, loading }) {
     let cancelled = false;
 
     const loadProfile = async () => {
-      setProfileStatus(null);
-      setProfileError("");
-
       try {
         const { data, error } = await supabase
           .from("profiles")
@@ -46,23 +44,17 @@ function AuthPanel({ user, loading }) {
 
         if (cancelled) return;
 
-        if (error) {
-          // If no row yet, that's fine
-          console.warn("Profile load error (safe to ignore if 406):", error);
-          setDisplayName("");
+        if (!error && data?.display_name) {
+          setDisplayName(data.display_name.trim());
         } else {
-          const raw = data?.display_name || "";
-          setDisplayName(raw.trim());
+          setDisplayName("");
         }
-      } catch (err) {
-        if (cancelled) return;
-        console.warn("Profile load threw:", err);
-        setDisplayName("");
+      } catch {
+        if (!cancelled) setDisplayName("");
       }
     };
 
     loadProfile();
-
     return () => {
       cancelled = true;
     };
@@ -103,18 +95,6 @@ function AuthPanel({ user, loading }) {
     setProfileError("");
   };
 
-  const openModal = () => {
-    setIsOpen(true);
-    setStatus(null);
-    setErrorMsg("");
-    setProfileStatus(null);
-    setProfileError("");
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-
   const handleSaveDisplayName = async (e) => {
     e.preventDefault();
     if (!user) return;
@@ -131,7 +111,7 @@ function AuthPanel({ user, loading }) {
 
     setProfileStatus(null);
     setProfileError("");
-    setProfileSaving(true); // 🔹 only here
+    setProfileSaving(true);
 
     const { error } = await supabase
       .from("profiles")
@@ -156,41 +136,37 @@ function AuthPanel({ user, loading }) {
     setProfileStatus("saved");
   };
 
-  return (
-    <>
-      {/* Compact sidebar strip */}
-      <div className="auth-panel-compact">
-        {loading ? (
-          <span className="auth-compact-text">Checking account…</span>
-        ) : user ? (
-          <>
-            <span className="auth-compact-text">Signed in</span>
-            <button
-              type="button"
-              className="btn-secondary auth-compact-button"
-              onClick={openModal}
-            >
-              Account
-            </button>
-          </>
-        ) : (
-          <>
-            <span className="auth-compact-text">Want to leave reviews?</span>
-            <button
-              type="button"
-              className="btn-primary auth-compact-button"
-              onClick={openModal}
-            >
-              Sign in
-            </button>
-          </>
-        )}
-      </div>
+  const openModal = () => {
+    setIsOpen(true);
+    setStatus(null);
+    setErrorMsg("");
+    setProfileStatus(null);
+    setProfileError("");
+  };
 
-      {/* Auth modal */}
-      {isOpen && (
-        <div className="auth-modal-backdrop" onClick={closeModal}>
-          <div className="auth-modal" onClick={(e) => e.stopPropagation()}>
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  // ---------- PORTAL MODAL CONTENT ----------
+  const modal = isOpen
+    ? createPortal(
+        <div
+          className="auth-modal-backdrop"
+          onClick={closeModal}
+          style={{
+            // hard safety net in case CSS gets weird
+            zIndex: 6000,
+          }}
+        >
+          <div
+            className="auth-modal"
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              position: "relative",
+              zIndex: 6100,
+            }}
+          >
             <button
               type="button"
               className="auth-modal-close"
@@ -291,8 +267,44 @@ function AuthPanel({ user, loading }) {
               </>
             )}
           </div>
-        </div>
-      )}
+        </div>,
+        document.body
+      )
+    : null;
+
+  return (
+    <>
+      {/* Compact sidebar pill */}
+      <div className="auth-panel-compact">
+        {loading ? (
+          <span className="auth-compact-text">Checking account…</span>
+        ) : user ? (
+          <>
+            <span className="auth-compact-text">Signed in</span>
+            <button
+              type="button"
+              className="btn-secondary auth-compact-button"
+              onClick={openModal}
+            >
+              Account
+            </button>
+          </>
+        ) : (
+          <>
+            <span className="auth-compact-text">Want to leave reviews?</span>
+            <button
+              type="button"
+              className="btn-primary auth-compact-button"
+              onClick={openModal}
+            >
+              Sign in
+            </button>
+          </>
+        )}
+      </div>
+
+      {/* Portal-rendered modal */}
+      {modal}
     </>
   );
 }
