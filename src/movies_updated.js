@@ -28088,10 +28088,10 @@ export const movies = [
   "youtubeTrailerKey": "Uw7HDQ5Dnjo"
 },
 {
-  "id": "hansel-gretel-2002",
+  "id": "hansel-gretel-2003",
   "title": "Hansel & Gretel",
   "sortTitle": "Hansel & Gretel",
-  "year": 2002,
+  "year": 2003,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -28112,8 +28112,8 @@ export const movies = [
     "seasons": []
   },
   "media": {
-    "poster": "/assets/posters/hansel-gretel-2002-poster.jpg",
-    "backdrop": "/assets/posters/hansel-gretel-2002-backdrop.jpg",
+    "poster": "/assets/posters/hansel-and-gretel-2003.jpg",
+    "backdrop": null,
     "placeholder": "https://via.placeholder.com/300x450?text=Hansel%20%26%20Gretel"
   },
   "text": {
