@@ -29377,7 +29377,7 @@ export const movies = [
   "sortTitle": "Dinosaur",
   "year": 2000,
   "library": {
-    "format": "DVD",
+    "format": "VHS",
     "owned": true,
     "tags": []
   },
@@ -29816,7 +29816,7 @@ export const movies = [
   "sortTitle": "Winnie the Pooh: Sing a Song with Pooh Bear",
   "year": 1999,
   "library": {
-    "format": "DVD",
+    "format": "VHS",
     "owned": true,
     "tags": []
   },
