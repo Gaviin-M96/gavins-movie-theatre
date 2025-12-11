@@ -19602,7 +19602,7 @@ export const movies = [
     "sortTitle": "Goofy Movie",
     "year": 1995,
     "library": {
-      "format": "DVD, VHS",
+      "format": ["DVD", "VHS"],
       "owned": true,
       "tags": []
     },
