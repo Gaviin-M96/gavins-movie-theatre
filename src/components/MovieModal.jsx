@@ -35,9 +35,9 @@ function MovieModal({
   inWatchlist,
   onToggleFavorite,
   onToggleWatchlist,
-  gavinReview,
-  onSetGavinRating,
-  onSetGavinText,
+  gavinReview,        // kept for compatibility, not used
+  onSetGavinRating,   // kept for compatibility, not used
+  onSetGavinText,     // kept for compatibility, not used
   movieReviewKey,
   onQuickSearch,
   user,
@@ -345,11 +345,13 @@ function MovieModal({
               display: "flex",
               justifyContent: "center",
               alignItems: "baseline",
-              gap: "0.75rem",
+              gap: "0.6rem",
               flexWrap: "wrap",
             }}
           >
-            <h2 className="modal-title">{movie.title}</h2>
+            <h2 className="modal-title" style={{ marginBottom: 0 }}>
+              {movie.title}
+            </h2>
             {runtimeLabel && (
               <span className="modal-meta-text">{runtimeLabel}</span>
             )}
@@ -364,8 +366,8 @@ function MovieModal({
             style={{
               display: "flex",
               justifyContent: "center",
-              gap: "0.5rem",
-              marginTop: "0.5rem",
+              gap: "0.4rem",
+              marginTop: "0.35rem",
               flexWrap: "wrap",
             }}
           >
@@ -397,7 +399,7 @@ function MovieModal({
         {genres && genres.length > 0 && (
           <div
             className="modal-genre-row"
-            style={{ justifyContent: "center" }}
+            style={{ justifyContent: "center", marginTop: "0.4rem" }}
           >
             {genres.slice(0, 5).map((g) => (
               <button
@@ -412,82 +414,101 @@ function MovieModal({
           </div>
         )}
 
-        {/* Favorite / Watchlist */}
-        <div
-          className="card-actions"
-          style={{ justifyContent: "center", marginTop: "0.75rem" }}
-        >
-          <button
-            type="button"
-            className={
-              "icon-button" + (isFavorite ? " icon-button--active" : "")
-            }
-            onClick={onToggleFavorite}
-            title={
-              isFavorite ? "Remove from favourites" : "Add to favourites"
-            }
-          >
-            <span className="icon-symbol">
-              {isFavorite ? <AiFillStar /> : <AiOutlineStar />}
-            </span>
-          </button>
-
-          <button
-            type="button"
-            className={
-              "icon-button" + (inWatchlist ? " icon-button--active" : "")
-            }
-            onClick={onToggleWatchlist}
-            title={
-              inWatchlist ? "Remove from watchlist" : "Add to watchlist"
-            }
-          >
-            <span className="icon-symbol">
-              {inWatchlist ? <AiFillEye /> : <AiOutlineEye />}
-            </span>
-          </button>
-        </div>
-
-        {/* Director / Cast */}
+        {/* Director / Cast – TIGHTER */}
         {(director || limitedCast.length > 0) && (
           <div
             className="modal-people-section"
             style={{
-              marginTop: "1rem",
+              marginTop: "0.45rem",
               textAlign: "center",
               fontSize: "0.8rem",
-              lineHeight: "1.4",
+              lineHeight: "1.35",
             }}
           >
             {director && (
-              <p>
+              <p style={{ margin: "0 0 0.15rem" }}>
                 <strong>Directed By:</strong> {director}
               </p>
             )}
             {limitedCast.length > 0 && (
-              <p>
+              <p style={{ margin: 0 }}>
                 <strong>Starring:</strong> {limitedCast.join(", ")}
               </p>
             )}
           </div>
         )}
 
-        {/* Overview */}
+        {/* Overview – TIGHTER */}
         {overview && (
           <p
             className="modal-overview"
-            style={{ maxWidth: "600px", margin: "1rem auto" }}
+            style={{
+              maxWidth: "620px",
+              margin: "0.6rem auto 0.75rem",
+              fontSize: "0.8rem",
+              lineHeight: "1.45",
+            }}
           >
             {overview}
           </p>
         )}
 
-        {/* Trailer Button */}
-        {trailerEmbedUrl && (
-          <div style={{ margin: "1rem 0" }}>
-            <button className="btn-primary" onClick={openTrailer}>
-              ▶ Play Trailer
-            </button>
+        {/* Action Row: Trailer + Favourites + Watchlist */}
+        {(trailerEmbedUrl || true) && (
+          <div
+            className="modal-actions"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "0.6rem",
+              marginTop: "0.4rem",
+            }}
+          >
+            {trailerEmbedUrl && (
+              <button className="btn-primary" onClick={openTrailer}>
+                ▶ Play Trailer
+              </button>
+            )}
+
+            {/* Favourite / Watchlist icons RIGHT beside trailer */}
+            <div
+              className="card-actions"
+              style={{
+                display: "flex",
+                gap: "0.35rem",
+              }}
+            >
+              <button
+                type="button"
+                className={
+                  "icon-button" + (isFavorite ? " icon-button--active" : "")
+                }
+                onClick={onToggleFavorite}
+                title={
+                  isFavorite ? "Remove from favourites" : "Add to favourites"
+                }
+              >
+                <span className="icon-symbol">
+                  {isFavorite ? <AiFillStar /> : <AiOutlineStar />}
+                </span>
+              </button>
+
+              <button
+                type="button"
+                className={
+                  "icon-button" + (inWatchlist ? " icon-button--active" : "")
+                }
+                onClick={onToggleWatchlist}
+                title={
+                  inWatchlist ? "Remove from watchlist" : "Add to watchlist"
+                }
+              >
+                <span className="icon-symbol">
+                  {inWatchlist ? <AiFillEye /> : <AiOutlineEye />}
+                </span>
+              </button>
+            </div>
           </div>
         )}
 
@@ -497,19 +518,29 @@ function MovieModal({
           style={{
             display: "flex",
             flexWrap: "wrap",
-            gap: "1.5rem",
+            gap: "1rem",
             justifyContent: "center",
             alignItems: "flex-start",
-            marginTop: "1.5rem",
+            marginTop: "1rem",
           }}
         >
           {/* Gavin */}
           <section
-            className="review-section review-section--gavin"
-            style={{ flex: "0 1 260px", maxWidth: "280px" }}
-          >
+  className="review-section review-section--gavin"
+  style={{
+    flex: "115px",
+    maxWidth: "280px",
+    padding: "0.4rem 0.5rem"  // <-- add this here
+  }}
+>
             <div className="review-section-header">
-              <h3 style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>
+              <h3
+                style={{
+                  fontSize: "0.95rem",
+                  marginBottom: "0.35rem",
+                  marginTop: 0,
+                }}
+              >
                 Gavin’s Score
               </h3>
             </div>
@@ -522,7 +553,7 @@ function MovieModal({
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "0.35rem",
+                      gap: "0.3rem",
                       justifyContent: "center",
                     }}
                   >
@@ -530,7 +561,7 @@ function MovieModal({
                       className="gavin-score-icon"
                       style={{
                         color: "#FFD700",
-                        fontSize: "1.4rem",
+                        fontSize: "1.3rem",
                         filter: "drop-shadow(0 0 4px #ffef9f)",
                       }}
                     >
@@ -548,20 +579,20 @@ function MovieModal({
                       style={{
                         width: "70px",
                         textAlign: "center",
-                        fontSize: "1rem",
+                        fontSize: "0.95rem",
                         padding: "2px 4px",
                         borderRadius: "6px",
                       }}
                     />
-                    <span>/ 10</span>
+                    <span style={{ fontSize: "0.85rem" }}>/ 10</span>
                   </div>
                   <button
-                    className="btn-primary"
-                    style={{ marginTop: "0.5rem" }}
-                    onClick={saveGavinReview}
-                  >
-                    Save
-                  </button>
+  className="btn-primary"
+  style={{ marginTop: "0", padding: "0.3rem 0.75rem" }}
+  onClick={saveGavinReview}
+>
+  Save
+</button>
                 </div>
               </>
             ) : gavinReviewRow ? (
@@ -569,25 +600,25 @@ function MovieModal({
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  gap: "0.4rem",
+                  gap: "0.35rem",
                   justifyContent: "center",
                 }}
               >
                 <span
                   style={{
                     color: "#FFD700",
-                    fontSize: "1.4rem",
+                    fontSize: "1.3rem",
                     filter: "drop-shadow(0 0 4px #ffef9f)",
                   }}
                 >
                   ⭐
                 </span>
-                <span className="gavin-score-text">
+                <span className="gavin-score-text" style={{ fontSize: "0.95rem" }}>
                   {Number(gavinReviewRow.rating).toFixed(1)} / 10
                 </span>
               </div>
             ) : (
-              <p style={{ fontSize: ".85rem", color: "#888" }}>
+              <p style={{ fontSize: ".8rem", color: "#888", margin: 0 }}>
                 Not yet rated.
               </p>
             )}
@@ -599,21 +630,31 @@ function MovieModal({
             style={{ flex: "1 1 320px", maxWidth: "480px" }}
           >
             <div className="review-section-header">
-              <h3 style={{ fontSize: "1rem", marginBottom: "0.25rem" }}>
+              <h3
+                style={{
+                  fontSize: "0.95rem",
+                  marginBottom: "0.25rem",
+                  marginTop: 0,
+                }}
+              >
                 Community Reviews
               </h3>
-              <p style={{ fontSize: "0.8rem" }}>
+              <p style={{ fontSize: "0.78rem", margin: 0 }}>
                 Leave a rating once you&apos;re signed in.{" "}
                 <strong>Emails are never shown.</strong>
               </p>
             </div>
 
             {loadingReviews ? (
-              <p style={{ fontSize: "0.85rem" }}>Loading reviews...</p>
+              <p style={{ fontSize: "0.8rem", marginTop: "0.4rem" }}>
+                Loading reviews...
+              </p>
             ) : reviewsError ? (
-              <p style={{ fontSize: "0.85rem" }}>{reviewsError}</p>
+              <p style={{ fontSize: "0.8rem", marginTop: "0.4rem" }}>
+                {reviewsError}
+              </p>
             ) : communityReviews.length === 0 ? (
-              <p style={{ fontSize: "0.85rem" }}>
+              <p style={{ fontSize: "0.8rem", marginTop: "0.4rem" }}>
                 No community reviews yet. Be the first to rate this movie.
               </p>
             ) : (
@@ -625,7 +666,7 @@ function MovieModal({
                   return (
                     <li key={r.id} className="community-item">
                       <div className="community-meta">
-                        <span style={{ fontSize: "0.85rem" }}>
+                        <span style={{ fontSize: "0.82rem" }}>
                           {displayName}
                           {isYou && (
                             <span
@@ -641,7 +682,7 @@ function MovieModal({
                             </span>
                           )}
                         </span>
-                        <span>
+                        <span style={{ fontSize: "0.78rem" }}>
                           ⭐ {Number(r.rating).toFixed(1)} / 10 •{" "}
                           {r.created_at
                             ? new Date(
@@ -655,7 +696,9 @@ function MovieModal({
                         </span>
                       </div>
                       {r.comment && (
-                        <p style={{ fontSize: "0.85rem" }}>{r.comment}</p>
+                        <p style={{ fontSize: "0.8rem", margin: "0.25rem 0 0" }}>
+                          {r.comment}
+                        </p>
                       )}
                     </li>
                   );
@@ -667,8 +710,8 @@ function MovieModal({
             {!user ? (
               <p
                 style={{
-                  fontSize: "0.8rem",
-                  marginTop: "0.75rem",
+                  fontSize: "0.78rem",
+                  marginTop: "0.6rem",
                   color: "#9ca3af",
                 }}
               >
@@ -681,8 +724,8 @@ function MovieModal({
               >
                 <p
                   style={{
-                    fontSize: "0.78rem",
-                    margin: "0 0 0.4rem",
+                    fontSize: "0.76rem",
+                    margin: "0.35rem 0 0.3rem",
                     color: "#9ca3af",
                   }}
                 >

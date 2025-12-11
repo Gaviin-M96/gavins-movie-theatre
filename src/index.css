@@ -990,99 +990,241 @@ body.modal-open {
   justify-content: center;
 }
 
-/* ✅ FORCE SINGLE COLUMN */
+/* ===================== */
+/* ⭐ TIGHT, COMPACT SINGLE-COLUMN MODAL */
+/* ===================== */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal {
+  position: relative;
+  background: radial-gradient(circle at top, #121b2f 0%, #070f21 60%, #020612 100%);
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  width: min(850px, 95vw);
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.85),
+    0 0 18px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.modal-close {
+  position: sticky;
+  top: 0.35rem;
+  margin-left: auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+/* ⭐ Single column, tighter spacing */
 .modal-content {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* was too large */
   width: 100%;
 }
 
-/* ✅ POSTER ON TOP */
+/* Poster */
 .modal-poster {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 .modal-poster img {
   width: 100%;
-  max-width: 320px;
-  border-radius: 14px;
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.85);
-}
-
-/* ✅ INFO BELOW POSTER */
-.modal-info {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-/* ✅ METADATA */
-.modal-meta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  justify-content: center;
-}
-
-.modal-meta-chip {
-  background: rgba(255, 255, 255, 0.07);
-  border-radius: 999px;
-  padding: 0.2rem 0.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  font-size: 0.75rem;
-}
-
-.modal-meta-text {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-/* ✅ GENRES */
-.modal-genre-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  justify-content: center;
-}
-
-/* ✅ OVERVIEW */
-.modal-overview {
-  font-size: 0.8rem;
-  line-height: 1.5;
-  color: var(--text-main);
-  max-width: 700px;
+  max-width: 260px;
+  border-radius: 12px;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.8);
   margin: 0 auto;
 }
 
-/* ✅ ACTION ROW */
-.modal-actions {
+/* Info section – much tighter spacing */
+.modal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0 0.25rem;
+}
+
+/* Title block */
+.modal-title {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* Meta row */
+.modal-meta-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  margin-top: -0.25rem;
+}
+
+.modal-meta-chip {
+  padding: 0.15rem 0.5rem;
+  font-size: 0.7rem;
+  border-radius: 999px;
+}
+
+/* Genre buttons */
+.modal-genre-row {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: -0.2rem;
+}
+
+/* Overview */
+.modal-overview {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  margin: 0.4rem auto;
+  max-width: 620px;
+  color: #d8e0f5;
+}
+
+/* ⭐ Actions row (fav + watchlist) */
+.card-actions {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
+  margin-top: 0.25rem;
 }
 
-/* ✅ REVIEWS STACKED */
+/* ===================== */
+/* ⭐ Compact Reviews Area */
+/* ===================== */
+
 .review-sections {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 1rem;
-  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 0.5rem;
+}
+
+.review-section {
+  background: rgba(5, 9, 24, 0.8);
+  border-radius: 12px;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ⭐ Gavin section compact version */
+.review-section--gavin {
+  border-color: rgba(65, 166, 255, 0.6);
+}
+
+.review-section--gavin h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ⭐ Ultra-compact slider row */
+.gavin-score-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.3rem !important;
+}
+
+.review-section--gavin .gavin-input {
+  width: 58px;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 2px 4px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+/* Save button smaller */
+.review-section--gavin .btn-primary {
+  margin-top: 0.4rem;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.8rem;
+}
+
+/* ⭐ Community reviews */
+.community-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.community-item {
+  background: rgba(7, 12, 28, 0.9);
+  padding: 0.45rem 0.55rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.community-meta {
+  font-size: 0.72rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.community-body {
+  font-size: 0.78rem;
+  margin-top: 0.25rem;
+}
+
+/* ⭐ Posting form spacing tightened */
+.community-form {
+  margin-top: 0.4rem;
+  gap: 0.4rem;
+}
+
+.community-input {
+  padding: 0.3rem 0.4rem;
+  font-size: 0.78rem;
+}
+
+.community-textarea {
+  padding: 0.35rem;
+  font-size: 0.78rem;
+}
+
+.community-submit {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.78rem;
+  align-self: flex-end;
+}
+
+/* ===================== */
+/* ⭐ Trailer Modal Compact */
+/* ===================== */
+
+.trailer-modal-overlay {
+  z-index: 99999;
+}
+
+.trailer-modal-content {
+  max-width: 700px;
+  border-radius: 12px;
 }
 
 /* ===================== */
 /* REVIEWS               */
 /* ===================== */
-
-.review-sections {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
-  gap: 0.8rem;
-  margin-top: 0.3rem;
-}
 
 .review-section {
   background: rgba(5, 9, 24, 0.96);
@@ -1641,14 +1783,19 @@ body.modal-open {
   z-index: 100000 !important;
 }
 
-/* Kill ALL stacking contexts that could trap it */
-.layout,
-.content,
-.grid,
-.card,
-.sidebar-column {
-  transform: none !important;
-  filter: none !important;
-  isolation: auto !important;
+.review-sections {
+  align-items: center !important;
 }
 
+.community-meta {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto; /* optional: centers it */
+  gap: 1rem;    /* reduces the space between name and rating */
+}
+
+.community-item {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;   /* centers the box */
+}
