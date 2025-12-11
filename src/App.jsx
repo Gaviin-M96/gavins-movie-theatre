@@ -159,7 +159,15 @@ function App() {
   const watchlistSet = useMemo(() => new Set(watchlist), [watchlist]);
 
   const formats = useMemo(
-    () => ["all", ...new Set(movies.map((m) => m.library?.format || "Unknown"))],
+    () => ["all", ...new Set(
+      movies.flatMap((m) =>
+        Array.isArray(m.library?.format)
+          ? m.library.format
+          : m.library?.format
+            ? [m.library.format]
+            : []
+      )
+    )],
     []
   );
 
@@ -229,7 +237,12 @@ function App() {
         const yearStr = movie.year ? String(movie.year) : "";
         const haystack = [
           movie.title,
-          movie.library?.format,
+          ...(Array.isArray(movie.library?.format)
+            ? movie.library.format
+            : movie.library?.format
+              ? [movie.library.format]
+              : []
+          ),
           yearStr,
           ...genresArr,
         ]
@@ -240,10 +253,19 @@ function App() {
         matchesSearch = haystack.includes(normalizedSearch);
       }
 
+      /* -------------------------
+      ✅ FIXED FORMAT FILTER LOGIC
+      ------------------------- */
+      const movieFormats = Array.isArray(movie.library?.format)
+        ? movie.library.format
+        : movie.library?.format
+          ? [movie.library.format]
+          : [];
+
       const matchesFormat =
         formatFilter === "all"
           ? true
-          : (movie.library?.format || "Unknown") === formatFilter;
+          : movieFormats.includes(formatFilter);
 
       const matchesGenre =
         genreFilter === "all" ? true : genresArr.includes(genreFilter);
@@ -283,8 +305,12 @@ function App() {
 
     return result;
   }, [
-    baseMovies, search, formatFilter,
-    genreFilter, categoryFilter, sortBy,
+    baseMovies,
+    search,
+    formatFilter,
+    genreFilter,
+    categoryFilter,
+    sortBy,
   ]);
 
   const totalCount = movies.length;

@@ -17,28 +17,33 @@ export function getRatingBadgeClass(rating) {
 const hasTag = (movie, tag) =>
   !!(
     (Array.isArray(movie?.tags) && movie.tags.includes(tag)) ||
-    (Array.isArray(movie?.library?.tags) &&
-      movie.library.tags.includes(tag))
+    (Array.isArray(movie?.library?.tags) && movie.library.tags.includes(tag))
   );
 
-// NEW: resolve formats cleanly
+
+// ⭐ FIXED: cleanly resolve multiple formats in all cases
 function getFormats(movie) {
   const lib = movie.library || {};
 
-  // New format: multiple formats
-  if (Array.isArray(lib.formats) && lib.formats.length > 0) {
-    return lib.formats.map((f) => f.trim());
+  // Case 1: new format -> array
+  if (Array.isArray(lib.format)) {
+    return lib.format.map((f) => f.trim());
   }
 
-  // Backwards compatible fallback
-  if (lib.format && typeof lib.format === "string") {
+  // Case 2: comma-separated string (your exact issue)
+  if (typeof lib.format === "string" && lib.format.includes(",")) {
+    return lib.format.split(",").map((f) => f.trim());
+  }
+
+  // Case 3: old single format string
+  if (typeof lib.format === "string") {
     return [lib.format.trim()];
   }
 
   return [];
 }
 
-// NEW: map formats → CSS class
+// Map formats → CSS class
 function getFormatClass(format) {
   const f = format.toLowerCase();
 
@@ -51,7 +56,7 @@ function getFormatClass(format) {
     case "bluray":
       return "card-format-pill card-format-pill--bluray";
     default:
-      return "card-format-pill"; // fallback
+      return "card-format-pill";
   }
 }
 
@@ -79,18 +84,15 @@ function MovieCard({
     ? movie.metadata.genres
     : [];
   const genresText =
-    genresArr && genresArr.length > 0
-      ? genresArr.slice(0, 2).join(", ")
-      : "";
+    genresArr && genresArr.length > 0 ? genresArr.slice(0, 2).join(", ") : "";
 
-  // NEW — support multiple formats
+  // FIXED formats
   const formats = getFormats(movie);
 
   const handleCardClick = () => onOpenModal(movie.id);
 
   return (
     <article className="card" onClick={handleCardClick}>
-      {/* Poster */}
       <div className="cover">
         <img src={posterUrl} alt={movie.title} loading="lazy" />
 
@@ -112,7 +114,6 @@ function MovieCard({
         </div>
       </div>
 
-      {/* Card body */}
       <div className="card-body">
         <h2>{movie.title}</h2>
         <p className="meta">
@@ -130,7 +131,6 @@ function MovieCard({
           }}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Icons */}
           <div className="card-actions">
             <button
               type="button"
@@ -138,11 +138,7 @@ function MovieCard({
                 "icon-button" + (isFavorite ? " icon-button--active" : "")
               }
               onClick={onToggleFavorite}
-              title={
-                isFavorite
-                  ? "Remove from favourites"
-                  : "Add to favourites"
-              }
+              title={isFavorite ? "Remove from favourites" : "Add to favourites"}
             >
               <span className="icon-symbol">
                 {isFavorite ? <AiFillStar /> : <AiOutlineStar />}
@@ -155,11 +151,7 @@ function MovieCard({
                 "icon-button" + (inWatchlist ? " icon-button--active" : "")
               }
               onClick={onToggleWatchlist}
-              title={
-                inWatchlist
-                  ? "Remove from watchlist"
-                  : "Add to watchlist"
-              }
+              title={inWatchlist ? "Remove from watchlist" : "Add to watchlist"}
             >
               <span className="icon-symbol">
                 {inWatchlist ? <AiFillEye /> : <AiOutlineEye />}
@@ -167,12 +159,10 @@ function MovieCard({
             </button>
           </div>
 
-          {/* Pills on right */}
           <div className="card-extra-badges">
             {hasTag(movie, "superbit") && (
               <span className="card-superbit-badge">Superbit</span>
             )}
-
             {hasTag(movie, "4k") && (
               <span className="card-4k-badge">4K UHD</span>
             )}
