@@ -8038,7 +8038,7 @@ export const movies = [
     "sortTitle": "Lion King",
     "year": 1994,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "VHS"],
       "owned": true,
       "tags": []
     },
@@ -8087,6 +8087,57 @@ export const movies = [
     },
     "youtubeTrailerKey": "lFzVJEksoDY"
   },
+  {
+  "id": "total-recall-1990",
+  "title": "Total Recall",
+  "sortTitle": "Total Recall",
+  "year": 1990,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Adventure",
+      "Science Fiction"
+    ],
+    "tmdbId": 861,
+    "runtimeMinutes": 113,
+    "imdbId": "tt0100802",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/total-recall-1990-poster.jpg",
+    "backdrop": "/assets/posters/total-recall-1990-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Total%20Recall"
+  },
+  "text": {
+    "overview": "Construction worker Douglas Quaid's obsession with the planet Mars leads him to visit Recall, a company that manufactures memories. When his memory implant goes wrong, Doug can no longer be sure what is and isn't reality.",
+    "tagline": "They stole his mind. Now, he wants it back."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.312,
+      "voteCount": 6193
+    }
+  },
+  "credits": {
+    "director": "Paul Verhoeven",
+    "castPreview": [
+      "Arnold Schwarzenegger",
+      "Rachel Ticotin",
+      "Sharon Stone",
+      "Ronny Cox",
+      "Michael Ironside"
+    ]
+  },
+  "youtubeTrailerKey": "IRaRhZE-1b4"
+},
   {
     "id": "the-lorax-2012",
     "title": "The Lorax",
@@ -11427,7 +11478,7 @@ export const movies = [
     "sortTitle": "We're Back! A Dinosaur's Story",
     "year": 1993,
     "library": {
-      "format": "DVD",
+      "format": ["DVD", "VHS"],
       "owned": true,
       "tags": []
     },
@@ -18691,7 +18742,7 @@ export const movies = [
     "sortTitle": "Charlotte's Web",
     "year": 2001,
     "library": {
-      "format": "DVD",
+      "format": ["DVD", "VHS"],
       "owned": true,
       "tags": []
     },
@@ -28086,6 +28137,1651 @@ export const movies = [
     ]
   },
   "youtubeTrailerKey": "3AAAMkYy2EA"
+},
+{
+  "id": "the-land-before-time-vii-the-stone-of-cold-fire-2000",
+  "title": "The Land Before Time VII: The Stone of Cold Fire",
+  "sortTitle": "The Land Before Time VII: The Stone of Cold Fire",
+  "year": 2000,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Adventure",
+      "Animation",
+      "Drama",
+      "Family"
+    ],
+    "tmdbId": 24102,
+    "runtimeMinutes": 75,
+    "imdbId": "tt0267657",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-land-before-time-vii-the-stone-of-cold-fire-2000-poster.jpg",
+    "backdrop": "/assets/posters/the-land-before-time-vii-the-stone-of-cold-fire-2000-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Land%20Before%20Time%20VII%3A%20The%20Stone%20of%20Cold%20Fire"
+  },
+  "text": {
+    "overview": "Littlefoot and his pals set off in search of a \"stone of cold fire\" that fell from the night sky. Since he's the only one who has seen it though, nobody really believes him. Petrie's uncle Pterano offers support only because he thinks the stone has secret powers and wants it for himself but conceals this from the rest. The young dinos must figure out the truth, before Pterano gets the power.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.2,
+      "voteCount": 275
+    }
+  },
+  "credits": {
+    "director": "Charles Grosvenor",
+    "castPreview": [
+      "Thomas Dekker",
+      "Kenneth Mars",
+      "Miriam Flynn",
+      "Jeff Bennett",
+      "Jim Cummings"
+    ]
+  },
+  "youtubeTrailerKey": "t74vbpH91i4"
+},
+{
+  "id": "bambi-1942",
+  "title": "Bambi",
+  "sortTitle": "Bambi",
+  "year": 1942,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Drama",
+      "Family"
+    ],
+    "tmdbId": 3170,
+    "runtimeMinutes": 69,
+    "imdbId": "tt0034492",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/bambi-1942-poster.jpg",
+    "backdrop": "/assets/posters/bambi-1942-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Bambi"
+  },
+  "text": {
+    "overview": "Bambi's tale unfolds from season to season as the young prince of the forest learns about life, love, and friends.",
+    "tagline": "A great love story."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.011,
+      "voteCount": 5893
+    }
+  },
+  "credits": {
+    "director": "David Hand",
+    "castPreview": [
+      "Donnie Dunagan",
+      "Peter Behn",
+      "Stan Alexander",
+      "Cammie King",
+      "Will Wright"
+    ]
+  },
+  "youtubeTrailerKey": "-jXX-EYTAis"
+},
+{
+  "id": "all-dogs-go-to-heaven-2-1996",
+  "title": "All Dogs Go to Heaven 2",
+  "sortTitle": "All Dogs Go to Heaven 2",
+  "year": 1996,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Romance",
+      "Animation",
+      "Family",
+      "Adventure",
+      "Fantasy"
+    ],
+    "tmdbId": 19042,
+    "runtimeMinutes": 82,
+    "imdbId": "tt0115509",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/all-dogs-go-to-heaven-2-1996-poster.jpg",
+    "backdrop": "/assets/posters/all-dogs-go-to-heaven-2-1996-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=All%20Dogs%20Go%20to%20Heaven%202" 
+  },
+  "text": {
+    "overview": "Charlie and Itchy return to Earth to find Gabriel's Horn, but along the way meet up with a young boy named David, who ran away from home.",
+    "tagline": "Heaven help us! Look who's back in the adventure of 2 lifetimes."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6,
+      "voteCount": 278
+    }
+  },
+  "credits": {
+    "director": "Larry Leker, Paul Sabella",
+    "castPreview": [
+      "Charlie Sheen",
+      "Dom DeLuise",
+      "Adam Wylie",
+      "Sheena Easton",
+      "Ernest Borgnine"
+    ]
+  },
+  "youtubeTrailerKey": "yPkqreV3siY"
+},
+{
+  "id": "lady-and-the-tramp-1955",
+  "title": "Lady and the Tramp",
+  "sortTitle": "Lady and the Tramp",
+  "year": 1955,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Animation",
+      "Romance"
+    ],
+    "tmdbId": 10340,
+    "runtimeMinutes": 76,
+    "imdbId": "tt0048280",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/lady-and-the-tramp-1955-poster.jpg",
+    "backdrop": "/assets/posters/lady-and-the-tramp-1955-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Lady%20and%20the%20Tramp"
+  },
+  "text": {
+    "overview": "Lady, a golden cocker spaniel, meets up with a mongrel dog who calls himself the Tramp. He is obviously from the wrong side of town, but happenings at Lady's home make her decide to travel with him for a while.",
+    "tagline": "She's from the leash and license set... he's footloose and collar free!"        
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.1,
+      "voteCount": 5501
+    }
+  },
+  "credits": {
+    "director": "Hamilton Luske, Clyde Geronimi, Wilfred Jackson",
+    "castPreview": [
+      "Barbara Luddy",
+      "Larry Roberts",
+      "Peggy Lee",
+      "Bill Thompson",
+      "Bill Baucom"
+    ]
+  },
+  "youtubeTrailerKey": "x_Fm8--aEm8"
+},
+{
+  "id": "pocahontas-1995",
+  "title": "Pocahontas",
+  "sortTitle": "Pocahontas",
+  "year": 1995,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Adventure",
+      "Animation",
+      "Family",
+      "Romance"
+    ],
+    "tmdbId": 10530,
+    "runtimeMinutes": 81,
+    "imdbId": "tt0114148",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/pocahontas-1995-poster.jpg",
+    "backdrop": "/assets/posters/pocahontas-1995-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Pocahontas"
+  },
+  "text": {
+    "overview": "Pocahontas, daughter of a Native American tribe chief, falls in love with an English soldier as colonists invade 17th century Virginia.",
+    "tagline": "An American legend comes to life."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.912,
+      "voteCount": 5925
+    }
+  },
+  "credits": {
+    "director": "Mike Gabriel, Eric Goldberg",
+    "castPreview": [
+      "Irene Bedard",
+      "Mel Gibson",
+      "David Ogden Stiers",
+      "John Kassir",
+      "Christian Bale"
+    ]
+  },
+  "youtubeTrailerKey": "mf0JmiI7NXY"
+},
+{
+  "id": "dumbo-1941",
+  "title": "Dumbo",
+  "sortTitle": "Dumbo",
+  "year": 1941,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Family"
+    ],
+    "tmdbId": 11360,
+    "runtimeMinutes": 64,
+    "imdbId": "tt0033563",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/dumbo-1941-poster.jpg",
+    "backdrop": "/assets/posters/dumbo-1941-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Dumbo"
+  },
+  "text": {
+    "overview": "Dumbo is a baby elephant born with over-sized ears and a supreme lack of confidence. But thanks to his even more diminutive buddy Timothy the Mouse,  the pint-sized pachyderm learns to surmount all obstacles.",
+    "tagline": "The One...The Only...The FABULOUS..."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.989,
+      "voteCount": 5168
+    }
+  },
+  "credits": {
+    "director": "Ben Sharpsteen, Bill Roberts, Samuel Armstrong, Wilfred Jackson, Jack Kinney, Norman Ferguson",
+    "castPreview": [
+      "Edward Brophy",
+      "Margaret Wright",
+      "Verna Felton",
+      "Sarah Selby",
+      "Noreen Gammill"
+    ]
+  },
+  "youtubeTrailerKey": "GPY-g86tcS4"
+},
+{
+  "id": "cinderella-1950",
+  "title": "Cinderella",
+  "sortTitle": "Cinderella",
+  "year": 1950,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Fantasy",
+      "Animation",
+      "Romance"
+    ],
+    "tmdbId": 11224,
+    "runtimeMinutes": 74,
+    "imdbId": "tt0042332",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/cinderella-1950-poster.jpg",
+    "backdrop": "/assets/posters/cinderella-1950-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Cinderella"
+  },
+  "text": {
+    "overview": "Cinderella has faith her dreams of a better life will come true. With help from her loyal mice friends and a wave of her Fairy Godmother's wand, Cinderella's rags are magically turned into a glorious gown and off she goes to the Royal Ball. But when the clock strikes midnight, the spell is broken, leaving a single glass slipper... the only key to the ultimate fairy-tale ending!",
+    "tagline": "The greatest love story ever told."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.045,
+      "voteCount": 6972
+    }
+  },
+  "credits": {
+    "director": "Clyde Geronimi, Wilfred Jackson, Hamilton Luske",
+    "castPreview": [
+      "Ilene Woods",
+      "Eleanor Audley",
+      "Verna Felton",
+      "Claire Du Brey",
+      "Rhoda Williams"
+    ]
+  },
+  "youtubeTrailerKey": "rPTMApBFfcI"
+},
+{
+  "id": "pooh-s-grand-adventure-the-search-for-christopher-robin-1997",
+  "title": "Pooh's Grand Adventure: The Search for Christopher Robin",
+  "sortTitle": "Pooh's Grand Adventure: The Search for Christopher Robin",
+  "year": 1997,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Family",
+      "Adventure"
+    ],
+    "tmdbId": 14903,
+    "runtimeMinutes": 76,
+    "imdbId": "tt0119918",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/pooh-s-grand-adventure-the-search-for-christopher-robin-1997-poster.jpg",
+    "backdrop": "/assets/posters/pooh-s-grand-adventure-the-search-for-christopher-robin-1997-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Pooh's%20Grand%20Adventure%3A%20The%20Search%20for%20Christopher%20Robin"
+  },
+  "text": {
+    "overview": "Pooh gets confused when Christopher Robin leaves him a note to say that he has gone back to school after the holidays. So Pooh, Piglet, Tigger, Eeyore and Rabbit go in search of Christopher Robin which leads to a big adventure.",
+    "tagline": "You're braver than you believe. Stronger than you seem. And smarter than you think."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.2,
+      "voteCount": 380
+    }
+  },
+  "credits": {
+    "director": "Karl Geurs",
+    "castPreview": [
+      "Jim Cummings",
+      "John Fiedler",
+      "Ken Sansom",
+      "Paul Winchell",
+      "Peter Cullen"
+    ]
+  },
+  "youtubeTrailerKey": "Isn23w4qc6s"
+},
+{
+  "id": "the-rescuers-down-under-1990",
+  "title": "The Rescuers Down Under",
+  "sortTitle": "The Rescuers Down Under",
+  "year": 1990,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Adventure",
+      "Family",
+      "Fantasy"
+    ],
+    "tmdbId": 11135,
+    "runtimeMinutes": 77,
+    "imdbId": "tt0100477",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-rescuers-down-under-1990-poster.jpg",
+    "backdrop": "/assets/posters/the-rescuers-down-under-1990-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Rescuers%20Down%20Under"     
+  },
+  "text": {
+    "overview": "A lawless poacher wants to capture a majestic and rare golden eagle, so he kidnaps the boy who knows where to find the bird. Not to worry -- the Rescue Aid Society's top agents, heroic mice Miss Bianca and Bernard, fly to Australia to save the day. Accompanying the fearless duo are bumbling albatross Wilbur and local field operative Jake the Kangaroo Rat.",        
+    "tagline": "Hang on for the most thrilling ride of your life!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.642,
+      "voteCount": 1353
+    }
+  },
+  "credits": {
+    "director": "Hendel Butoy, Mike Gabriel",
+    "castPreview": [
+      "Bob Newhart",
+      "Eva Gabor",
+      "John Candy",
+      "Tristan Rogers",
+      "Adam Ryen"
+    ]
+  },
+  "youtubeTrailerKey": "O26Hr4nVR68"
+},
+{
+  "id": "the-3-little-pigs-the-movie-1996",
+  "title": "The 3 Little Pigs: The Movie",
+  "sortTitle": "The 3 Little Pigs: The Movie",
+  "year": 1996,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Animation"
+    ],
+    "tmdbId": 430557,
+    "runtimeMinutes": 70,
+    "imdbId": "tt0806006",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-3-little-pigs-the-movie-1996-poster.jpg",
+    "backdrop": null,
+    "placeholder": "https://via.placeholder.com/300x450?text=The%203%20Little%20Pigs%3A%20The%20Movie"
+  },
+  "text": {
+    "overview": "Forced to leave the farm where they lived with their friends, The Three Little Pigs move to the woods. There, we follow their adventures as they build their homes, play, dance, adapt to their new environment and avert the fearsome wolf. For the first time ever, this timeless tale is presented in a full-length animated feature combining emotion, suspense, tenderness and humor to captivate children of all ages.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6,
+      "voteCount": 1
+    }
+  },
+  "credits": {
+    "director": "Jules Alain de Test, Eric Bayle",
+    "castPreview": [
+      "François Jérosme",
+      "Kristopher Kyer",
+      "Joey Latsko",
+      "Gérard Loussine",
+      "Mona Marshall"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "the-aristocats-1970",
+  "title": "The Aristocats",
+  "sortTitle": "The Aristocats",
+  "year": 1970,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Comedy",
+      "Family",
+      "Adventure"
+    ],
+    "tmdbId": 10112,
+    "runtimeMinutes": 78,
+    "imdbId": "tt0065421",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-aristocats-1970-poster.jpg",
+    "backdrop": "/assets/posters/the-aristocats-1970-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Aristocats"
+  },
+  "text": {
+    "overview": "When Madame Adelaide Bonfamille leaves her fortune to Duchess and her children—Bonfamille’s beloved family of cats—the butler plots to steal the money and kidnaps the legatees, leaving them out on a country road. All seems lost until the wily Thomas O’Malley Cat and his jazz-playing alley cats come to the aristocats’ rescue.",
+    "tagline": "A tune-filled animated extravaganza."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.294,
+      "voteCount": 5258
+    }
+  },
+  "credits": {
+    "director": "Wolfgang Reitherman",
+    "castPreview": [
+      "Phil Harris",
+      "Eva Gabor",
+      "Sterling Holloway",
+      "Scatman Crothers",
+      "Paul Winchell"
+    ]
+  },
+  "youtubeTrailerKey": "h6M_OJ41NfA"
+},
+{
+  "id": "toy-story-1995",
+  "title": "Toy Story",
+  "sortTitle": "Toy Story",
+  "year": 1995,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Comedy",
+      "Animation",
+      "Adventure"
+    ],
+    "tmdbId": 862,
+    "runtimeMinutes": 81,
+    "imdbId": "tt0114709",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/toy-story-1995-poster.jpg",
+    "backdrop": "/assets/posters/toy-story-1995-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Toy%20Story"
+  },
+  "text": {
+    "overview": "Led by Woody, Andy's toys live happily in his room until Andy's birthday brings Buzz Lightyear onto the scene. Afraid of losing his place in Andy's heart, Woody plots against Buzz. But when circumstances separate Buzz and Woody from their owner, the duo eventually learns to put aside their differences.",
+    "tagline": "The adventure takes off when toys come to life!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.971,
+      "voteCount": 19339
+    }
+  },
+  "credits": {
+    "director": "John Lasseter",
+    "castPreview": [
+      "Tom Hanks",
+      "Tim Allen",
+      "Don Rickles",
+      "Jim Varney",
+      "Wallace Shawn"
+    ]
+  },
+  "youtubeTrailerKey": "CxwTLktovTU"
+},
+{
+  "id": "mighty-joe-young-1998",
+  "title": "Mighty Joe Young",
+  "sortTitle": "Mighty Joe Young",
+  "year": 1998,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Adventure",
+      "Family",
+      "Action",
+      "Fantasy"
+    ],
+    "tmdbId": 9822,
+    "runtimeMinutes": 114,
+    "imdbId": "tt0120751",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/mighty-joe-young-1998-poster.jpg",
+    "backdrop": "/assets/posters/mighty-joe-young-1998-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Mighty%20Joe%20Young"
+  },
+  "text": {
+    "overview": "As a child living in Africa, Jill Young saw her mother killed while protecting wild gorillas from poachers led by Andrei Strasser. Now an adult, Jill cares for an orphaned gorilla named Joe -- who, due to a genetic anomaly, is 15 feet tall. When Gregg O'Hara arrives from California and sees the animal, he convinces Jill that Joe would be safest at his wildlife refuge. But Strasser follows them to the U.S., intent on capturing Joe for himself.",
+    "tagline": "Survival is an instinct."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.315,
+      "voteCount": 852
+    }
+  },
+  "credits": {
+    "director": "Ron Underwood",
+    "castPreview": [
+      "Charlize Theron",
+      "Bill Paxton",
+      "Rade Šerbedžija",
+      "Peter Firth",
+      "David Paymer"
+    ]
+  },
+  "youtubeTrailerKey": "3tPWHp2KZoY"
+},
+{
+  "id": "the-land-before-time-viii-the-big-freeze-2001",
+  "title": "The Land Before Time VIII: The Big Freeze",
+  "sortTitle": "The Land Before Time VIII: The Big Freeze",
+  "year": 2001,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Adventure",
+      "Family"
+    ],
+    "tmdbId": 25587,
+    "runtimeMinutes": 75,
+    "imdbId": "tt0301526",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-land-before-time-viii-the-big-freeze-2001-poster.jpg",       
+    "backdrop": "/assets/posters/the-land-before-time-viii-the-big-freeze-2001-backdrop.jpg",   
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Land%20Before%20Time%20VIII%3A%20The%20Big%20Freeze"
+  },
+  "text": {
+    "overview": "When the dinosaur families get trapped in a valley by an ice storm, one family of \"spike tail\" dinosaurs volunteers to leave since they consume more food than the others. Meanwhile, the young dinos and a new adult dinosaur named Mr. Thicknose, head out to bring back their friend Spike, who has left his friends to be with members of his own species.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.1,
+      "voteCount": 241
+    }
+  },
+  "credits": {
+    "director": "Charles Grosvenor",
+    "castPreview": [
+      "John Ingle",
+      "Rob Paulsen",
+      "Thomas Dekker",
+      "Anndi McAfee",
+      "Jeff Bennett"
+    ]
+  },
+  "youtubeTrailerKey": "CoBez6DwrFg"
+},
+{
+  "id": "the-jungle-book-1967",
+  "title": "The Jungle Book",
+  "sortTitle": "The Jungle Book",
+  "year": 1967,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Animation",
+      "Adventure"
+    ],
+    "tmdbId": 9325,
+    "runtimeMinutes": 78,
+    "imdbId": "tt0061852",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-jungle-book-1967-poster.jpg",
+    "backdrop": "/assets/posters/the-jungle-book-1967-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Jungle%20Book"
+  },
+  "text": {
+    "overview": "The boy Mowgli makes his way to the man-village with Bagheera, the wise panther. Along the way he meets jazzy King Louie, the hypnotic snake Kaa and the lovable, happy-go-lucky bear Baloo, who teaches Mowgli \"The Bare Necessities\" of life and the true meaning of friendship.",
+    "tagline": "The Jungle is JUMPIN'!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.277,
+      "voteCount": 6510
+    }
+  },
+  "credits": {
+    "director": "Wolfgang Reitherman",
+    "castPreview": [
+      "Bruce Reitherman",
+      "Phil Harris",
+      "Sebastian Cabot",
+      "George Sanders",
+      "Sterling Holloway"
+    ]
+  },
+  "youtubeTrailerKey": "qdkU9NmI0jA"
+},
+{
+  "id": "beethoven-s-3rd-2000",
+  "title": "Beethoven's 3rd",
+  "sortTitle": "Beethoven's 3rd",
+  "year": 2000,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Comedy"
+    ],
+    "tmdbId": 24476,
+    "runtimeMinutes": 99,
+    "imdbId": "tt0206588",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/beethoven-s-3rd-2000-poster.jpg",
+    "backdrop": "/assets/posters/beethoven-s-3rd-2000-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Beethoven's%203rd"
+  },
+  "text": {
+    "overview": "Everyone's favorite St. Bernard returns in this family film about man's best friend. Richard Newton, his wife Beth and kids Brennan and Sara shove off in their camper for a road trip. Along the way, they gain a new passenger: slobbery Beethoven. The Newtons plan to return Beethoven to his owner -- but not before he turns hero when a pair of thieves enter the picture.",
+    "tagline": "Buckle up... Beethoven is taking a road trip!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.183,
+      "voteCount": 369
+    }
+  },
+  "credits": {
+    "director": "David Mickey Evans",
+    "castPreview": [
+      "Judge Reinhold",
+      "Julia Sweeney",
+      "Joe Pichler",
+      "Michaela Gallo",
+      "Mike Ciccolini"
+    ]
+  },
+  "youtubeTrailerKey": "TSoRoiXYq38"
+},
+{
+  "id": "beethoven-s-4th-2001",
+  "title": "Beethoven's 4th",
+  "sortTitle": "Beethoven's 4th",
+  "year": 2001,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Comedy"
+    ],
+    "tmdbId": 24478,
+    "runtimeMinutes": 93,
+    "imdbId": "tt0294345",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/beethoven-s-4th-2001-poster.jpg",
+    "backdrop": "/assets/posters/beethoven-s-4th-2001-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Beethoven's%204th"
+  },
+  "text": {
+    "overview": "The family is pleasantly surprised and puzzled when Beethoven suddenly becomes obedient. Turns out it's a prince and the pauper scenario, with the real Beethoven now living with a pompous rich family.",
+    "tagline": "The family is pleasantly surprised and puzzled when Beethoven suddenly becomes obedient."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.244,
+      "voteCount": 287
+    }
+  },
+  "credits": {
+    "director": "David Mickey Evans",
+    "castPreview": [
+      "Judge Reinhold",
+      "Julia Sweeney",
+      "Joe Pichler",
+      "Michaela Gallo",
+      "Kaleigh Krish"
+    ]
+  },
+  "youtubeTrailerKey": "jbFm_io8lX8"
+},
+{
+  "id": "the-rescuers-1977",
+  "title": "The Rescuers",
+  "sortTitle": "The Rescuers",
+  "year": 1977,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Fantasy",
+      "Family",
+      "Animation",
+      "Adventure"
+    ],
+    "tmdbId": 11319,
+    "runtimeMinutes": 78,
+    "imdbId": "tt0076618",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-rescuers-1977-poster.jpg",
+    "backdrop": "/assets/posters/the-rescuers-1977-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Rescuers"
+  },
+  "text": {
+    "overview": "Two agents of the mouse-run International Rescue Aid Society search for a little orphan girl kidnapped by sinister treasure hunters.",
+    "tagline": "Two tiny agents vs. the world's wickedest woman in a dazzling animated adventure!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.781,
+      "voteCount": 2619
+    }
+  },
+  "credits": {
+    "director": "Wolfgang Reitherman, John Lounsbery, Art Stevens",
+    "castPreview": [
+      "Bob Newhart",
+      "Eva Gabor",
+      "Geraldine Page",
+      "Joe Flynn",
+      "Jeanette Nolan"
+    ]
+  },
+  "youtubeTrailerKey": "bz4vILhWO18"
+},
+{
+  "id": "digimon-the-movie-2000",
+  "title": "Digimon: The Movie",
+  "sortTitle": "Digimon: The Movie",
+  "year": 2000,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Fantasy",
+      "Animation",
+      "Science Fiction",
+      "Family"
+    ],
+    "tmdbId": 20455,
+    "runtimeMinutes": 89,
+    "imdbId": "tt0259974",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/digimon-the-movie-2000-poster.jpg",
+    "backdrop": "/assets/posters/digimon-the-movie-2000-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Digimon%3A%20The%20Movie"
+  },
+  "text": {
+    "overview": "When a powerful new Internet Digimon hatches and begins to consume data at an alarming rate, the Digidestined - kids chosen to save the digital world - must put an end to the destruction before the damage becomes irreversible and worldwide communication halts forever. As computer-based missiles are launched, and a wayward Digimon kidnaps the Digidestined, only the combined efforts of a worldwide network of kids and a new group of \"Digidestined\" can rescue the others and stop global disaster.",
+    "tagline": "New monsters. New battles. Now on the big screen."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.5,
+      "voteCount": 287
+    }
+  },
+  "credits": {
+    "director": "Mamoru Hosoda, Shigeyasu Yamauchi",
+    "castPreview": [
+      "Lara Jill Miller",
+      "Joshua Seth",
+      "Bob Papenbrook",
+      "David Lodge",
+      "Dorothy Elias-Fahn"
+    ]
+  },
+  "youtubeTrailerKey": "gFuNXUCG4Bs"
+},
+{
+  "id": "the-little-mermaid-1989",
+  "title": "The Little Mermaid",
+  "sortTitle": "The Little Mermaid",
+  "year": 1989,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Family",
+      "Fantasy"
+    ],
+    "tmdbId": 10144,
+    "runtimeMinutes": 83,
+    "imdbId": "tt0097757",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-little-mermaid-1989-poster.jpg",
+    "backdrop": "/assets/posters/the-little-mermaid-1989-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Little%20Mermaid"
+  },
+  "text": {
+    "overview": "This colorful adventure tells the story of an impetuous mermaid princess named Ariel who falls in love with the very human Prince Eric and puts everything on the line for the chance to be with him. Memorable songs and characters -- including the villainous sea witch Ursula.",
+    "tagline": "Somewhere under the sea and beyond your imagination is an adventure in fantasy."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.351,
+      "voteCount": 8222
+    }
+  },
+  "credits": {
+    "director": "John Musker, Ron Clements",
+    "castPreview": [
+      "Jodi Benson",
+      "Samuel E. Wright",
+      "Pat Carroll",
+      "Christopher Daniel Barnes",
+      "Kenneth Mars"
+    ]
+  },
+  "youtubeTrailerKey": "J0KsXGZ6y8s"
+},
+{
+  "id": "once-upon-a-forest-1993",
+  "title": "Once Upon a Forest",
+  "sortTitle": "Once Upon a Forest",
+  "year": 1993,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Family",
+      "Adventure"
+    ],
+    "tmdbId": 33539,
+    "runtimeMinutes": 71,
+    "imdbId": "tt0107745",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/once-upon-a-forest-1993-poster.jpg",
+    "backdrop": "/assets/posters/once-upon-a-forest-1993-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Once%20Upon%20a%20Forest"
+  },
+  "text": {
+    "overview": "A young mouse, mole and hedgehog risk their lives to find a cure for their badger friend, who's been poisoned by men.",
+    "tagline": "An adventurous race against time!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.5,
+      "voteCount": 133
+    }
+  },
+  "credits": {
+    "director": "Charles Grosvenor",
+    "castPreview": [
+      "Michael Crawford",
+      "Ben Vereen",
+      "Ellen Blain",
+      "Benji Gregory",
+      "Paige Gosney"
+    ]
+  },
+  "youtubeTrailerKey": "hLKuBn7_Clw"
+},
+{
+  "id": "the-land-before-time-1988",
+  "title": "The Land Before Time",
+  "sortTitle": "The Land Before Time",
+  "year": 1988,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Animation",
+      "Adventure"
+    ],
+    "tmdbId": 12144,
+    "runtimeMinutes": 69,
+    "imdbId": "tt0095489",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-land-before-time-1988-poster.jpg",
+    "backdrop": "/assets/posters/the-land-before-time-1988-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Land%20Before%20Time"        
+  },
+  "text": {
+    "overview": "An orphaned brontosaurus named Littlefoot sets off in search of the legendary Great Valley. A land of lush vegetation where the dinosaurs can thrive and live in peace. Along the way he meets four other young dinosaurs, each one a different species, and they encounter several obstacles as they learn to work together in order to survive.",
+    "tagline": "A new adventure is born."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.152,
+      "voteCount": 2650
+    }
+  },
+  "credits": {
+    "director": "Don Bluth",
+    "castPreview": [
+      "Gabriel Damon",
+      "Candace Hutson",
+      "Will Ryan",
+      "Judith Barsi",
+      "Helen Shaver"
+    ]
+  },
+  "youtubeTrailerKey": "4BInhb4GkG8"
+},
+{
+  "id": "the-land-before-time-ii-the-great-valley-adventure-1994",
+  "title": "The Land Before Time II: The Great Valley Adventure",
+  "sortTitle": "The Land Before Time II: The Great Valley Adventure",
+  "year": 1994,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Adventure",
+      "Family"
+    ],
+    "tmdbId": 15997,
+    "runtimeMinutes": 73,
+    "imdbId": "tt0110300",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-land-before-time-ii-the-great-valley-adventure-1994-poster.jpg",
+    "backdrop": "/assets/posters/the-land-before-time-ii-the-great-valley-adventure-1994-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Land%20Before%20Time%20II%3A%20The%20Great%20Valley%20Adventure"
+  },
+  "text": {
+    "overview": "This time, while building a hideaway in their new home of the Great Valley, Littlefoot and the gang rescue a mysterious egg from two scheming egg-nappers and make a starling surprise - and new friend - when the egg hatches.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.31,
+      "voteCount": 575
+    }
+  },
+  "credits": {
+    "director": "Roy Allen Smith",
+    "castPreview": [
+      "Scott McAfee",
+      "Candace Hutson",
+      "Heather Hogan",
+      "Jeff Bennett",
+      "Rob Paulsen"
+    ]
+  },
+  "youtubeTrailerKey": "H5g9yI7u9B4"
+},
+{
+  "id": "cats-dogs-2001",
+  "title": "Cats & Dogs",
+  "sortTitle": "Cats & Dogs",
+  "year": 2001,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Comedy",
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "tmdbId": 10992,
+    "runtimeMinutes": 87,
+    "imdbId": "tt0239395",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/cats-dogs-2001-poster.jpg",
+    "backdrop": "/assets/posters/cats-dogs-2001-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Cats%20%26%20Dogs"
+  },
+  "text": {
+    "overview": "When a professor develops a vaccine that eliminates human allergies to dogs, he unwittingly upsets the fragile balance of power between cats and dogs and touches off an epic battle for pet supremacy. The fur flies as the feline faction, led by Mr. Tinkles, squares off against wide-eyed puppy Lou and his canine cohorts.",
+    "tagline": "Things Are Gonna Get Hairy!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.4,
+      "voteCount": 1696
+    }
+  },
+  "credits": {
+    "director": "Lawrence Guterman",
+    "castPreview": [
+      "Jeff Goldblum",
+      "Elizabeth Perkins",
+      "Alexander Pollock",
+      "Miriam Margolyes",
+      "Tobey Maguire"
+    ]
+  },
+  "youtubeTrailerKey": "IbR2bdm2Jj8"
+},
+{
+  "id": "dinosaur-2000",
+  "title": "Dinosaur",
+  "sortTitle": "Dinosaur",
+  "year": 2000,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Family",
+      "Adventure",
+      "Drama"
+    ],
+    "tmdbId": 10567,
+    "runtimeMinutes": 82,
+    "imdbId": "tt0130623",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/dinosaur-2000-poster.jpg",
+    "backdrop": "/assets/posters/dinosaur-2000-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Dinosaur"
+  },
+  "text": {
+    "overview": "An orphaned dinosaur raised by lemurs joins an arduous trek to a sancturary after a meteorite shower destroys his family home.",
+    "tagline": "Discover a world you've only imagined."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.5,
+      "voteCount": 2662
+    }
+  },
+  "credits": {
+    "director": "Ralph Zondag, Eric Leighton",
+    "castPreview": [
+      "D. B. Sweeney",
+      "Alfre Woodard",
+      "Ossie Davis",
+      "Max Casella",
+      "Hayden Panettiere"
+    ]
+  },
+  "youtubeTrailerKey": "yrhGIq5o5Yc"
+},
+{
+  "id": "fly-away-home-1996",
+  "title": "Fly Away Home",
+  "sortTitle": "Fly Away Home",
+  "year": 1996,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Adventure",
+      "Drama",
+      "Family"
+    ],
+    "tmdbId": 11076,
+    "runtimeMinutes": 107,
+    "imdbId": "tt0116329",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/fly-away-home-1996-poster.jpg",
+    "backdrop": "/assets/posters/fly-away-home-1996-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Fly%20Away%20Home"
+  },
+  "text": {
+    "overview": "Amy is only 13 years old when her mother is killed. She goes to Canada to live with her father, an eccentric inventor whom she barely knows. Amy is miserable in her new life... until she discovers a nest of goose eggs that were abandoned when a local forest was torn down. The eggs hatch and Amy becomes \"Mama Goose\". When winter comes, Amy and her dad must find a way to lead the birds South.",
+    "tagline": "To achieve the incredible, you have to attempt the impossible."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.9,
+      "voteCount": 490
+    }
+  },
+  "credits": {
+    "director": "Carroll Ballard",
+    "castPreview": [
+      "Jeff Daniels",
+      "Anna Paquin",
+      "Dana Delany",
+      "Terry Kinney",
+      "Holter Graham"
+    ]
+  },
+  "youtubeTrailerKey": "2mpxfPxPM6A"
+},
+{
+  "id": "the-land-before-time-v-the-mysterious-island-1997",
+  "title": "The Land Before Time V: The Mysterious Island",
+  "sortTitle": "The Land Before Time V: The Mysterious Island",
+  "year": 1997,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Family",
+      "Adventure"
+    ],
+    "tmdbId": 19165,
+    "runtimeMinutes": 74,
+    "imdbId": "tt0123950",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-land-before-time-v-the-mysterious-island-1997-poster.jpg",   
+    "backdrop": "/assets/posters/the-land-before-time-v-the-mysterious-island-1997-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Land%20Before%20Time%20V%3A%20The%20Mysterious%20Island"
+  },
+  "text": {
+    "overview": "Littlefoot and his friends the gang in their next when a swarm of leaf gobblers had destroyed their homes and this forces them to find a new home but yet find an mysterious island.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.2,
+      "voteCount": 330
+    }
+  },
+  "credits": {
+    "director": "Charles Grosvenor",
+    "castPreview": [
+      "John Ingle",
+      "Brandon La Croix",
+      "Aria Noelle Curzon",
+      "Rob Paulsen",
+      "Anndi McAfee"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "spy-kids-2001",
+  "title": "Spy Kids",
+  "sortTitle": "Spy Kids",
+  "year": 2001,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Action",
+      "Comedy",
+      "Adventure",
+      "Science Fiction"
+    ],
+    "tmdbId": 10054,
+    "runtimeMinutes": 88,
+    "imdbId": "tt0227538",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/spy-kids-2001-poster.jpg",
+    "backdrop": "/assets/posters/spy-kids-2001-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Spy%20Kids"
+  },
+  "text": {
+    "overview": "Carmen and Juni think their parents are boring. Little do they know that in their day, Gregorio and Ingrid Cortez were the top secret agents from their respective countries. They gave up that life to raise their children. Now, the disappearances of several of their old colleagues forces the Cortez' return from retirement. What they didn't count on was Carmen and Juni joining the \"family business.\"",
+    "tagline": "Real spies... only smaller"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.818,
+      "voteCount": 3606
+    }
+  },
+  "credits": {
+    "director": "Robert Rodriguez",
+    "castPreview": [
+      "Alexa PenaVega",
+      "Daryl Sabara",
+      "Antonio Banderas",
+      "Carla Gugino",
+      "Alan Cumming"
+    ]
+  },
+  "youtubeTrailerKey": "GE5aHKJp6HI"
+},
+{
+  "id": "the-fox-and-the-hound-1981",
+  "title": "The Fox and the Hound",
+  "sortTitle": "The Fox and the Hound",
+  "year": 1981,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Adventure",
+      "Animation",
+      "Drama",
+      "Family"
+    ],
+    "tmdbId": 10948,
+    "runtimeMinutes": 82,
+    "imdbId": "tt0082406",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-fox-and-the-hound-1981-poster.jpg",
+    "backdrop": "/assets/posters/the-fox-and-the-hound-1981-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Fox%20and%20the%20Hound"     
+  },
+  "text": {
+    "overview": "When a feisty little fox named Tod is adopted into a farm family, he quickly becomes friends with a fun and adorable hound puppy named Copper. Life is full of hilarious adventures until Copper is expected to take on his role as a hunting dog -- and the object of his search is his best friend!",
+    "tagline": "A story of two friends who didn't know they were supposed to be enemies."       
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.1,
+      "voteCount": 3384
+    }
+  },
+  "credits": {
+    "director": "Ted Berman, Art Stevens, Richard Rich",
+    "castPreview": [
+      "Mickey Rooney",
+      "Kurt Russell",
+      "Pearl Bailey",
+      "Jack Albertson",
+      "Sandy Duncan"
+    ]
+  },
+  "youtubeTrailerKey": "hbuIeTHh4To"
+},
+{
+  "id": "the-land-before-time-sing-along-songs-1997",
+  "title": "The Land Before Time: Sing Along Songs",
+  "sortTitle": "The Land Before Time: Sing Along Songs",
+  "year": 1997,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Family",
+      "Music"
+    ],
+    "tmdbId": 495171,
+    "runtimeMinutes": 30,
+    "imdbId": "tt0119493",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-land-before-time-sing-along-songs-1997-poster.jpg",
+    "backdrop": null,
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Land%20Before%20Time%3A%20Sing%20Along%20Songs"
+  },
+  "text": {
+    "overview": "A collection of songs from the first four Land Before Time movies.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.8,
+      "voteCount": 4
+    }
+  },
+  "credits": {
+    "director": "Roy Allen Smith",
+    "castPreview": [
+      "Aria Noelle Curzon",
+      "Anndi McAfee",
+      "Hannah Swanson"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "rudolph-the-red-nosed-reindeer-the-movie-1998",
+  "title": "Rudolph the Red-Nosed Reindeer: The Movie",
+  "sortTitle": "Rudolph the Red-Nosed Reindeer: The Movie",
+  "year": 1998,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Family",
+      "Music"
+    ],
+    "tmdbId": 33719,
+    "runtimeMinutes": 83,
+    "imdbId": "tt0137201",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/rudolph-the-red-nosed-reindeer-the-movie-1998-poster.jpg",       
+    "backdrop": "/assets/posters/rudolph-the-red-nosed-reindeer-the-movie-1998-backdrop.jpg",   
+    "placeholder": "https://via.placeholder.com/300x450?text=Rudolph%20the%20Red-Nosed%20Reindeer%3A%20The%20Movie"
+  },
+  "text": {
+    "overview": "Young Rudolph suffers a childhood accident that sees his nose turn from the publicly accepted norm of black to a glowing red colour. His parents worry about him getting teased, and indeed he does in the end. When he is beaten in the reindeer games by his rival for a doe he fancies, Rudolph runs away and moves into a cave with Slyly the Fox. However can he overcome his fear and reach his true potential?",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.1,
+      "voteCount": 179
+    }
+  },
+  "credits": {
+    "director": "William R. Kowalchuk Jr.",
+    "castPreview": [
+      "Eric Pospisil",
+      "Kathleen Barr",
+      "John Goodman",
+      "Whoopi Goldberg",
+      "Debbie Reynolds"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "the-lion-king-ii-simba-s-pride-1998",
+  "title": "The Lion King II: Simba's Pride",
+  "sortTitle": "The Lion King II: Simba's Pride",
+  "year": 1998,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Adventure",
+      "Animation",
+      "Drama",
+      "Romance"
+    ],
+    "tmdbId": 9732,
+    "runtimeMinutes": 81,
+    "imdbId": "tt0120131",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-lion-king-ii-simba-s-pride-1998-poster.jpg",
+    "backdrop": "/assets/posters/the-lion-king-ii-simba-s-pride-1998-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Lion%20King%20II%3A%20Simba's%20Pride"
+  },
+  "text": {
+    "overview": "The circle of life continues for Simba, now fully grown and in his rightful place as the king of Pride Rock. Simba and Nala have given birth to a daughter, Kiara who's as rebellious as her father was. But Kiara drives her parents to distraction when she catches the eye of Kovu, the son of the evil lioness, Zira. Will Kovu steal Kiara's heart?",
+    "tagline": "The Circle of Life Continues..."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.941,
+      "voteCount": 4581
+    }
+  },
+  "credits": {
+    "director": "Darrell Rooney",
+    "castPreview": [
+      "Matthew Broderick",
+      "Neve Campbell",
+      "Jason Marsden",
+      "Nathan Lane",
+      "Ernie Sabella"
+    ]
+  },
+  "youtubeTrailerKey": "gxrwh6WNMLU"
 },
   {
     "id": "peter-pan-1953",
