@@ -26824,10 +26824,10 @@ export const movies = [
   "youtubeTrailerKey": "nSfidAYMx7o"
 },
 {
-  "id": "the-many-adventures-of-winnie-the-pooh-1977",
+  "id": "the-many-adventures-of-winnie-the-pooh-1996",
   "title": "The Many Adventures of Winnie the Pooh",
   "sortTitle": "The Many Adventures of Winnie the Pooh",
-  "year": 1977,
+  "year": 1996,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -27271,10 +27271,10 @@ export const movies = [
   "youtubeTrailerKey": "MdfXfkuhPqo"
 },
 {
-  "id": "one-hundred-and-one-dalmatians-1961",
+  "id": "one-hundred-and-one-dalmatians-1999",
   "title": "One Hundred and One Dalmatians",
   "sortTitle": "One Hundred and One Dalmatians",
-  "year": 1961,
+  "year": 1999,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -27980,10 +27980,10 @@ export const movies = [
   "youtubeTrailerKey": "kRX7PPqbKaQ"
 },
 {
-  "id": "the-adventures-of-ichabod-and-mr-toad-1949",
+  "id": "the-adventures-of-ichabod-and-mr-toad-2000",
   "title": "The Adventures of Ichabod and Mr. Toad",
   "sortTitle": "The Adventures of Ichabod and Mr. Toad",
-  "year": 1949,
+  "year": 2000,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -28032,10 +28032,10 @@ export const movies = [
   "youtubeTrailerKey": "Ju_BnpsfznA"
 },
 {
-  "id": "pete-s-dragon-1977",
+  "id": "pete-s-dragon-2001",
   "title": "Pete's Dragon",
   "sortTitle": "Pete's Dragon",
-  "year": 1977,
+  "year": 2001,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -28239,10 +28239,10 @@ export const movies = [
   "youtubeTrailerKey": "t74vbpH91i4"
 },
 {
-  "id": "bambi-1942",
+  "id": "bambi-1989",
   "title": "Bambi",
   "sortTitle": "Bambi",
-  "year": 1942,
+  "year": 1989,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -28343,10 +28343,10 @@ export const movies = [
   "youtubeTrailerKey": "yPkqreV3siY"
 },
 {
-  "id": "lady-and-the-tramp-1955",
+  "id": "lady-and-the-tramp-1998",
   "title": "Lady and the Tramp",
   "sortTitle": "Lady and the Tramp",
-  "year": 1955,
+  "year": 1998,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -28446,10 +28446,10 @@ export const movies = [
   "youtubeTrailerKey": "mf0JmiI7NXY"
 },
 {
-  "id": "dumbo-1941",
+  "id": "dumbo-1999",
   "title": "Dumbo",
   "sortTitle": "Dumbo",
-  "year": 1941,
+  "year": 1999,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -28496,10 +28496,10 @@ export const movies = [
   "youtubeTrailerKey": "GPY-g86tcS4"
 },
 {
-  "id": "cinderella-1950",
+  "id": "cinderella-1995",
   "title": "Cinderella",
   "sortTitle": "Cinderella",
-  "year": 1950,
+  "year": 1995,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -28701,10 +28701,10 @@ export const movies = [
   "youtubeTrailerKey": null
 },
 {
-  "id": "the-aristocats-1970",
+  "id": "the-aristocats-1996",
   "title": "The Aristocats",
   "sortTitle": "The Aristocats",
-  "year": 1970,
+  "year": 1996,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -29007,10 +29007,10 @@ export const movies = [
   "youtubeTrailerKey": "jbFm_io8lX8"
 },
 {
-  "id": "the-rescuers-1977",
+  "id": "the-rescuers-1999",
   "title": "The Rescuers",
   "sortTitle": "The Rescuers",
-  "year": 1977,
+  "year": 1999,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -29575,10 +29575,10 @@ export const movies = [
   "youtubeTrailerKey": "GE5aHKJp6HI"
 },
 {
-  "id": "the-fox-and-the-hound-1981",
+  "id": "the-fox-and-the-hound-1994",
   "title": "The Fox and the Hound",
   "sortTitle": "The Fox and the Hound",
-  "year": 1981,
+  "year": 1994,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -29857,10 +29857,10 @@ export const movies = [
 }
 ,
   {
-    "id": "peter-pan-1953",
+    "id": "peter-pan-2007",
     "title": "Peter Pan",
     "sortTitle": "Peter Pan",
-    "year": 1953,
+    "year": 2007,
     "library": {
       "format": "DVD",
       "owned": true,
