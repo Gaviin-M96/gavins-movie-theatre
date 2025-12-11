@@ -28626,7 +28626,7 @@ export const movies = [
     "seasons": []
   },
   "media": {
-    "poster": "/assets/posters/the-3-little-pigs-the-movie-1996-poster.jpg",
+    "poster": "/assets/posters/the-3-little-pigs-1996.jpg",
     "backdrop": null,
     "placeholder": "https://via.placeholder.com/300x450?text=The%203%20Little%20Pigs%3A%20The%20Movie"
   },
@@ -29655,7 +29655,7 @@ export const movies = [
     "seasons": []
   },
   "media": {
-    "poster": "/assets/posters/the-land-before-time-sing-along-songs-1997-poster.jpg",
+    "poster": "/assets/posters/the-land-before-time-sing-along-songs-1997.jpg",
     "backdrop": null,
     "placeholder": "https://via.placeholder.com/300x450?text=The%20Land%20Before%20Time%3A%20Sing%20Along%20Songs"
   },
@@ -29782,6 +29782,32 @@ export const movies = [
     ]
   },
   "youtubeTrailerKey": "gxrwh6WNMLU"
+},
+{
+  "id": "travel-tales-unknown",
+  "title": "Travel Tales",
+  "sortTitle": "Travel Tales",
+  "year": 2020,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "category": "Movie",
+    "genres": ["Adventure", "Travel"],
+    "runtimeMinutes": 0,
+    "status": "Unknown"
+  },
+  "media": {
+    "poster": "https://via.placeholder.com/500x750?text=Travel+Tales",
+    "backdrop": "",
+    "placeholder": ""
+  },
+  "text": {
+    "overview": "Custom entry for Travel Tales — not found on TMDb.",
+    "tagline": ""
+  }
 },
   {
     "id": "peter-pan-1953",
