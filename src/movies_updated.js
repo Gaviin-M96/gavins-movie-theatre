@@ -27273,10 +27273,10 @@ export const movies = [
   "youtubeTrailerKey": "d2ALWgaLypE"
 },
 {
-  "id": "snow-white-and-the-seven-dwarfs-1938",
+  "id": "snow-white-and-the-seven-dwarfs-1994",
   "title": "Snow White and the Seven Dwarfs",
   "sortTitle": "Snow White and the Seven Dwarfs",
-  "year": 1938,
+  "year": 1994,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -27297,8 +27297,8 @@ export const movies = [
     "seasons": []
   },
   "media": {
-    "poster": "/assets/posters/snow-white-and-the-seven-dwarfs-1938-poster.jpg",
-    "backdrop": "/assets/posters/snow-white-and-the-seven-dwarfs-1938-backdrop.jpg",
+    "poster": "/assets/posters/snow-white-and-the-seven-dwarfs-1994.jpg",
+    "backdrop": null,
     "placeholder": "https://via.placeholder.com/300x450?text=Snow%20White%20and%20the%20Seven%20Dwarfs"
   },
   "text": {
@@ -28757,10 +28757,10 @@ export const movies = [
   "youtubeTrailerKey": "CxwTLktovTU"
 },
 {
-  "id": "mighty-joe-young-1998",
+  "id": "mighty-joe-young-1996",
   "title": "Mighty Joe Young",
   "sortTitle": "Mighty Joe Young",
-  "year": 1998,
+  "year": 1996,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -28782,8 +28782,8 @@ export const movies = [
     "seasons": []
   },
   "media": {
-    "poster": "/assets/posters/mighty-joe-young-1998-poster.jpg",
-    "backdrop": "/assets/posters/mighty-joe-young-1998-backdrop.jpg",
+    "poster": "/assets/posters/mighty-joe-young-1996.jpg",
+    "backdrop": null,
     "placeholder": "https://via.placeholder.com/300x450?text=Mighty%20Joe%20Young"
   },
   "text": {
@@ -29783,11 +29783,12 @@ export const movies = [
   },
   "youtubeTrailerKey": "gxrwh6WNMLU"
 },
+
 {
-  "id": "travel-tales-unknown",
-  "title": "Travel Tales",
-  "sortTitle": "Travel Tales",
-  "year": 2020,
+  "id": "the-adventures-of-dudley-the-dragon-travel-tales",
+  "title": "The Adventures of Dudley the Dragon: Travel Tales",
+  "sortTitle": "The Adventures of Dudley the Dragon: Travel Tales",
+  "year": 1994,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -29795,20 +29796,70 @@ export const movies = [
   },
   "metadata": {
     "category": "Movie",
-    "genres": ["Adventure", "Travel"],
+    "genres": ["Adventure"],
     "runtimeMinutes": 0,
     "status": "Unknown"
   },
   "media": {
-    "poster": "https://via.placeholder.com/500x750?text=Travel+Tales",
-    "backdrop": "",
+    "poster": "/assets/posters/the-adventures-of-dudley-the-dragon-travel-tales-1994.jpg",
+    "backdrop": null,
     "placeholder": ""
   },
   "text": {
-    "overview": "Custom entry for Travel Tales — not found on TMDb.",
+    "overview": "A dragon awakens from hibernation and befriends kids who show him the modern world. Together they learn about environmentalism, friendship, and good values.",
     "tagline": ""
   }
 },
+{
+  "id": "winnie-the-pooh-sing-a-song-with-pooh-bear-1999",
+  "title": "Winnie the Pooh: Sing a Song with Pooh Bear",
+  "sortTitle": "Winnie the Pooh: Sing a Song with Pooh Bear",
+  "year": 1999,
+  "library": {
+    "format": "DVD",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Family"
+    ],
+    "tmdbId": 43815,
+    "runtimeMinutes": 21,
+    "imdbId": "tt0239172",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/winnie-pooh-sing-a-song-1999-poster.jpg",
+    "backdrop": "/assets/posters/winnie-pooh-sing-a-song-1999-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Winnie+the+Pooh+Sing+a+Song+with+Pooh+Bear"
+  },
+  "text": {
+    "overview": "Winnie the Pooh and his friends sing along to beloved songs in this musical journey through the Hundred Acre Wood.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.7,
+      "voteCount": 53
+    }
+  },
+  "credits": {
+    "director": "Ed Wexler",
+    "castPreview": [
+      "Jim Cummings",
+      "John Fiedler",
+      "Paul Winchell",
+      "Peter Cullen"
+    ]
+  },
+  "youtubeTrailerKey": null
+}
+,
   {
     "id": "peter-pan-1953",
     "title": "Peter Pan",
