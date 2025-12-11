@@ -1837,3 +1837,19 @@ body.modal-open {
     padding-bottom: 0.4rem; /* default is ~0.5rem */
   }
 }
+
+/* Smaller movie-card pills on desktop */
+@media (min-width: 900px) {
+  .card-format-pill {
+    padding: 0.15rem 0.45rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+  }
+}
+
+@media (min-width: 900px) {
+  .card-rating-badge {
+    padding: 0.12rem 0.4rem;
+    font-size: 0.6rem;
+  }
+}
