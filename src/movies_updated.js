@@ -19234,7 +19234,7 @@ export const movies = [
     "sortTitle": "Jungle Book",
     "year": 1994,
     "library": {
-      "format": "DVD",
+      "format": ["DVD", "VHS"],
       "owned": true,
       "tags": []
     },
@@ -28854,57 +28854,6 @@ export const movies = [
     ]
   },
   "youtubeTrailerKey": "CoBez6DwrFg"
-},
-{
-  "id": "the-jungle-book-1967",
-  "title": "The Jungle Book",
-  "sortTitle": "The Jungle Book",
-  "year": 1967,
-  "library": {
-    "format": "VHS",
-    "owned": true,
-    "tags": []
-  },
-  "metadata": {
-    "genres": [
-      "Family",
-      "Animation",
-      "Adventure"
-    ],
-    "tmdbId": 9325,
-    "runtimeMinutes": 78,
-    "imdbId": "tt0061852",
-    "status": "Released",
-    "originalLanguage": "en",
-    "category": "Movie",
-    "seasons": []
-  },
-  "media": {
-    "poster": "/assets/posters/the-jungle-book-1967-poster.jpg",
-    "backdrop": "/assets/posters/the-jungle-book-1967-backdrop.jpg",
-    "placeholder": "https://via.placeholder.com/300x450?text=The%20Jungle%20Book"
-  },
-  "text": {
-    "overview": "The boy Mowgli makes his way to the man-village with Bagheera, the wise panther. Along the way he meets jazzy King Louie, the hypnotic snake Kaa and the lovable, happy-go-lucky bear Baloo, who teaches Mowgli \"The Bare Necessities\" of life and the true meaning of friendship.",
-    "tagline": "The Jungle is JUMPIN'!"
-  },
-  "ratings": {
-    "tmdb": {
-      "voteAverage": 7.277,
-      "voteCount": 6510
-    }
-  },
-  "credits": {
-    "director": "Wolfgang Reitherman",
-    "castPreview": [
-      "Bruce Reitherman",
-      "Phil Harris",
-      "Sebastian Cabot",
-      "George Sanders",
-      "Sterling Holloway"
-    ]
-  },
-  "youtubeTrailerKey": "qdkU9NmI0jA"
 },
 {
   "id": "beethoven-s-3rd-2000",
