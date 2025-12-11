@@ -29779,7 +29779,6 @@ export const movies = [
   },
   "youtubeTrailerKey": "gxrwh6WNMLU"
 },
-
 {
   "id": "the-adventures-of-dudley-the-dragon-travel-tales",
   "title": "The Adventures of Dudley the Dragon: Travel Tales",
@@ -29791,20 +29790,38 @@ export const movies = [
     "tags": []
   },
   "metadata": {
-    "category": "Movie",
-    "genres": ["Adventure"],
+    "genres": [
+      "Adventure",
+      "Family"
+    ],
+    "tmdbId": null,
     "runtimeMinutes": 0,
-    "status": "Unknown"
+    "imdbId": null,
+    "status": "Unknown",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
   },
   "media": {
     "poster": "/assets/posters/the-adventures-of-dudley-the-dragon-travel-tales-1994.jpg",
-    "backdrop": null,
-    "placeholder": ""
+    "backdrop": "/assets/posters/the-adventures-of-dudley-the-dragon-travel-tales-1994-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The+Adventures+of+Dudley+the+Dragon+Travel+Tales"
   },
   "text": {
     "overview": "A dragon awakens from hibernation and befriends kids who show him the modern world. Together they learn about environmentalism, friendship, and good values.",
     "tagline": ""
-  }
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.3,
+      "voteCount": 163
+    }
+  },
+  "credits": {
+    "director": null,
+    "castPreview": []
+  },
+  "youtubeTrailerKey": null
 },
 {
   "id": "winnie-the-pooh-sing-a-song-with-pooh-bear-1999",
