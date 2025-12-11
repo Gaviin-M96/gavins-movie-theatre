@@ -19234,7 +19234,7 @@ export const movies = [
     "sortTitle": "Jungle Book",
     "year": 1994,
     "library": {
-      "format": ["DVD", "VHS"],
+      "format": "DVD",
       "owned": true,
       "tags": []
     },
@@ -19282,6 +19282,57 @@ export const movies = [
     },
     "youtubeTrailerKey": "L8LC-wPUdqE"
   },
+  {
+  "id": "the-jungle-book-1991",
+  "title": "The Jungle Book",
+  "sortTitle": "The Jungle Book",
+  "year": 1991,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Animation",
+      "Adventure"
+    ],
+    "tmdbId": 9325,
+    "runtimeMinutes": 78,
+    "imdbId": "tt0061852",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-jungle-book-1967-poster.jpg",
+    "backdrop": null,
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Jungle%20Book"
+  },
+  "text": {
+    "overview": "The boy Mowgli makes his way to the man-village with Bagheera, the wise panther. Along the way he meets jazzy King Louie, the hypnotic snake Kaa and the lovable, happy-go-lucky bear Baloo, who teaches Mowgli \"The Bare Necessities\" of life and the true meaning of friendship.",
+    "tagline": "The Jungle is JUMPIN'!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.277,
+      "voteCount": 6510
+    }
+  },
+  "credits": {
+    "director": "Wolfgang Reitherman",
+    "castPreview": [
+      "Bruce Reitherman",
+      "Phil Harris",
+      "Sebastian Cabot",
+      "George Sanders",
+      "Sterling Holloway"
+    ]
+  },
+  "youtubeTrailerKey": "qdkU9NmI0jA"
+},
   {
     "id": "george-of-the-jungle-2-2003",
     "title": "George of the Jungle 2",
