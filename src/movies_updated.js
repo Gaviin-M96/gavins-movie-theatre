@@ -19602,7 +19602,7 @@ export const movies = [
     "sortTitle": "Goofy Movie",
     "year": 1995,
     "library": {
-      "format": "DVD",
+      "format": "DVD, VHS",
       "owned": true,
       "tags": []
     },
@@ -27169,6 +27169,923 @@ export const movies = [
     ]
   },
   "youtubeTrailerKey": "MdfXfkuhPqo"
+},
+{
+  "id": "one-hundred-and-one-dalmatians-1961",
+  "title": "One Hundred and One Dalmatians",
+  "sortTitle": "One Hundred and One Dalmatians",
+  "year": 1961,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Adventure",
+      "Animation",
+      "Family"
+    ],
+    "tmdbId": 12230,
+    "runtimeMinutes": 79,
+    "imdbId": "tt0055254",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/one-hundred-and-one-dalmatians-1961-poster.jpg",
+    "backdrop": "/assets/posters/one-hundred-and-one-dalmatians-1961-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=One%20Hundred%20and%20One%20Dalmatians"
+  },
+  "text": {
+    "overview": "When a litter of dalmatian puppies are abducted by the minions of Cruella De Vil, the parents must find them before she uses them for a diabolical fashion statement.",        
+    "tagline": "The Canine Caper of the Century"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.175,
+      "voteCount": 6513
+    }
+  },
+  "credits": {
+    "director": "Clyde Geronimi, Hamilton Luske, Wolfgang Reitherman",
+    "castPreview": [
+      "Rod Taylor",
+      "J. Pat O'Malley",
+      "Betty Lou Gerson",
+      "Martha Wentworth",
+      "Ben Wright"
+    ]
+  },
+  "youtubeTrailerKey": "d2ALWgaLypE"
+},
+{
+  "id": "snow-white-and-the-seven-dwarfs-1938",
+  "title": "Snow White and the Seven Dwarfs",
+  "sortTitle": "Snow White and the Seven Dwarfs",
+  "year": 1938,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Fantasy",
+      "Animation",
+      "Family"
+    ],
+    "tmdbId": 408,
+    "runtimeMinutes": 83,
+    "imdbId": "tt0029583",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/snow-white-and-the-seven-dwarfs-1938-poster.jpg",
+    "backdrop": "/assets/posters/snow-white-and-the-seven-dwarfs-1938-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Snow%20White%20and%20the%20Seven%20Dwarfs"
+  },
+  "text": {
+    "overview": "A beautiful girl, Snow White, takes refuge in the forest in the house of seven dwarfs to hide from her stepmother, the wicked Queen. The Queen is jealous because she wants to be known as \"the fairest in the land,\" and Snow White's beauty surpasses her own.",
+    "tagline": "The Happiest, Dopiest, Grumpiest, Sneeziest movie of the year."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.124,
+      "voteCount": 7804
+    }
+  },
+  "credits": {
+    "director": "David Hand, Ben Sharpsteen, William Cottrell, Larry Morey, Perce Pearce, Wilfred Jackson",
+    "castPreview": [
+      "Adriana Caselotti",
+      "Lucille La Verne",
+      "Harry Stockwell",
+      "Roy Atwell",
+      "Pinto Colvig"
+    ]
+  },
+  "youtubeTrailerKey": "P4YE-s_8L1Q"
+},
+{
+  "id": "the-hunchback-of-notre-dame-1996",
+  "title": "The Hunchback of Notre Dame",
+  "sortTitle": "The Hunchback of Notre Dame",
+  "year": 1996,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Drama",
+      "Animation",
+      "Family"
+    ],
+    "tmdbId": 10545,
+    "runtimeMinutes": 91,
+    "imdbId": "tt0116583",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-hunchback-of-notre-dame-1996-poster.jpg",
+    "backdrop": "/assets/posters/the-hunchback-of-notre-dame-1996-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Hunchback%20of%20Notre%20Dame"
+  },
+  "text": {
+    "overview": "Isolated bell-ringer Quasimodo wishes to leave Notre Dame tower against the wishes of Judge Claude Frollo, his stern guardian and Paris' strait-laced Minister of Justice. His first venture to the outside world finds him Esmeralda, a kind-hearted and fearless Romani woman who openly stands up to Frollo's tyranny.",
+    "tagline": "He dared to dream, he dared to love."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.122,
+      "voteCount": 5227
+    }
+  },
+  "credits": {
+    "director": "Gary Trousdale, Kirk Wise",
+    "castPreview": [
+      "Tom Hulce",
+      "Demi Moore",
+      "Kevin Kline",
+      "Tony Jay",
+      "Charles Kimbrough"
+    ]
+  },
+  "youtubeTrailerKey": "HUGraD-rxjk"
+},
+{
+  "id": "sesame-street-elmopalooza--1998",
+  "title": "Sesame Street: Elmopalooza!",
+  "sortTitle": "Sesame Street: Elmopalooza!",
+  "year": 1998,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+    ],
+    "tmdbId": 341949,
+    "runtimeMinutes": 45,
+    "imdbId": "tt0167922",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/sesame-street-elmopalooza--1998-poster.jpg",
+    "backdrop": "/assets/posters/sesame-street-elmopalooza--1998-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Sesame%20Street%3A%20Elmopalooza!" 
+  },
+  "text": {
+    "overview": "Jon Stewart hosts the Sesame Street Muppets' 30 year celebration, but Elmo steps in when things go awry.",
+    "tagline": "All you need is a song."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.8,
+      "voteCount": 5
+    }
+  },
+  "credits": {
+    "director": "Kevin Bray, Mustapha Khan, Tom Trbovich, Mark Rowen, Victor DiNapoli, Lionel C. Martin",
+    "castPreview": [
+      "Jon Stewart",
+      "Kevin Clash",
+      "Fran Brill",
+      "Carmen Osbahr",
+      "Frank Oz"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "beauty-and-the-beast-the-enchanted-christmas-1997",
+  "title": "Beauty and the Beast: The Enchanted Christmas",
+  "sortTitle": "Beauty and the Beast: The Enchanted Christmas",
+  "year": 1997,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Family",
+      "Fantasy"
+    ],
+    "tmdbId": 13313,
+    "runtimeMinutes": 72,
+    "imdbId": "tt0118692",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/beauty-and-the-beast-the-enchanted-christmas-1997-poster.jpg",   
+    "backdrop": "/assets/posters/beauty-and-the-beast-the-enchanted-christmas-1997-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Beauty%20and%20the%20Beast%3A%20The%20Enchanted%20Christmas"
+  },
+  "text": {
+    "overview": "Astonished to find the Beast has a deep-seeded hatred for the Christmas season, Belle endeavors to change his mind on the matter.",
+    "tagline": "All the magic of Disney's legendary classic continues."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.221,
+      "voteCount": 1070
+    }
+  },
+  "credits": {
+    "director": "Andrew Knight",
+    "castPreview": [
+      "Paige O'Hara",
+      "Robby Benson",
+      "Jerry Orbach",
+      "David Ogden Stiers",
+      "Bernadette Peters"
+    ]
+  },
+  "youtubeTrailerKey": "A2xh1BwSpL4"
+},
+{
+  "id": "inspector-gadget-1999",
+  "title": "Inspector Gadget",
+  "sortTitle": "Inspector Gadget",
+  "year": 1999,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Family"
+    ],
+    "tmdbId": 332,
+    "runtimeMinutes": 78,
+    "imdbId": "tt0141369",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/inspector-gadget-1999-poster.jpg",
+    "backdrop": "/assets/posters/inspector-gadget-1999-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Inspector%20Gadget"
+  },
+  "text": {
+    "overview": "John Brown is a bumbling but well-intentioned security guard who is badly injured in an explosion planned by an evil mastermind. He is taken to a laboratory, where Brenda, a leading robotics surgeon, replaces his damaged limbs with state-of-the-art gadgets and tools. Named \"Inspector Gadget\" by the press, John -- along with his niece, Penny, and her trusty dog, Brain -- uses his new powers to discover who was behind the explosion.",
+    "tagline": "The greatest hero ever assembled."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 4.502,
+      "voteCount": 1277
+    }
+  },
+  "credits": {
+    "director": "David Kellogg",
+    "castPreview": [
+      "Matthew Broderick",
+      "Rupert Everett",
+      "Joely Fisher",
+      "Michelle Trachtenberg",
+      "Andy Dick"
+    ]
+  },
+  "youtubeTrailerKey": "ld4cYRaxVFg"
+},
+{
+  "id": "the-spirit-of-mickey-1998",
+  "title": "The Spirit of Mickey",
+  "sortTitle": "The Spirit of Mickey",
+  "year": 1998,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Animation"
+    ],
+    "tmdbId": 393812,
+    "runtimeMinutes": 83,
+    "imdbId": "tt0168185",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-spirit-of-mickey-1998-poster.jpg",
+    "backdrop": null,
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Spirit%20of%20Mickey"        
+  },
+  "text": {
+    "overview": "From the moment Mickey Mouse appeared on the big screen whistling on a steamboat, Walt Disney's endearing little mouse captured hearts and tickled funny bones.  In celebration of the world's most famous and best-loved character, his best friends -- Minnie, Donald, Goofy and the gang -- present Mickey through the years in his most memorable movie shorts.  From Mickey's color debut in \"The Band Concert,\" to \"Orphan's Picnic\" and \"Mickey's Surprise Party,\" to the inspired \"Mickey and the Seal,\" The Spirit of Mickey is an engaging collection of Mickey's best and brightest.  Includes Mickey's big-screen debut, \"Steamboat Willie\".",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.9,
+      "voteCount": 6
+    }
+  },
+  "credits": {
+    "director": "",
+    "castPreview": []
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "toy-story-2-1999",
+  "title": "Toy Story 2",
+  "sortTitle": "Toy Story 2",
+  "year": 1999,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Comedy",
+      "Family"
+    ],
+    "tmdbId": 863,
+    "runtimeMinutes": 92,
+    "imdbId": "tt0120363",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/toy-story-2-1999-poster.jpg",
+    "backdrop": "/assets/posters/toy-story-2-1999-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Toy%20Story%202"
+  },
+  "text": {
+    "overview": "Andy heads off to Cowboy Camp, leaving his toys to their own devices. Things shift into high gear when an obsessive toy collector named Al McWhiggen, owner of Al's Toy Barn kidnaps Woody. Andy's toys mount a daring rescue mission, Buzz Lightyear meets his match and Woody has to decide where he and his heart truly belong.",
+    "tagline": "The toys are back!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.604,
+      "voteCount": 14494
+    }
+  },
+  "credits": {
+    "director": "John Lasseter",
+    "castPreview": [
+      "Tom Hanks",
+      "Tim Allen",
+      "Joan Cusack",
+      "Kelsey Grammer",
+      "Don Rickles"
+    ]
+  },
+  "youtubeTrailerKey": "xNWSGRD5CzU"
+},
+{
+  "id": "tarzan-1999",
+  "title": "Tarzan",
+  "sortTitle": "Tarzan",
+  "year": 1999,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Adventure",
+      "Animation",
+      "Drama"
+    ],
+    "tmdbId": 37135,
+    "runtimeMinutes": 88,
+    "imdbId": "tt0120855",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/tarzan-1999-poster.jpg",
+    "backdrop": "/assets/posters/tarzan-1999-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Tarzan"
+  },
+  "text": {
+    "overview": "Tarzan was a small orphan who was raised by an ape named Kala since he was a child. He believed that this was his family, but on an expedition Jane Porter is rescued by Tarzan. He then finds out that he's human. Now Tarzan must make the decision as to which family he should belong to...",
+    "tagline": "An immortal legend as you've only imagined."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.4,
+      "voteCount": 7110
+    }
+  },
+  "credits": {
+    "director": "Chris Buck, Kevin Lima",
+    "castPreview": [
+      "Tony Goldwyn",
+      "Minnie Driver",
+      "Glenn Close",
+      "Alex D. Linz",
+      "Rosie O'Donnell"
+    ]
+  },
+  "youtubeTrailerKey": "JYOMf4SS2oA"
+},
+{
+  "id": "oliver-company-1988",
+  "title": "Oliver & Company",
+  "sortTitle": "Oliver & Company",
+  "year": 1988,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Comedy",
+      "Family"
+    ],
+    "tmdbId": 12233,
+    "runtimeMinutes": 74,
+    "imdbId": "tt0095776",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/oliver-company-1988-poster.jpg",
+    "backdrop": "/assets/posters/oliver-company-1988-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Oliver%20%26%20Company"
+  },
+  "text": {
+    "overview": "A young cat named Oliver is left alone in a kitten box, while all the other young cats have new owners. A big dog named Dodger shows him how to get food and later Oliver lives with him, his owner Fagin and Fagin's other dogs Tito, Rita, Einstein, and Francis. Fagin has one problem besides being broke he owes a nasty man named Sykes a lot of money. If he can't pay it back he's in big trouble. While Oliver runs into a little girl named Jenny who becomes his new owner which he is happy with and later Sykes sees Jenny as the key for him to get his money.", 
+    "tagline": "The first Disney movie with attitude."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.7,
+      "voteCount": 1652
+    }
+  },
+  "credits": {
+    "director": "George Scribner",
+    "castPreview": [
+      "Joey Lawrence",
+      "Billy Joel",
+      "Cheech Marin",
+      "Richard Mulligan",
+      "Roscoe Lee Browne"
+    ]
+  },
+  "youtubeTrailerKey": "r42b0bRF9v0"
+},
+{
+  "id": "alvin-and-the-chipmunks-meet-frankenstein-2001",
+  "title": "Alvin and the Chipmunks Meet Frankenstein",
+  "sortTitle": "Alvin and the Chipmunks Meet Frankenstein",
+  "year": 2001,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Comedy",
+      "Family"
+    ],
+    "tmdbId": 3126,
+    "runtimeMinutes": 78,
+    "imdbId": "tt0207957",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/alvin-and-the-chipmunks-meet-frankenstein-2001-poster.jpg",      
+    "backdrop": "/assets/posters/alvin-and-the-chipmunks-meet-frankenstein-2001-backdrop.jpg",  
+    "placeholder": "https://via.placeholder.com/300x450?text=Alvin%20and%20the%20Chipmunks%20Meet%20Frankenstein"
+  },
+  "text": {
+    "overview": "The Chipmunks work in an amusement park attraction. After Alvin drives a crazy tour group, they miss their next performance and are locked in the park after closing time. Little do they know that the real Dr. Frankenstein has been hired in a new attraction called, \"Frankenstein's Castle\"; figuring that the castle isn't scary enough, the mad scientist recreates the real Monster.",
+    "tagline": ""
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.8,
+      "voteCount": 149
+    }
+  },
+  "credits": {
+    "director": "Kathi Castillo",
+    "castPreview": [
+      "Ross Bagdasarian, Jr.",
+      "Dee Bradley Baker",
+      "Michael Bell",
+      "Mary Kay Bergman",
+      "Janice Karman"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "thumbelina-1994",
+  "title": "Thumbelina",
+  "sortTitle": "Thumbelina",
+  "year": 1994,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Fantasy",
+      "Romance",
+      "Music",
+      "Family"
+    ],
+    "tmdbId": 28032,
+    "runtimeMinutes": 86,
+    "imdbId": "tt0111419",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/thumbelina-1994-poster.jpg",
+    "backdrop": "/assets/posters/thumbelina-1994-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Thumbelina"
+  },
+  "text": {
+    "overview": "Born of a flower and growing to only a couple of inches tall, poor Thumbelina is worried she'll never meet someone her own size, until she happens to catch the eye of Prince Cornelius of the Fairies. Just as soon as she finds love, however, it's torn away from her when she is kidnapped by Ms. Toad. Now Thumbelina has to escape Ms. Toad's grasp and search for Prince Cornelius. Luckily, there's a whole city of animals willing to help her.",
+    "tagline": "Follow your heart and nothing is impossible."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.433,
+      "voteCount": 524
+    }
+  },
+  "credits": {
+    "director": "Gary Goldman, Don Bluth",
+    "castPreview": [
+      "Jodi Benson",
+      "Gino Conforti",
+      "Barbara Cook",
+      "Will Ryan",
+      "June Foray"
+    ]
+  },
+  "youtubeTrailerKey": "EzVA8BmskjA"
+},
+{
+  "id": "the-return-of-jafar-1994",
+  "title": "The Return of Jafar",
+  "sortTitle": "The Return of Jafar",
+  "year": 1994,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Adventure",
+      "Animation",
+      "Romance"
+    ],
+    "tmdbId": 15969,
+    "runtimeMinutes": 69,
+    "imdbId": "tt0107952",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-return-of-jafar-1994-poster.jpg",
+    "backdrop": "/assets/posters/the-return-of-jafar-1994-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Return%20of%20Jafar"
+  },
+  "text": {
+    "overview": "The evil Jafar escapes from the magic lamp as an all-powerful genie, ready to plot his revenge against Aladdin. From battling elusive villains atop winged horses, to dodging flames inside an exploding lava pit, it's up to Aladdin - with Princess Jasmine and the outrageously funny Genie by his side - to save the kingdom once and for all.",
+    "tagline": "The Aladdin adventure continues..."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.2,
+      "voteCount": 3405
+    }
+  },
+  "credits": {
+    "director": "Toby Shelton, Alan Zaslove, Tad Stones",
+    "castPreview": [
+      "Scott Weinger",
+      "Linda Larkin",
+      "Jonathan Freeman",
+      "Gilbert Gottfried",
+      "Dan Castellaneta"
+    ]
+  },
+  "youtubeTrailerKey": null
+},
+{
+  "id": "casper-1995",
+  "title": "Casper",
+  "sortTitle": "Casper",
+  "year": 1995,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Fantasy",
+      "Comedy",
+      "Family"
+    ],
+    "tmdbId": 8839,
+    "runtimeMinutes": 100,
+    "imdbId": "tt0112642",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/casper-1995-poster.jpg",
+    "backdrop": "/assets/posters/casper-1995-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Casper"
+  },
+  "text": {
+    "overview": "Casper is a kind young ghost who peacefully haunts a mansion in Maine. When specialist James Harvey arrives to communicate with Casper and his fellow spirits, he brings along his teenage daughter, Kat. Casper quickly falls in love with Kat, but their budding relationship is complicated not only by his transparent state, but also by his troublemaking apparition uncles and their mischievous antics.",
+    "tagline": "Seeing is believing."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.333,
+      "voteCount": 4796
+    }
+  },
+  "credits": {
+    "director": "Brad Silberling",
+    "castPreview": [
+      "Christina Ricci",
+      "Bill Pullman",
+      "Cathy Moriarty",
+      "Eric Idle",
+      "Malachi Pearson"
+    ]
+  },
+  "youtubeTrailerKey": "kRX7PPqbKaQ"
+},
+{
+  "id": "the-adventures-of-ichabod-and-mr-toad-1949",
+  "title": "The Adventures of Ichabod and Mr. Toad",
+  "sortTitle": "The Adventures of Ichabod and Mr. Toad",
+  "year": 1949,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Horror",
+      "Fantasy",
+      "Animation",
+      "Family"
+    ],
+    "tmdbId": 13465,
+    "runtimeMinutes": 68,
+    "imdbId": "tt0041094",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-adventures-of-ichabod-and-mr-toad-1949-poster.jpg",
+    "backdrop": "/assets/posters/the-adventures-of-ichabod-and-mr-toad-1949-backdrop.jpg",      
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Adventures%20of%20Ichabod%20and%20Mr.%20Toad"
+  },
+  "text": {
+    "overview": "The Wind in the Willows: Concise version of Kenneth Grahame's story of the same name. J. Thaddeus Toad, owner of Toad Hall, is prone to fads, such as the newfangled motor car. This desire for the very latest lands him in much trouble with the wrong crowd, and it is up to his friends, Mole, Rat and Badger to save him from himself. - The Legend of Sleepy Hollow: Retelling of Washington Irving's story set in a tiny New England town. Ichabod Crane, the new schoolmaster, falls for the town beauty, Katrina Van Tassel, and the town Bully Brom Bones decides that he is a little too successful and needs \"convincing\" that Katrina is not for him.",
+    "tagline": "Two Tall Tales by the world's top story-tellers in one hilarious All-Cartoon Feature!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.517,
+      "voteCount": 661
+    }
+  },
+  "credits": {
+    "director": "Clyde Geronimi, James Algar, Jack Kinney",
+    "castPreview": [
+      "Bing Crosby",
+      "Basil Rathbone",
+      "Eric Blore",
+      "J. Pat O'Malley",
+      "John McLeish"
+    ]
+  },
+  "youtubeTrailerKey": "Ju_BnpsfznA"
+},
+{
+  "id": "pete-s-dragon-1977",
+  "title": "Pete's Dragon",
+  "sortTitle": "Pete's Dragon",
+  "year": 1977,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Fantasy",
+      "Animation",
+      "Comedy",
+      "Family"
+    ],
+    "tmdbId": 11114,
+    "runtimeMinutes": 128,
+    "imdbId": "tt0076538",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/pete-s-dragon-1977-poster.jpg",
+    "backdrop": "/assets/posters/pete-s-dragon-1977-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Pete's%20Dragon"
+  },
+  "text": {
+    "overview": "Pete, a young orphan, runs away to a Maine fishing town with his best friend a lovable, sometimes invisible dragon named Elliott! When they are taken in by a kind lighthouse keeper, Nora, and her father, Elliott's prank playing lands them in big trouble. Then, when crooked salesmen try to capture Elliott for their own gain, Pete must attempt a daring rescue.",     
+    "tagline": "Brazzle Dazzle Brilliance!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.3,
+      "voteCount": 710
+    }
+  },
+  "credits": {
+    "director": "Don Chaffey",
+    "castPreview": [
+      "Sean Marshall",
+      "Helen Reddy",
+      "Jim Dale",
+      "Mickey Rooney",
+      "Red Buttons"
+    ]
+  },
+  "youtubeTrailerKey": "9xI2NouriHI"
+},
+{
+  "id": "the-rugrats-movie-1998",
+  "title": "The Rugrats Movie",
+  "sortTitle": "The Rugrats Movie",
+  "year": 1998,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Family",
+      "Comedy",
+      "Adventure",
+      "Animation"
+    ],
+    "tmdbId": 14444,
+    "runtimeMinutes": 80,
+    "imdbId": "tt0134067",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/the-rugrats-movie-1998-poster.jpg",
+    "backdrop": "/assets/posters/the-rugrats-movie-1998-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=The%20Rugrats%20Movie"
+  },
+  "text": {
+    "overview": "Based on the popular Nickelodeon TV series Rugrats, this is the first full-length feature animated movie to star the little tots. It's the story of diaper-clad kids, told from a baby's point- of-view, and they were one of the hottest-selling toy franchises of the late '90s.",
+    "tagline": "An adventure for anyone who's ever worn diapers."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.2,
+      "voteCount": 618
+    }
+  },
+  "credits": {
+    "director": "Norton Virgien, Igor Kovalyov",
+    "castPreview": [
+      "Whoopi Goldberg",
+      "David Spade",
+      "E. G. Daily",
+      "Tara Strong",
+      "Christine Cavanaugh"
+    ]
+  },
+  "youtubeTrailerKey": "Uw7HDQ5Dnjo"
+},
+{
+  "id": "hansel-gretel-2002",
+  "title": "Hansel & Gretel",
+  "sortTitle": "Hansel & Gretel",
+  "year": 2002,
+  "library": {
+    "format": "VHS",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Comedy",
+      "Family",
+      "Fantasy"
+    ],
+    "tmdbId": 49872,
+    "runtimeMinutes": 89,
+    "imdbId": "tt0293832",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/hansel-gretel-2002-poster.jpg",
+    "backdrop": "/assets/posters/hansel-gretel-2002-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Hansel%20%26%20Gretel"
+  },
+  "text": {
+    "overview": "Hansel and Gretel is a 2002 film adaptation of the Brothers Grimm children's story. It stars Jacob Smith and Taylor Momsen as the eponymous characters. It includes the Sandman, played by Howie Mandel and Sinbad as a raven.",
+    "tagline": "Magically Delicious! A Real Family Treat!"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.4,
+      "voteCount": 42
+    }
+  },
+  "credits": {
+    "director": "Gary J. Tunnicliffe",
+    "castPreview": [
+      "Howie Mandel",
+      "Taylor Momsen",
+      "Jacob Smith",
+      "Delta Burke",
+      "Alana Austin"
+    ]
+  },
+  "youtubeTrailerKey": "3AAAMkYy2EA"
 },
   {
     "id": "peter-pan-1953",
