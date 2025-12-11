@@ -1383,6 +1383,12 @@ body.modal-open {
   }
 }
 
+@media (min-width: 900px) {
+  .bottom-nav {
+    left: calc(320px + (100% - 320px) / 2); /* center with movie grid column */
+  }
+}
+
 .bottom-nav-item {
   flex: 1;
   border: none;
@@ -1799,3 +1805,4 @@ body.modal-open {
   max-width: 100%;
   margin: 0 auto;   /* centers the box */
 }
+
