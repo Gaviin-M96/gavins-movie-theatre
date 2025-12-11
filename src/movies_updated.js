@@ -19080,10 +19080,10 @@ export const movies = [
     "youtubeTrailerKey": "MIr-Y6kKEMw"
   },
   {
-    "id": "oliver-twist-1982",
+    "id": "oliver-twist-2002",
     "title": "Oliver Twist",
     "sortTitle": "Oliver Twist",
-    "year": 1982,
+    "year": 2002,
     "library": {
       "format": "DVD",
       "owned": true,
