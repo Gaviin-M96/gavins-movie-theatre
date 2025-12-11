@@ -27838,7 +27838,6 @@ export const movies = [
       "Animation",
       "Fantasy",
       "Romance",
-      "Music",
       "Family"
     ],
     "tmdbId": 28032,
