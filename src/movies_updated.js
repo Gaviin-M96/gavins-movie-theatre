@@ -163,7 +163,7 @@ export const movies = [
     "sortTitle": "22 Jump Street",
     "year": 2014,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -320,7 +320,7 @@ export const movies = [
     "sortTitle": "Good Day to Die Hard",
     "year": 2013,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -582,7 +582,7 @@ export const movies = [
     "sortTitle": "Anchorman 2: The Legend Continues",
     "year": 2013,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -792,7 +792,7 @@ export const movies = [
     "sortTitle": "Bad Boys for Life",
     "year": 2020,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -952,7 +952,7 @@ export const movies = [
     "sortTitle": "Baywatch",
     "year": 2017,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -1105,7 +1105,7 @@ export const movies = [
     "sortTitle": "Blockers",
     "year": 2018,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -1203,7 +1203,7 @@ export const movies = [
     "sortTitle": "Captain Phillips",
     "year": 2013,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -1253,7 +1253,7 @@ export const movies = [
     "sortTitle": "Cheech & Chong's Up in Smoke",
     "year": 1978,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -1357,7 +1357,7 @@ export const movies = [
     "sortTitle": "Contraband",
     "year": 2012,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -1457,7 +1457,7 @@ export const movies = [
     "sortTitle": "Coyote Ugly",
     "year": 2000,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -1616,7 +1616,7 @@ export const movies = [
     "sortTitle": "Daddy's Home",
     "year": 2015,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -1824,7 +1824,7 @@ export const movies = [
     "sortTitle": "Despicable Me 3",
     "year": 2017,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -1880,7 +1880,7 @@ export const movies = [
     "sortTitle": "Dirty Dancing",
     "year": 1987,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -2132,7 +2132,7 @@ export const movies = [
     "sortTitle": "Fast Five",
     "year": 2011,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -2334,7 +2334,7 @@ export const movies = [
     "sortTitle": "Flight",
     "year": 2012,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -3201,7 +3201,7 @@ export const movies = [
     "sortTitle": "Hot Tub Time Machine 2",
     "year": 2015,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -3253,7 +3253,7 @@ export const movies = [
     "sortTitle": "How the Grinch Stole Christmas",
     "year": 2000,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -3303,7 +3303,7 @@ export const movies = [
     "sortTitle": "How to Train Your Dragon 2",
     "year": 2014,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -3410,7 +3410,7 @@ export const movies = [
     "sortTitle": "Hunter Killer",
     "year": 2018,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -3563,7 +3563,7 @@ export const movies = [
     "sortTitle": "Jason Bourne",
     "year": 2016,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -3889,7 +3889,7 @@ export const movies = [
     "sortTitle": "Jumanji: The Next Level",
     "year": 2019,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -3999,7 +3999,7 @@ export const movies = [
     "sortTitle": "Jurassic Park",
     "year": 1993,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -4052,7 +4052,7 @@ export const movies = [
     "sortTitle": "Jurassic World",
     "year": 2015,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -4156,7 +4156,7 @@ export const movies = [
     "sortTitle": "Killer Elite",
     "year": 2011,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -4354,7 +4354,7 @@ export const movies = [
     "sortTitle": "Logan",
     "year": 2017,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -4458,7 +4458,7 @@ export const movies = [
     "sortTitle": "Mamma Mia!",
     "year": 2008,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -4561,7 +4561,7 @@ export const movies = [
     "sortTitle": "Mission: Impossible - Ghost Protocol",
     "year": 2011,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -4818,7 +4818,7 @@ export const movies = [
     "sortTitle": "National Lampoon's Christmas Vacation",
     "year": 1989,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -4924,7 +4924,7 @@ export const movies = [
     "sortTitle": "National Lampoon's Vacation",
     "year": 1983,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -5194,7 +5194,7 @@ export const movies = [
     "sortTitle": "Office Christmas Party",
     "year": 2016,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -5346,7 +5346,7 @@ export const movies = [
     "sortTitle": "Pirates of the Caribbean: Dead Man's Chest",
     "year": 2006,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -5454,7 +5454,7 @@ export const movies = [
     "sortTitle": "Pirates of the Caribbean: The Curse of the Black Pearl",
     "year": 2003,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -5562,7 +5562,7 @@ export const movies = [
     "sortTitle": "RV",
     "year": 2006,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -5766,7 +5766,7 @@ export const movies = [
     "sortTitle": "Reprisal",
     "year": 2018,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -6173,7 +6173,7 @@ export const movies = [
     "sortTitle": "Schindler's List",
     "year": 1993,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -6373,7 +6373,7 @@ export const movies = [
     "sortTitle": "Space Jam",
     "year": 1996,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -6428,7 +6428,7 @@ export const movies = [
     "sortTitle": "Split",
     "year": 2017,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -6478,7 +6478,7 @@ export const movies = [
     "sortTitle": "Straight Outta Compton",
     "year": 2015,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -6677,7 +6677,7 @@ export const movies = [
     "sortTitle": "Taken 2",
     "year": 2012,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -6934,7 +6934,7 @@ export const movies = [
     "sortTitle": "Big Short",
     "year": 2015,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -6983,7 +6983,7 @@ export const movies = [
     "sortTitle": "Bourne Identity",
     "year": 2002,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -7038,7 +7038,7 @@ export const movies = [
     "sortTitle": "Bourne Legacy",
     "year": 2012,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -7091,7 +7091,7 @@ export const movies = [
     "sortTitle": "Bourne Supremacy",
     "year": 2004,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -7145,7 +7145,7 @@ export const movies = [
     "sortTitle": "Bourne Ultimatum",
     "year": 2007,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -7251,7 +7251,7 @@ export const movies = [
     "sortTitle": "Dark Knight",
     "year": 2008,
     "library": {
-      "format": "DVD",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -7524,7 +7524,7 @@ export const movies = [
     "sortTitle": "Fate of the Furious",
     "year": 2017,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -7578,7 +7578,7 @@ export const movies = [
     "sortTitle": "First Purge",
     "year": 2018,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -7632,7 +7632,7 @@ export const movies = [
     "sortTitle": "Gambler",
     "year": 2014,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -7682,7 +7682,7 @@ export const movies = [
     "sortTitle": "Grey",
     "year": 2012,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -7733,7 +7733,7 @@ export const movies = [
     "sortTitle": "Grinch",
     "year": 2018,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -7887,7 +7887,7 @@ export const movies = [
     "sortTitle": "Heat",
     "year": 2013,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -8038,7 +8038,7 @@ export const movies = [
     "sortTitle": "Lion King",
     "year": 1994,
     "library": {
-      "format": ["Blu-ray", "VHS"],
+      "format": ["Blu-ray", "DVD", "VHS"],
       "owned": true,
       "tags": []
     },
@@ -8394,7 +8394,7 @@ export const movies = [
     "sortTitle": "Rundown",
     "year": 2003,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -8445,7 +8445,7 @@ export const movies = [
     "sortTitle": "Shawshank Redemption",
     "year": 1994,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -8494,7 +8494,7 @@ export const movies = [
     "sortTitle": "Sitter",
     "year": 2011,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -8598,7 +8598,7 @@ export const movies = [
     "sortTitle": "Smurfs 2",
     "year": 2013,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -8703,7 +8703,7 @@ export const movies = [
     "sortTitle": "Wolf of Wall Street",
     "year": 2013,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -8753,7 +8753,7 @@ export const movies = [
     "sortTitle": "Top Gun",
     "year": 1986,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -8859,7 +8859,7 @@ export const movies = [
     "sortTitle": "Transformers",
     "year": 2007,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -8967,7 +8967,7 @@ export const movies = [
     "sortTitle": "Transformers: Dark of the Moon",
     "year": 2011,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -9121,7 +9121,7 @@ export const movies = [
     "sortTitle": "Uncle Buck",
     "year": 1989,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -9171,7 +9171,7 @@ export const movies = [
     "sortTitle": "Uncle Drew",
     "year": 2018,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -9219,7 +9219,7 @@ export const movies = [
     "sortTitle": "Unfaithful",
     "year": 2002,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -9368,7 +9368,7 @@ export const movies = [
     "sortTitle": "War for the Planet of the Apes",
     "year": 2017,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -9522,7 +9522,7 @@ export const movies = [
     "sortTitle": "XXX: Return of Xander Cage",
     "year": 2017,
     "library": {
-      "format": "Blu-ray",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
@@ -23315,7 +23315,7 @@ export const movies = [
     "sortTitle": "Heat",
     "year": 1995,
     "library": {
-      "format": "DVD",
+      "format": ["Blu-ray", "DVD"],
       "owned": true,
       "tags": []
     },
