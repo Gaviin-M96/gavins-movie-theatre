@@ -27117,10 +27117,10 @@ export const movies = [
   "youtubeTrailerKey": "mE35XQFxbeo"
 },
 {
-  "id": "happily-ever-after-1989",
+  "id": "happily-ever-after-1993",
   "title": "Happily Ever After",
   "sortTitle": "Happily Ever After",
-  "year": 1989,
+  "year": 1993,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -27723,10 +27723,10 @@ export const movies = [
   "youtubeTrailerKey": "JYOMf4SS2oA"
 },
 {
-  "id": "oliver-company-1988",
+  "id": "oliver-company-1996",
   "title": "Oliver & Company",
   "sortTitle": "Oliver & Company",
-  "year": 1988,
+  "year": 1996,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -28599,10 +28599,10 @@ export const movies = [
   "youtubeTrailerKey": "Isn23w4qc6s"
 },
 {
-  "id": "the-rescuers-down-under-1990",
+  "id": "the-rescuers-down-under-1991",
   "title": "The Rescuers Down Under",
   "sortTitle": "The Rescuers Down Under",
-  "year": 1990,
+  "year": 1991,
   "library": {
     "format": "VHS",
     "owned": true,
@@ -29111,10 +29111,10 @@ export const movies = [
   "youtubeTrailerKey": "gFuNXUCG4Bs"
 },
 {
-  "id": "the-little-mermaid-1989",
+  "id": "the-little-mermaid-1990",
   "title": "The Little Mermaid",
   "sortTitle": "The Little Mermaid",
-  "year": 1989,
+  "year": 1990,
   "library": {
     "format": "VHS",
     "owned": true,
