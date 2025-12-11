@@ -8101,7 +8101,7 @@ export const movies = [
     "genres": [
       "Action",
       "Adventure",
-      "Science Fiction"
+      "Sci-Fi"
     ],
     "tmdbId": 861,
     "runtimeMinutes": 113,
@@ -21835,7 +21835,7 @@ export const movies = [
   },
   "metadata": {
     "genres": [
-      "Science Fiction",
+      "Sci-Fi",
       "Action",
       "Adventure",
       "Thriller"
@@ -25023,7 +25023,7 @@ export const movies = [
   "metadata": {
     "genres": [
       "Action",
-      "Science Fiction"
+      "Sci-Fi"
     ],
     "tmdbId": 557,
     "runtimeMinutes": 121,
@@ -26887,15 +26887,14 @@ export const movies = [
   "metadata": {
     "genres": [
       "Animation",
-      "Family",
-      "Children"
+      "Family"
     ],
     "tmdbId": null,
     "runtimeMinutes": 60,
     "imdbId": null,
     "status": "Released",
     "originalLanguage": "en",
-    "category": "Movie",
+    "category": "Short Film",
     "seasons": []
   },
   "media": {
@@ -26983,15 +26982,14 @@ export const movies = [
   "metadata": {
     "genres": [
       "Animation",
-      "Family",
-      "Children"
+      "Family"
     ],
     "tmdbId": null,
     "runtimeMinutes": 60,
     "imdbId": null,
     "status": "Released",
     "originalLanguage": "en",
-    "category": "Movie",
+    "category": "Short Film",
     "seasons": []
   },
   "media": {
@@ -27737,7 +27735,6 @@ export const movies = [
   "metadata": {
     "genres": [
       "Animation",
-      "Comedy",
       "Family"
     ],
     "tmdbId": 3126,
@@ -28665,7 +28662,6 @@ export const movies = [
   "metadata": {
     "genres": [
       "Animation",
-      "Comedy",
       "Family",
       "Adventure"
     ],
@@ -29076,7 +29072,7 @@ export const movies = [
     "genres": [
       "Fantasy",
       "Animation",
-      "Science Fiction",
+      "Sci-Fi",
       "Family"
     ],
     "tmdbId": 20455,
@@ -29541,7 +29537,7 @@ export const movies = [
       "Action",
       "Comedy",
       "Adventure",
-      "Science Fiction"
+      "Sci-Fi"
     ],
     "tmdbId": 10054,
     "runtimeMinutes": 88,
