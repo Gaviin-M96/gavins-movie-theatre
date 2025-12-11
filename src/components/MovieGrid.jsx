@@ -20,22 +20,16 @@ const hasTag = (movie, tag) =>
     (Array.isArray(movie?.library?.tags) && movie.library.tags.includes(tag))
   );
 
-
-// ⭐ FIXED: cleanly resolve multiple formats in all cases
+// Resolve multiple format types
 function getFormats(movie) {
   const lib = movie.library || {};
 
-  // Case 1: new format -> array
   if (Array.isArray(lib.format)) {
     return lib.format.map((f) => f.trim());
   }
-
-  // Case 2: comma-separated string (your exact issue)
   if (typeof lib.format === "string" && lib.format.includes(",")) {
     return lib.format.split(",").map((f) => f.trim());
   }
-
-  // Case 3: old single format string
   if (typeof lib.format === "string") {
     return [lib.format.trim()];
   }
@@ -43,10 +37,8 @@ function getFormats(movie) {
   return [];
 }
 
-// Map formats → CSS class
 function getFormatClass(format) {
   const f = format.toLowerCase();
-
   switch (f) {
     case "dvd":
       return "card-format-pill card-format-pill--dvd";
@@ -60,14 +52,7 @@ function getFormatClass(format) {
   }
 }
 
-function MovieCard({
-  movie,
-  isFavorite,
-  inWatchlist,
-  onToggleFavorite,
-  onToggleWatchlist,
-  onOpenModal,
-}) {
+function MovieCard({ movie, onOpenModal }) {
   const year = movie.year || null;
 
   const manualScore = movie.ratings?.score ?? null;
@@ -83,21 +68,16 @@ function MovieCard({
   const genresArr = Array.isArray(movie.metadata?.genres)
     ? movie.metadata.genres
     : [];
-  const genresText =
-    genresArr && genresArr.length > 0 ? genresArr.slice(0, 2).join(", ") : "";
+  const genresText = genresArr.length > 0 ? genresArr.slice(0, 2).join(", ") : "";
 
-  // FIXED formats
   const formats = getFormats(movie);
 
-  const handleCardClick = () => onOpenModal(movie.id);
-
   return (
-    <article className="card" onClick={handleCardClick}>
+    <article className="card" onClick={() => onOpenModal(movie.id)}>
       <div className="cover">
         <img src={posterUrl} alt={movie.title} loading="lazy" />
 
         <div className="cover-badges">
-          {/* MULTIPLE FORMAT PILLS */}
           {formats.length > 0 && (
             <div style={{ display: "flex", gap: "0.3rem" }}>
               {formats.map((fmt) => (
@@ -117,48 +97,20 @@ function MovieCard({
       <div className="card-body">
         <h2>{movie.title}</h2>
         <p className="meta">
-          {year ? year : "Year unknown"}
+          {year || "Year unknown"}
           {genresText ? ` · ${genresText}` : ""}
         </p>
 
+        {/* ONLY SUPERBIT / 4K BADGES */}
         <div
           className="card-actions-row"
           style={{
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "flex-end",
             alignItems: "center",
             marginTop: "0.5rem",
           }}
-          onClick={(e) => e.stopPropagation()}
         >
-          <div className="card-actions">
-            <button
-              type="button"
-              className={
-                "icon-button" + (isFavorite ? " icon-button--active" : "")
-              }
-              onClick={onToggleFavorite}
-              title={isFavorite ? "Remove from favourites" : "Add to favourites"}
-            >
-              <span className="icon-symbol">
-                {isFavorite ? <AiFillStar /> : <AiOutlineStar />}
-              </span>
-            </button>
-
-            <button
-              type="button"
-              className={
-                "icon-button" + (inWatchlist ? " icon-button--active" : "")
-              }
-              onClick={onToggleWatchlist}
-              title={inWatchlist ? "Remove from watchlist" : "Add to watchlist"}
-            >
-              <span className="icon-symbol">
-                {inWatchlist ? <AiFillEye /> : <AiOutlineEye />}
-              </span>
-            </button>
-          </div>
-
           <div className="card-extra-badges">
             {hasTag(movie, "superbit") && (
               <span className="card-superbit-badge">Superbit</span>
@@ -175,10 +127,6 @@ function MovieCard({
 
 function MovieGrid({
   movies,
-  favoriteSet,
-  watchlistSet,
-  onToggleFavorite,
-  onToggleWatchlist,
   onOpenModal,
 }) {
   return (
@@ -187,10 +135,6 @@ function MovieGrid({
         <MovieCard
           key={movie.id}
           movie={movie}
-          isFavorite={favoriteSet.has(movie.id)}
-          inWatchlist={watchlistSet.has(movie.id)}
-          onToggleFavorite={() => onToggleFavorite(movie.id)}
-          onToggleWatchlist={() => onToggleWatchlist(movie.id)}
           onOpenModal={onOpenModal}
         />
       ))}

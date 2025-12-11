@@ -674,7 +674,7 @@ body.modal-open {
 }
 
 .card-body {
-  padding: 0.65rem 0.75rem 0.75rem;
+  padding: 0.45rem 0.75rem 0.1rem;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
@@ -1806,3 +1806,34 @@ body.modal-open {
   margin: 0 auto;   /* centers the box */
 }
 
+/* ========================================== */
+/* 📱 MOBILE: shrink format + rating pills    */
+/* ========================================== */
+@media (max-width: 768px) {
+  /* tighten the badge bar at the bottom of the poster */
+  .cover-badges {
+    gap: 0.2rem;
+    padding: 0.25rem 0.35rem;
+  }
+
+  /* shrink DVD / VHS / Blu-ray pills */
+  .cover-badges .card-format-pill {
+    font-size: 0.55rem;
+    padding: 0.08rem 0.35rem;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+  }
+
+  /* shrink the rating pill as well */
+  .cover-badges .card-rating-badge {
+    font-size: 0.55rem;
+    padding: 0.08rem 0.35rem;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cover-badges {
+    padding-bottom: 0.4rem; /* default is ~0.5rem */
+  }
+}

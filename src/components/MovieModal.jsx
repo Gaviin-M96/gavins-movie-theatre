@@ -39,6 +39,8 @@ function MovieModal({
   onSetGavinRating,   // kept for compatibility, not used
   onSetGavinText,     // kept for compatibility, not used
   movieReviewKey,
+  onSelectGenre,
+  onSelectYear,
   onQuickSearch,
   user,
 }) {
@@ -215,14 +217,12 @@ function MovieModal({
     : null;
 
   const handleGenreClick = (g) => {
-    if (!g) return;
-    onQuickSearch(g);
-  };
+    if (onSelectGenre) onSelectGenre(g);
+};
 
-  const handleYearClick = () => {
-    if (!year) return;
-    onQuickSearch(String(year));
-  };
+const handleYearClick = () => {
+    if (onSelectYear) onSelectYear(year);
+};
 
   const handleCommunitySubmit = async (e) => {
     e.preventDefault();
@@ -627,7 +627,7 @@ function MovieModal({
           {/* Community */}
           <section
             className="review-section review-section--community"
-            style={{ flex: "1 1 320px", maxWidth: "480px" }}
+            style={{ flex: "265px", maxWidth: "480px" }}
           >
             <div className="review-section-header">
               <h3

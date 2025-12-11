@@ -410,10 +410,20 @@ function App() {
               ✕
             </button>
             <MovieModal
-              movie={modalMovie}
-              user={user}
-              movieReviewKey={movieReviewKey}
-            />
+  movie={modalMovie}
+  user={user}
+  movieReviewKey={movieReviewKey}
+
+  onSelectGenre={(g) => {
+    setGenreFilter(g);
+    setModalMovieId(null);   // close modal automatically
+  }}
+
+  onSelectYear={(y) => {
+    setSearch(String(y));    // or create a dedicated year filter if you want later
+    setModalMovieId(null);
+  }}
+/>
           </div>
         </div>
       )}
