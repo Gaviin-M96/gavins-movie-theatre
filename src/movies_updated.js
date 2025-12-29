@@ -29870,8 +29870,516 @@ export const movies = [
     ]
   },
   "youtubeTrailerKey": null
-}
-,
+},
+{
+  "id": "transformers-age-of-extinction-2014",
+  "title": "Transformers: Age of Extinction",
+  "sortTitle": "Transformers: Age of Extinction",
+  "year": 2014,
+  "library": {
+    "format": ["Blu-ray", "DVD"],
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Science Fiction",
+      "Action",
+      "Adventure"
+    ],
+    "tmdbId": 91314,
+    "runtimeMinutes": 165,
+    "imdbId": "tt2109248",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/transformers-age-of-extinction-2014-poster.jpg",
+    "backdrop": "/assets/posters/transformers-age-of-extinction-2014-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Transformers%3A%20Age%20of%20Extinction"
+  },
+  "text": {
+    "overview": "As humanity picks up the pieces after the battle of Chicago, a shadowy group reveals itself in an attempt to control the direction of history…while an ancient, powerful new menace sets Earth in its crosshairs. With help from Cade Yeager, Optimus Prime and the Autobots rise to meet their most fearsome challenge yet.",
+    "tagline": "This is not war, it's extinction."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 5.956,
+      "voteCount": 8550
+    }
+  },
+  "credits": {
+    "director": "Michael Bay",
+    "castPreview": [
+      "Mark Wahlberg",
+      "Peter Cullen",
+      "Stanley Tucci",
+      "Kelsey Grammer",
+      "Nicola Peltz Beckham"
+    ]
+  },
+  "youtubeTrailerKey": "S30VkLn5a2o"
+},
+{
+  "id": "mission-impossible-1996",
+  "title": "Mission: Impossible",
+  "sortTitle": "Mission: Impossible",
+  "year": 1996,
+  "library": {
+    "format": "Blu-ray",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Adventure",
+      "Action",
+      "Thriller"
+    ],
+    "tmdbId": 954,
+    "runtimeMinutes": 111,
+    "imdbId": "tt0117060",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/mission-impossible-1996-poster.jpg",
+    "backdrop": "/assets/posters/mission-impossible-1996-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Mission%3A%20Impossible"
+  },
+  "text": {
+    "overview": "When Ethan Hunt, the leader of a crack espionage team whose perilous operation has gone awry with no explanation, discovers that a mole has penetrated the CIA, he's surprised to learn that he's the prime suspect. To clear his name, Hunt now must ferret out the real double agent and, in the process, even the score.",
+    "tagline": "Expect the impossible."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.016,
+      "voteCount": 9687
+    }
+  },
+  "credits": {
+    "director": "Brian De Palma",
+    "castPreview": [
+      "Tom Cruise",
+      "Jon Voight",
+      "Emmanuelle Béart",
+      "Henry Czerny",
+      "Jean Reno"
+    ]
+  },
+  "youtubeTrailerKey": "L8Pbjh4EZRk"
+},
+{
+  "id": "jurassic-world-fallen-kingdom-2018",
+  "title": "Jurassic World: Fallen Kingdom",
+  "sortTitle": "Jurassic World: Fallen Kingdom",
+  "year": 2018,
+  "library": {
+    "format": ["Blu-ray", "DVD"],
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Adventure",
+      "Science Fiction",
+      "Thriller"
+    ],
+    "tmdbId": 351286,
+    "runtimeMinutes": 129,
+    "imdbId": "tt4881806",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/jurassic-world-fallen-kingdom-2018-poster.jpg",
+    "backdrop": "/assets/posters/jurassic-world-fallen-kingdom-2018-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Jurassic%20World%3A%20Fallen%20Kingdom"
+  },
+  "text": {
+    "overview": "Three years after Jurassic World was destroyed, Isla Nublar now sits abandoned. When the island's dormant volcano begins roaring to life, Owen and Claire mount a campaign to rescue the remaining dinosaurs from this extinction-level event.",
+    "tagline": "The park is gone."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.535,
+      "voteCount": 12447
+    }
+  },
+  "credits": {
+    "director": "J.A. Bayona",
+    "castPreview": [
+      "Chris Pratt",
+      "Bryce Dallas Howard",
+      "Rafe Spall",
+      "Justice Smith",
+      "Daniella Pineda"
+    ]
+  },
+  "youtubeTrailerKey": "1FJD7jZqZEk"
+},
+{
+  "id": "bridesmaids-2011",
+  "title": "Bridesmaids",
+  "sortTitle": "Bridesmaids",
+  "year": 2011,
+  "library": {
+    "format": ["Blu-ray", "DVD"],
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "tmdbId": 55721,
+    "runtimeMinutes": 125,
+    "imdbId": "tt1478338",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/bridesmaids-2011-poster.jpg",
+    "backdrop": "/assets/posters/bridesmaids-2011-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Bridesmaids"
+  },
+  "text": {
+    "overview": "Annie's life is a mess. But when she finds out her lifetime best friend is engaged, she simply must serve as Lillian's maid of honor. Though lovelorn and broke, Annie bluffs her way through the expensive and bizarre rituals. With one chance to get it perfect, she’ll show Lillian and her bridesmaids just how far you’ll go for someone you love.",
+    "tagline": "Save the date."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.513,
+      "voteCount": 4555
+    }
+  },
+  "credits": {
+    "director": "Paul Feig",
+    "castPreview": [
+      "Kristen Wiig",
+      "Maya Rudolph",
+      "Rose Byrne",
+      "Chris O'Dowd",
+      "Wendi McLendon-Covey"
+    ]
+  },
+  "youtubeTrailerKey": "2p-S-cc6jzA"
+},
+{
+  "id": "rambo-last-blood-2019",
+  "title": "Rambo: Last Blood",
+  "sortTitle": "Rambo: Last Blood",
+  "year": 2019,
+  "library": {
+    "format": ["Blu-ray", "DVD"],
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Thriller",
+      "Drama"
+    ],
+    "tmdbId": 522938,
+    "runtimeMinutes": 89,
+    "imdbId": "tt1206885",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/rambo-last-blood-2019-poster.jpg",
+    "backdrop": "/assets/posters/rambo-last-blood-2019-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Rambo%3A%20Last%20Blood"
+  },
+  "text": {
+    "overview": "After fighting his demons for decades, John Rambo now lives in peace on his family ranch in Arizona, but his rest is interrupted when Gabriela, the granddaughter of his housekeeper María, disappears after crossing the border into Mexico to meet her biological father. Rambo, who has become a true father figure for Gabriela over the years, undertakes a desperate and dangerous journey to find her.",
+    "tagline": "Everyone has one more fight in them"
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.533,
+      "voteCount": 4094
+    }
+  },
+  "credits": {
+    "director": "Adrian Grünberg",
+    "castPreview": [
+      "Sylvester Stallone",
+      "Paz Vega",
+      "Sergio Peris-Mencheta",
+      "Adriana Barraza",
+      "Yvette Monreal"
+    ]
+  },
+  "youtubeTrailerKey": "YPuhNtG47M0"
+},
+{
+  "id": "x-men-the-last-stand-2006",
+  "title": "X-Men: The Last Stand",
+  "sortTitle": "X-Men: The Last Stand",
+  "year": 2006,
+  "library": {
+    "format": ["Blu-ray", "DVD"],
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Adventure",
+      "Action",
+      "Science Fiction",
+      "Thriller"
+    ],
+    "tmdbId": 36668,
+    "runtimeMinutes": 104,
+    "imdbId": "tt0376994",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/x-men-the-last-stand-2006-poster.jpg",
+    "backdrop": "/assets/posters/x-men-the-last-stand-2006-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=X-Men%3A%20The%20Last%20Stand"
+  },
+  "text": {
+    "overview": "When a cure is found to treat mutations, lines are drawn amongst the X-Men—led by Professor Charles Xavier—and the Brotherhood, a band of powerful mutants organised under Xavier's former ally, Magneto.",  
+    "tagline": "Take a stand."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.414,
+      "voteCount": 10130
+    }
+  },
+  "credits": {
+    "director": "Brett Ratner",
+    "castPreview": [
+      "Hugh Jackman",
+      "Patrick Stewart",
+      "Ian McKellen",
+      "Famke Janssen",
+      "Halle Berry"
+    ]
+  },
+  "youtubeTrailerKey": "X8ozc_dQprk"
+},
+{
+  "id": "men-in-black-3-2012",
+  "title": "Men in Black 3",
+  "sortTitle": "Men in Black 3",
+  "year": 2012,
+  "library": {
+    "format": ["Blu-ray", "DVD"],
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Comedy",
+      "Science Fiction"
+    ],
+    "tmdbId": 41154,
+    "runtimeMinutes": 106,
+    "imdbId": "tt1409024",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/men-in-black-3-2012-poster.jpg",
+    "backdrop": "/assets/posters/men-in-black-3-2012-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Men%20in%20Black%203"
+  },
+  "text": {
+    "overview": "Agents J and K are back...in time. J has seen some inexplicable things in his 15 years with the Men in Black, but nothing, not even aliens, perplexes him as much as his wry, reticent partner. But when K's life and the fate of the planet are put at stake, Agent J will have to travel back in time to put things right. J discovers that there are secrets to the universe that K never told him - secrets that will reveal themselves as he teams up with the young Agent K to save his partner, the agency, and the future of humankind.",
+    "tagline": "Back in time."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.537,
+      "voteCount": 10734
+    }
+  },
+  "credits": {
+    "director": "Barry Sonnenfeld",
+    "castPreview": [
+      "Will Smith",
+      "Tommy Lee Jones",
+      "Josh Brolin",
+      "Jemaine Clement",
+      "Emma Thompson"
+    ]
+  },
+  "youtubeTrailerKey": "Y2r9AIfYcV8"
+},
+{
+  "id": "a-bad-moms-christmas-2017",
+  "title": "A Bad Moms Christmas",
+  "sortTitle": "A Bad Moms Christmas",
+  "year": 2017,
+  "library": {
+    "format": "Blu-ray",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Comedy"
+    ],
+    "tmdbId": 431530,
+    "runtimeMinutes": 104,
+    "imdbId": "tt6359956",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/a-bad-moms-christmas-2017-poster.jpg",
+    "backdrop": "/assets/posters/a-bad-moms-christmas-2017-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=A%20Bad%20Moms%20Christmas"
+  },
+  "text": {
+    "overview": "Amy, Kiki and Carla – three under-appreciated and over-burdened women – rebel against the challenges and expectations of the Super Bowl for mothers: Christmas. And if creating a more perfect holiday for their families wasn’t hard enough, they have to do all of that while hosting and entertaining their own mothers.",
+    "tagline": "Celebrate the holidays like a mother."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.318,
+      "voteCount": 2165
+    }
+  },
+  "credits": {
+    "director": "Scott Moore, Jon Lucas",
+    "castPreview": [
+      "Mila Kunis",
+      "Kristen Bell",
+      "Kathryn Hahn",
+      "Christine Baranski",
+      "Susan Sarandon"
+    ]
+  },
+  "youtubeTrailerKey": "NGewN1G988o"
+},
+{
+  "id": "cars-3-2017",
+  "title": "Cars 3",
+  "sortTitle": "Cars 3",
+  "year": 2017,
+  "library": {
+    "format": "Blu-ray",
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Animation",
+      "Adventure",
+      "Comedy",
+      "Family"
+    ],
+    "tmdbId": 260514,
+    "runtimeMinutes": 102,
+    "imdbId": "tt3606752",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/cars-3-2017-poster.jpg",
+    "backdrop": "/assets/posters/cars-3-2017-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Cars%203"
+  },
+  "text": {
+    "overview": "Blindsided by a new generation of blazing-fast racers, the legendary Lightning McQueen is suddenly pushed out of the sport he loves. To get back in the game, he will need the help of an eager young race technician with her own plan to win, inspiration from the late Fabulous Hudson Hornet, and a few unexpected turns. Proving that #95 isn't through yet will test the heart of a champion on Piston Cup Racing’s biggest stage!", 
+    "tagline": "From this moment, everything will change."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 6.854,
+      "voteCount": 6223
+    }
+  },
+  "credits": {
+    "director": "Brian Fee",
+    "castPreview": [
+      "Owen Wilson",
+      "Cristela Alonzo",
+      "Chris Cooper",
+      "Nathan Fillion",
+      "Larry the Cable Guy"
+    ]
+  },
+  "youtubeTrailerKey": "ZuaseSovWDY"
+},
+{
+  "id": "mission-impossible-fallout-2018",
+  "title": "Mission: Impossible - Fallout",
+  "sortTitle": "Mission: Impossible - Fallout",
+  "year": 2018,
+  "library": {
+    "format": ["Blu-ray", "DVD"],
+    "owned": true,
+    "tags": []
+  },
+  "metadata": {
+    "genres": [
+      "Action",
+      "Adventure"
+    ],
+    "tmdbId": 353081,
+    "runtimeMinutes": 147,
+    "imdbId": "tt4912910",
+    "status": "Released",
+    "originalLanguage": "en",
+    "category": "Movie",
+    "seasons": []
+  },
+  "media": {
+    "poster": "/assets/posters/mission-impossible-fallout-2018-poster.jpg",
+    "backdrop": "/assets/posters/mission-impossible-fallout-2018-backdrop.jpg",
+    "placeholder": "https://via.placeholder.com/300x450?text=Mission%3A%20Impossible%20-%20Fallout"
+  },
+  "text": {
+    "overview": "When an IMF mission ends badly, the world is faced with dire consequences. As Ethan Hunt takes it upon himself to fulfill his original briefing, the CIA begin to question his loyalty and his motives. The IMF team find themselves in a race against time, hunted by assassins while trying to prevent a global catastrophe.",
+    "tagline": "Some missions are not a choice."
+  },
+  "ratings": {
+    "tmdb": {
+      "voteAverage": 7.444,
+      "voteCount": 8860
+    }
+  },
+  "credits": {
+    "director": "Christopher McQuarrie",
+    "castPreview": [
+      "Tom Cruise",
+      "Henry Cavill",
+      "Ving Rhames",
+      "Simon Pegg",
+      "Rebecca Ferguson"
+    ]
+  },
+  "youtubeTrailerKey": "MEOOas3JZt0"
+},
   {
     "id": "peter-pan-2007",
     "title": "Peter Pan",
